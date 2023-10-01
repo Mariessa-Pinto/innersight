@@ -1,13 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Appearance } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+
 
 import Home from './screens/Home';
 import About from './screens/About';
 
 export default function App() {
+
+
   const Stack = createNativeStackNavigator();
 
   return (
@@ -22,7 +25,7 @@ export default function App() {
               headerStyle: {
                 backgroundColor: '#f4511e',
               },
-              headerTintColor: '#fff',
+              headerTintColor: '#888',
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
@@ -38,8 +41,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  lightContainer: {
+    backgroundColor: '#d0d0c0',
+  },
+  darkContainer: {
+    backgroundColor: '#242c40',
+  },
+  lightThemeText: {
+    color: '#242c40',
+  },
+  darkThemeText: {
+    color: '#d0d0c0',
   },
 });

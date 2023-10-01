@@ -1,24 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { useState } from 'react';
+import styles from '../styles/homeStyles';
+import Slider from '@react-native-community/slider';
 
-export default function Home({navigation}) {
+
+export default function Home({ navigation }) {
+
+    //Dark/Light Mode
+    const [colorScheme, setColorTheme] = useState("dark")
+    const [userFontSize, setUserFontSize] = useState(1)
+    const [sliderTracker, setSliderTracker] = useState(0)
+
+    const themeTextStyle = colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
+    const themeContainerStyle =
+        colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
+
+
     return (
-        <View style={styles.container}>
-            <Text>Welcome!</Text>
+        <View style={[styles.container, themeContainerStyle]}>
+            <Text style={[styles.text, themeTextStyle]}>Welcome!</Text>
+            
             <StatusBar style="auto" />
-            <Button 
+            <Button
                 title="Go to about page"
                 onPress={() => navigation.push('About')}
             />
+            <Button title="Dark/Light Mode" onPress={() => colorScheme == "light" ? setColorTheme("dark") : setColorTheme("light")} />
+            <Text style={[ styles.text, themeTextStyle]}>Change the font size (I don't work)</Text>
+            <Slider style={styles.slider} minimumTrackTintColor='#ffffff' maximumTrackTintColor='#ADD8E6' lowerLimit={0} upperLimit={5}
+                    defaultValue={sliderTracker}
+                    key={sliderTracker} />
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
