@@ -23,3 +23,9 @@ npx expo install react-native-screens react-native-safe-area-context
 
 [Stack Navigator](https://reactnavigation.org/docs/native-stack-navigator/)
 npm install @react-navigation/native-stack
+
+## Resources
+
+[External style sheet](https://stackoverflow.com/questions/33595642/react-native-external-stylesheet)
+[Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
+[Slider component](https://github.com/callstack/react-native-slider)
