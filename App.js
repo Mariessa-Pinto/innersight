@@ -13,6 +13,16 @@ import FontContext from './theme/fontContext';
 //Screens
 import Home from './screens/Home';
 import About from './screens/About';
+
+import Settings from './screens/Settings';
+import NewJournal from './screens/NewJournal';
+import JournalsEntries from './screens/JournalsEntries';
+import CreateEntry from './screens/CreateEntry';
+import CustomizeEntry from './screens/CustomizeEntry';
+import Stats from './screens/Stats';
+import Profile from './screens/Profile';
+import CrisisSupport from './screens/CrisisSupport';
+import Recommendations from './screens/Recommendations';
 import Accessibility from './screens/Accessibility';
 import FontSize from './screens/FontSize'
 
@@ -64,8 +74,18 @@ export default function App() {
               }}
             />
             <Stack.Screen name="About" component={About} />
+            <Stack.Screen name="Settings" component={Settings} />
+            <Stack.Screen name="NewJournal" component={NewJournal} />
+            <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+            <Stack.Screen name="CreateEntry" component={CreateEntry} />
+            <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
+            <Stack.Screen name="Stats" component={Stats} />
+            <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
+            <Stack.Screen name="Recommendations" component={Recommendations} />
             <Stack.Screen name="Accessibility" component={Accessibility} />
             <Stack.Screen name="Font Size" component={FontSize} />
+
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
