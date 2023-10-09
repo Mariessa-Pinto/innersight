@@ -14,7 +14,7 @@ import FontContext from './theme/fontContext';
 import Home from './screens/Home';
 import About from './screens/About';
 
-import Settings from './screens/Settings';
+
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
 import CreateEntry from './screens/CreateEntry';
@@ -74,7 +74,6 @@ export default function App() {
               }}
             />
             <Stack.Screen name="About" component={About} />
-            <Stack.Screen name="Settings" component={Settings} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
             <Stack.Screen name="CreateEntry" component={CreateEntry} />
