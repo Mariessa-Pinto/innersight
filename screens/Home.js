@@ -5,9 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button } from 'react-native';
 import themeContext from '../theme/themeContext';
 
-
-
-
 export default function Home({ navigation }) {
 
     //Dark/Light Mode
@@ -23,8 +20,12 @@ export default function Home({ navigation }) {
                 onPress={() => navigation.push('About')}
             />
             <Button
-                title="Go to settings page"
-                onPress={() => navigation.push('Settings')}
+                title="Go to accessibility page"
+                onPress={() => navigation.push('Accessibility')}
+            />
+            <Button
+                title="Go to the font size page"
+                onPress={() => navigation.push('Font Size')}
             />
         </View>
     );

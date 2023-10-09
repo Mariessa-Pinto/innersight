@@ -1,34 +1,39 @@
-import styles from './styles/global'
 
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, Appearance } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
 import React, { useState, useEffect } from 'react'
+
+//Reusable Themes
 import theme from './theme/theme';
 import themeContext from './theme/themeContext'
+import FontContext from './theme/fontContext';
 
-
+//Screens
 import Home from './screens/Home';
 import About from './screens/About';
-import Settings from './screens/Settings';
+import Accessibility from './screens/Accessibility';
+import FontSize from './screens/FontSize'
 
 export default function App() {
 
   //Global dark/light mode
   const [darkMode, setDarkMode] = useState(false)
 
+  //Global font size
+  const [fontSize, setFontSize] = useState(16)
+
   useEffect(() => {
     const listener = EventRegister.addEventListener('ChangeTheme', (data) => {
-      setDarkMode(data)
-      console.log(data)
+      setDarkMode(data);
+      setFontSize(data);
+      console.log(data);
     })
     return () => {
       EventRegister.removeAllListeners(listener)
     }
-  }, [darkMode])
+  }, [darkMode, fontSize])
 
 
   const Stack = createNativeStackNavigator();
@@ -37,6 +42,11 @@ export default function App() {
 
     <SafeAreaView style={{ flex: 1 }}>
       <themeContext.Provider value={darkMode === true ? theme.dark : theme.light}>
+        <FontContext.Provider value={fontSize === 0 ? theme.extraSmall : 
+            (fontSize === 1 ? theme.small : 
+            (fontSize === 2 ? theme.default : 
+            (fontSize === 3 ? theme.large : 
+            (fontSize === 4 ? theme.extraLarge : ""))))}>
         <NavigationContainer theme={darkMode === true? DarkTheme : DefaultTheme}>
           <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen
@@ -54,9 +64,11 @@ export default function App() {
               }}
             />
             <Stack.Screen name="About" component={About} />
-            <Stack.Screen name="Settings" component={Settings} />
+            <Stack.Screen name="Accessibility" component={Accessibility} />
+            <Stack.Screen name="Font Size" component={FontSize} />
           </Stack.Navigator>
         </NavigationContainer>
+        </FontContext.Provider>
       </themeContext.Provider>
     </SafeAreaView>
 
