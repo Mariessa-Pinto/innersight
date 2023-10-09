@@ -5,6 +5,7 @@ import themeContext from '../theme/themeContext';
 
 
 
+
 export default function CustomizeEntry() {
 
     //Dark/Light Mode
@@ -14,7 +15,10 @@ export default function CustomizeEntry() {
 
     return (
         <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+     
 
+        
+        
         </View>
     );
 }
