@@ -28,12 +28,13 @@ npm install @react-navigation/native-stack
 
 [External style sheet](https://stackoverflow.com/questions/33595642/react-native-external-stylesheet)
 [Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
-[Dark Mode for Expo](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
+[Dark Mode for Expo/Variable Font Size](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
 
 ## Dependencies
 [react-native-event-listeners for for dark mode](https://www.npmjs.com/package/react-native-event-listeners) 
 [React Native Switch component](https://reactnative.dev/docs/switch)
 [React Native Slider](https://github.com/Sharcoux/slider)
+*need to delete react material ui
 
 
 ## Instructions
@@ -55,4 +56,20 @@ style={[styles.container, { backgroundColor: theme.backgroundColor }]}
 4. Add styles to Text containers
 ```
 style={[styles.text, { color: theme.color }]}
+```
+### Variable Font Size
+1. Import 
+```
+    import { useContext } from 'react';
+    import themeContext from '../theme/fontContext';
+```
+2. Add variables
+```
+    //Font Size
+    const fontTheme = useContext(fontContext)
+```
+3. Add styles to Text container
+- No need to add style to View containers because it's only adjusting text size
+```
+style={[styles.text, { fontSize: fontTheme.fontSize }]}
 ```
