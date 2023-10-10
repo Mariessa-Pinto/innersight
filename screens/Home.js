@@ -4,8 +4,8 @@ import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button } from 'react-native';
 import themeContext from '../theme/themeContext';
-import RecommendationButtons from '../atoms/ RecommendationButtons/ RecommendationButtons';
-import CrisisCentres from '../atoms/CrisisButtons/CrisisCentres';
+import CrisisCentres from '../atom/CrisisButtons/CrisisCentres';
+import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
 
 export default function Home({ navigation }) {
 
