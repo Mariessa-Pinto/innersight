@@ -11,7 +11,7 @@ import themeContext from './theme/themeContext'
 import FontContext from './theme/fontContext';
 
 //Screens
-import Home from './screens/Home';
+import Start from './screens/Start';
 import About from './screens/About';
 
 
@@ -24,7 +24,11 @@ import Profile from './screens/Profile';
 import CrisisSupport from './screens/CrisisSupport';
 import Recommendations from './screens/Recommendations';
 import Accessibility from './screens/Accessibility';
-import FontSize from './screens/FontSize'
+import FontSize from './screens/FontSize';
+import Demo from './screens/Demo';
+import Login from './screens/Login';
+import Home from './screens/Home';
+
 
 export default function App() {
 
@@ -58,10 +62,10 @@ export default function App() {
             (fontSize === 3 ? theme.large : 
             (fontSize === 4 ? theme.extraLarge : ""))))}>
         <NavigationContainer theme={darkMode === true? DarkTheme : DefaultTheme}>
-          <Stack.Navigator initialRouteName='Home'>
+          <Stack.Navigator initialRouteName='Start'>
             <Stack.Screen
-              name="Home"
-              component={Home}
+              name="Start"
+              component={Start}
               options={{
                 title: 'Welcome!',
                 headerStyle: {
@@ -84,6 +88,10 @@ export default function App() {
             <Stack.Screen name="Recommendations" component={Recommendations} />
             <Stack.Screen name="Accessibility" component={Accessibility} />
             <Stack.Screen name="Font Size" component={FontSize} />
+            <Stack.Screen name="Demo" component={Demo} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Home" component={Home} />
+            
 
           </Stack.Navigator>
         </NavigationContainer>
