@@ -78,13 +78,13 @@ export default function App() {
               }}
             />
             <Stack.Screen name="About" component={About} />
-            <Stack.Screen name="NewJournal" component={NewJournal} />
-            <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
-            <Stack.Screen name="CreateEntry" component={CreateEntry} />
-            <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
+            <Stack.Screen name="New Journal" component={NewJournal} />
+            <Stack.Screen name="Journals Entries" component={JournalsEntries} />
+            <Stack.Screen name="Create Entry" component={CreateEntry} />
+            <Stack.Screen name="Customize Entry" component={CustomizeEntry} />
             <Stack.Screen name="Stats" component={Stats} />
             <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
+            <Stack.Screen name="Crisis Support" component={CrisisSupport} />
             <Stack.Screen name="Recommendations" component={Recommendations} />
             <Stack.Screen name="Accessibility" component={Accessibility} />
             <Stack.Screen name="Font Size" component={FontSize} />
