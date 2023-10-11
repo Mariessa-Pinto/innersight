@@ -38,6 +38,12 @@ npm install @react-navigation/native-stack
 
 
 ## Instructions
+
+### Npm install
+```
+npm install --force 
+npm install expo --force
+```
 ### Dark Mode
 1. Import 
 ```
