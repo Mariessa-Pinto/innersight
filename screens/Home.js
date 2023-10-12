@@ -5,7 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button } from 'react-native';
 import themeContext from '../theme/themeContext';
 
-
 export default function Home({ navigation }) {
 
     //Dark/Light Mode
