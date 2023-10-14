@@ -28,6 +28,7 @@ import FontSize from './screens/FontSize';
 import Demo from './screens/Demo';
 import Login from './screens/Login';
 import Home from './screens/Home';
+import PersonalInformation from './screens/PersonalInformation';
 
 
 export default function App() {
@@ -91,6 +92,7 @@ export default function App() {
             <Stack.Screen name="Demo" component={Demo} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Personal Information" component={PersonalInformation} />
             
 
           </Stack.Navigator>
