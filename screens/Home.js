@@ -32,6 +32,10 @@ export default function Home({ navigation }) {
                 title="Go to the Crisis Support Page"
                 onPress={() => navigation.push('Crisis Support')}
             />
+              <Button
+                title="Go to Profile"
+                onPress={() => navigation.push('Profile')}
+            />
           
 
          
