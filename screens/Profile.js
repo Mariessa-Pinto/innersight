@@ -104,11 +104,11 @@ const ProfileStyles = StyleSheet.create({
 
     profimage: {
         backgroundColor: '#d9d9d9',
-        borderRadius: 35,
-        height: 70,
+        borderRadius: 50,
+        height: 100,
         left: 0,
         top: 0,
-        width: 70
+        width: 100
     },
 
     topcontent:{
