@@ -25,19 +25,28 @@ npx expo install react-native-screens react-native-safe-area-context
 npm install @react-navigation/native-stack
 
 ## Resources
-
-[External style sheet](https://stackoverflow.com/questions/33595642/react-native-external-stylesheet)
-[Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
-[Dark Mode for Expo/Variable Font Size](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
+- [External style sheet](https://stackoverflow.com/questions/33595642/react-native-external-stylesheet)
+- [Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
+- [Dark Mode for Expo/Variable Font Size](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
 
 ## Dependencies
-[react-native-event-listeners for for dark mode](https://www.npmjs.com/package/react-native-event-listeners) 
-[React Native Switch component](https://reactnative.dev/docs/switch)
-[React Native Slider](https://github.com/Sharcoux/slider)
-*need to delete react material ui
-
+- [react-native-event-listeners for for dark mode](https://www.npmjs.com/package/react-native-event-listeners) 
+- [React Native Switch component](https://reactnative.dev/docs/switch)
+- [React Native Slider](https://github.com/Sharcoux/slider)
+- [React SVG](https://docs.expo.dev/versions/v49.0.0/sdk/svg/)
+- [React Native Image](https://www.npmjs.com/package/react-image)
 
 ## Instructions
+
+### Style Sheets
+- Import global style sheet as 
+```
+import globalStyles from '../../styles/global.js'
+```
+- Import local style as
+```
+import { StyleSheet } from 'react-native';
+```
 
 ### Npm install
 ```
