@@ -1,26 +1,110 @@
-import styles from '../styles/global'
-import { Button, View, Text, Image } from 'react-native';
-import * as React from 'react';
-import Svg, { Path } from 'react-native-svg';
 
+import { StyleSheet, Button, View, Text, Image, TouchableOpacity } from 'react-native';
+import * as React from 'react';
+import HomeIcon from '../atom/icons/HomeIcon'
+import StatsIcon from '../atom/icons/StatsIcon';
+import NavBarContainer from '../atom/icons/NavBarContainer';
+import ProfileIcon from '../atom/icons/ProfileIcon';
+import AddButton from '../atom/icons/AddButton';
+import JournalIcon from '../atom/icons/JournalIcon';
 
 import { useContext } from 'react';
 import themeContext from '../theme/themeContext';
 
-export default function NavBar() {
+
+
+export default function NavBar({navigation}) {
 
     //Dark/Light Mode
     const theme = useContext(themeContext)
 
     return (
-        <View style={styles.navBarContainer}>
-            <Svg width="100%" height="100%" viewBox="0 0 360 40">
-                <Path
-                    d="M359.95,26.02c0-14.37-11.73-26.02-26.2-26.02h-111.56c-.07,0-.2,0-.2,0-4.98.66-9.07,4.29-10.32,9.16-3.61,14.05-16.44,24.43-31.71,24.43v.04c-15.26-.02-28.07-10.39-31.68-24.43-1.25-4.87-5.34-8.49-10.32-9.16,0,0-.13,0-.2,0H26.2C11.73.04,0,11.69,0,26.06v28.98h180v-.05h179.97v-28.98h-.02Z"
-                    fill="purple"
-                />
-            </Svg>
-
-        </View>
+        <View style={styles.container}>
+            <View style={styles.iconView}>
+                <View style={[styles.iconSubContainer, styles.container1]}>
+                    <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Home')}>
+                        <HomeIcon style={styles.icon} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Stats')}>
+                        <StatsIcon style={styles.icon} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.addButtonContainer}>
+                    <TouchableOpacity style={styles.addButton} onPress={() => navigation.push('NewJournal')}>
+                        <AddButton />
+                    </TouchableOpacity>
+                </View>
+                <View style={[styles.iconSubContainer, styles.container2]} >
+                    <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('JournalsEntries')}>
+                        <JournalIcon style={styles.icon} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Profile')}>
+                        <ProfileIcon style={styles.icon} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <View style={styles.navView}>
+                <NavBarContainer style={styles.navBarContainer} />
+            </View>
+        </View >
     );
 };
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        height: '50%'
+    },
+    iconButton: {
+        height: '100%',
+        width: '30%',
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    addButton: {
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+
+    },
+    iconView: {
+        height: '10%',
+        width: '100%',
+        position: 'absolute',
+        zIndex: 1,
+        bottom: 0,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+
+    },
+    iconSubContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        height: '100%',
+        width: '40%',
+        alignItems: 'center',
+    },
+    container1: {
+        marginLeft: '5%'
+    },
+    container2: {
+        marginRight: '5%'
+    },
+    addButtonContainer: {
+        width: '20%',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    navView: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        bottom: 0
+    },
+
+});
