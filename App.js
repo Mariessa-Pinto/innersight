@@ -12,6 +12,25 @@ import themeContext from './theme/themeContext'
 import FontContext from './theme/fontContext';
 
 import NavBar from './molecules/NavBar';
+//Screens
+import Start from './screens/Start';
+import About from './screens/About';
+
+
+import NewJournal from './screens/NewJournal';
+import JournalsEntries from './screens/JournalsEntries';
+import CreateEntry from './screens/CreateEntry';
+import CustomizeEntry from './screens/CustomizeEntry';
+import Stats from './screens/Stats';
+import Profile from './screens/Profile';
+import CrisisSupport from './screens/CrisisSupport';
+import Recommendations from './screens/Recommendations';
+import Accessibility from './screens/Accessibility';
+import FontSize from './screens/FontSize';
+import Demo from './screens/Demo';
+import Login from './screens/Login';
+import Home from './screens/Home';
+import PersonalInformation from './screens/PersonalInformation';
 
 
 export default function App() {
@@ -75,8 +94,6 @@ export default function App() {
             <Stack.Screen name="Demo" component={NavBar} />
             <Stack.Screen name="Login" component={NavBar} />
             <Stack.Screen name="Home" component={NavBar} />
-            
-
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>

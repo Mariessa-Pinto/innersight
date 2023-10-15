@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { Image } from "expo-image";
 
 
-export default function JournalCovers() {
+const JournalCovers = () => {
 
 
     return(
@@ -18,3 +18,5 @@ export default function JournalCovers() {
         </View>
     )
 }
+
+export default JournalCovers;

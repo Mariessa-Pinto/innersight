@@ -4,8 +4,6 @@ import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button } from 'react-native';
 import themeContext from '../theme/themeContext';
-import CrisisCentres from '../atom/CrisisButtons/CrisisCentres';
-import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
 
 export default function Home({ navigation }) {
 
@@ -28,6 +26,23 @@ export default function Home({ navigation }) {
             <Button
                 title="Go to the font size page"
                 onPress={() => navigation.push('Font Size')}
+            />
+
+             <Button
+                title="Go to the Crisis Support Page"
+                onPress={() => navigation.push('Crisis Support')}
+            />
+              <Button
+                title="Go to Profile"
+                onPress={() => navigation.push('Profile')}
+            />
+                 <Button
+                title="Go to Recommendations"
+                onPress={() => navigation.push('Recommendations')}
+            />
+                  <Button
+                title="Go to Personal Information"
+                onPress={() => navigation.push('Personal Information')}
             />
           
 
