@@ -14,7 +14,7 @@ export default function JournalsEntries() {
 
     return (
         <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-
+            <Text>Placeholder - Journal Entries</Text>
         </View>
     );
 }
