@@ -1,9 +1,11 @@
-import styles from '../styles/global'
+import globalStyles from '../styles/global'
 import { Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+
+
+import { ScrollView } from 'react-native';
 
 
 
@@ -15,13 +17,12 @@ export default function Start({ navigation }) {
 
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <StatusBar style="auto" />
-            <Button
-                title="Get Started"
-                onPress={() => navigation.push('Demo')}
-            />
-            <NavBar/>
-        </View>
+            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+                <StatusBar style="auto" />
+                <Button
+                    title="Get Started"
+                    onPress={() => navigation.push('Demo')}
+                />
+            </View>
     );
 }

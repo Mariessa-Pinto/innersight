@@ -34,8 +34,19 @@ npm install @react-navigation/native-stack
 - [React Native Switch component](https://reactnative.dev/docs/switch)
 - [React Native Slider](https://github.com/Sharcoux/slider)
 - [React SVG](https://docs.expo.dev/versions/v49.0.0/sdk/svg/)
+- [React Native Image](https://www.npmjs.com/package/react-image)
 
 ## Instructions
+
+### Style Sheets
+- Import global style sheet as 
+```
+import globalStyles from '../../styles/global.js'
+```
+- Import local style as
+```
+import { StyleSheet } from 'react-native';
+```
 
 ### Npm install
 ```
