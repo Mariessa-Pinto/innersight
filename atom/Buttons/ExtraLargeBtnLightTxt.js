@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const ExtraLargeBtnLightTxt = () => {
+const ExtraLargeBtnLightTxt = (props) => {
+
   const [pressed, setPressed] = useState(false);
-
   return (
-    <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed')}
+    <TouchableOpacity
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>Text</Text>
+        <Text style={styles.text}>{props.text}</Text>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 
