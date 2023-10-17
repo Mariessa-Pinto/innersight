@@ -1,12 +1,11 @@
-import styles from '../styles/global'
+import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import Login from './Login';
+import NavBar from '../molecules/NavBar';
 
-
-
-export default function Profile() {
+export default function Profile({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -14,91 +13,89 @@ export default function Profile() {
 
 
     return (
-    <ScrollView>
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-         <View style={ProfileStyles.maincontent}>
-        
-    <View style={ProfileStyles.topcontent}>
+        <View style={globalStyles.container}>
+            <ScrollView style={{ height: 400 }}>
+                <View style={styles.maincontent}>
+                    <View style={styles.topcontent}>
 
-       <View style={ProfileStyles.profimage}>
+                        <View style={styles.profimage}>
+                        </View>
+                        <Text style={styles.header}>John Smith</Text>
+                    </View>
+                    <View style={styles.stats}>
+                        <View style={styles.statview}>
+                            <Text style={styles.label}>
+                                Entries Complete
+                            </Text>
+
+                        </View>
+                        <View style={styles.statview}>
+                            <Text style={styles.label}>
+                                Longest Streak
+                            </Text>
+
+                        </View>
+                        <View style={styles.statview}>
+                            <Text style={styles.label}>
+                                Words Written
+                            </Text>
+
+                        </View>
+                    </View>
+
+                    <View style={styles.content2}>
+                        <Text style={styles.settings}>
+                            settings
+                        </Text>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                    </View>
+
+                    <View style={styles.content2}>
+                        <Text style={styles.settings}>
+                            Support
+                        </Text>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                    </View>
+                    <View style={styles.content2}>
+                        <Text style={styles.settings}>
+                            Legal
+                        </Text>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                        <View style={styles.settingbar}></View>
+                    </View>
+
+                    <View style={styles.content3}>
+
+                        <Pressable style={styles.logout}>
+                            <Text style={styles.buttonlabel}>Log Out</Text>
+                        </Pressable>
+                    </View>
+                    <Text>hello</Text>
+                </View>
+            </ScrollView>
+            <View>
+                <NavBar />
+                <Text>hello2</Text>
+
+            </View>
+
         </View>
-        <Text style={ProfileStyles.header}>John Smith</Text>
-    </View>
-    <View style={ProfileStyles.stats}>
-        <View style={ProfileStyles.statview}>
-            <Text style={ProfileStyles.label}>
-                Entries Complete
-            </Text>
 
-        </View>
-        <View style={ProfileStyles.statview}>
-        <Text style={ProfileStyles.label}>
-                Longest Streak
-            </Text>
-
-       </View>
-       <View style={ProfileStyles.statview}>
-       <Text style={ProfileStyles.label}>
-               Words Written
-            </Text>
-
-      </View>
-      </View>
-    
-      <View style={ProfileStyles.content2}>
-      <Text style={ProfileStyles.settings}>
-       settings
-      </Text>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-      </View>
-  
-    <View style={ProfileStyles.content2}>
-    <Text style={ProfileStyles.settings}>
-       Support
-      </Text>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-    </View>
-    <View style={ProfileStyles.content2}>
-    <Text style={ProfileStyles.settings}>
-       Legal
-      </Text>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-      <View style={ProfileStyles.settingbar}></View>
-    </View>
-     
-     <View style={ProfileStyles.content3}>
-
-    <Pressable style={ProfileStyles.logout}>
-        <Text style={ProfileStyles.buttonlabel}>Log Out</Text>
-    </Pressable>
-    </View>
-          
-
-    
-       
-    </View>
-       
-          
-
-        </View>
-        </ScrollView>
     );
 }
 
-const ProfileStyles = StyleSheet.create({
-
+const styles = StyleSheet.create({
 
     maincontent: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly'
-
 
     },
 
@@ -111,7 +108,7 @@ const ProfileStyles = StyleSheet.create({
         width: 100
     },
 
-    topcontent:{
+    topcontent: {
         display: 'flex',
         flexDirection: 'row',
         gap: 20,
@@ -135,28 +132,28 @@ const ProfileStyles = StyleSheet.create({
 
     },
     label: {
-         padding: 15,
-         fontSize: 13
-          },
-     settings: {
-          textAlign: 'left',
-          fontSize: 18,
-          paddingTop: 5
+        padding: 15,
+        fontSize: 13
+    },
+    settings: {
+        textAlign: 'left',
+        fontSize: 18,
+        paddingTop: 5
 
-          },
-          content2: {
-            display: 'flex',
-            gap: 20
+    },
+    content2: {
+        display: 'flex',
+        gap: 20
 
-          },
-          
+    },
+
     settingbar: {
-            width: 328,
-            height: 37,
-            backgroundColor: '#525585',
-            borderRadius: 10
+        width: 328,
+        height: 37,
+        backgroundColor: '#525585',
+        borderRadius: 10
 
-          },
+    },
     logout: {
         width: 114,
         height: 32,
@@ -177,6 +174,6 @@ const ProfileStyles = StyleSheet.create({
         paddingTop: 20
     }
 
-    
+
 
 });
