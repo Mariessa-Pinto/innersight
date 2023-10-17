@@ -29,6 +29,7 @@ export default function Start({ navigation }) {
             <Pressable style={startStyles.button} onPress={() => navigation.push('Demo')}>
                 <Text style={styles.text}>Get Started</Text>
             </Pressable>
+       
         </View>
     );
 }
