@@ -1,7 +1,8 @@
-import styles from '../styles/global'
-import { Text, View, Button, Switch } from 'react-native';
+import globalStyles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import Slider from "@react-native-community/slider";
+import NavBar from '../molecules/NavBar';
 
 import { EventRegister } from 'react-native-event-listeners'
 import themeContext from '../theme/themeContext';
@@ -17,8 +18,8 @@ export default function Accessibility() {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <Text style={[styles.text, { color: theme.color, fontSize: fontTheme.fontSize }]}>Dark Mode</Text>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+            <Text style={[globalStyles.text, { color: theme.color, fontSize: fontTheme.fontSize }]}>Dark Mode</Text>
             <Switch
                 value={darkMode}
                 onValueChange={(value) => {
@@ -28,4 +29,7 @@ export default function Accessibility() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+})
 

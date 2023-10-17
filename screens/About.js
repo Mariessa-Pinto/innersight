@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import {  useContext } from 'react';
 import themeContext from '../theme/themeContext';
+import NavBar from '../molecules/NavBar';
 
-import styles from '../styles/global'
+import globalStyles from '../styles/global'
 
 export default function About({navigation}) {
 
@@ -11,10 +12,13 @@ export default function About({navigation}) {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-            <Text style={[styles.text, { color: theme.color }]}>About Page</Text>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+            <Text style={[globalStyles.text, { color: theme.color }]}>About Page</Text>
             <StatusBar style="auto" />
             <Button title="Go Back" onPress={() => navigation.goBack()}/>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+})
