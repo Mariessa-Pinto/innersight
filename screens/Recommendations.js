@@ -13,17 +13,14 @@ export default function Recommendations({navigation}) {
 
 
     return (
-        <View style={globalStyles.body}>
-            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-                <ScrollView>
-                    <View style={styles.maincontent}>
-                        <Text style={styles.header}>Recommendations</Text>
-                    </View>
-                </ScrollView>
-            </View>
-            <View style={globalStyles.navContainer}>
-                <NavBar navigation={navigation} />
-            </View>
+        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+            <ScrollView>
+          <View style={RecommendationStyles.maincontent}>
+            <Text style={RecommendationStyles.header}>Recommendations</Text>
+
+          </View>
+
+            </ScrollView>
         </View>
 
     );
