@@ -12,8 +12,6 @@ export default function Home({ navigation }) {
     const theme = useContext(themeContext)
 
     return (
-        <>
-            <ScrollView>
                 <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
                     <Text style={[styles.text, { color: theme.color }]}>Welcome to the Home Page</Text>
 
@@ -49,9 +47,6 @@ export default function Home({ navigation }) {
                     />
 
                 </View>
-            </ScrollView>
-        </>
-
 
     );
 }

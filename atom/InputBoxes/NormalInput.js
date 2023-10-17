@@ -13,7 +13,7 @@ const NormalInput = () => {
         onChangeText={onChangeText}
         value={text}
         placeholder="Text"
-        keyboardType="numeric"
+        keyboardType="text"
       />
     
     </SafeAreaView>
@@ -25,10 +25,12 @@ const styles = StyleSheet.create({
     height: 35,
     width: 281,
     margin: 12,
-    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#88898C',
+    borderRadius: 10,
     padding: 10,
-    backgroundColor: "#C5C7F7",
-    color: "#525585"
+    backgroundColor: "#FDFDFD",
+    color: "#88898C"
   },
 });
 

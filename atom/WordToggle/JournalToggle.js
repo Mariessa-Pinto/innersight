@@ -1,57 +1,58 @@
-import * as React from 'react';
-import { ToggleButton } from 'react-native-paper';
-import { StyleSheet, View } from 'react-native'
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 const JournalToggle = () => {
-  const [value, setValue] = React.useState('left');
+  const [selectedValue, setSelectedValue] = useState('Entries');
+
+  const handleToggle = (value) => {
+    setSelectedValue(value);
+  };
 
   return (
-    <ToggleButton.Row style={styles.container} onValueChange={value => setValue(value)} value={value}>
-      <ToggleButton style={styles.left} type="left" value="left"> Left </ToggleButton>
-      <ToggleButton style={styles.right} icon="format-align-right" value="right" />
-    </ToggleButton.Row>
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={[styles.btn, selectedValue === 'Entries' && styles.selectedBtn]}
+        onPress={() => handleToggle('Entries')}
+      >
+        <Text style={selectedValue === 'Entries' && styles.selectedText}>Entries</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.btn, selectedValue === 'Journals' && styles.selectedBtn]}
+        onPress={() => handleToggle('Journals')}
+      >
+        <Text style={selectedValue === 'Journals' && styles.selectedText}>Journals</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  left: {
-    width: 100,
-    height: 40,
-    borderStyle: 'none',
-    borderRadius: 30,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    position: 'relative',
-    zIndex: 2,
-    color: 'black'
-  },
-  right: {
-      width: 100,
-    height: 40,
-    borderStyle: 'none',
-    borderRadius: 30,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    zIndex: 2
-  },
   container: {
-    backgroundColor: 'grey',
-    width: 300,
-    height: 60,
-    borderRadius: 10,
-    padding: 10,
-    display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#EDEAEA',
+    width: 220,
+    height: 40,
+    borderRadius: 20,
+  },
+  btn: {
+    flex: 1,
+    height: 40,
+    width: 110,
+    borderRadius: 20,
     alignItems: 'center',
-    position: 'absolute',
-    gap: 30,
-    zIndex: 0
-  }
-  
-})
+    justifyContent: 'center',
+    fontSize: 13,
+    color: '#3E3F42'
+  },
+  selectedBtn: {
+    backgroundColor: '#6164C3',
+  },
+  selectedText: {
+    color: '#FDFDFD',
+    fontSize: 13,
+
+  },
+});
 
 export default JournalToggle;

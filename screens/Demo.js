@@ -6,7 +6,7 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
 
 
-export default function Demo({ navigation} ) {
+export default function Demo({ navigation } ) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)

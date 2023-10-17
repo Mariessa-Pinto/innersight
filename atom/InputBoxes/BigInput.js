@@ -13,7 +13,8 @@ const BigInput = () => {
         onChangeText={onChangeText}
         value={text}
         placeholder="Start typing..."
-        keyboardType="numeric"
+        placeholderTextColor={"#292929"}
+        keyboardType='text'
       />
     
     </SafeAreaView>
@@ -26,12 +27,9 @@ const styles = StyleSheet.create({
     width: 297,
     margin: 12,
     borderRadius: 5,
-    borderStyle: 'solid',
-    borderColor: '#C5C7F7',
-    borderWidth: 1,
     padding: 10,
-    backgroundColor: "#F4F4F4",
-    color: "#525585"
+    backgroundColor: "#FDFDFD",
+    color: "#292929"
   },
 });
 
