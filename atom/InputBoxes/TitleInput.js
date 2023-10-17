@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+import {SafeAreaView, StyleSheet, TextInput, Text} from 'react-native';
 
 
 const TitleInput = () => {
@@ -8,7 +8,7 @@ const TitleInput = () => {
 
   return (
     <SafeAreaView>
-        <Text>Title</Text>
+        <Text style={styles.titleTxt}>Title</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -26,11 +26,18 @@ const styles = StyleSheet.create({
     height: 35,
     width: 281,
     margin: 12,
-    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#88898C',
+    borderRadius: 10,
     padding: 10,
-    backgroundColor: "#C5C7F7",
-    color: "#525585"
+    backgroundColor: "#FDFDFD",
+    color: "#88898C"
   },
+  titleTxt: {
+    color: '#292929',
+    fontSize: 13,
+    marginLeft: 15
+  }
 });
 
 export default TitleInput;
