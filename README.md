@@ -36,6 +36,7 @@ npm install @react-navigation/native-stack
 - [React SVG](https://docs.expo.dev/versions/v49.0.0/sdk/svg/)
 - [React Native Image](https://www.npmjs.com/package/react-image)
 
+
 ## Instructions
 
 ### Style Sheets
