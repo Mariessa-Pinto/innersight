@@ -70,9 +70,10 @@ export default function App() {
               name="Start"
               component={NavBar}
               options={{
-                title: 'Welcome!',
+                title: '',
                 headerStyle: {
-                  backgroundColor: '#f4511e',
+                  height: 50,
+                  backgroundColor: '#fff',
                 },
                 headerTintColor: '#888',
                 headerTitleStyle: {
