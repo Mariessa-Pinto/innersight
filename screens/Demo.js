@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 
 
 export default function Demo({ navigation } ) {
@@ -16,13 +16,20 @@ export default function Demo({ navigation } ) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
             <StatusBar style="auto" />
-            <Button
-                title="Create Account"
-                onPress={() => navigation.push('Login')}
+            <Image
+                source={require('../atom/icons/bear.png')}
+                style={styles.mascot}
             />
+            <ExtraLargeBtnLightTxt text="Create an Account" 
+                        onPress={() => navigation.push('Login')}
+                    />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    mascot: {
+        height: 150,
+        width: 150
+    },
 })
