@@ -1,13 +1,11 @@
-import styles from '../styles/global'
-import { Text, View, Button, Switch, StyleSheet, ScrollView, Image} from 'react-native';
+import globalStyles from '../styles/global'
+import { Text, View, Button, Switch, StyleSheet, ScrollView, Image } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
+import NavBar from '../molecules/NavBar';
 
 
-
-
-
-export default function Recommendations() {
+export default function Recommendations({navigation}) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -15,21 +13,24 @@ export default function Recommendations() {
 
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <ScrollView>
-          <View style={RecommendationStyles.maincontent}>
-            <Text style={RecommendationStyles.header}>Recommendations</Text>
-
-          </View>
-
-            </ScrollView>
+        <View style={globalStyles.body}>
+            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+                <ScrollView>
+                    <View style={styles.maincontent}>
+                        <Text style={styles.header}>Recommendations</Text>
+                    </View>
+                </ScrollView>
+            </View>
+            <View style={globalStyles.navContainer}>
+                <NavBar navigation={navigation} />
+            </View>
         </View>
-   
+
     );
 }
 
 
-const RecommendationStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     maincontent: {
         display: 'flex',
         flexDirection: 'column',

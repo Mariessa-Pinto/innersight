@@ -1,7 +1,8 @@
-import styles from '../styles/global'
-import { Text, View, Button, Switch } from 'react-native';
+import globalStyles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
+import NavBar from '../molecules/NavBar';
 
 
 
@@ -14,7 +15,7 @@ export default function CustomizeEntry() {
 
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
      
 
         
@@ -22,3 +23,6 @@ export default function CustomizeEntry() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+})
