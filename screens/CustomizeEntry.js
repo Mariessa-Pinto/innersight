@@ -7,7 +7,7 @@ import NavBar from '../molecules/NavBar';
 
 
 
-export default function CustomizeEntry() {
+export default function CustomizeEntry({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -16,10 +16,8 @@ export default function CustomizeEntry() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-     
 
-        
-        
+            <NavBar navigation={navigation} />
         </View>
     );
 }

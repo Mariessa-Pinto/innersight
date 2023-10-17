@@ -14,15 +14,11 @@ export default function JournalsEntries({ navigation }) {
 
 
     return (
-        <View style={globalStyles.body}>
             <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
                 <Text>Placeholder - Journal Entries</Text>
                 <NavBar navigation={navigation} />
             </View>
-            <View style={globalStyles.navContainer}>
-                <NavBar navigation={navigation} />
-            </View>
-        </View>
+
     );
 }
 
