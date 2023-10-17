@@ -5,6 +5,9 @@ import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 
 
+import { ScrollView } from 'react-native';
+
+
 
 export default function Start({ navigation }) {
 
