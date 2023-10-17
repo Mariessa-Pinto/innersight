@@ -53,6 +53,7 @@ import { StyleSheet } from 'react-native';
 npm install --force 
 npm install expo --force
 npm i react-native-multi-toggle-switch --save
+npm install expo-font
 ```
 
 ### Dark Mode
