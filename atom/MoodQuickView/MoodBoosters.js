@@ -1,19 +1,20 @@
-import * as React from 'react';
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 
 
-export default function MoodBoosters() {
+const MoodBoosters = () => {
 
 
     return(
 
         <View style={styles.box}>
           <Text style={styles.header}>Mood Boosters</Text>
-       
-     
-         
+          <View style={styles.textCon}>
+            <Text style={styles.txt}>Text</Text>
+            <Text style={styles.txt}>Text</Text>
+            <Text style={styles.txt}>Text</Text>
+          </View>
 
 
         </View>
@@ -29,10 +30,21 @@ const styles = StyleSheet.create({
       borderRadius: 20,
       padding: 10,
       backgroundColor: "#C5C7F7",
-      color: "#525585"
+      padding: 20
     },
     header: {
         fontSize: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#292929'
+    },
+    textCon: {
+        marginTop: 15
+    },
+    txt: {
+        fontSize: 12,
+        fontWeight: 'light',
+        color: '#292929'
+
     }
   });
+  export default MoodBoosters;
