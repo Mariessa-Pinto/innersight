@@ -1,11 +1,12 @@
-import styles from '../styles/global'
-import { Text, View, Button, Switch } from 'react-native';
+import globalStyles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
+import NavBar from '../molecules/NavBar';
 
 
 
-export default function JournalsEntries() {
+export default function JournalsEntries({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -13,8 +14,17 @@ export default function JournalsEntries() {
 
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <Text>Placeholder - Journal Entries</Text>
+        <View style={globalStyles.body}>
+            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+                <Text>Placeholder - Journal Entries</Text>
+                <NavBar navigation={navigation} />
+            </View>
+            <View style={globalStyles.navContainer}>
+                <NavBar navigation={navigation} />
+            </View>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+})
