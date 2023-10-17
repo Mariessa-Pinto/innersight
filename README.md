@@ -36,7 +36,6 @@ npm install @react-navigation/native-stack
 [React Native Slider](https://github.com/Sharcoux/slider)
 *need to delete react material ui
 
-
 ## Instructions
 
 ### Npm install

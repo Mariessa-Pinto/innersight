@@ -29,11 +29,11 @@ export default function Home({ navigation }) {
                 title="Go to the font size page"
                 onPress={() => navigation.push('Font Size')}
             />
-          
-
-         
-
+    
         
+        
+
+
         </View>
     );
 }
