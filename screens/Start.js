@@ -17,6 +17,7 @@ export default function Start({ navigation }) {
 
 
     return (
+        <>
             <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
                     <StatusBar style="auto" />
                     <Button
@@ -31,6 +32,7 @@ export default function Start({ navigation }) {
                     <Text>Hello</Text>
             </View>
             <NavBar navigation={navigation}/>
+            </>
     );
 }
 
