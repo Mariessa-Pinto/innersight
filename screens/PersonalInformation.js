@@ -93,8 +93,6 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 18,
-
-
     },
     button: {
         width: 114,
@@ -113,31 +111,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#6164C3',
         padding: 5,
-
-
-
     },
+
     label: {
         fontSize: 12,
         alignItems: 'center',
-
     },
+
     label2: {
         fontSize: 12,
         alignItems: 'center',
         color: 'white'
-
     },
+
     input: {
         height: 35,
         width: 328,
-        borderColor: '#88898C'
-
-
+        borderColor:'#88898C'
     }
-
-
-
 })
 
 
