@@ -36,6 +36,7 @@ npm install @react-navigation/native-stack
 - [React SVG](https://docs.expo.dev/versions/v49.0.0/sdk/svg/)
 - [React Native Image](https://www.npmjs.com/package/react-image)
 
+
 ## Instructions
 
 ### Style Sheets
@@ -52,7 +53,10 @@ import { StyleSheet } from 'react-native';
 ```
 npm install --force 
 npm install expo --force
+npm i react-native-multi-toggle-switch --save
+npm install expo-font
 ```
+
 ### Dark Mode
 1. Import 
 ```
