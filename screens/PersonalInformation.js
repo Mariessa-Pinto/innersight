@@ -2,7 +2,7 @@ import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import SmallBtn from '../atom/Buttons/SmallBtn';
+import SmallBtn from '../atom/Buttons/SmallBtnLightTxt';
 
 
 
