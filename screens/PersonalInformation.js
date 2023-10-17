@@ -7,9 +7,11 @@ import NavBar from '../molecules/NavBar';
 
 
 
-export default function PersonalInformation(props) {
+export default function PersonalInformation(props, {navigation}) {
+
     const { onPress, title = 'Edit Photo' } = props;
     const { onPressTwo, titleTwo = 'Save Changes' } = props;
+
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
@@ -69,6 +71,7 @@ export default function PersonalInformation(props) {
                 </View>
 
             </ScrollView>
+            <NavBar navigation={navigation}/>
         </View>
 
     );

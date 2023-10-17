@@ -24,12 +24,6 @@ export default function Start({ navigation }) {
                         title="Get Started"
                         onPress={() => navigation.push('Demo')}
                     />
-                    <Text>Hello</Text>
-                    <Text>Hello</Text>
-                    <Text>Hello</Text>
-                    <Text>Hello</Text>
-                    <Text>Hello</Text>
-                    <Text>Hello</Text>
             </View>
             <NavBar navigation={navigation}/>
             </>

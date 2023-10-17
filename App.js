@@ -64,20 +64,15 @@ export default function App() {
             (fontSize === 3 ? theme.large : 
             (fontSize === 4 ? theme.extraLarge : ""))))}>
         <NavigationContainer theme={darkMode === true? DarkTheme : DefaultTheme}>
-          <Stack.Navigator initialRouteName='Start'>
+          <Stack.Navigator initialRouteName='Start'
+  screenOptions={{
+    headerShown: false
+  }}
+  
+          >
             <Stack.Screen
               name="Start"
               component={Start}
-              options={{
-                title: 'Welcome!',
-                headerStyle: {
-                  backgroundColor: '#f4511e',
-                },
-                headerTintColor: '#888',
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                },
-              }}
             />
             <Stack.Screen name="About" component={About} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
@@ -93,6 +88,7 @@ export default function App() {
             <Stack.Screen name="Demo" component={Demo} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
