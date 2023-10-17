@@ -7,13 +7,14 @@ import NavBarContainer from '../atom/icons/NavBarContainer';
 import ProfileIcon from '../atom/icons/ProfileIcon';
 import AddButton from '../atom/icons/AddButton';
 import JournalIcon from '../atom/icons/JournalIcon';
+import globalStyles from '../styles/global'
 
 import { useContext } from 'react';
 import themeContext from '../theme/themeContext';
 
 
 
-export default function NavBar({navigation}) {
+export default function NavBar({ navigation }) {
 
     //Dark/Light Mode
     const theme = useContext(themeContext)
@@ -31,7 +32,7 @@ export default function NavBar({navigation}) {
                 </View>
                 <View style={styles.addButtonContainer}>
                     <TouchableOpacity style={styles.addButton} onPress={() => navigation.push('NewJournal')}>
-                        <AddButton />
+                        <Image source={require('../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.iconSubContainer, styles.container2]} >
@@ -43,9 +44,7 @@ export default function NavBar({navigation}) {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={styles.navView}>
-                <NavBarContainer style={styles.navBarContainer} />
-            </View>
+            <NavBarContainer style={styles.background} />
         </View >
     );
 };
@@ -53,32 +52,34 @@ export default function NavBar({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        height: '50%'
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        height: 55,
     },
     iconButton: {
         height: '100%',
-        width: '30%',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
     },
     addButton: {
         height: '100%',
         width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
+        position: 'absolute',
+        bottom: 0,
+        left: 0
 
     },
     iconView: {
-        height: '10%',
+        height: '100%',
         width: '100%',
-        position: 'absolute',
-        zIndex: 1,
-        bottom: 0,
+        zIndex: 2,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
+marginHorizontal: 50,
 
     },
     iconSubContainer: {
@@ -86,15 +87,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         height: '100%',
-        width: '40%',
+        width: '50%',
         alignItems: 'center',
     },
-    container1: {
-        marginLeft: '5%'
-    },
-    container2: {
-        marginRight: '5%'
-    },
+
     addButtonContainer: {
         width: '20%',
         display: 'flex',

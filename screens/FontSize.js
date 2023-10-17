@@ -1,5 +1,5 @@
-import styles from '../styles/global'
-import { Text, View, Button, Switch } from 'react-native';
+import globalStyles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import Slider from "@react-native-community/slider";
 
@@ -17,7 +17,7 @@ export default function Settings() {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
             <View style={{ padding: 0, marginTop: 50 }}>
                 <Text style={[styles.text, { fontSize: fontTheme.fontSize }]}>Font Size</Text>
                 <Slider
@@ -37,3 +37,5 @@ export default function Settings() {
     );
 }
 
+const styles = StyleSheet.create({
+})
