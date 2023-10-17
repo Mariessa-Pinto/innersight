@@ -44,6 +44,7 @@ export default function Home({ navigation }) {
                 title="Go to Personal Information"
                 onPress={() => navigation.push('Personal Information')}
             />
+            
 
 
 
