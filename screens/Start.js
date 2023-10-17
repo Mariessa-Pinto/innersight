@@ -1,5 +1,5 @@
-import globalStyles from '../styles/global'
-import { Text, View, Button, Switch } from 'react-native';
+import styles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch, Image, Pressable } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
@@ -17,12 +17,34 @@ export default function Start({ navigation }) {
 
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
-                <StatusBar style="auto" />
-                <Button
-                    title="Get Started"
-                    onPress={() => navigation.push('Demo')}
-                />
-            </View>
+        <View style={startStyles.container}>
+            <StatusBar style="auto" />
+            <Image 
+                source={require('../atom/icons/logo.png')}
+            />
+            <Image 
+                source={require('../atom/icons/logo_text.png')}
+                style={startStyles.wordmark}
+            />
+            <Pressable style={startStyles.button} onPress={() => navigation.push('Demo')}>
+                <Text style={styles.text}>Get Started</Text>
+            </Pressable>
+        </View>
     );
 }
+
+
+const startStyles = StyleSheet.create({
+    container: {
+        backgroundColor: "#D5D7FF",
+        display: 'flex',
+        height: "100%",
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
+    button: {
+        borderRadius: 10,
+        backgroundColor: "#6164C3",
+    }
+});
