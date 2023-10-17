@@ -7,13 +7,14 @@ const Toggle = () => {
 
   return (
     <View style={styles.container}>
+        <View style={[styles.switchContainer, isEnabled && styles.switchContainerActive]}>
       <Switch
-        trackColor={{false: '#767577', true: '#81b0ff'}}
-        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e"
+        trackColor={{false: 'transparent', true: 'transparent'}}
+        thumbColor={isEnabled ? '#FDFDFD' : '#FDFDFD'}
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
+      </View>
     </View>
   );
 };
@@ -24,6 +25,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  switchContainer: {
+    backgroundColor: '#88898C',
+    width: 50,
+    height: 26,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  switchContainerActive: {
+    backgroundColor: '#46C344'
+  }
 });
 
 export default Toggle;
