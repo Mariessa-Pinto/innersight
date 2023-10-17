@@ -10,9 +10,11 @@ const SearchBar = () => {
   return (
     <Searchbar
     style={styles.bar}
-      placeholder="Search by Title or Tag"
+      placeholder="Search by Title or Tags"
+      placeholderTextColor={'#3E3F42'}
       onChangeText={onChangeSearch}
       value={searchQuery}
+      inputStyle={styles.input}
     />
   );
 };
@@ -23,9 +25,19 @@ const styles = StyleSheet.create({
       height: 328,
       height: 40,
       display: 'flex',
-      borderRadius: 5,
+      borderRadius: 10,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      backgroundColor: '#FDFDFD',
+      borderWidth: 1,
+      borderColor: '#88898C'
     },
+    input: {
+        textAlign: 'left',
+        textAlignVertical: 'center',
+        fontSize: 13,
+        paddingLeft: 5,
+        height: '100%'
+    }
   });
 export default SearchBar;
