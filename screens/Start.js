@@ -1,9 +1,9 @@
-import styles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, Pressable } from 'react-native';
+import globalStyles from '../styles/global'
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
-
+import NavBar from '../molecules/NavBar';
 
 import { ScrollView } from 'react-native';
 
@@ -29,10 +29,13 @@ export default function Start({ navigation }) {
             <Pressable style={startStyles.button} onPress={() => navigation.push('Demo')}>
                 <Text style={styles.text}>Get Started</Text>
             </Pressable>
-       
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+
+})
 
 
 const startStyles = StyleSheet.create({

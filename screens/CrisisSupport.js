@@ -1,4 +1,4 @@
-import styles from '../styles/global'
+import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
@@ -7,6 +7,7 @@ import CrisisInfo from '../atom/CrisisButtons/CrisisInfo';
 import CrisisOrganizations from '../atom/CrisisButtons/CrisisOrganizations';
 import CrisisPublications from '../atom/CrisisButtons/CrisisPublications';
 import { ScrollView } from 'react-native-gesture-handler';
+import NavBar from '../molecules/NavBar';
 
 
 
@@ -19,20 +20,20 @@ export default function CrisisSupport() {
 
     return (
         <>
-        <View style={PageStyles.title}>
-        <Text style={PageStyles.header}>Crisis Support Resources</Text>
-        <Text style={PageStyles.info}>Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1</Text>
+        <View style={styles.title}>
+        <Text style={styles.header}>Crisis Support Resources</Text>
+        <Text style={styles.info}>Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1</Text>
         </View>
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
 
    
 
-       <View style={PageStyles.main}>
+       <View style={styles.main}>
        <CrisisCentres/>
        <CrisisInfo/>
        </View>
 
-       <View style={PageStyles.main}>
+       <View style={styles.main}>
        <CrisisOrganizations/>
        <CrisisPublications/>
        </View>
@@ -45,7 +46,7 @@ export default function CrisisSupport() {
     );
 }
 
-const PageStyles = StyleSheet.create({
+const styles = StyleSheet.create({
 
     title: {
         
