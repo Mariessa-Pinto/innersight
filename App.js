@@ -11,7 +11,6 @@ import theme from './theme/theme';
 import themeContext from './theme/themeContext'
 import FontContext from './theme/fontContext';
 
-import NavBar from './molecules/NavBar';
 //Screens
 import Start from './screens/Start';
 import About from './screens/About';
@@ -68,7 +67,7 @@ export default function App() {
           <Stack.Navigator initialRouteName='Start'>
             <Stack.Screen
               name="Start"
-              component={NavBar}
+              component={Start}
               options={{
                 title: 'Welcome!',
                 headerStyle: {
@@ -80,20 +79,20 @@ export default function App() {
                 },
               }}
             />
-            <Stack.Screen name="About" component={NavBar} />
-            <Stack.Screen name="NewJournal" component={NavBar} />
-            <Stack.Screen name="JournalsEntries" component={NavBar} />
-            <Stack.Screen name="CreateEntry" component={NavBar} />
-            <Stack.Screen name="CustomizeEntry" component={NavBar} />
-            <Stack.Screen name="Stats" component={NavBar} />
-            <Stack.Screen name="Profile" component={NavBar} />
-            <Stack.Screen name="CrisisSupport" component={NavBar} />
-            <Stack.Screen name="Recommendations" component={NavBar} />
-            <Stack.Screen name="Accessibility" component={NavBar} />
-            <Stack.Screen name="Font Size" component={NavBar} />
-            <Stack.Screen name="Demo" component={NavBar} />
-            <Stack.Screen name="Login" component={NavBar} />
-            <Stack.Screen name="Home" component={NavBar} />
+            <Stack.Screen name="About" component={About} />
+            <Stack.Screen name="NewJournal" component={NewJournal} />
+            <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+            <Stack.Screen name="CreateEntry" component={CreateEntry} />
+            <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
+            <Stack.Screen name="Stats" component={Stats} />
+            <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
+            <Stack.Screen name="Recommendations" component={Recommendations} />
+            <Stack.Screen name="Accessibility" component={Accessibility} />
+            <Stack.Screen name="Font Size" component={FontSize} />
+            <Stack.Screen name="Demo" component={Demo} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Home" component={Home} />
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
