@@ -29,26 +29,25 @@ export default function Home({ navigation }) {
                         onPress={() => navigation.push('Font Size')}
                     />
 
-             <Button
-                title="Go to the Crisis Support Page"
-                onPress={() => navigation.push('Crisis Support')}
-            />
-              <Button
-                title="Go to Profile"
-                onPress={() => navigation.push('Profile')}
-            />
-                 <Button
-                title="Go to Recommendations"
-                onPress={() => navigation.push('Recommendations')}
-            />
-                  <Button
-                title="Go to Personal Information"
-                onPress={() => navigation.push('Personal Information')}
-            />
+                    <Button
+                        title="Go to the Crisis Support Page"
+                        onPress={() => navigation.push('Crisis Support')}
+                    />
+                    <Button
+                        title="Go to Profile"
+                        onPress={() => navigation.push('Profile')}
+                    />
+                    <Button
+                        title="Go to Recommendations"
+                        onPress={() => navigation.push('Recommendations')}
+                    />
+                    <Button
+                        title="Go to Personal Information"
+                        onPress={() => navigation.push('Personal Information')}
+                    />
 
+                </View>
 
-
-        </View>
     );
 }
 

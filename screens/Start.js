@@ -17,19 +17,22 @@ export default function Start({ navigation }) {
 
 
     return (
-        <View style={startStyles.container}>
-            <StatusBar style="auto" />
-            <Image 
-                source={require('../atom/icons/logo.png')}
-            />
-            <Image 
-                source={require('../atom/icons/logo_text.png')}
-                style={startStyles.wordmark}
-            />
-            <Pressable style={startStyles.button} onPress={() => navigation.push('Demo')}>
-                <Text style={styles.text}>Get Started</Text>
-            </Pressable>
-        </View>
+        <>
+            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+                    <StatusBar style="auto" />
+                    <Button
+                        title="Get Started"
+                        onPress={() => navigation.push('Demo')}
+                    />
+                    <Text>Hello</Text>
+                    <Text>Hello</Text>
+                    <Text>Hello</Text>
+                    <Text>Hello</Text>
+                    <Text>Hello</Text>
+                    <Text>Hello</Text>
+            </View>
+            <NavBar navigation={navigation}/>
+            </>
     );
 }
 
