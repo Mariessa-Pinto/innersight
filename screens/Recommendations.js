@@ -4,7 +4,6 @@ import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
 
-
 export default function Recommendations({navigation}) {
 
     //Dark/Light Mode
@@ -13,19 +12,16 @@ export default function Recommendations({navigation}) {
 
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <ScrollView>
-          <View style={RecommendationStyles.maincontent}>
-            <Text style={RecommendationStyles.header}>Recommendations</Text>
-
-          </View>
-
-            </ScrollView>
-        </View>
-
+            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+                <ScrollView>
+                    <View style={styles.maincontent}>
+                        <Text style={styles.header}>Recommendations</Text>
+                    </View>
+                </ScrollView>
+                <NavBar navigation={navigation} />
+            </View>
     );
 }
-
 
 const styles = StyleSheet.create({
     maincontent: {
