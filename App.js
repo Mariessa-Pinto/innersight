@@ -70,10 +70,7 @@ export default function App() {
   }}
   
           >
-            <Stack.Screen
-              name="Start"
-              component={Start}
-            />
+            <Stack.Screen name="Start" component={Start} />
             <Stack.Screen name="About" component={About} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />

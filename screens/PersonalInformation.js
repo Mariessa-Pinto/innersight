@@ -2,8 +2,7 @@ import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import SmallBtnLightTxt from '../atom/Buttons/SmallBtnLightTxt';
-import NavBar from '../molecules/NavBar';
+import SmallBtn from '../atom/Buttons/SmallBtnLightTxt';
 
 
 
@@ -96,8 +95,8 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 18,
-
-
+        
+       
     },
     button: {
         width: 114,
@@ -116,28 +115,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#6164C3',
         padding: 5,
-
-
+      
+        
 
     },
+
     label: {
         fontSize: 12,
         alignItems: 'center',
-
+       
     },
+
     label2: {
         fontSize: 12,
         alignItems: 'center',
         color: 'white'
-
+       
     },
-    input: {
+     input: {
         height: 35,
         width: 328,
-        borderColor: '#88898C'
-
-
-    }
+        borderColor:'#88898C'
+    
+        
+     }
 
 
 
