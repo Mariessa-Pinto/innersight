@@ -76,14 +76,9 @@ export default function Profile({ navigation }) {
                             <Text style={styles.buttonlabel}>Log Out</Text>
                         </Pressable>
                     </View>
-                    <Text>hello</Text>
                 </View>
             </ScrollView>
-            <View>
-                <NavBar />
-                <Text>hello2</Text>
-
-            </View>
+            <NavBar />
 
         </View>
 
