@@ -3,8 +3,20 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 
     container: {
-        backgroundColor: 'pink',
-        flex:1
+        width: '100%',
+        height: '100%',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        backgroundColor: '#FDFDFD',
+        elevation: 3,
+        position: 'absolute',
+        flex:1,
+        marginTop: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 30,
+        paddingBottom: 100
     },
 
 
