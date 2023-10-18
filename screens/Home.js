@@ -6,7 +6,6 @@ import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
 import LightModeBkground from '../atom/Background/LightModeBkground';
-import DropShadow from "react-native-drop-shadow";
 
 export default function Home({ navigation }) {
 
