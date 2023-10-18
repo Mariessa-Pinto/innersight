@@ -69,15 +69,7 @@ export default function App() {
               name="Start"
               component={Start}
               options={{
-                title: '',
-                headerStyle: {
-                  height: 50,
-                  backgroundColor: '#fff',
-                },
-                headerTintColor: '#888',
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                },
+                headerShown: false
               }}
             />
             <Stack.Screen name="About" component={About} />
@@ -91,7 +83,13 @@ export default function App() {
             <Stack.Screen name="Recommendations" component={Recommendations} />
             <Stack.Screen name="Accessibility" component={Accessibility} />
             <Stack.Screen name="Font Size" component={FontSize} />
-            <Stack.Screen name="Demo" component={Demo} />
+            <Stack.Screen 
+              name="Demo" 
+              component={Demo} 
+              options={{
+                headerShown: false
+              }}
+            />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
           </Stack.Navigator>
