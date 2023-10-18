@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Image } from 'expo-image';
 
-const ExtraLargeBtnLightTxt = (props) => {
-  const navigation = useNavigation();
 
+const backBtn = () => {
   const [pressed, setPressed] = useState(false);
 
-  const navigateTo = () => {
-    navigation.navigate(props.navigate);
-  };
   return (
     <TouchableWithoutFeedback
+      onPress={() => console.log('Pressed')}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
-      onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>{props.text}</Text>
+       <Image source={require('../icons/backbtn.png')} height={10} width={10}/>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -25,21 +21,21 @@ const ExtraLargeBtnLightTxt = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 228,
-    height: 44,
-    borderRadius: 10,
-    backgroundColor: '#6164C3',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    backgroundColor: '#DDDDDD',
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 7,
   },
   buttonPressed: {
-    backgroundColor: '#43479A', // Change the color when pressed
+    backgroundColor: '#D5D7FF', // Change the color when pressed
   },
   text: {
-    color: '#FDFDFD',
-    fontSize: 14,
+    color: '#3E3F42',
+    fontSize: 12,
   },
 });
 
-export default ExtraLargeBtnLightTxt;
+export default backBtn;

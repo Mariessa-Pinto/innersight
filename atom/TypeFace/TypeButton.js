@@ -5,7 +5,11 @@ import * as Font from 'expo-font';
 
 const TypeButton = () => {
  const [selectedFont, setSelectedFont] = useState('Roboto');
- const [pressed, setPressed] = useState(false);
+ const [buttonStates, setButtonStates] = useState({
+   Inter: false,
+   OpenSans: false,
+   Roboto: false
+ });
 
  const changeFont = (font) => {
    setSelectedFont(font);
@@ -25,50 +29,36 @@ const TypeButton = () => {
  useEffect(() => {
     loadFonts();
  }, []);
+
+ const handleButtonPress = (font) => {
+   setButtonStates((prevStates) => ({
+      ...prevStates,
+      [font]: !prevStates[font],
+   }));
+   setSelectedFont(font);
+ }
+
+ const renderButton = (font, label) => (
+   <TouchableWithoutFeedback
+   title={label}
+   onPress={() => handleButtonPress(font)}
+ >
+   <View style={[buttonStates[font] && styles.buttonPressed]}>
+   <View style={styles.button}>
+     <Text style={styles.letter}>aA</Text>
+     <Text style={styles.fontName}>{label}</Text>
+   </View>
+   </View>
+ </TouchableWithoutFeedback>
+ );
  
  return (
    <View style={styles.container}>
-      <TouchableWithoutFeedback
-      title="Inter" 
-      onPress={() => changeFont('Inter')}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-    >
-     <View style={[pressed && styles.buttonPressed]}>
-      <View style={styles.button}>
-        <Text style={styles.interLetter}>aA</Text>
-        <Text style={styles.inter}>Inter</Text>
-      </View>
-      </View>
-    </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
-      title="OpenSans" 
-      onPress={() => changeFont('OpenSans')}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-    >
-      <View style={[pressed && styles.buttonPressed]}>
-      <View style={styles.button}>
-        <Text style={styles.openLetter}>aA</Text>
-        <Text style={styles.open}>Open Sans</Text>
-      </View>
-      </View>
-    </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
-      title="Roboto" 
-      onPress={() => changeFont('Roboto')}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-    >
-      <View style={[pressed && styles.buttonPressed]}>
-      <View style={styles.button}>
-        <Text style={styles.robotoLetter}>aA</Text>
-        <Text style={styles.roboto}>Roboto</Text>
-      </View>
-      </View>
-    </TouchableWithoutFeedback>
-   <Text style={{ fontFamily: selectedFont }}>Hello, World</Text>
-   </View>
+   {renderButton('Inter', 'Inter')}
+   {renderButton('OpenSans', 'Open Sans')}
+   {renderButton('Roboto', 'Roboto')}
+   
+ </View>
 
  );
 };
@@ -82,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6164C3',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10
+    margin: 4,
  },
  seleted: {
    borderColor: 'red',
@@ -106,6 +96,16 @@ roboto: {
    fontWeight: 'medium',
    fontFamily: 'Roboto'
 },
+letter: {
+   color: '#FDFDFD',
+   fontSize: 40,
+   fontWeight: 'bold',
+},
+fontName: {
+   color: '#FDFDFD',
+   fontSize: 14,
+   fontWeight: 'medium',
+},
  interLetter: {
     color: '#FDFDFD',
     fontSize: 40,
@@ -126,9 +126,15 @@ robotoLetter: {
 },
 buttonPressed: {
    borderRadius: 17,
-   borderWidth: 4,
-   borderColor: '#88898C',
-}
+   borderWidth: 2,
+   borderColor: '#88898C'
+},
+container: {
+   display: 'flex',
+   flexDirection: 'row',
+   gap: 10
+},
+hello: {}
 });
 
 export default TypeButton;
