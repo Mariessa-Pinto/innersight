@@ -1,19 +1,17 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import { Image } from 'expo-image';
-import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
+import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt';
 
 
-
-export default function Start({ navigation }) {
+export default function Start() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
 
 
     return (
@@ -29,8 +27,9 @@ export default function Start({ navigation }) {
                         source={require('../atom/icons/logo_text.png')}
                         style={styles.wordmark}
                     />
-                    <ExtraLargeBtnLightTxt text="Get Started" 
-                        onPress={() => navigation.push('Demo')}
+                    <ExtraLargeBtnLightTxt 
+                        text="Get Started" 
+                        navigate="Demo"
                     />
                 </View>
             </View>
@@ -46,6 +45,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingBottom: 50
     },
     button: {
         borderRadius: 10,
