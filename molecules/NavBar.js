@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     iconButton: {
         height: '100%',
-        width: '100%',
+        width: 40,
         display: 'flex',
         justifyContent: 'center',
     },
@@ -68,8 +68,7 @@ const styles = StyleSheet.create({
         width: '100%',
         position: 'absolute',
         bottom: 0,
-        left: 0
-
+        left: 0,
     },
     iconView: {
         height: '100%',
@@ -79,7 +78,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-marginHorizontal: 50,
 
     },
     iconSubContainer: {
@@ -90,11 +88,22 @@ marginHorizontal: 50,
         width: '50%',
         alignItems: 'center',
     },
+    container1:{
 
+        paddingRight: 25
+    },
+    container2:{
+
+        paddingLeft: 25
+    },
     addButtonContainer: {
         width: '20%',
+        height: 65,
         display: 'flex',
         alignItems: 'center',
+        position: 'absolute',
+        left: '40%',
+        bottom: '45%'
     },
     navView: {
         height: '100%',
