@@ -16,6 +16,7 @@ export default function About({navigation}) {
             <Text style={[globalStyles.text, { color: theme.color }]}>About Page</Text>
             <StatusBar style="auto" />
             <Button title="Go Back" onPress={() => navigation.goBack()}/>
+            <NavBar navigation={navigation} />
         </View>
     );
 }
