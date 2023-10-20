@@ -4,6 +4,7 @@ import {  useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
 
+
 import globalStyles from '../styles/global'
 
 export default function About({navigation}) {
