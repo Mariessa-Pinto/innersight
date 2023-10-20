@@ -5,15 +5,21 @@ import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import SignUpForm from '../molecules/SignUpForm/SignUpForm';
+import { useNavigation } from '@react-navigation/native';
 
 
 
-export default function SignUp({ navigation }) {
+export default function SignUp() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    const navigation = useNavigation();
+
+    const navigateTo = () => {
+        navigation.navigate('Login');
+    };
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
@@ -27,7 +33,7 @@ export default function SignUp({ navigation }) {
                     text="Sign Up" 
                     navigate="ChooseMascot"
                 />
-                <Text style={styles.account}>Already have an account?<Text style={styles.signIn}> Sign in.</Text></Text>
+                <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
             </View>
         </View>
     );
