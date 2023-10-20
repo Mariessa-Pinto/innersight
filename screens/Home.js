@@ -5,10 +5,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
         TouchableOpacity } from 'react-native';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+import fontContext from '../theme/fontContext';
+import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
 import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
+import TopNav from '../molecules/Navigation/TopNav';
 
 export default function Home({ navigation }) {
 
@@ -16,11 +18,14 @@ export default function Home({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    //Font Size
+    const fontTheme = useContext(fontContext)
+
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
                 <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Good morning, Name!</Text>
-
+<Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize}]}>Example text</Text>
                 <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                     <View style={styles.journalHeader}>
                         <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>

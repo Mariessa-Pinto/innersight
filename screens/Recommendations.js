@@ -2,7 +2,7 @@ import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Image } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 
 export default function Recommendations({navigation}) {
 

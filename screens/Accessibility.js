@@ -2,7 +2,7 @@ import globalStyles from '../styles/global'
 import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import Slider from "@react-native-community/slider";
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 
 import { EventRegister } from 'react-native-event-listeners'
 import themeContext from '../theme/themeContext';

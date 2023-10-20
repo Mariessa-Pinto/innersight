@@ -1,18 +1,19 @@
 
-import { StyleSheet, Button, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import * as React from 'react';
-import HomeIcon from '../atom/icons/HomeIcon'
-import StatsIcon from '../atom/icons/StatsIcon';
-import NavBarContainer from '../atom/icons/NavBarContainer';
-import ProfileIcon from '../atom/icons/ProfileIcon';
-import AddButton from '../atom/icons/AddButton';
-import JournalIcon from '../atom/icons/JournalIcon';
-import globalStyles from '../styles/global'
+import HomeIcon from '../../atom/icons/HomeIcon'
+import StatsIcon from '../../atom/icons/StatsIcon';
+import NavBarContainer from '../../atom/icons/NavBarContainer';
+import ProfileIcon from '../../atom/icons/ProfileIcon';
+import JournalIcon from '../../atom/icons/JournalIcon';
 
 import { useContext } from 'react';
-import themeContext from '../theme/themeContext';
+import themeContext from '../../theme/themeContext';
 
-
+/*When importing the nav bar in other pages, it should be inserted as
+* a component like "<NavBar navigation={navigation} />" which
+* utilizes the navigation prop
+*/
 
 export default function NavBar({ navigation }) {
 
@@ -32,7 +33,7 @@ export default function NavBar({ navigation }) {
                 </View>
                 <View style={styles.addButtonContainer}>
                     <TouchableOpacity style={styles.addButton} onPress={() => navigation.push('NewJournal')}>
-                        <Image source={require('../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                        <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.iconSubContainer, styles.container2]} >
