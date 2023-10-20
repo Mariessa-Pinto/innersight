@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const DateToggle = () => {
+  const navigation = useNavigation();
   const [selectedValue, setSelectedValue] = useState('Week');
 
   const handleToggle = (value) => {
     setSelectedValue(value);
+    navigateToStats(value);
   };
+
+  const navigateToStats = (value) => {
+    switch (value) {
+      case 'Week':
+        navigation.navigate('Stats'); // Navigate to WeekStats component
+        break;
+      case 'Month':
+        navigation.navigate('MonthStats'); // Navigate to MonthStats component
+        break;
+      case 'Year':
+        navigation.navigate('YearStats'); // Navigate to YearStats component
+        break;
+      default:
+        break;
+    }
+  };
+
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.btn, selectedValue === 'Week' && styles.selectedBtn]}
         onPress={() => handleToggle('Week')}
+       
       >
         <Text style={selectedValue === 'Week' && styles.selectedText}>Week</Text>
       </TouchableOpacity>
