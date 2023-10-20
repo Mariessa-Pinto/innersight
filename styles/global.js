@@ -11,6 +11,7 @@ export default StyleSheet.create({
         backgroundColor: '#FDFDFD',
         elevation: 3,
         position: 'absolute',
+        bottom: 0
     },
     
     h1TextBold:{
@@ -59,7 +60,6 @@ export default StyleSheet.create({
     },
     bodyCopy:{
         fontFamily: 'Lexend-Regular',
-        fontSize: 14,
     },
     labelText:{
         fontFamily: 'Lexend-Regular',
