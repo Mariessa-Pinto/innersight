@@ -3,6 +3,9 @@ const theme = {
         theme: 'light',
         color: 'black',
         background: 'white',
+        backgroundPurple: '#D5D7FF',
+        backgroundLavender: '#F2F2FD',
+        borderColor:'#C5C7F7',
     },
     dark: {
         theme: 'dark',

@@ -3,8 +3,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
+//Fonts
+import { useFonts } from 'expo-font';
 
 //Reusable Themes
 import theme from './theme/theme';
@@ -32,7 +34,12 @@ import Demo from './screens/Demo';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import PersonalInformation from './screens/PersonalInformation';
+<<<<<<< HEAD
 import WriteEntry from './screens/WriteEntry';
+=======
+import SignUp from './screens/SignUp';
+import ChooseMascot from './screens/ChooseMascot';
+>>>>>>> aeabf242c4cace2452ad3c05d9b461d74ecf5944
 
 
 export default function App() {
@@ -57,6 +64,10 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
 
+  const [fontsLoaded] = useFonts({
+    'Lexend-Regular': require('./atom/assets/Fonts/Lexend-Regular.ttf'),
+  });
+
   return (
 
     <SafeAreaView style={{ flex: 1 }}>
@@ -75,6 +86,8 @@ export default function App() {
           >
             <Stack.Screen name="Start" component={Start} />
             <Stack.Screen name="About" component={About} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
             <Stack.Screen name="CreateEntry" component={CreateEntry} />

@@ -1,22 +1,20 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+import {View, StyleSheet, TextInput} from 'react-native';
 
 
-const NormalInput = () => {
+const NormalInput = (props) => {
   const [text, onChangeText] = React.useState('');
   
-
   return (
-    <SafeAreaView>
+    <View style={styles.container}>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
         value={text}
-        placeholder="Text"
+        placeholder={props.placeholder}
         keyboardType="text"
       />
-    
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -30,8 +28,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     backgroundColor: "#FDFDFD",
-    color: "#88898C"
+    color: "#000"
   },
+  container: {
+    backgroundColor: '#00000000'
+  }
 });
 
 export default NormalInput;
