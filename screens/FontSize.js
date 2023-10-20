@@ -13,13 +13,13 @@ export default function Settings() {
     const theme = useContext(themeContext)
 
     //Font Size
-    const [fontSize, setFontSize] = useState(16)
+    const [fontSize, setFontSize] = useState(14)
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <View style={{ padding: 0, marginTop: 50 }}>
-                <Text style={[styles.text, { fontSize: fontTheme.fontSize }]}>Font Size</Text>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+        <View style={globalStyles.contentContainer}>
+            <Text style={[globalStyles.h3Text, styles.header]}>Font Size</Text>
                 <Slider
                     style={{ width: 300 }}
                     minimumValue={0}
@@ -31,11 +31,17 @@ export default function Settings() {
                         EventRegister.emit('ChangeTheme', value)
                     }}
                 />
-                <Text>Test Font Size: {16 * `1.${fontSize}`}</Text>
+                <Text style={[styles.text, { fontSize: fontTheme.fontSize }]}>
+                This is an example of how large your font size will be. {14 * `1.${fontSize}`}
+                </Text>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    header:{
+        textAlign: 'center'
+    }
 })
+

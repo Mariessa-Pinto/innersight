@@ -2,24 +2,59 @@ import globalStyles from '../styles/global'
 
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
+        TouchableOpacity } from 'react-native';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
-import LightModeBkground from '../atom/Background/LightModeBkground';
+import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
+import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
+import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
 
 export default function Home({ navigation }) {
 
     //Dark/Light Mode
+    const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <ScrollView style={globalStyles.contentContainer}>
+                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Good morning, Name!</Text>
 
-            <LightModeBkground />
-            <Text style={[styles.text, { color: theme.color }]}>Welcome to the Home Page</Text>
+                <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
+                    <View style={styles.journalHeader}>
+                        <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
+                        <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                    </View>
+                    <View style={styles.journalWriting}>
+                        <TextInput style={[styles.quickJournal, { backgroundColor: theme.background }]}
+                            multiline
+                            numberOfLines={6}
+                        />
+                    </View>
+                    <TouchableOpacity style={styles.saveBtn} >
+                        <Image source={require('../atom/Buttons/CheckMark.png')} />
+                    </TouchableOpacity>
 
-            <StatusBar style="auto" />
-            <View >
+                </View>
+
+                <View style={styles.overviewContainer}>
+                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Your Week So Far</Text>
+                    <View style={styles.boosterContainers}>
+                        <MoodBoosters />
+                        <MoodDowners />
+                    </View>
+                </View>
+
+                <View style={styles.tipsContainer}>
+                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
+                    <View style={styles.recBtnContainer}>
+                        <RecommendationButtons />
+                        <RecommendationButtons />
+                        <RecommendationButtons />
+                    </View>
+
+                </View>
                 <Button
                     className="button"
                     title="Go to about page"
@@ -50,19 +85,56 @@ export default function Home({ navigation }) {
                     title="Go to Personal Information"
                     onPress={() => navigation.push('PersonalInformation')}
                 />
-
+            </ScrollView>
+            <View style={globalStyles.navContainer}>
+                <NavBar navigation={navigation} />
             </View>
 
-            <NavBar navigation={navigation} />
         </View>
 
     );
 }
 
 const styles = StyleSheet.create({
+    journalContainer: {
+        height: 176,
+        width: '100%',
+        borderRadius: 15,
+        padding: 16
+    },
+    quickJournal: {
+        borderRadius: 5
+    },
     button: {
         height: 50,
         width: '100%'
+    },
+    refreshBtn: {
+        objectFit: 'contain',
+    },
+    journalHeader: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    boosterContainers: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 16,
+    },
+    recBtnContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 10,
+    },
+    saveBtn: {
+        position: 'absolute',
+        bottom: 5,
+        right: 10
+
     }
+
 })
 
