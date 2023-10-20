@@ -3,8 +3,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
+//Fonts
+import { useFonts } from 'expo-font';
 
 //Reusable Themes
 import theme from './theme/theme';
@@ -54,40 +56,44 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
 
+  const [fontsLoaded] = useFonts({
+    'Lexend-Regular': require('./atom/assets/Fonts/Lexend-Regular.ttf'),
+  });
+
   return (
 
     <SafeAreaView style={{ flex: 1 }}>
       <themeContext.Provider value={darkMode === true ? theme.dark : theme.light}>
-        <FontContext.Provider value={fontSize === 0 ? theme.extraSmall : 
-            (fontSize === 1 ? theme.small : 
-            (fontSize === 2 ? theme.default : 
-            (fontSize === 3 ? theme.large : 
-            (fontSize === 4 ? theme.extraLarge : ""))))}>
-        <NavigationContainer theme={darkMode === true? DarkTheme : DefaultTheme}>
-          <Stack.Navigator initialRouteName='Start'
-  screenOptions={{
-    headerShown: false
-  }}
-  
-          >
-            <Stack.Screen name="Start" component={Start} />
-            <Stack.Screen name="About" component={About} />
-            <Stack.Screen name="NewJournal" component={NewJournal} />
-            <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
-            <Stack.Screen name="CreateEntry" component={CreateEntry} />
-            <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
-            <Stack.Screen name="Stats" component={Stats} />
-            <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
-            <Stack.Screen name="Recommendations" component={Recommendations} />
-            <Stack.Screen name="Accessibility" component={Accessibility} />
-            <Stack.Screen name="Font Size" component={FontSize} />
-            <Stack.Screen name="Demo" component={Demo} />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <FontContext.Provider value={fontSize === 0 ? theme.extraSmall :
+          (fontSize === 1 ? theme.small :
+            (fontSize === 2 ? theme.default :
+              (fontSize === 3 ? theme.large :
+                (fontSize === 4 ? theme.extraLarge : ""))))}>
+          <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}>
+            <Stack.Navigator initialRouteName='Start'
+              screenOptions={{
+                headerShown: false
+              }}
+
+            >
+              <Stack.Screen name="Start" component={Start} />
+              <Stack.Screen name="About" component={About} />
+              <Stack.Screen name="NewJournal" component={NewJournal} />
+              <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+              <Stack.Screen name="CreateEntry" component={CreateEntry} />
+              <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
+              <Stack.Screen name="Stats" component={Stats} />
+              <Stack.Screen name="Profile" component={Profile} />
+              <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
+              <Stack.Screen name="Recommendations" component={Recommendations} />
+              <Stack.Screen name="Accessibility" component={Accessibility} />
+              <Stack.Screen name="Font Size" component={FontSize} />
+              <Stack.Screen name="Demo" component={Demo} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
+            </Stack.Navigator>
+          </NavigationContainer>
         </FontContext.Provider>
       </themeContext.Provider>
     </SafeAreaView>
