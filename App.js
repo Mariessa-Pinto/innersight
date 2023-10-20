@@ -32,14 +32,8 @@ import Accessibility from './screens/Accessibility';
 import FontSize from './screens/FontSize';
 import Demo from './screens/Demo';
 import Login from './screens/Login';
-import Home from './screens/Home';
-import PersonalInformation from './screens/PersonalInformation';
-<<<<<<< HEAD
-import WriteEntry from './screens/WriteEntry';
-=======
-import SignUp from './screens/SignUp';
 import ChooseMascot from './screens/ChooseMascot';
->>>>>>> aeabf242c4cace2452ad3c05d9b461d74ecf5944
+
 
 
 export default function App() {
