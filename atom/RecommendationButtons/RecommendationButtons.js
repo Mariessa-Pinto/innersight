@@ -1,46 +1,118 @@
-import * as React from 'react';
-import globalStyles from '../../styles/global';
-import { TouchableOpacity } from 'react-native';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { useState, useContext } from 'react';
-import themeContext from "../../theme/themeContext";
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { Image } from 'expo-image'
 
 
-export default function RecommendationButtons() {
-  //Dark/Light Mode
-  const [darkMode, setDarkMode] = useState(false)
-  const theme = useContext(themeContext)
+const RecommendationButton = () => {
+  const [pressedSleeping, setPressedSleeping] = useState(false);
+  const [pressedSelfCare, setPressedSelfCare] = useState(false);
+  const [pressedExercise, setPressedExercise] = useState(false);
 
   return (
-    <TouchableOpacity
-      onPress={() => console.log('Pressed')}
-      style={[styles.btnContainer, 
-        { backgroundColor: theme.backgroundLavender,
-          borderColor: theme.borderColor,
-          borderWidth: 1, }]}
-    >
-      <View>
-        <Text style={[globalStyles.labelText, styles.labelText, 
-          { color: theme.color}]}>
-          Sleeping Early
-        </Text>
-      </View>
-    </TouchableOpacity>
-  )
 
-}
+    <View style={styles.container}>
+    <TouchableWithoutFeedback
+      onPress={() => console.log('Pressed Sleeping')}
+      onPressIn={() => setPressedSleeping(true)}
+      onPressOut={() => setPressedSleeping(false)}
+    >
+      <View style={[styles.button, pressedSleeping && styles.buttonPressed]}>
+        <View style={styles.img}>
+      <Image
+                source={require('../icons/SleepingLightM.png')}
+                style={styles.sleeping}
+            />
+            </View>
+        <Text style={styles.text}>Sleeping{'\n'} Early</Text>
+       <Image />
+      </View>
+    </TouchableWithoutFeedback>
+     <TouchableWithoutFeedback
+      onPress={() => console.log('Pressed Self Care')}
+      onPressIn={() => setPressedSelfCare(true)}
+      onPressOut={() => setPressedSelfCare(false)}
+   >
+     <View style={[styles.button, pressedSelfCare && styles.buttonPressed]}>
+       <View style={styles.img}>
+     <Image
+               source={require('../icons/SelfCareLightM.png')}
+               style={styles.self}
+           />
+           </View>
+           <View style={styles.txt}>
+       <Text style={styles.text}>Practice Self Care</Text>
+       </View>
+      <Image />
+     </View>
+   </TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+    onPress={() => console.log('Pressed Exercise')}
+    onPressIn={() => setPressedExercise(true)}
+    onPressOut={() => setPressedExercise(false)}
+  >
+    <View style={[styles.button, pressedExercise && styles.buttonPressed]}>
+      <View style={styles.img}>
+    <Image
+              source={require('../icons/ExerciseLightM.png')}
+              style={styles.exercise}
+          />
+          </View>
+      <Text style={styles.text}>Exercise</Text>
+     <Image />
+    </View>
+  </TouchableWithoutFeedback>
+  </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  btnContainer: {
-    height: 154,
-    flex: 1,
-    borderRadius: 10,
-    padding: 10,
-    elevation: 3,
-
+  container: {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: 20,
+      justifyContent: 'center',
+      marginTop: 10
   },
-  labelText:{
-    textAlign: 'center'
-  }
-
+  button: {
+    width: 100,
+    height: 154,
+    borderRadius: 10,
+    backgroundColor: '#F2F2FD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+    borderColor: '#C5C7F7',
+    borderWidth: 1
+  },
+  buttonPressed: {
+    backgroundColor: '#D5D7FF', // Change the color when pressed
+  },
+  text: {
+    color: '#3E3F42',
+    fontSize: 13,
+  },
+  txt: {
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  sleeping: {
+    height: 83,
+    width: 90,
+},
+self: {
+  height: 70,
+  width: 90,
+},
+exercise: {
+  height: 100,
+  width: 78,
+},
+img: {
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: 10
+}
 });
+
+export default RecommendationButton;
