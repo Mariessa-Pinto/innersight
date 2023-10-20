@@ -21,6 +21,8 @@ import JournalsEntries from './screens/JournalsEntries';
 import CreateEntry from './screens/CreateEntry';
 import CustomizeEntry from './screens/CustomizeEntry';
 import Stats from './screens/Stats';
+import MonthStats from './screens/MonthStats';
+import YearStats from './screens/YearStats';
 import Profile from './screens/Profile';
 import CrisisSupport from './screens/CrisisSupport';
 import Recommendations from './screens/Recommendations';
@@ -30,6 +32,7 @@ import Demo from './screens/Demo';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import PersonalInformation from './screens/PersonalInformation';
+import WriteEntry from './screens/WriteEntry';
 
 
 export default function App() {
@@ -77,6 +80,8 @@ export default function App() {
             <Stack.Screen name="CreateEntry" component={CreateEntry} />
             <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
             <Stack.Screen name="Stats" component={Stats} />
+            <Stack.Screen name="MonthStats" component={MonthStats} />
+            <Stack.Screen name="YearStats" component={YearStats} />  
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
             <Stack.Screen name="Recommendations" component={Recommendations} />
@@ -85,6 +90,7 @@ export default function App() {
             <Stack.Screen name="Demo" component={Demo} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="WriteEntry" component={WriteEntry} />
             <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
           </Stack.Navigator>
         </NavigationContainer>
