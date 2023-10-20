@@ -2,7 +2,7 @@ import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Image} from 'react-native';
 import { useState, useContext, useE } from 'react';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 import DateToggle from '../atom/WordToggle/DateToggle';
 import 'react-native-gesture-handler';
 
@@ -62,7 +62,7 @@ export default function Stats({ navigation }) {
             </View>
 
          </ScrollView>
-         <NavBar/>
+         <NavBar navigation={navigation}/>
 
         </View>
     );

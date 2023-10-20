@@ -7,7 +7,7 @@ import CrisisInfo from '../atom/CrisisButtons/CrisisInfo';
 import CrisisOrganizations from '../atom/CrisisButtons/CrisisOrganizations';
 import CrisisPublications from '../atom/CrisisButtons/CrisisPublications';
 import { ScrollView } from 'react-native-gesture-handler';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 
 
 

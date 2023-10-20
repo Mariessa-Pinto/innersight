@@ -3,7 +3,7 @@ import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable } from 'r
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import Login from './Login';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 
 export default function Profile({ navigation }) {
 
@@ -78,7 +78,7 @@ export default function Profile({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar />
+            <NavBar navigation={navigation}/>
 
         </View>
 
