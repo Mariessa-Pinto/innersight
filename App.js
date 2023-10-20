@@ -34,9 +34,7 @@ import Demo from './screens/Demo';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import PersonalInformation from './screens/PersonalInformation';
-<<<<<<< HEAD
 import WriteEntry from './screens/WriteEntry';
-=======
 import SignUp from './screens/SignUp';
 import ChooseMascot from './screens/ChooseMascot';
 
