@@ -2,7 +2,7 @@ import globalStyles from '../styles/global'
 import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 import MultiText from '../atom/MultilineText/MultiText';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 

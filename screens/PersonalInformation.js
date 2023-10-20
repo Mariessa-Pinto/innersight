@@ -3,7 +3,7 @@ import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable, TextInpu
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import SmallBtn from '../atom/Buttons/SmallBtnLightTxt';
-import NavBar from '../molecules/NavBar';
+import NavBar from '../molecules/Navigation/NavBar';
 
 
 

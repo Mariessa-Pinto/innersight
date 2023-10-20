@@ -90,18 +90,17 @@ export default function Home({ navigation }) {
                     title="Go to Personal Information"
                     onPress={() => navigation.push('PersonalInformation')}
                 />
-<<<<<<< HEAD
+
                    <Button
                     title="Go to write entry"
                     onPress={() => navigation.push('WriteEntry')}
                 />
               
 
-=======
+
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
->>>>>>> aeabf242c4cace2452ad3c05d9b461d74ecf5944
             </View>
 
         </View>
