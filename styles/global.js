@@ -11,9 +11,6 @@ export default StyleSheet.create({
         backgroundColor: '#FDFDFD',
         elevation: 3,
         position: 'absolute',
-        bottom: 0,
-        flex: 1,
-        alignItems: 'center'
     },
     
     h1TextBold:{
@@ -108,7 +105,6 @@ export default StyleSheet.create({
         position: 'absolute',
         bottom: 0,
     },
-
     slider: {
         width: 100,
         height: 50,

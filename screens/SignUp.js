@@ -4,11 +4,12 @@ import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
-import LoginForm from '../molecules/LoginForm/LoginForm';
+import SignUpForm from '../molecules/SignUpForm/SignUpForm';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function Login() {
+
+export default function SignUp() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -17,7 +18,7 @@ export default function Login() {
     const navigation = useNavigation();
 
     const navigateTo = () => {
-        navigation.navigate('SignUp');
+        navigation.navigate('Login');
     };
 
     return (
@@ -25,16 +26,14 @@ export default function Login() {
             <StatusBar style="auto" />
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Log In</Text>
-                    <Text>Please log in to your account to continue.</Text>
+                    <Text style={styles.title}>Sign Up</Text>
                 </View>
-                <LoginForm/>
+                <SignUpForm/>
                 <ExtraLargeBtnLightTxt 
-                    text="Login" 
-                    navigate="Home"
+                    text="Sign Up" 
+                    navigate="ChooseMascot"
                 />
-                <Text style={styles.password}>Forgot Your Password?</Text>
-                <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
+                <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
             </View>
         </View>
     );
@@ -58,13 +57,9 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: 'flex-start',
         width: 280,
-        paddingTop: 150,
-        gap: 10
+        paddingTop: 70
     },
     account: {
-        paddingTop: 20
-    },
-    password: {
         paddingTop: 50
     }
 })
