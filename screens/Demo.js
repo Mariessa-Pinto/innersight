@@ -19,7 +19,7 @@ export default function Demo({ navigation } ) {
     // const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 50 }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
             <StatusBar style="auto" />
             <View style={styles.animation}>
                 <DemoAnimation/>
@@ -33,7 +33,7 @@ export default function Demo({ navigation } ) {
                 <ProgressDots currentIndex={0} totalDemos={3}/>
                 <ExtraLargeBtnLightTxt 
                     text="Create an Account" 
-                    navigate="Login"
+                    navigate="SignUp"
                 />
             </View>
         </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         height: 128,
         width: 128,
         position: 'absolute',
-        left: 0,
+        left: 10,
         bottom: 195
     },
     animation: {
