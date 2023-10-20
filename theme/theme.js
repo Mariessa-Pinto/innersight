@@ -5,6 +5,7 @@ const theme = {
         background: 'white',
         backgroundPurple: '#D5D7FF',
         backgroundLavender: '#F2F2FD',
+        backgroundGrey: '#DDDDDD',
         borderColor:'#C5C7F7',
     },
     dark: {
@@ -13,19 +14,19 @@ const theme = {
         background: 'black',
     },
     extraSmall:{
-        fontSize: 12
+        fontSize: 14,
     },
     small:{
-        fontSize: 14
+        fontSize: 15
     },
     default:{
         fontSize: 16
     },
     large:{
-        fontSize: 18
+        fontSize: 17
     },
     extraLarge:{
-        fontSize: 20
+        fontSize: 18
     }
 }
 

@@ -38,9 +38,6 @@ npm install @react-navigation/native-stack
 - [React Native Image](https://www.npmjs.com/package/react-image)
 - [Font Support](https://www.npmjs.com/package/react-native-asset)
 
-
-
-
 ## Instructions
 
 ### Style Sheets
@@ -84,7 +81,7 @@ style={[styles.text, { color: theme.color }]}
 1. Import 
 ```
     import { useContext } from 'react';
-    import themeContext from '../theme/fontContext';
+    import fontContext from '../theme/fontContext';
 ```
 2. Add variables
 ```
@@ -95,4 +92,9 @@ style={[styles.text, { color: theme.color }]}
 - No need to add style to View containers because it's only adjusting text size
 ```
 style={[styles.text, { fontSize: fontTheme.fontSize }]}
+```
+## Font Size Body Copy
+How to apply variable font styling/size to body copy. Use the following Text styles for all Body Copy text:
+```
+<Text style={[globalStyles.bodyCopy, { fontSize: fontTheme.fontSize}]}></Text>
 ```
