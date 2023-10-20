@@ -1,26 +1,27 @@
 import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Image} from 'react-native';
-import { useState, useContext, useE } from 'react';
+import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/NavBar';
 import DateToggle from '../atom/WordToggle/DateToggle';
 import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 
+export default function YearStats({ navigation }) {
 
-export default function Stats({ navigation }) {
-    const [darkMode, setDarkMode] = useState(false);
-    const theme = useContext(themeContext);
+    //Dark/Light Mode
+    const [darkMode, setDarkMode] = useState(false)
+    const theme = useContext(themeContext)
 
-
-      
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
             <ScrollView>
             <View style={styles.maincontent}>
-                <Text style={styles.header}>Your Week in Review</Text>
+                <Text style={styles.header}>Your Year in Review</Text>
                 <DateToggle/>
                 <Image 
                 source={require('../atom/assets/graph.png')}
@@ -67,7 +68,6 @@ export default function Stats({ navigation }) {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     maincontent: {
         display: 'flex',
