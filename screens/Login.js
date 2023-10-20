@@ -20,6 +20,10 @@ export default function Login() {
         navigation.navigate('SignUp');
     };
 
+    const navigateToForgot = () => {
+        navigation.navigate('ForgotPassword');
+    };
+
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <StatusBar style="auto" />
@@ -33,7 +37,7 @@ export default function Login() {
                     text="Login" 
                     navigate="Home"
                 />
-                <Text style={styles.password}>Forgot Your Password?</Text>
+                <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
                 <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
             </View>
         </View>
