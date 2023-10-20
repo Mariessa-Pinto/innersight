@@ -30,6 +30,8 @@ import Demo from './screens/Demo';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import PersonalInformation from './screens/PersonalInformation';
+import SignUp from './screens/SignUp';
+import ChooseMascot from './screens/ChooseMascot';
 
 
 export default function App() {
@@ -72,6 +74,8 @@ export default function App() {
           >
             <Stack.Screen name="Start" component={Start} />
             <Stack.Screen name="About" component={About} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
             <Stack.Screen name="CreateEntry" component={CreateEntry} />

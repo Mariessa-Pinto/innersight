@@ -13,13 +13,11 @@ export default StyleSheet.create({
         elevation: 3,
         position: 'absolute',
         flex:1,
-        marginTop: 20,
+        marginTop: 10,
         paddingHorizontal: 10,
         paddingVertical: 30,
         paddingBottom: 100
     },
-
-
     slider: {
         width: 100,
         height: 50,
