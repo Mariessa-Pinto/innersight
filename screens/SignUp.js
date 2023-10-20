@@ -19,7 +19,7 @@ export default function SignUp({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <StatusBar style="auto" />
             <View style={styles.container}>
-                <View>
+                <View style={styles.titleContainer}>
                     <Text style={styles.title}>Sign Up</Text>
                 </View>
                 <SignUpForm/>
@@ -46,5 +46,14 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: '700',
         textAlign: 'left'
+    },
+    titleContainer: {
+        display: "flex",
+        alignItems: 'flex-start',
+        width: 280,
+        paddingTop: 70
+    },
+    account: {
+        paddingTop: 50
     }
 })
