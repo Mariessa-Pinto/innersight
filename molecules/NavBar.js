@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 0,
         left: 0,
-        height: 55,
+        height: 65,
     },
     iconButton: {
         height: '100%',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         position: 'absolute',
-        left: '40%',
+        left: '40.5%',
         bottom: '45%'
     },
     navView: {
