@@ -4,6 +4,7 @@ import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
+import ChooseMascotMol from '../molecules/ChooseMascotMol/ChooseMascotMol';
 
 
 
@@ -13,17 +14,36 @@ export default function ChooseMascot({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    const [clicked, setClicked] = useState(false);
+
+    //Add functionality to click and have the orange background appear around the users pick of mascot
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <StatusBar style="auto" />
-            <ExtraLargeBtnLightTxt 
-                    text="Continue" 
-                    navigate="Home"
-                />
+            <View style={styles.title}>
+                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Choose a friend to accompany your journey</Text>
+            </View>
+            <ChooseMascotMol/>
+            <View style={styles.button}>
+                <ExtraLargeBtnLightTxt 
+                        text="Continue" 
+                        navigate="Home"
+                    />
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    title: {
+        paddingLeft: 25,
+        paddingTop: 40,
+        paddingRight: 25
+    },
+    button: {
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: 10
+    }
 })
