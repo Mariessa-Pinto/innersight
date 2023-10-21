@@ -1,9 +1,10 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, Image, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import MultiText from '../atom/MultilineText/MultiText';
+import Tag from '../atom/Tag/Tag';
+
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 
 
@@ -25,12 +26,24 @@ export default function WriteEntry({ navigation }) {
                 <View style={styles.prompt}>
                     <Text style={styles.label}>Pick a prompt</Text>
                     <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balanced life?</Text>
-
+                    <View style={styles.button}>
+                    <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                    </View>
                 </View>
-                <MultiText style={styles.button}/>
+                <TextInput 
+                  style={styles.input}
+                  placeholder="Start your entry here"
+                  autoFocus={true}
+                  autoCapitalize="words"
+                  autoCorrect={true}
+                  keyboardType="default"
+                />
+         
           </View>
           <View style={styles.content2}>
-            <MediumBtnLightTxt/>
+            <MediumBtnLightTxt
+              text="View Ai Insights"
+              />
 
           </View>
                 
@@ -49,7 +62,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         gap: 10,
-        padding: 3
+        padding: 30
     },
     headers: {
         fontSize: 28,
@@ -78,5 +91,17 @@ const styles = StyleSheet.create({
      alignItems: 'center'
         
       
+    },
+    button: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0
+    },
+    input: {
+        height: 200,
+        width: 325,
+        borderColor: 'black'
+    
+
     }
 })
