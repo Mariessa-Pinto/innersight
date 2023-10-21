@@ -2,19 +2,19 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput, Text} from 'react-native';
 
 
-const TitleInput = () => {
+const TitleInput = (props) => {
   const [text, onChangeText] = React.useState('');
   
 
   return (
     <SafeAreaView>
-        <Text style={styles.titleTxt}>Title</Text>
+        <Text style={styles.titleTxt}>{props.title}</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
-        value={text}
-        placeholder="Text"
-        keyboardType="numeric"
+        value={props.value}
+        placeholder={props.text}
+        keyboardType="default"
       />
     
     </SafeAreaView>
@@ -24,14 +24,17 @@ const TitleInput = () => {
 const styles = StyleSheet.create({
   input: {
     height: 35,
-    width: 281,
-    margin: 12,
+    width: 328,
+    marginTop: 5,
+    marginBottom: 12,
+    marginLeft: 12,
+    marginRight: 12,
     borderWidth: 1,
     borderColor: '#88898C',
     borderRadius: 10,
     padding: 10,
     backgroundColor: "#FDFDFD",
-    color: "#88898C"
+    color: "#000"
   },
   titleTxt: {
     color: '#292929',
