@@ -4,41 +4,28 @@ import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
-import LoginForm from '../molecules/LoginForm/LoginForm';
-import { useNavigation } from '@react-navigation/native';
+import SetPasswordForm from '../molecules/SetPasswordForm/SetPasswordForm';
 
 
-export default function Login() {
+export default function ResetPassword() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
-    const navigation = useNavigation();
-
-    const navigateTo = () => {
-        navigation.navigate('SignUp');
-    };
-
-    const navigateToForgot = () => {
-        navigation.navigate('ForgotPassword');
-    };
-
+ 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <StatusBar style="auto" />
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Log In</Text>
-                    <Text>Please log in to your account to continue.</Text>
+                    <Text style={[globalStyles.h1TextBold]}>Set Your Password</Text>
+                    <Text>Please input your new password below.</Text>
                 </View>
-                <LoginForm/>
+                <SetPasswordForm/>
                 <ExtraLargeBtnLightTxt 
-                    text="Login" 
-                    navigate="Home"
+                    text="Reset Password" 
+                    navigate="EmailSent"
                 />
-                <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
-                <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
             </View>
         </View>
     );
@@ -63,12 +50,5 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         width: 280,
         paddingTop: 150,
-        gap: 10
     },
-    account: {
-        paddingTop: 20
-    },
-    password: {
-        paddingTop: 50
-    }
 })

@@ -1,44 +1,37 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
-import LoginForm from '../molecules/LoginForm/LoginForm';
-import { useNavigation } from '@react-navigation/native';
+import ExtraLargeBtnDarkTxt from '../atom/Buttons/ExtraLargeBtnDarkTxt';
+import { Image } from 'expo-image';
 
 
-export default function Login() {
+export default function LandingPage() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
-    const navigation = useNavigation();
-
-    const navigateTo = () => {
-        navigation.navigate('SignUp');
-    };
-
-    const navigateToForgot = () => {
-        navigation.navigate('ForgotPassword');
-    };
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <StatusBar style="auto" />
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Log In</Text>
-                    <Text>Please log in to your account to continue.</Text>
+                    <Image 
+                        source={require('../atom/Logo/LogoWordmarkHorizontal.png')}
+                        style={styles.logo}
+                    />
                 </View>
-                <LoginForm/>
                 <ExtraLargeBtnLightTxt 
-                    text="Login" 
-                    navigate="Home"
+                    text="Log In" 
+                    navigate="Login"
                 />
-                <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
-                <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
+                <ExtraLargeBtnDarkTxt 
+                    text="Sign Up" 
+                    navigate="SignUp"
+                />
             </View>
         </View>
     );
@@ -49,6 +42,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        gap: 35,
+        paddingBottom: 40
     },
     signIn: {
         fontWeight: '700',
@@ -63,12 +58,10 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         width: 280,
         paddingTop: 150,
-        gap: 10
+        gap: 10,
     },
-    account: {
-        paddingTop: 20
-    },
-    password: {
-        paddingTop: 50
+    logo: {
+        height: 117,
+        width: 280
     }
 })
