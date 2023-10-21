@@ -7,25 +7,34 @@ import themeContext from '../../theme/themeContext';
 import BackBtn from '../../atom/BackButton/BackBtn'
 
 
-export default function TopNav({ navigation }) {
+export default function TopNav({
+    navigation,
+    headerText 
+}) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-return(
-    <View style={styles.container}>
-        <BackBtn/>
-    </View>
-)
+    return (
+        <View style={styles.container}>
+
+            <Text style={[globalStyles.h3Text, styles.header]}>{headerText}</Text>
+            <BackBtn style={styles.backBtn}
+            navigation={navigation} />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
+    header: {
+        textAlign: 'center',
+        flex: 1,
+
+    },
     container: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        height: 50,
-        width: 'auto',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 })
