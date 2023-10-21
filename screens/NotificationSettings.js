@@ -17,13 +17,15 @@ export default function NotificationSettings({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
-            <Header title='Notifications' navigate='Profile'/>
-            <Notifications/>
-            <View style={styles.button}>
-                <MediumBtnLightTxt 
-                    text='Save Changes'
-                    navigate=''
-                />
+            <View style={styles.container}>
+                <Header title='Notifications' navigate='Profile'/>
+                <Notifications/>
+                <View style={styles.button}>
+                    <MediumBtnLightTxt 
+                        text='Save Changes'
+                        navigate=''
+                    />
+                </View>
             </View>
             <NavBar navigation={navigation}/>
         </View>
@@ -35,5 +37,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         paddingTop: 70
+    },
+    container: {
+        display: 'flex',
+        alignItems: 'center',
     }
 })
