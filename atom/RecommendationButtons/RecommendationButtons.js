@@ -6,77 +6,40 @@ import { useNavigation } from '@react-navigation/native';
 
 const RecommendationButton = (props) => {
   const navigation = useNavigation();
-  const [pressedSleeping, setPressedSleeping] = useState(false);
-  const [pressedSelfCare, setPressedSelfCare] = useState(false);
-  const [pressedExercise, setPressedExercise] = useState(false);
+  const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
   return (
 
-    <View style={styles.container}>
-      <TouchableWithoutFeedback
-        onPressIn={() => setPressedSleeping(true)}
-        onPressOut={() => setPressedSleeping(false)}
-        onPress={navigateTo}
-      >
-        <View style={[styles.button, pressedSleeping && styles.buttonPressed]}>
-          <View style={styles.img}>
-            <Image
-              source={require('../Mascots/otterSleep.png')}
-              style={styles.sleeping}
+    <TouchableWithoutFeedback
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      onPress={navigateTo}
+    >
+      <View style={[styles.button, pressed && styles.buttonPressed]}>
+        <View style={styles.img}>
+      <Image
+                source={props.image}
+                style={styles.sleeping}
             />
-          </View>
-          <Text style={styles.text}>Sleeping{'\n'} Early</Text>
-          <Image />
-        </View>
-      </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPressIn={() => setPressedSelfCare(true)}
-        onPressOut={() => setPressedSelfCare(false)}
-        onPress={navigateTo}
-      >
-        <View style={[styles.button, pressedSelfCare && styles.buttonPressed]}>
-          <View style={styles.img}>
-            <Image
-              source={require('../Mascots/frogMeditate.png')}
-              style={styles.self}
-            />
-          </View>
-          <View style={styles.txt}>
-            <Text style={styles.text}>Practice Self Care</Text>
-          </View>
-          <Image />
-        </View>
-      </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPressIn={() => setPressedExercise(true)}
-        onPressOut={() => setPressedExercise(false)}
-        onPress={navigateTo}
-      >
-        <View style={[styles.button, pressedExercise && styles.buttonPressed]}>
-          <View style={styles.img}>
-            <Image
-              source={require('../Mascots/pandaExercise.png')}
-              style={styles.exercise}
-            />
-          </View>
-          <Text style={styles.text}>Exercise</Text>
-          <Image />
-        </View>
-      </TouchableWithoutFeedback>
-    </View>
+            </View>
+        <Text style={styles.text}>{props.text}</Text>
+       <Image />
+      </View>
+    </TouchableWithoutFeedback>
+     
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 20,
-    justifyContent: 'center',
-    marginTop: 10
+      display: 'flex',
+      flexDirection: 'row',
+      gap: 20,
+      justifyContent: 'center',
+      marginTop: 10
   },
   button: {
     width: 100,
@@ -104,20 +67,13 @@ const styles = StyleSheet.create({
   sleeping: {
     height: 83,
     width: 90,
-  },
-  self: {
-    height: 70,
-    width: 90,
-  },
-  exercise: {
-    height: 100,
-    width: 78,
-  },
-  img: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: 10
-  }
+    resizeMode: 'contain'
+},
+img: {
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: 10,
+}
 });
 
 export default RecommendationButton;
