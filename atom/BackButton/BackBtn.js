@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Image } from 'expo-image';
 
-
-const backBtn = () => {
+const backBtn = ({navigation}) => {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed')}
+    
+    <TouchableOpacity
+      onPress={() => navigation.goBack()}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
+      style={styles.btnContainer}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
        <Image source={require('../icons/backbtn.png')} height={10} width={10}/>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 
@@ -36,6 +37,11 @@ const styles = StyleSheet.create({
     color: '#3E3F42',
     fontSize: 12,
   },
+  btnContainer:{
+    position: 'absolute',
+    top: 0
+    
+  }
 });
 
 export default backBtn;

@@ -34,8 +34,6 @@ export default StyleSheet.create({
     h3Text: {
         fontFamily: 'Lexend-Regular',
         fontSize: 18,
-        marginBottom: 10,
-        marginTop: 20
     },
 
     h3TextSemiBold:{

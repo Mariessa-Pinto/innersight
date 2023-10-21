@@ -7,6 +7,8 @@ const theme = {
         backgroundLavender: '#F2F2FD',
         backgroundGrey: '#DDDDDD',
         borderColor:'#C5C7F7',
+        sliderTrackColor: "#000",
+        sliderTrackColorMax: "DDDDDD"
     },
     dark: {
         theme: 'dark',
