@@ -8,8 +8,6 @@ import Header from '../molecules/Header/Header';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 
 
-
-
 export default function NotificationSettings({ navigation }) {
 
     //Dark/Light Mode
