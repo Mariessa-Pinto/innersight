@@ -20,11 +20,11 @@ export default function Start() {
                 <View style={styles.container}>
                     <StatusBar style="auto" />
                     <Image
-                        source={require('../atom/icons/logo.png')}
+                        source={require('../atom/Logo/Logo.png')}
                         style={styles.logo}
                     />
                     <Image
-                        source={require('../atom/icons/logo_text.png')}
+                        source={require('../atom/Logo/Wordmark.png')}
                         style={styles.wordmark}
                     />
                     <ExtraLargeBtnLightTxt 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     wordmark: {
         width: 300,
-        height: 60,
+        height: 65,
         marginBottom: 42
     }
 })
