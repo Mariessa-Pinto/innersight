@@ -42,6 +42,7 @@ import PrivacyPolicy from './screens/PrivacyPolicy';
 import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
 import NotificationSettings from './screens/NotificationSettings';
+import EditPhoto from './screens/EditPhoto';
 
 
 
@@ -113,6 +114,7 @@ export default function App() {
             <Stack.Screen name="FaqPage" component={FaqPage} />
             <Stack.Screen name="AiPage" component={AiPage} />
             <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
+            <Stack.Screen name="EditPhoto" component={EditPhoto} />
 
           </Stack.Navigator>
         </NavigationContainer>
