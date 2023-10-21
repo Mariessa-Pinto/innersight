@@ -2,8 +2,10 @@ import globalStyles from '../styles/global'
 
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
-        TouchableOpacity } from 'react-native';
+import {
+    StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
+    TouchableOpacity
+} from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -25,7 +27,7 @@ export default function Home({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
                 <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Good morning, Name!</Text>
-<Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize}]}>Example text</Text>
+                <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>Example text</Text>
                 <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                     <View style={styles.journalHeader}>
                         <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
@@ -55,8 +57,7 @@ export default function Home({ navigation }) {
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
                     <View style={styles.recBtnContainer}>
                         <RecommendationButtons />
-                        <RecommendationButtons />
-                        <RecommendationButtons />
+ 
                     </View>
 
                 </View>
@@ -96,8 +97,8 @@ export default function Home({ navigation }) {
                     onPress={() => navigation.push('PersonalInformation')}
                 />
 
-               
-              
+
+
 
 
             </ScrollView>
