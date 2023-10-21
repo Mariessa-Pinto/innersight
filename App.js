@@ -37,6 +37,10 @@ import PersonalInformation from './screens/PersonalInformation';
 import WriteEntry from './screens/WriteEntry';
 import SignUp from './screens/SignUp';
 import ChooseMascot from './screens/ChooseMascot';
+import TermsPage from './screens/TermsPage';
+import PrivacyPolicy from './screens/PrivacyPolicy';
+import FaqPage from './screens/FaqPage';
+import AiPage from './screens/AiPage';
 
 
 
@@ -103,6 +107,11 @@ export default function App() {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="WriteEntry" component={WriteEntry} />
             <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
+            <Stack.Screen name="TermsPage" component={TermsPage} />
+            <Stack.Screen name="PrivacyPolicy"component={PrivacyPolicy} />
+            <Stack.Screen name="FaqPage" component={FaqPage} />
+            <Stack.Screen name="AiPage" component={AiPage} />
+
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
