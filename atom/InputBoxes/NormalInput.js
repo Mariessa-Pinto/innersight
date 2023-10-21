@@ -12,7 +12,7 @@ const NormalInput = (props) => {
         onChangeText={onChangeText}
         value={text}
         placeholder={props.placeholder}
-        keyboardType="text"
+        keyboardType="default"
       />
     </View>
   );
