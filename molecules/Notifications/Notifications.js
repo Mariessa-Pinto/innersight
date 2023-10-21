@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         gap: 20,
-        marginBottom: 10
+        marginBottom: 10,
+        marginTop: 60
     },
     notification: {
         display: 'flex',
