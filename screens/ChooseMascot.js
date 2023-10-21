@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
