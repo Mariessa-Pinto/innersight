@@ -41,6 +41,7 @@ import TermsPage from './screens/TermsPage';
 import PrivacyPolicy from './screens/PrivacyPolicy';
 import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
+import NotificationSettings from './screens/NotificationSettings';
 
 
 
@@ -111,6 +112,7 @@ export default function App() {
             <Stack.Screen name="PrivacyPolicy"component={PrivacyPolicy} />
             <Stack.Screen name="FaqPage" component={FaqPage} />
             <Stack.Screen name="AiPage" component={AiPage} />
+            <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
 
           </Stack.Navigator>
         </NavigationContainer>
