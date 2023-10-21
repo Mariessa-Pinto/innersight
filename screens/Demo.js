@@ -25,7 +25,7 @@ export default function Demo({ navigation } ) {
                 <DemoAnimation/>
             </View>
             <Image
-                source={require('../atom/icons/bear.png')}
+                source={require('../atom/Mascots/Panda.png')}
                 style={styles.mascot}
             />
             <View style={styles.button}>

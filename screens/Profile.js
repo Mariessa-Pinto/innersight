@@ -48,40 +48,40 @@ export default function Profile({ navigation }) {
                             settings
                         </Text>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Home.png')}
-                        />
+                            <Image
+                                source={require('../atom/assets/settingicons/Home.png')}
+                            />
                             <Text style={styles.label2}>Personal Information</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('PersonalInformation')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Access.png')}
-                        />
-                        <Text style={styles.label2}>Accessibility Settings</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Accessibility')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Access.png')}
+                            />
+                            <Text style={styles.label2}>Accessibility Settings</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('Accessibility')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
-                      
+
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Language.png')}
-                        />
-                          <Text style={styles.label2}>Language Settings</Text>
-                          <TouchableOpacity onPress={() => navigation.navigate('LanguageSettings')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Language.png')}
+                            />
+                            <Text style={styles.label2}>Language Settings</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('LanguageSettings')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Notification.png')}
-                        />
+                            <Image
+                                source={require('../atom/assets/settingicons/Notification.png')}
+                            />
                             <Text style={styles.label2}>Notification Settings</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('NotificationSettings')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -91,55 +91,55 @@ export default function Profile({ navigation }) {
                             Support
                         </Text>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/FAQ.png')}
-                        />
-                        <Text style={styles.label2}>Frequently Asked Questions</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('FaqPage')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/FAQ.png')}
+                            />
+                            <Text style={styles.label2}>Frequently Asked Questions</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('FaqPage')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Crisis.png')}
-                        />
-                        <Text style={styles.label2}>Crisis Support Resources</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('CrisisSupport')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Crisis.png')}
+                            />
+                            <Text style={styles.label2}>Crisis Support Resources</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('CrisisSupport')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
-                      
+
                     </View>
                     <View style={styles.content2}>
                         <Text style={styles.settings}>
                             Legal
                         </Text>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Privacy.png')}
-                        />
-                        <Text style={styles.label2}>Privacy Policy</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Privacy.png')}
+                            />
+                            <Text style={styles.label2}>Privacy Policy</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Terms.png')}
-                        />
-                        <Text style={styles.label2}>Terms Of Service</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('TermsPage')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Terms.png')}
+                            />
+                            <Text style={styles.label2}>Terms Of Service</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('TermsPage')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
-                            
+
                         </View>
                         <View style={styles.settingbar}>
-                        <Image 
-                        source={require('../atom/assets/settingicons/Ai.png')}
-                        />
-                        <Text style={styles.label2}>Artificial Intelligence Information</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('AiPage')} style={styles.arrow}>
-                             <Image source={require('../atom/assets/settingicons/Arrow.png')}/>
+                            <Image
+                                source={require('../atom/assets/settingicons/Ai.png')}
+                            />
+                            <Text style={styles.label2}>Artificial Intelligence Information</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('AiPage')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -152,7 +152,7 @@ export default function Profile({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation}/>
+            <NavBar navigation={navigation} />
 
         </View>
 
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         padding: 38
-     
+
 
     },
 
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     content2: {
         display: 'flex',
         gap: 1
-       
+
 
     },
 
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         gap: 15,
         alignItems: 'center'
-    
+
 
     },
     logout: {
@@ -252,15 +252,15 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         paddingTop: 20
-    }, 
+    },
     label2: {
         fontSize: 13,
     },
     arrow: {
         position: 'absolute',
         right: 0,
-        
-        
+
+
     }
 
 

@@ -16,67 +16,67 @@ const RecommendationButton = (props) => {
   return (
 
     <View style={styles.container}>
-    <TouchableWithoutFeedback
-      onPressIn={() => setPressedSleeping(true)}
-      onPressOut={() => setPressedSleeping(false)}
-      onPress={navigateTo}
-    >
-      <View style={[styles.button, pressedSleeping && styles.buttonPressed]}>
-        <View style={styles.img}>
-      <Image
-                source={require('../icons/SleepingLightM.png')}
-                style={styles.sleeping}
+      <TouchableWithoutFeedback
+        onPressIn={() => setPressedSleeping(true)}
+        onPressOut={() => setPressedSleeping(false)}
+        onPress={navigateTo}
+      >
+        <View style={[styles.button, pressedSleeping && styles.buttonPressed]}>
+          <View style={styles.img}>
+            <Image
+              source={require('../Mascots/otterSleep.png')}
+              style={styles.sleeping}
             />
-            </View>
-        <Text style={styles.text}>Sleeping{'\n'} Early</Text>
-       <Image />
-      </View>
-    </TouchableWithoutFeedback>
-     <TouchableWithoutFeedback
-      onPressIn={() => setPressedSelfCare(true)}
-      onPressOut={() => setPressedSelfCare(false)}
-      onPress={navigateTo}
-   >
-     <View style={[styles.button, pressedSelfCare && styles.buttonPressed]}>
-       <View style={styles.img}>
-     <Image
-               source={require('../icons/SelfCareLightM.png')}
-               style={styles.self}
-           />
-           </View>
-           <View style={styles.txt}>
-       <Text style={styles.text}>Practice Self Care</Text>
-       </View>
-      <Image />
-     </View>
-   </TouchableWithoutFeedback>
-    <TouchableWithoutFeedback
-    onPressIn={() => setPressedExercise(true)}
-    onPressOut={() => setPressedExercise(false)}
-    onPress={navigateTo}
-  >
-    <View style={[styles.button, pressedExercise && styles.buttonPressed]}>
-      <View style={styles.img}>
-    <Image
-              source={require('../icons/ExerciseLightM.png')}
-              style={styles.exercise}
-          />
           </View>
-      <Text style={styles.text}>Exercise</Text>
-     <Image />
+          <Text style={styles.text}>Sleeping{'\n'} Early</Text>
+          <Image />
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPressIn={() => setPressedSelfCare(true)}
+        onPressOut={() => setPressedSelfCare(false)}
+        onPress={navigateTo}
+      >
+        <View style={[styles.button, pressedSelfCare && styles.buttonPressed]}>
+          <View style={styles.img}>
+            <Image
+              source={require('../Mascots/frogMeditate.png')}
+              style={styles.self}
+            />
+          </View>
+          <View style={styles.txt}>
+            <Text style={styles.text}>Practice Self Care</Text>
+          </View>
+          <Image />
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPressIn={() => setPressedExercise(true)}
+        onPressOut={() => setPressedExercise(false)}
+        onPress={navigateTo}
+      >
+        <View style={[styles.button, pressedExercise && styles.buttonPressed]}>
+          <View style={styles.img}>
+            <Image
+              source={require('../Mascots/pandaExercise.png')}
+              style={styles.exercise}
+            />
+          </View>
+          <Text style={styles.text}>Exercise</Text>
+          <Image />
+        </View>
+      </TouchableWithoutFeedback>
     </View>
-  </TouchableWithoutFeedback>
-  </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-      display: 'flex',
-      flexDirection: 'row',
-      gap: 20,
-      justifyContent: 'center',
-      marginTop: 10
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 20,
+    justifyContent: 'center',
+    marginTop: 10
   },
   button: {
     width: 100,
@@ -104,20 +104,20 @@ const styles = StyleSheet.create({
   sleeping: {
     height: 83,
     width: 90,
-},
-self: {
-  height: 70,
-  width: 90,
-},
-exercise: {
-  height: 100,
-  width: 78,
-},
-img: {
-  display: 'flex',
-  justifyContent: 'center',
-  marginBottom: 10
-}
+  },
+  self: {
+    height: 70,
+    width: 90,
+  },
+  exercise: {
+    height: 100,
+    width: 78,
+  },
+  img: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 10
+  }
 });
 
 export default RecommendationButton;
