@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const SmallBtnDarkTxt = () => {
+const SmallBtnDarkTxt = (props) => {
+  const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
 
+  const navigateTo = () => {
+    navigation.navigate(props.navigate);
+  };
   return (
     <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed')}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
+    onPressIn={() => setPressed(true)}
+    onPressOut={() => setPressed(false)}
+    onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>Text</Text>
+        <Text style={styles.text}>{props.text}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
