@@ -15,20 +15,24 @@ const Header = (props) => {
 
     return (
         <View style={styles.header}>
-            <TouchableWithoutFeedback 
-                onPress={navigateTo}
-                onPressIn={() => setPressed(true)}
-                onPressOut={() => setPressed(false)}
-            >
-                <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
-                    <Image
-                        source={require('../../atom/icons/backButtonArrow.png')}
-                        style={styles.backButton}
-                    />
+            <View style={styles.align}>
+                <TouchableWithoutFeedback 
 
-                </View>
-            </TouchableWithoutFeedback>
-            <Text style={styles.title}>{props.title}</Text>
+                    onPress={navigateTo}
+                    onPressIn={() => setPressed(true)}
+                    onPressOut={() => setPressed(false)}
+                >
+                    <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
+                        <Image
+                            source={require('../../atom/icons/backButtonArrow.png')}
+                            style={styles.backButton}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
+            </View>
+            <View style={styles.titleBox}>
+                <Text style={styles.title}>{props.title}</Text>
+            </View>
         </View>
     );
 };
@@ -38,9 +42,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 25,
+        justifyContent: 'center',
         paddingTop: 30,
-        paddingBottom: 50,
         width: 600
     },
     backButton: {
@@ -48,10 +51,9 @@ const styles = StyleSheet.create({
         height: 11
     },
     title: {
-        paddingLeft: 95,
         fontFamily: 'Lexend-Regular',
         fontSize: 18,
-        fontWeight: '600'
+        fontWeight: '600',
     },
     fullBack: {
         width: 30,
@@ -69,12 +71,18 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.5,
         shadowRadius: 4,
-
         elevation: 3,
     },
     buttonPressed: {
         backgroundColor: '#D5D7FF', // Change the color when pressed
     },
+    titleBox: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    align: {
+        marginRight: 20
+    }
 
 });
 
