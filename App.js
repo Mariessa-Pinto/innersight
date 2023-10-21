@@ -37,10 +37,6 @@ import PersonalInformation from './screens/PersonalInformation';
 import WriteEntry from './screens/WriteEntry';
 import SignUp from './screens/SignUp';
 import ChooseMascot from './screens/ChooseMascot';
-import ResetPassword from './screens/ResetPassword';
-import ForgotPassword from './screens/ForgotPassword';
-import EmailSent from './screens/EmailSent';
-import LandingPage from './screens/LandingPage';
 
 
 
@@ -107,10 +103,6 @@ export default function App() {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="WriteEntry" component={WriteEntry} />
             <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
-            <Stack.Screen name="ResetPassword" component={ResetPassword} />
-            <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-            <Stack.Screen name="EmailSent" component={EmailSent} />
-            <Stack.Screen name="LandingPage" component={LandingPage} />
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
