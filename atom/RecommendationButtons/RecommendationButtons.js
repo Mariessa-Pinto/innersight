@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'expo-image'
+import { useNavigation } from '@react-navigation/native';
 
 
-const RecommendationButton = () => {
+const RecommendationButton = (props) => {
+  const navigation = useNavigation();
   const [pressedSleeping, setPressedSleeping] = useState(false);
   const [pressedSelfCare, setPressedSelfCare] = useState(false);
   const [pressedExercise, setPressedExercise] = useState(false);
 
+  const navigateTo = () => {
+    navigation.navigate(props.navigate);
+  };
   return (
 
     <View style={styles.container}>
     <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed Sleeping')}
       onPressIn={() => setPressedSleeping(true)}
       onPressOut={() => setPressedSleeping(false)}
+      onPress={navigateTo}
     >
       <View style={[styles.button, pressedSleeping && styles.buttonPressed]}>
         <View style={styles.img}>
@@ -28,9 +33,9 @@ const RecommendationButton = () => {
       </View>
     </TouchableWithoutFeedback>
      <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed Self Care')}
       onPressIn={() => setPressedSelfCare(true)}
       onPressOut={() => setPressedSelfCare(false)}
+      onPress={navigateTo}
    >
      <View style={[styles.button, pressedSelfCare && styles.buttonPressed]}>
        <View style={styles.img}>
@@ -46,9 +51,9 @@ const RecommendationButton = () => {
      </View>
    </TouchableWithoutFeedback>
     <TouchableWithoutFeedback
-    onPress={() => console.log('Pressed Exercise')}
     onPressIn={() => setPressedExercise(true)}
     onPressOut={() => setPressedExercise(false)}
+    onPress={navigateTo}
   >
     <View style={[styles.button, pressedExercise && styles.buttonPressed]}>
       <View style={styles.img}>
