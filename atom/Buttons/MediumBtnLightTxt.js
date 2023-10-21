@@ -9,11 +9,12 @@ const MediumBtnLightTxt = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+  
   return (
     <TouchableWithoutFeedback
-    onPressIn={() => setPressed(true)}
-    onPressOut={() => setPressed(false)}
-    onPress={navigateTo}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <Text style={styles.text}>{props.text}</Text>
