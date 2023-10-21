@@ -60,6 +60,11 @@ export default function Home({ navigation }) {
                     </View>
 
                 </View>
+
+                <Button
+                    title="Go to write entry"
+                    onPress={() => navigation.push('WriteEntry')}
+                />
                 <Button
                     className="button"
                     title="Go to about page"
@@ -91,10 +96,7 @@ export default function Home({ navigation }) {
                     onPress={() => navigation.push('PersonalInformation')}
                 />
 
-                   <Button
-                    title="Go to write entry"
-                    onPress={() => navigation.push('WriteEntry')}
-                />
+               
               
 
 

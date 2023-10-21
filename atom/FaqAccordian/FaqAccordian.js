@@ -5,13 +5,13 @@ import FaqData from "../../molecules/FaqData/FaqData";
 const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
   return (
     <View style={`${styles.questions} ${isActive ? styles.faqActive : ""}`}>
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.questionBar}
         onPress={() => setIsActive(!isActive)}
       >
         <View style={styles.questionContent}>
           <Text style={styles.questionText}>{question}</Text>
-          <View style={styles.questionChevron}>
+          <View style={styles.arrow}>
             {isActive ? (
               <Image
                 source={require('../assets/FAQUp.png')}
@@ -38,29 +38,43 @@ const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
 };
 
 const styles = StyleSheet.create({
-  questions: {
  
-  },
-  faqActive: {
-   
-  },
   questionBar: {
-   
-  },
-  questionContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    position: 'relative',
+    top: 0,
+    padding: 1,
+    display: 'flex',
     alignItems: 'center',
-  },
-  questionText: {
+   
+    
+},
+questionContent: {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-evenly', 
+  alignItems: 'center',
+  paddingHorizontal: 5,
   
-  },
-  questionChevron: {
-   
-  },
-  answerActive: {
-   
-  },
+},
+
+questionText: {
+  fontSize: 15,
+  lineHeight: 60,
+
+},
+arrow: {
+
+
+}
+
+
+
+
+
+
+ 
+ 
+
 });
 
 export default FaqAccordion;
