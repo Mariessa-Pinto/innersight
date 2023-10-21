@@ -1,10 +1,10 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, ScrollView, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import FaqData from '../molecules/FaqData/FaqData';
-import FaqAccordion from '../atom/AITool/FaqAccordian';
+import FaqAccordion from '../atom/FaqAccordian/FaqAccordian';
 
 
 
@@ -25,7 +25,20 @@ export default function FaqPage({ navigation }) {
   return (
     <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
       <ScrollView>
+        <View style={styles.top}>
+          <Text style={styles.header}>FAQS</Text>
+          <TextInput
+                        style={styles.input}
+                        placeholder="Search FAQs"
+                        autoFocus={true}
+                        autoCapitalize="words"
+                        autoCorrect={true}
+                        keyboardType="default"
+
+                    />
+        </View>
         <View style={styles.maincontent}>
+          <Text style={styles.label}>Getting Started</Text>
           {data.map((info, index) => (
             <View style={styles.questions} key={index}>
               <FaqAccordion
@@ -45,8 +58,35 @@ export default function FaqPage({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    maincontent: {
-        alignItems: 'center',
-        margin: 50
-    }
+    
+  top: {
+    alignItems: 'center',
+    padding: 10
+  },
+  header: {
+   fontSize: 18,
+   fontWeight: 'bold'
+  },
+  
+  
+  maincontent: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      padding: 20
+    },
+    input: {
+      height: 40,
+      width: 328,
+      margin: 12,
+      borderWidth: 1,
+      borderRadius: 10,
+      borderColor: '#88898C',
+      padding: 10,
+    },
+    label: {
+      fontSize: 15,
+      fontWeight:'bold'
+    },
+    
+     
 })
