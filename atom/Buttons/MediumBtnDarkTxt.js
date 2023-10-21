@@ -11,9 +11,9 @@ const MediumBtnDarkTxt = (props) => {
   };
   return (
     <TouchableWithoutFeedback
-      onPress={() => console.log('Pressed')}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
+    onPressIn={() => setPressed(true)}
+    onPressOut={() => setPressed(false)}
+    onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <Text style={styles.text}>{props.text}</Text>
