@@ -1,26 +1,31 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Toggle from '../../atom/ToggleSwitch/Toggle';
+import globalStyles from '../../styles/global';
+import { useState, useContext } from 'react';
+import themeContext from '../../theme/themeContext';
+import fontContext from '../../theme/fontContext';
 
+const Notifications = ({
+    title,
+    valueChange2,
+    valueEnabled2
+}) => {
 
-const Notifications = () => {
+        //Dark/Light Mode
+        const theme = useContext(themeContext)
+    
+        //Font Size
+        const fontTheme = useContext(fontContext)
 
     return (
     <View style={styles.container}>
-        <View style={styles.notification}>
-            <Text>Journal Reminders</Text>
-            <Toggle/>
-        </View>
-        <View style={styles.notification}>
-            <Text>Reminder</Text>
-            <Toggle/>
-        </View>
-        <View style={styles.notification}>
-            <Text>Reminder</Text>
-            <Toggle/>
-        </View>
-        <View style={styles.notification}>
-            <Text>Reminder</Text>
-            <Toggle/>
+        <View style={[styles.notification,{backgroundColor: theme.backgroundGreyLight}]}>
+            <Text style={[globalStyles.text, { 
+                color: theme.color, 
+                fontSize: fontTheme.fontSize }]}>{title}</Text>
+            <Toggle
+            valueChange={valueChange2}
+            valueEnabled={valueEnabled2}/>
         </View>
     </View>
     );
@@ -41,10 +46,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: 355,
         height: 47,
-        backgroundColor: '#EAEAEA',
         borderRadius: 10,
-        paddingLeft: 15,
-        paddingRight: 15
+        paddingHorizontal: 15,
     }
 
 });

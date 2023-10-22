@@ -6,6 +6,7 @@ const theme = {
         backgroundPurple: '#D5D7FF',
         backgroundLavender: '#F2F2FD',
         backgroundGrey: '#DDDDDD',
+        backgroundGreyLight: '#EAEAEA',
         borderColor:'#C5C7F7',
         sliderTrackColor: "#000",
         sliderTrackColorMax: "DDDDDD"
@@ -14,6 +15,7 @@ const theme = {
         theme: 'dark',
         color: 'white',
         background: 'black',
+        backgroundGreyLight: '#555658',
     },
     extraSmall:{
         fontSize: 14,

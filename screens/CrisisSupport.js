@@ -7,6 +7,10 @@ import {
     TouchableOpacity
 } from 'react-native';
 import themeContext from '../theme/themeContext';
+import { ScrollView } from 'react-native-gesture-handler';
+import NavBar from '../molecules/Navigation/NavBar';
+import Header from '../molecules/Header/Header';
+import CrisisButton from '../atom/CrisisButtons/CrisisButton';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import TopNav from '../molecules/Navigation/TopNav';
@@ -22,22 +26,33 @@ export default function CrisisSupport({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Crisis Support Resources"
-            />
-            <View style={styles.content}>
-            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1. </Text>
-            <CrisisSupportBtns />
+
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+            <Header title='Crisis Support Resources' navigation={navigation} />
+            <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
+                <Text style={globalStyles.bodyCopy}>
+                    Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1.
+                </Text>
+                <View style={styles.main}>
+                    <CrisisButton title="Crisis & Information Lines"
+                        style={styles.btn}
+                        navigationTarget={() => navigation.navigate('CrisisInfoLines')} />
+                    <CrisisButton title="Local Distress Centres"
+                        style={styles.btn}
+                        navigationTarget={() => navigation.navigate('Font Size')} />
+                    <CrisisButton title="Organizations"
+                        style={styles.btn}
+                        navigationTarget={() => navigation.navigate('Font Size')} />
+                    <CrisisButton title="Information & Publications"
+                        style={styles.btn}
+                        navigationTarget={() => navigation.navigate('Font Size')} />
+                </View>
+
             </View>
-            </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
             </View>
-
         </View>
-
     );
 }
 
@@ -45,6 +60,19 @@ const styles = StyleSheet.create({
    content: {
     marginTop: 40,
     gap: 40
-   }
+   },
 
-})
+
+    main: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-evenly',
+        paddingTop: 20,
+    }
+
+
+
+
+});
