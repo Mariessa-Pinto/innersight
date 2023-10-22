@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
         paddingTop: 40,
         width: '100%',
-
     },
     backButton: {
         width: 7,
@@ -54,7 +53,6 @@ const styles = StyleSheet.create({
         paddingVertical: 40,
     },
     title: {
-
         width: '100%',
         textAlign: 'center',
         position: 'absolute',
@@ -76,12 +74,18 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.5,
         shadowRadius: 4,
-
         elevation: 3,
     },
     buttonPressed: {
         backgroundColor: '#D5D7FF', // Change the color when pressed
     },
+    titleBox: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    align: {
+        marginRight: 20
+    }
 
 });
 

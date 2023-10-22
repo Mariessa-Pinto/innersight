@@ -20,6 +20,7 @@ import About from './screens/About';
 
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
+import Entries from './screens/Entries';
 import CreateEntry from './screens/CreateEntry';
 import CustomizeEntry from './screens/CustomizeEntry';
 import Stats from './screens/Stats';
@@ -43,6 +44,13 @@ import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
 import NotificationSettings from './screens/NotificationSettings';
 import CrisisInfoLines from './screens/CrisisInfoLines';
+import EditPhoto from './screens/EditPhoto';
+import TagManager from './screens/TagManager';
+import CrisisandInformation from './screens/CrisisandInformation';
+import InfoandPublications from './screens/InfoandPublications';
+import LocalDistress from './screens/LocalDistress';
+import Organizations from './screens/Organizations';
+
 
 
 
@@ -94,6 +102,7 @@ export default function App() {
             <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+            <Stack.Screen name="Entries" component={Entries} />
             <Stack.Screen name="CreateEntry" component={CreateEntry} />
             <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
             <Stack.Screen name="Stats" component={Stats} />
@@ -115,6 +124,13 @@ export default function App() {
             <Stack.Screen name="AiPage" component={AiPage} />
             <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
             <Stack.Screen name="CrisisInfoLines" component={CrisisInfoLines} />
+            <Stack.Screen name="EditPhoto" component={EditPhoto} />
+            <Stack.Screen name="TagManager" component={TagManager} />
+             <Stack.Screen name="CrisisandInformation" component={CrisisandInformation} />
+            <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
+            <Stack.Screen name="LocalDistress" component={LocalDistress} />
+            <Stack.Screen name="Organizations" component={Organizations} />
+
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>

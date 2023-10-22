@@ -1,13 +1,13 @@
-
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Modal, TouchableWithoutFeedback } from 'react-native';
 import * as React from 'react';
 import HomeIcon from '../../atom/icons/HomeIcon'
 import StatsIcon from '../../atom/icons/StatsIcon';
 import NavBarContainer from '../../atom/icons/NavBarContainer';
 import ProfileIcon from '../../atom/icons/ProfileIcon';
 import JournalIcon from '../../atom/icons/JournalIcon';
+import plusButtonOverlay from '../Overlays/plusButtonOverlay';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import themeContext from '../../theme/themeContext';
 
 /*When importing the nav bar in other pages, it should be inserted as
@@ -19,6 +19,14 @@ export default function NavBar({ navigation }) {
 
     //Dark/Light Mode
     const theme = useContext(themeContext)
+
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+    const toggleOverlay = () => {
+        setOverlayVisible(!isOverlayVisible);
+    };
+
+    const OverlayContent = plusButtonOverlay
 
     return (
         <View style={styles.container}>
@@ -32,7 +40,7 @@ export default function NavBar({ navigation }) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.addButtonContainer}>
-                    <TouchableOpacity style={styles.addButton} onPress={() => navigation.push('NewJournal')}>
+                    <TouchableOpacity style={styles.addButton} onPress={toggleOverlay}>
                         <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
                     </TouchableOpacity>
                 </View>
@@ -46,6 +54,18 @@ export default function NavBar({ navigation }) {
                 </View>
             </View>
             <NavBarContainer style={styles.background} />
+            <TouchableWithoutFeedback onPress={toggleOverlay}>
+                <View style={{ flex: 1 }}>
+                    <Modal
+                        visible={isOverlayVisible}
+                        animationType="slide"
+                        transparent={true}
+                        onRequestClose={toggleOverlay}
+                    >
+                        <OverlayContent />
+                    </Modal>
+                </View>
+            </TouchableWithoutFeedback>
         </View >
     );
 };
@@ -89,11 +109,11 @@ const styles = StyleSheet.create({
         width: '50%',
         alignItems: 'center',
     },
-    container1:{
+    container1: {
 
         paddingRight: 25
     },
-    container2:{
+    container2: {
 
         paddingLeft: 25
     },
