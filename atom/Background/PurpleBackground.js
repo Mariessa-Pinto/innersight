@@ -2,9 +2,8 @@ import { StyleSheet, View, Text } from 'react-native';
 
 const PurpleBackground = () => (
   <View style={styles.outerContainer}>
-   <View style={styles.container}>
-
-   </View>
+    <View style={styles.container}>
+    </View>
   </View>
 );
 
@@ -12,7 +11,7 @@ export default PurpleBackground;
 
 const styles = StyleSheet.create({
   container: {
-    width: 360,
+    width: 410,
     height: 175,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -21,13 +20,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2FD',
     shadowColor: 'black',
     shadowOffset: { width: 0, height: -200 },
-    shadowOpacity: 0.5, 
-    shadowRadius: 3, 
-    elevation: 30, 
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 30,
   },
   outerContainer: {
     flex: 1,
     justifyContent: 'flex-end',
   }
- 
+
 });

@@ -44,6 +44,7 @@ import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
 import NotificationSettings from './screens/NotificationSettings';
 import EditPhoto from './screens/EditPhoto';
+import TagManager from './screens/TagManager';
 
 
 
@@ -117,6 +118,7 @@ export default function App() {
             <Stack.Screen name="AiPage" component={AiPage} />
             <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
             <Stack.Screen name="EditPhoto" component={EditPhoto} />
+            <Stack.Screen name="TagManager" component={TagManager} />
 
           </Stack.Navigator>
         </NavigationContainer>
