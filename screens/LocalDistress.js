@@ -10,9 +10,9 @@ import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import TopNav from '../molecules/Navigation/TopNav';
-import CrisisSupportBtns from '../molecules/CrisisSupportBtns/CrisisSupportBtns'
 
-export default function CrisisSupport({ navigation }) {
+
+export default function LocalDistress({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -27,10 +27,7 @@ export default function CrisisSupport({ navigation }) {
             <TopNav 
             headerText="Crisis Support Resources"
             />
-            <View style={styles.content}>
-            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1. </Text>
-            <CrisisSupportBtns />
-            </View>
+           
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
