@@ -5,7 +5,7 @@ import { useState } from 'react';
 import searchIcon from '../icons/searchIcon';
 
 const SearchBar = (props) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
 
