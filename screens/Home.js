@@ -12,7 +12,6 @@ import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
 import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
-import TopNav from '../molecules/Navigation/TopNav';
 
 export default function Home({ navigation }) {
 
@@ -26,7 +25,7 @@ export default function Home({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Good morning, Name!</Text>
+                <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Name!</Text>
                 <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>Example text</Text>
                 <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                     <View style={styles.journalHeader}>

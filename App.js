@@ -42,6 +42,7 @@ import PrivacyPolicy from './screens/PrivacyPolicy';
 import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
 import NotificationSettings from './screens/NotificationSettings';
+import CrisisInfoLines from './screens/CrisisInfoLines';
 
 
 
@@ -113,7 +114,7 @@ export default function App() {
             <Stack.Screen name="FaqPage" component={FaqPage} />
             <Stack.Screen name="AiPage" component={AiPage} />
             <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
-
+            <Stack.Screen name="CrisisInfoLines" component={CrisisInfoLines} />
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>

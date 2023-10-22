@@ -1,34 +1,32 @@
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import globalStyles from '../../styles/global';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
-const Header = (props) => {
+const Header = ({
+    navigation,
+    title }) => {
     const [pressed, setPressed] = useState(false);
 
-    const navigation = useNavigation();
-
-    const navigateTo = () => {
-        navigation.navigate(props.navigate);
-    };
 
     return (
         <View style={styles.header}>
-            <TouchableWithoutFeedback 
-                onPress={navigateTo}
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
+                style={styles.touchContainer}
             >
                 <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
                     <Image
                         source={require('../../atom/icons/backButtonArrow.png')}
                         style={styles.backButton}
                     />
-
                 </View>
-            </TouchableWithoutFeedback>
-            <Text style={styles.title}>{props.title}</Text>
+            </TouchableOpacity>
+            <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
         </View>
     );
 };
@@ -38,20 +36,29 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 25,
-        paddingTop: 30,
-        paddingBottom: 50,
-        width: 600
+        paddingHorizontal: 25,
+        paddingBottom: 40,
+        paddingTop: 40,
+        width: '100%',
+
     },
     backButton: {
         width: 7,
-        height: 11
+        height: 11,
+        position: 'absolute',
+    },
+    touchContainer:{
+        zIndex: 1,
+        position: 'absolute',
+        paddingHorizontal: 25,
+        paddingVertical: 40,
     },
     title: {
-        paddingLeft: 95,
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600'
+
+        width: '100%',
+        textAlign: 'center',
+        position: 'absolute',
+        marginLeft: 25
     },
     fullBack: {
         width: 30,
