@@ -61,6 +61,10 @@ export default function Home({ navigation }) {
 
                 </View>
                 <Button
+                    title="Go to Recommendations"
+                    onPress={() => navigation.push('Recommendations')}
+                />
+                <Button
                     title="Go to customize entry"
                     onPress={() => navigation.push('CustomizeEntry')}
                 />
@@ -90,14 +94,8 @@ export default function Home({ navigation }) {
                     title="Go to the Crisis Support Page"
                     onPress={() => navigation.push('Crisis Support')}
                 />
-                <Button
-                    title="Go to Profile"
-                    onPress={() => navigation.push('Profile')}
-                />
-                <Button
-                    title="Go to Recommendations"
-                    onPress={() => navigation.push('Recommendations')}
-                />
+                
+               
                 <Button
                     title="Go to Personal Information"
                     onPress={() => navigation.push('PersonalInformation')}
