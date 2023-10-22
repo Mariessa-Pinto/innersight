@@ -11,7 +11,7 @@ export default StyleSheet.create({
         backgroundColor: '#FDFDFD',
         elevation: 3,
         position: 'absolute',
-        bottom: 0
+        bottom: 0,
     },
     
     h1TextBold:{
@@ -58,6 +58,7 @@ export default StyleSheet.create({
     },
     bodyCopy:{
         fontFamily: 'Lexend-Regular',
+        fontSize: 14,
     },
     labelText:{
         fontFamily: 'Lexend-Regular',
@@ -94,8 +95,8 @@ export default StyleSheet.create({
         height: '100%',
         width: '100%',
         paddingHorizontal: 20,
-        paddingTop: 30,
-        flex: 1
+        paddingTop: 10,
+        flex: 1,
     },
     navContainer: {
         height: '18%',
