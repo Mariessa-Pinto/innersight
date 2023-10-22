@@ -61,7 +61,10 @@ export default function Home({ navigation }) {
                     </View>
 
                 </View>
-
+                <Button
+                    title="Go to Tag Manager"
+                    onPress={() => navigation.push('TagManager')}
+                />
                 <Button
                     title="Go to write entry"
                     onPress={() => navigation.push('WriteEntry')}
