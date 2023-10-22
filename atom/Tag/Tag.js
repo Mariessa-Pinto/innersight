@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 
 
-const Tag = () => {
+const Tag = (props) => {
  const [buttonStates, setButtonStates] = useState({
    Tags: false
  });
@@ -23,7 +23,7 @@ const Tag = () => {
  >
    
    <View style={[styles.button, buttonStates[font] && styles.buttonPressed]}>
-     <Text style={[styles.letter, buttonStates[font] && styles.buttonPressed]}>Tag</Text>
+     <Text style={[styles.letter, buttonStates[font] && styles.buttonPressed]}>{props.text}</Text>
    </View>
 
  </TouchableWithoutFeedback>

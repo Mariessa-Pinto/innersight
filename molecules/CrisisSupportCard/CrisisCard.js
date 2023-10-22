@@ -8,16 +8,19 @@ const CrisisCard = () => {
             headerText="Crisis Line Association of BC"
             numText="1 (800) 784-2433"
             text="Receive emotional support and information on appropiate referral options and a wide range of support relating to mental health concerns."
+            navigate="Entries"
             />
             <CrisisCardBtn 
              headerText="Kelty Mental Health Resource Centre"
              numText="(604) 875-2084"
              text="A resource for children, youth, and families related to mental health and substance use issues located at the BC Children's Hospital site."
+             navigate="Entries"
             />
             <CrisisCardBtn 
              headerText="HealthLinkBC"
              numText="8-1-1"
              text="HealthLink BC helps you learn about health topics, check your symptoms and find the health services and resources that you need for healthy living."
+             navigate="Entries"
             />
         </View>
     );
