@@ -15,7 +15,7 @@ const journalSettingsOverlay = () => {
                     />
                     <ExtraLargeBtnLightTxt
                         text='Customize Journal'
-                        navigate=''
+                        navigate='CustomizeJournal'
                     /> 
                     <ExtraLargeBtnDarkTxt
                         text='Delete Journal' 
