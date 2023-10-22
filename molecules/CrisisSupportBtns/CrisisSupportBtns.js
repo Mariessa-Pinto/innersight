@@ -7,17 +7,21 @@ const CrisisSupportBtns = () => {
            <View style={styles.box}>
             <CrisisBtn 
             text="Crisis & Information Lines"
+            navigate="CrisisandInformation"
             />
             <CrisisBtn 
             text="Local Distress Centres"
+            navigate="LocalDistress"
             />
            </View>
            <View style={styles.box}>
            <CrisisBtn 
             text="Organizations"
+            navigate="Organizations"
             />
             <CrisisBtn 
             text="Information & Publications"
+            navigate="InfoandPublications"
             />
            </View>
         </View>
