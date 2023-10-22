@@ -16,19 +16,19 @@ const TypeButton = () => {
    };
 
 
-   async function loadFonts() {
-      await Font.loadAsync({
-         'Roboto': require('./roboto.ttf'),
-         'OpenSans': require('./opensans.ttf'),
-         'Inter': require('./inter.ttf')
+   //async function loadFonts() {
+     // await Font.loadAsync({
+      //   'Roboto': require('./roboto.ttf'),
+       //  'OpenSans': require('././opensans.ttf'),
+        // 'Inter': require('././inter.ttf')
 
-      });
-      setSelectedFont('Roboto')
-   }
+     // });
+    //  setSelectedFont('Roboto')
+   //}
 
-   useEffect(() => {
-      loadFonts();
-   }, []);
+   //useEffect(() => {
+     // loadFonts();
+  // }, []);
 
    const handleButtonPress = (font) => {
       setButtonStates((prevStates) => ({
