@@ -12,7 +12,7 @@ import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 
 
 
-export default function NewJournal({ navigation }) {
+export default function CustomizeJournal({ navigation }) {
     const [showInputBoxes, setShowInputBoxes] = useState(false);
 
     //Dark/Light Mode
@@ -67,7 +67,7 @@ export default function NewJournal({ navigation }) {
                     </View>
             )}
             <ExtraLargeBtnLightTxt 
-            text="Create New Journal"
+            text="Save Changes"
             />
             </View>
             </ScrollView>
