@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet } from 'react-native'
+import { useState } from 'react';
+import searchIcon from '../icons/searchIcon';
 
 const SearchBar = (props) => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -15,6 +17,7 @@ const SearchBar = (props) => {
       onChangeText={onChangeSearch}
       value={searchQuery}
       inputStyle={styles.input}
+      icon={searchIcon}
     />
   );
 };
@@ -22,22 +25,23 @@ const SearchBar = (props) => {
 
 const styles = StyleSheet.create({
     bar: {
-      height: 328,
+      width: 328,
       height: 40,
       display: 'flex',
       borderRadius: 10,
       justifyContent: 'center',
       alignItems: 'center',
+      alignContent: 'center',
       backgroundColor: '#FDFDFD',
       borderWidth: 1,
-      borderColor: '#88898C'
+      borderColor: '#88898C',
     },
     input: {
         textAlign: 'left',
         textAlignVertical: 'center',
         fontSize: 13,
-        paddingLeft: 5,
-        height: '100%'
+        height: '100%',
+        paddingBottom: 18
     }
   });
 export default SearchBar;

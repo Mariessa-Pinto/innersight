@@ -43,6 +43,8 @@ import PrivacyPolicy from './screens/PrivacyPolicy';
 import FaqPage from './screens/FaqPage';
 import AiPage from './screens/AiPage';
 import NotificationSettings from './screens/NotificationSettings';
+import EditPhoto from './screens/EditPhoto';
+import TagManager from './screens/TagManager';
 import CrisisandInformation from './screens/CrisisandInformation';
 import InfoandPublications from './screens/InfoandPublications';
 import LocalDistress from './screens/LocalDistress';
@@ -119,7 +121,9 @@ export default function App() {
             <Stack.Screen name="FaqPage" component={FaqPage} />
             <Stack.Screen name="AiPage" component={AiPage} />
             <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
-            <Stack.Screen name="CrisisandInformation" component={CrisisandInformation} />
+            <Stack.Screen name="EditPhoto" component={EditPhoto} />
+            <Stack.Screen name="TagManager" component={TagManager} />
+             <Stack.Screen name="CrisisandInformation" component={CrisisandInformation} />
             <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
             <Stack.Screen name="LocalDistress" component={LocalDistress} />
             <Stack.Screen name="Organizations" component={Organizations} />
