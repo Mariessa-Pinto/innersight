@@ -9,8 +9,9 @@ import {
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
-
+import Header from '../molecules/Header/Header';
+import DistressCard from '../molecules/CrisisSupportCard/DistressCard';
+import SearchBar from '../atom/Search/SearchBar'
 
 export default function LocalDistress({ navigation }) {
 
@@ -23,11 +24,14 @@ export default function LocalDistress({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Crisis Support Resources"
+            <Header
+                title="Local Distress Centres"
+                navigation={navigation} 
             />
-           
+            <ScrollView style={globalStyles.contentContainer}>
+                <SearchBar placeholder="Search byt City/Town"/>
+                <DistressCard />
+
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
@@ -39,9 +43,9 @@ export default function LocalDistress({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-   content: {
-    marginTop: 40,
-    gap: 40
-   }
+    content: {
+        marginTop: 40,
+        gap: 40
+    }
 
 })

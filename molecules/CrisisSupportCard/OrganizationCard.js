@@ -10,14 +10,14 @@ const OrganizationCard = () => {
             text="Located at 905 - 1130 West Pender St., Vancouver"
             />
             <CrisisCardBtn 
-             headerText="Canadian Mental Health Association of British Columbia"
-             numText="(604) 688-3234"
-             text="Located at 905 - 1130 West Pender St., Vancouver"
+             headerText="Kelty Mental Health Resource Centre"
+             numText="(604) 875-2084"
+             text="A resource for children, youth and families related to mental health and substance use issues located at the BC Children’s Hospital site."
             />
             <CrisisCardBtn 
-             headerText="Canadian Mental Health Association of British Columbia"
-             numText="(604) 688-3234"
-             text="Located at 905 - 1130 West Pender St., Vancouver"
+             headerText="HealthLinkBC"
+             numText="8-1-1"
+             text="HealthLink BC helps you learn about health topics, check your symptoms and find the health services and resources that you need for healthy living."
             />
         </View>
     );
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 7,
-        marginTop: 40
+  
     }
 });
 

@@ -7,13 +7,10 @@ import {
     TouchableOpacity
 } from 'react-native';
 import themeContext from '../theme/themeContext';
-import { ScrollView } from 'react-native-gesture-handler';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 import CrisisButton from '../atom/CrisisButtons/CrisisButton';
 import fontContext from '../theme/fontContext';
-import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
 import CrisisSupportBtns from '../molecules/CrisisSupportBtns/CrisisSupportBtns'
 
 export default function CrisisSupport({ navigation }) {
@@ -32,20 +29,20 @@ export default function CrisisSupport({ navigation }) {
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
                 <Text style={globalStyles.bodyCopy}>
                     Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1.
-                </Text>
+                </Text> 
                 <View style={styles.main}>
                     <CrisisButton title="Crisis & Information Lines"
                         style={styles.btn}
                         navigationTarget={() => navigation.navigate('CrisisInfoLines')} />
                     <CrisisButton title="Local Distress Centres"
                         style={styles.btn}
-                        navigationTarget={() => navigation.navigate('Font Size')} />
+                        navigationTarget={() => navigation.navigate('LocalDistress')} />
                     <CrisisButton title="Organizations"
                         style={styles.btn}
-                        navigationTarget={() => navigation.navigate('Font Size')} />
+                        navigationTarget={() => navigation.navigate('Organizations')} />
                     <CrisisButton title="Information & Publications"
                         style={styles.btn}
-                        navigationTarget={() => navigation.navigate('Font Size')} />
+                        navigationTarget={() => navigation.navigate('InfoandPublications')} />
                 </View>
 
             </View>

@@ -25,7 +25,7 @@ const SearchBar = (props) => {
 
 const styles = StyleSheet.create({
     bar: {
-      width: 328,
+      width: '100%',
       height: 40,
       display: 'flex',
       borderRadius: 10,
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#FDFDFD',
       borderWidth: 1,
       borderColor: '#88898C',
+      marginBottom: 20
     },
     input: {
         textAlign: 'left',

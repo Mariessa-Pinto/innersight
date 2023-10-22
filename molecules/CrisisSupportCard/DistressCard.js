@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 7,
-        marginTop: 40
     }
 });
 

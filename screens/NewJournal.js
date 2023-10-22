@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Button, Switch } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
+import Header from '../molecules/Header/Header';
 import JournalCovers from '../atom/JournalCovers/JournalCovers';
 import MediumBtnDarkText from '../atom/Buttons/MediumBtnDarkTxt';
 import NormalInput from '../atom/InputBoxes/NormalInput';
@@ -27,8 +27,8 @@ export default function NewJournal({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
             <ScrollView style={globalStyles.contentContainer}>
-           <TopNav 
-           headerText="Create New Journal"
+           <Header 
+           title="Create New Journal"
            />
            
            <View style={styles.header}>

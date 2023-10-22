@@ -35,7 +35,7 @@ const CrisisCardBtn = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 325,
+    width: '100%',
     height: 125,
     borderRadius: 10,
     backgroundColor: '#F6F6F6',

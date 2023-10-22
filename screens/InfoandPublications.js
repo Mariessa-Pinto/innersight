@@ -9,7 +9,7 @@ import {
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
+import Header from '../molecules/Header/Header';
 import SearchBar from '../atom/Search/SearchBar';
 import GreyButtons from '../molecules/GreyButtons/GreyButtons';
 
@@ -27,8 +27,8 @@ export default function InfoandPublications({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Information and Publications"
+            <Header
+            title="Information and Publications"
             />
             <View style={styles.content}>
             <SearchBar

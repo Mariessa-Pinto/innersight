@@ -12,6 +12,7 @@ import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
 import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
+import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn';
 
 export default function Home({ navigation }) {
 
@@ -25,8 +26,7 @@ export default function Home({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Name!</Text>
-                <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>Example text</Text>
+            <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Name!</Text>
                 <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                     <View style={styles.journalHeader}>
                         <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
@@ -41,7 +41,6 @@ export default function Home({ navigation }) {
                     <TouchableOpacity style={styles.saveBtn} >
                         <Image source={require('../atom/Buttons/CheckMark.png')} />
                     </TouchableOpacity>
-
                 </View>
 
                 <View style={styles.overviewContainer}>
@@ -55,8 +54,7 @@ export default function Home({ navigation }) {
                 <View style={styles.tipsContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
                     <View style={styles.recBtnContainer}>
-                        <RecommendationButtons />
- 
+                        <RecommendationBtn />
                     </View>
 
                 </View>
@@ -98,11 +96,6 @@ export default function Home({ navigation }) {
                     title="Go to Personal Information"
                     onPress={() => navigation.push('PersonalInformation')}
                 />
-
-
-
-
-
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />

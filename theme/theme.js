@@ -8,6 +8,7 @@ const theme = {
         backgroundGrey: '#DDDDDD',
         backgroundGreyLight: '#EAEAEA',
         borderColor:'#C5C7F7',
+        borderColorOnyx: '#3E3F42',
         sliderTrackColor: "#000",
         sliderTrackColorMax: "DDDDDD"
     },
@@ -16,6 +17,7 @@ const theme = {
         color: 'white',
         background: 'black',
         backgroundGreyLight: '#555658',
+        borderColorOnyx: '#555658',
     },
     extraSmall:{
         fontSize: 14,
