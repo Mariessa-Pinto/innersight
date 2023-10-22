@@ -20,6 +20,7 @@ import About from './screens/About';
 
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
+import Entries from './screens/Entries';
 import CreateEntry from './screens/CreateEntry';
 import CustomizeEntry from './screens/CustomizeEntry';
 import Stats from './screens/Stats';
@@ -93,6 +94,7 @@ export default function App() {
             <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
             <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+            <Stack.Screen name="Entries" component={Entries} />
             <Stack.Screen name="CreateEntry" component={CreateEntry} />
             <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
             <Stack.Screen name="Stats" component={Stats} />

@@ -5,11 +5,12 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import JournalToggle from '../atom/WordToggle/JournalToggle';
 import SearchBar from '../atom/Search/SearchBar';
-import JournalCards from '../molecules/JournalCard/JournalCard';
+import Tag from '../atom/Tag/Tag';
+import EntriesCards from '../molecules/EntriesCard/EntriesCard';
 
 
 
-export default function JournalsEntries({ navigation }) {
+export default function Entries({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -25,10 +26,21 @@ export default function JournalsEntries({ navigation }) {
                 <JournalToggle />
                 </View>
                 <View style={styles.header}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Journals</Text>
+                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                 </View>
                 <SearchBar />
-                <JournalCards />
+                <View style={styles.tags}>
+                <Tag 
+                text="Friends"
+                />
+                <Tag 
+                text="Tag"
+                />
+                <Tag 
+                text="School"
+                />
+                </View>
+                <EntriesCards />
                 </ScrollView>
                 <NavBar navigation={navigation} />
             </View>
@@ -44,10 +56,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 10
     },
     header: {
         marginLeft: 20,
         marginTop: 10
+    },
+    tags: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 7
     }
 })
