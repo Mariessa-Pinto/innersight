@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, ScrollView, Button, Switch } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
 import JournalCovers from '../atom/JournalCovers/JournalCovers';
 import MediumBtnDarkText from '../atom/Buttons/MediumBtnDarkTxt';
 import NormalInput from '../atom/InputBoxes/NormalInput';

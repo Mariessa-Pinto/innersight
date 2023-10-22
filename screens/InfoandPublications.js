@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
-import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
 import SearchBar from '../atom/Search/SearchBar';
 import GreyButtons from '../molecules/GreyButtons/GreyButtons';
 
