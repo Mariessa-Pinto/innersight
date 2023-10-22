@@ -14,18 +14,36 @@ export default function NotificationSettings({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    //ToggleSwitch
+    const [isEnabled, setIsEnabled] = useState(false);
+    const [journalIsEnabled, setJournalIsEnabled] = useState(false);
+    const journalToggleSwitch = () => setJournalIsEnabled(previousState => !previousState);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
-            <View style={styles.container}>
-                <Header title='Notifications' navigate='Profile'/>
-                <Notifications/>
-                <View style={styles.button}>
-                    <MediumBtnLightTxt 
-                        text='Save Changes'
-                        navigate=''
-                    />
-                </View>
+            <Header title='Notifications' navigation={navigation}/>
+            <Notifications title="Journal Reminders"
+                    valueChange2={journalToggleSwitch}
+                    valueEnabled2={journalIsEnabled}
+                />
+                            <Notifications title="Reminders"
+                    valueChange2={toggleSwitch}
+                    valueEnabled2={isEnabled}
+                />
+                            <Notifications title="Reminders"
+                    valueChange2={toggleSwitch}
+                    valueEnabled2={isEnabled}
+                />
+                            <Notifications title="Reminders"
+                    valueChange2={toggleSwitch}
+                    valueEnabled2={isEnabled}
+                />
+            <View style={styles.button}>
+                <MediumBtnLightTxt 
+                    text='Save Changes'
+                    navigate=''
+                />
             </View>
             <NavBar navigation={navigation}/>
         </View>

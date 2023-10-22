@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
 import Slider from "@react-native-community/slider";
 import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
-import { textData } from '../data/textData';
+import Header from '../molecules/Header/Header';
 
 import { EventRegister } from 'react-native-event-listeners'
 import themeContext from '../theme/themeContext';
@@ -12,7 +11,6 @@ import fontContext from '../theme/fontContext';
 
 
 export default function FontSize({ navigation }) {
-    const [headerData, setHeaderData] = useState(textData);
 
     //Dark/Light Mode
     const theme = useContext(themeContext);
@@ -23,19 +21,9 @@ export default function FontSize({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+            <Header title='Font Size' navigation={navigation} />
             <View style={globalStyles.contentContainer}>
-                {
-                    headerData && headerData.text.map ((h, index) => {
-                        return(
-                            <>
-                            <TopNav
-                            navigation={navigation}
-                            key={index}
-                            headerText={h.fontHeader}/>
-                            </>
-                        )
-                    })
-                }
+
 
                 <View style={styles.fontContainer}>
                     <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>
@@ -58,8 +46,8 @@ export default function FontSize({ navigation }) {
                         maximumTrackTintColor={theme.sliderTrackColorMax}
                     />
                     <View style={styles.anchorText}>
-                        <Text style={{fontSize: 14, fontWeight: 'bold'}}>A</Text>
-                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>A</Text>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold' }}>A</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>A</Text>
                     </View>
                 </View>
 
@@ -81,11 +69,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 60
     },
-    sliderContainer:{
+    sliderContainer: {
         paddingTop: 30,
         paddingBottom: 15,
         paddingHorizontal: 10,
-        width: '100%', 
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: 5,
@@ -98,12 +86,12 @@ const styles = StyleSheet.create({
     textExample: {
         textAlign: 'center'
     },
-    anchorText:{
+    anchorText: {
         display: 'flex',
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
-        alignItems: 'center', 
+        alignItems: 'center',
     }
 })
 

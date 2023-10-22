@@ -1,38 +1,32 @@
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import globalStyles from '../../styles/global';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
-const Header = (props) => {
+const Header = ({
+    navigation,
+    title }) => {
     const [pressed, setPressed] = useState(false);
 
-    const navigation = useNavigation();
-
-    const navigateTo = () => {
-        navigation.navigate(props.navigate);
-    };
 
     return (
         <View style={styles.header}>
-            <View style={styles.align}>
-                <TouchableWithoutFeedback 
-
-                    onPress={navigateTo}
-                    onPressIn={() => setPressed(true)}
-                    onPressOut={() => setPressed(false)}
-                >
-                    <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
-                        <Image
-                            source={require('../../atom/icons/backButtonArrow.png')}
-                            style={styles.backButton}
-                        />
-                    </View>
-                </TouchableWithoutFeedback>
-            </View>
-            <View style={styles.titleBox}>
-                <Text style={styles.title}>{props.title}</Text>
-            </View>
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                onPressIn={() => setPressed(true)}
+                onPressOut={() => setPressed(false)}
+                style={styles.touchContainer}
+            >
+                <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
+                    <Image
+                        source={require('../../atom/icons/backButtonArrow.png')}
+                        style={styles.backButton}
+                    />
+                </View>
+            </TouchableOpacity>
+            <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
         </View>
     );
 };
@@ -42,18 +36,27 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 30,
-        width: 600
+        paddingHorizontal: 25,
+        paddingBottom: 40,
+        paddingTop: 40,
+        width: '100%',
     },
     backButton: {
         width: 7,
-        height: 11
+        height: 11,
+        position: 'absolute',
+    },
+    touchContainer:{
+        zIndex: 1,
+        position: 'absolute',
+        paddingHorizontal: 25,
+        paddingVertical: 40,
     },
     title: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600',
+        width: '100%',
+        textAlign: 'center',
+        position: 'absolute',
+        marginLeft: 25
     },
     fullBack: {
         width: 30,
