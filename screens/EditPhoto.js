@@ -1,11 +1,13 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, ScrollView, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, Switch, Modal, TouchableWithoutFeedback } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import Header from '../molecules/Header/Header';
-import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import { Image } from 'expo-image';
 import NavBar from '../molecules/Navigation/NavBar';
+import profilePicOverlay from '../molecules/Overlays/profilePicOverlay';
+import UpdatePhoto from '../atom/Buttons/UpdatePhotoButton';
+
 
 export default function EditPhoto({ navigation }) {
 
@@ -19,7 +21,7 @@ export default function EditPhoto({ navigation }) {
         { source: require('../atom/Mascots/Sloth.png') },
         { source: require('../atom/Mascots/Frog.png') },
     ];
-    
+
     const [selectedOption, setSelectedOption] = useState(1);
     const [selectedProfileImage, setSelectedProfileImage] = useState(profilePictureOptions[selectedOption].source);
 
@@ -27,6 +29,16 @@ export default function EditPhoto({ navigation }) {
         setSelectedOption(index);
         setSelectedProfileImage(profilePictureOptions[index].source);
     };
+
+    //Overlay
+
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+    const toggleOverlay = () => {
+        setOverlayVisible(!isOverlayVisible);
+    };
+
+    const OverlayContent = profilePicOverlay;
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
@@ -47,8 +59,8 @@ export default function EditPhoto({ navigation }) {
                 <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
                     {profilePictureOptions.map((option, index) => (
                         <View style={styles.colorCircle}
-                        key={index}>
-                            <View 
+                            key={index}>
+                            <View
                                 style={styles.profileOption}
                             >
                                 <Image
@@ -60,12 +72,25 @@ export default function EditPhoto({ navigation }) {
                         </View>
                     ))}
                 </ScrollView>
-                <MediumBtnLightTxt
-                    text='Update Photo'
-                    navigate=""
-                />
+                <View onPress={toggleOverlay}>
+                    <UpdatePhoto
+                        text='Update Photo'
+                    />
+                </View>
             </View>
-            <NavBar navigation={navigation}/>
+            <NavBar navigation={navigation} />
+            <TouchableWithoutFeedback onPress={toggleOverlay}>
+                <View style={{ flex: 1 }}>
+                    <Modal
+                        visible={isOverlayVisible}
+                        animationType="slide"
+                        transparent={true}
+                        onRequestClose={toggleOverlay}
+                    >
+                        <OverlayContent />
+                    </Modal>
+                </View>
+            </TouchableWithoutFeedback>
         </View>
     );
 }
