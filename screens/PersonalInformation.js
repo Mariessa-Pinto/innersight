@@ -1,16 +1,18 @@
 import globalStyles from '../styles/global'
-import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable, TextInput } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import SmallBtn from '../atom/Buttons/SmallBtnLightTxt';
+import SmallBtnDarkTxt from '../atom/Buttons/SmallBtnDarkTxt';
 import NavBar from '../molecules/Navigation/NavBar';
+import PersonalForm from '../molecules/PersonalForm/PersonalForm';
+import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
+import Header from '../molecules/Header/Header';
+import { Image } from 'expo-image';
 
 
 
-export default function PersonalInformation(props, {navigation}) {
+export default function PersonalInformation({ navigation }) {
 
-    const { onPress, title = 'Edit Photo' } = props;
-    const { onPressTwo, titleTwo = 'Save Changes' } = props;
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -18,60 +20,31 @@ export default function PersonalInformation(props, {navigation}) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
-            <ScrollView>
-                <View style={styles.maincontent}>
-                    <Text style={styles.header}>Personal Information</Text>
-                    <View style={styles.profimage}>
-                    </View>
-                    <Pressable style={styles.button} onPress={onPress}>
-                        <Text style={styles.label}>{title}</Text>
-                    </Pressable>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="First Name"
-                        autoFocus={true}
-                        autoCapitalize="words"
-                        autoCorrect={true}
-                        keyboardType="default"
-
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+            <View style={styles.maincontent}>
+                <View style={styles.headerBar}>
+                    <Header
+                        title='Personal Information'
+                        navigate="Profile"
                     />
-
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Last Name"
-                        autoFocus={true}
-                        autoCapitalize="words"
-                        autoCorrect={true}
-                        keyboardType="default"
-
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Email"
-                        autoFocus={true}
-                        autoCapitalize="words"
-                        autoCorrect={true}
-                        keyboardType="default"
-
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Password"
-                        autoFocus={true}
-                        autoCapitalize="words"
-                        autoCorrect={true}
-                        keyboardType="default"
-
-                    />
-
-                    <Pressable style={styles.button2} onPress={onPressTwo}>
-                        <Text style={styles.label2}>{titleTwo}</Text>
-                    </Pressable>
                 </View>
-
-            </ScrollView>
-            <NavBar navigation={navigation}/>
+                <View style={styles.profimage}>
+                    <Image
+                        source={require('../atom/Mascots/Otter.png')}
+                        style={styles.otter}
+                    />
+                </View>
+                <SmallBtnDarkTxt
+                    text="Edit Photo"
+                    navigate="EditPhoto"
+                />
+                <PersonalForm />
+                <MediumBtnLightTxt
+                    text="Save Changes"
+                    navigate=""
+                />
+            </View>
+            <NavBar navigation={navigation} />
         </View>
 
     );
@@ -83,66 +56,23 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        gap: 20
     },
     profimage: {
-        backgroundColor: '#d9d9d9',
+        backgroundColor: '#FFF2AC',
         borderRadius: 50,
         height: 100,
-        left: 0,
-        top: 0,
-        width: 100
-    },
-    header: {
-        fontSize: 18,
-        
-       
-    },
-    button: {
-        width: 114,
-        height: 32,
-        borderRadius: 10,
+        width: 100,
+        display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#C5C7F7',
-        padding: 5
-
-
+        justifyContent: 'center',
+        paddingTop: 10,
+        marginTop: 20,
+        marginBottom: 10
     },
-    button2: {
-        width: 114,
-        height: 32,
-        borderRadius: 10,
-        alignItems: 'center',
-        backgroundColor: '#6164C3',
-        padding: 5,
-      
-        
-
-    },
-
-    label: {
-        fontSize: 12,
-        alignItems: 'center',
-       
-    },
-
-    label2: {
-        fontSize: 12,
-        alignItems: 'center',
-        color: 'white'
-       
-    },
-     input: {
-        height: 35,
-        width: 328,
-        borderColor:'#88898C'
-    
-        
-     }
-
-
-
+    otter: {
+        width: 86,
+        height: 75
+    }
 })
 
 
