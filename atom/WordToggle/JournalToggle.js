@@ -1,24 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-const JournalToggle = () => {
-  const [selectedValue, setSelectedValue] = useState('Entries');
+const JournalToggle = (props) => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [selectedValue, setSelectedValue] = useState();
+
+  useEffect(() => {
+    if (route.name === 'JournalsEntries') {
+      setSelectedValue('Journals')
+    } else {
+      setSelectedValue('Entries')
+    }
+  }, [route.name])
 
   const handleToggle = (value) => {
     setSelectedValue(value);
+    if (value === 'Entries') {
+      navigation.navigate('Entries');
+    } else {
+      navigation.navigate('JournalsEntries')
+    }
   };
+
+ 
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.btn, selectedValue === 'Entries' && styles.selectedBtn]}
-        onPress={() => handleToggle('Entries')}
+        onPress={() => 
+          handleToggle('Entries')}
       >
         <Text style={selectedValue === 'Entries' && styles.selectedText}>Entries</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.btn, selectedValue === 'Journals' && styles.selectedBtn]}
-        onPress={() => handleToggle('Journals')}
+        onPress={() => 
+          handleToggle('Journals')}
       >
         <Text style={selectedValue === 'Journals' && styles.selectedText}>Journals</Text>
       </TouchableOpacity>
