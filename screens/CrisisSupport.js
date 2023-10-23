@@ -7,13 +7,10 @@ import {
     TouchableOpacity
 } from 'react-native';
 import themeContext from '../theme/themeContext';
-import { ScrollView } from 'react-native-gesture-handler';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 import CrisisButton from '../atom/CrisisButtons/CrisisButton';
 import fontContext from '../theme/fontContext';
-import NavBar from '../molecules/Navigation/NavBar';
-import TopNav from '../molecules/Navigation/TopNav';
 import CrisisSupportBtns from '../molecules/CrisisSupportBtns/CrisisSupportBtns'
 
 export default function CrisisSupport({ navigation }) {
