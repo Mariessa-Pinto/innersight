@@ -12,6 +12,7 @@ import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
 import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
+import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn';
 
 export default function Home({ navigation }) {
 
@@ -55,60 +56,14 @@ export default function Home({ navigation }) {
                 <View style={styles.tipsContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
                     <View style={styles.recBtnContainer}>
-                        <RecommendationButtons />
- 
+                        <RecommendationBtn />
                     </View>
-
                 </View>
-                <Button
-                    title="Go to Recommendations"
-                    onPress={() => navigation.push('Recommendations')}
-                />
-                <Button
-                    title="Go to customize entry"
-                    onPress={() => navigation.push('CustomizeEntry')}
-                />
-                <Button
-                    title="Go to Tag Manager"
-                    onPress={() => navigation.push('TagManager')}
-                />
-                <Button
-                    title="Go to write entry"
-                    onPress={() => navigation.push('WriteEntry')}
-                />
-                <Button
-                    className="button"
-                    title="Go to about page"
-                    onPress={() => navigation.push('About')}
-                />
-                <Button
-                    title="Go to accessibility page"
-                    onPress={() => navigation.push('Accessibility')}
-                />
-                <Button
-                    title="Go to the font size page"
-                    onPress={() => navigation.push('Font Size')}
-                />
-
-                <Button
-                    title="Go to the Crisis Support Page"
-                    onPress={() => navigation.push('Crisis Support')}
-                />
-                
-               
-                <Button
-                    title="Go to Personal Information"
-                    onPress={() => navigation.push('PersonalInformation')}
-                />
-
-
-
-
 
             </ScrollView>
-            <View style={globalStyles.navContainer}>
+
                 <NavBar navigation={navigation} />
-            </View>
+
 
         </View>
 
@@ -120,7 +75,14 @@ const styles = StyleSheet.create({
         height: 176,
         width: '100%',
         borderRadius: 15,
-        padding: 16
+        padding: 16,
+        marginBottom: 15
+    },
+    overviewContainer: {
+        marginBottom: 15
+    },
+    tipsContainer: {
+        marginBottom: 15
     },
     quickJournal: {
         borderRadius: 5
@@ -143,11 +105,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         gap: 16,
-    },
-    recBtnContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 10,
     },
     saveBtn: {
         position: 'absolute',

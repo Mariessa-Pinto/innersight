@@ -18,7 +18,7 @@ export default function SelfCare({navigation}) {
                     <View style={styles.maincontent}>
                         <Header title='Self-Care' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/recmascots/Self.png')}
+                        source={require('../atom/assets/Recmascots/self.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
