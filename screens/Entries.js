@@ -20,34 +20,28 @@ export default function Entries({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-           
-                
                 <View style={styles.toggleCon}>
-                <JournalToggle />
+                    <JournalToggle />
                 </View>
                 <View style={styles.header}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
+                    <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                 </View>
                 <SearchBar />
                 <View style={styles.tags}>
-                <Tag 
-                text="Friends"
-                />
-                <Tag 
-                text="Tag"
-                />
-                <Tag 
-                text="School"
-                />
+                    <Tag
+                        text="Friends"
+                    />
+                    <Tag
+                        text="Tag"
+                    />
+                    <Tag
+                        text="School"
+                    />
                 </View>
                 <EntriesCards />
-                </ScrollView>
-                <NavBar navigation={navigation} />
-            </View>
-            
-         
-           
-
+            </ScrollView>
+            <NavBar navigation={navigation} />
+        </View>
     );
 }
 

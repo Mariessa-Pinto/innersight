@@ -26,15 +26,15 @@ export default function Organizations({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Organizations"
-            />
-            <View style={styles.content}>
-            <SearchBar 
-            placeholder="Search by City/Town"
-            />
-            <OrganizationCard />
-            </View>
+                <TopNav
+                    headerText="Organizations"
+                />
+                <View style={styles.content}>
+                    <SearchBar
+                        placeholder="Search by City/Town"
+                    />
+                    <OrganizationCard />
+                </View>
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
@@ -46,8 +46,8 @@ export default function Organizations({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-   content: {
-    marginTop: 40
-   }
+    content: {
+        marginTop: 40
+    }
 
 })

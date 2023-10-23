@@ -21,7 +21,7 @@ export default function NotificationSettings({ navigation }) {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Notifications' navigation={navigation} />
             <View style={globalStyles.contentContainer}>
                 <Notifications title="Journal Reminders"

@@ -13,7 +13,7 @@ export default function About({navigation}) {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Text style={[globalStyles.text, { color: theme.color }]}>About Page</Text>
             <StatusBar style="auto" />
             <Button title="Go Back" onPress={() => navigation.goBack()}/>
