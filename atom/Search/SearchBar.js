@@ -25,7 +25,7 @@ const SearchBar = (props) => {
 
 const styles = StyleSheet.create({
     bar: {
-      width: 328,
+      width: '100%',
       height: 40,
       display: 'flex',
       borderRadius: 10,
