@@ -50,6 +50,9 @@ import CrisisandInformation from './screens/CrisisandInformation';
 import InfoandPublications from './screens/InfoandPublications';
 import LocalDistress from './screens/LocalDistress';
 import Organizations from './screens/Organizations';
+import Hobbies from './screens/Hobbies';
+import SelfCare from './screens/SelfCare';
+import Sleeping from './screens/Sleeping';
 
 
 
@@ -130,6 +133,10 @@ export default function App() {
             <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
             <Stack.Screen name="LocalDistress" component={LocalDistress} />
             <Stack.Screen name="Organizations" component={Organizations} />
+            <Stack.Screen name="Hobbies" component={Hobbies} />
+            <Stack.Screen name="SelfCare" component={SelfCare} />
+            <Stack.Screen name="Sleeping" component={Sleeping} />
+            
 
           </Stack.Navigator>
         </NavigationContainer>
