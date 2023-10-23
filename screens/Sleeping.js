@@ -18,7 +18,7 @@ export default function Sleeping({navigation}) {
                     <View style={styles.maincontent}>
                         <Header title='Sleeping Early' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/recmascots/Sleeping.png')}
+                        source={require('../atom/assets/Recmascots/sleeping.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
