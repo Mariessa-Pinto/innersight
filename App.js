@@ -54,6 +54,7 @@ import SelfCare from './screens/SelfCare';
 import Sleeping from './screens/Sleeping';
 import LanguageSettings from './screens/LanguageSettings'
 import JournalPassword from './screens/JournalPassword'
+import AiToolJournal from './screens/AiToolJournal';
 
 
 export default function App() {
@@ -136,6 +137,7 @@ export default function App() {
             <Stack.Screen name="Sleeping" component={Sleeping} />
             <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
             <Stack.Screen name="JournalPassword" component={JournalPassword} />
+            <Stack.Screen name="AiToolJournal" component={AiToolJournal} />
 
             
 
