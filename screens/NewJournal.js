@@ -8,7 +8,7 @@ import MediumBtnDarkText from '../atom/Buttons/MediumBtnDarkTxt';
 import NormalInput from '../atom/InputBoxes/NormalInput';
 import Toggle from '../atom/ToggleSwitch/Toggle';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
-
+import Header from '../molecules/Header/Header';
 
 
 export default function NewJournal({ navigation }) {
@@ -26,8 +26,8 @@ export default function NewJournal({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
             <ScrollView style={globalStyles.contentContainer}>
-           <TopNav 
-           headerText="Create New Journal"
+           <Header
+           text="Create New Journal"
            />
            
            <View style={styles.header}>
