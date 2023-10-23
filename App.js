@@ -46,9 +46,13 @@ import NotificationSettings from './screens/NotificationSettings';
 import CrisisInfoLines from './screens/CrisisInfoLines';
 import EditPhoto from './screens/EditPhoto';
 import TagManager from './screens/TagManager';
+import CrisisandInformation from './screens/CrisisandInformation';
 import InfoandPublications from './screens/InfoandPublications';
 import LocalDistress from './screens/LocalDistress';
 import Organizations from './screens/Organizations';
+import Hobbies from './screens/Hobbies';
+import SelfCare from './screens/SelfCare';
+import Sleeping from './screens/Sleeping';
 import LanguageSettings from './screens/LanguageSettings';
 import JournalPassword from './screens/JournalPassword';
 
