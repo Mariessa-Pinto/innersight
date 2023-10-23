@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function JournalBlobCard({
     imgSource,
-    journalTitle
 }) {
     return (
         <View style={styles.container}>

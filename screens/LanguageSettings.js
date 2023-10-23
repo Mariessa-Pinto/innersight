@@ -1,9 +1,11 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-
+import Header from '../molecules/Header/Header';
+import SearchBar from '../atom/Search/SearchBar'
+import LanguageGreyButtons from '../molecules/GreyButtons/LanguageGreyButtons'
 
 
 export default function LanguageSettings({ navigation }) {
@@ -14,11 +16,19 @@ export default function LanguageSettings({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
-            <NavBar navigation={navigation} />
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+            <Header title='Language' navigation={navigation} />
+            <ScrollView style={globalStyles.contentContainer}>
+                <SearchBar placeholder="Find a Language"
+                style={styles.searchBar} />
+                <LanguageGreyButtons />
+            </ScrollView>
+
+                <NavBar navigation={navigation} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+
 })
