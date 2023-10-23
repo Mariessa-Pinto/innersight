@@ -131,9 +131,13 @@ export default function App() {
             <Stack.Screen name="CrisisInfoLines" component={CrisisInfoLines} />
             <Stack.Screen name="EditPhoto" component={EditPhoto} />
             <Stack.Screen name="TagManager" component={TagManager} />
+             <Stack.Screen name="CrisisandInformation" component={CrisisandInformation} />
             <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
             <Stack.Screen name="LocalDistress" component={LocalDistress} />
             <Stack.Screen name="Organizations" component={Organizations} />
+            <Stack.Screen name="Hobbies" component={Hobbies} />
+            <Stack.Screen name="SelfCare" component={SelfCare} />
+            <Stack.Screen name="Sleeping" component={Sleeping} />
             <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
             <Stack.Screen name="JournalPassword" component={JournalPassword} />
 
