@@ -7,6 +7,7 @@ import DateToggle from '../atom/WordToggle/DateToggle';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -21,7 +22,7 @@ export default function YearStats({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
             <ScrollView>
             <View style={styles.maincontent}>
-                <Text style={styles.header}>Your Year in Review</Text>
+                <Header title=" Your Year in Review"/>
                 <DateToggle/>
                 <Image 
                 source={require('../atom/assets/graph.png')}

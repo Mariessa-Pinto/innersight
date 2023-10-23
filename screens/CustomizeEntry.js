@@ -5,7 +5,8 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import ColorBtns from '../atom/ColorButtons/ColorBtns';
 import TypeButton from '../atom/TypeFace/TypeButton';
-import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt'
+import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -23,8 +24,8 @@ export default function CustomizeEntry({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
             <ScrollView style={globalStyles.contentContainer}>
-           <TopNav 
-           headerText="Customize Your Entry"
+           <Header
+           title="Customize Your Entry"
            />
           <View style={styles.header}>
            <Text style={[globalStyles.h3Text, { color: theme.color }]}>Text Highlight Colour</Text>
