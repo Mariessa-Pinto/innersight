@@ -5,7 +5,7 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 
-export default function Recommendations({navigation}) {
+export default function SelfCare({navigation}) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -16,15 +16,15 @@ export default function Recommendations({navigation}) {
             <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
                 <ScrollView style={globalStyles.contentContainer}>
                     <View style={styles.maincontent}>
-                        <Header title='Exercise' navigation={navigation}/>
+                        <Header title='Self-Care' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/recmascots/Exercise.png')}
+                        source={require('../atom/assets/recmascots/Self.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
-<Text>Engaging in regular exercise many benefits for both physical and mental wellbeing. </Text>
-<Text>Physically, it enhances cardiovascular health, strengthens muscles and bones, and aids in weight management. Beyond the physical advantages, exercise is a potent mood booster, releasing endorphins that alleviate stress and anxiety while promoting a sense of overall happiness. Additionally, consistent physical activity has been associated with improved cognitive function, better sleep quality, and a reduced risk of chronic conditions. </Text>
-<Text>Don’t know where to start? Take a stroll in the park with your headphones on, immersing yourself in the soothing blend of nature's serenity and your favourite tunes.</Text>
+<Text>Elevate your well-being with deliberate acts of self-care. Begin by creating small moments in your day—sip herbal tea, bask in sunlight, or relish a quiet pause.  </Text>
+<Text>Unplug from screens periodically, indulge in a favourite hobby, and prioritize quality sleep. Nourish your body with wholesome foods, and exercise when you can. Cultivate mindfulness, embrace solitude, and surround yourself with positive influences. Remember, self-care isn't a luxury but a vital investment in your overall happiness and resilience. </Text>
+<Text>Take it one step at a time. You can do it! </Text>
 </View>
                     </View>
 

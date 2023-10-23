@@ -5,6 +5,7 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import DateToggle from '../atom/WordToggle/DateToggle';
 import 'react-native-gesture-handler';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -20,7 +21,7 @@ export default function Stats({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
             <ScrollView>
             <View style={styles.maincontent}>
-                <Text style={styles.header}>Your Week in Review</Text>
+                <Header title="Your Week in Review"/>
                 <DateToggle/>
                 <Image 
                 source={require('../atom/assets/graph.png')}

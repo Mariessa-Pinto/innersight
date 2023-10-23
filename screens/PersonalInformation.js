@@ -21,12 +21,13 @@ export default function PersonalInformation({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
-            <View style={styles.maincontent}>
-                <View style={styles.headerBar}>
-                    <Header
+               <Header
                         title='Personal Information'
                         navigate="Profile"
                     />
+            <View style={styles.maincontent}>
+                <View style={styles.headerBar}>
+                 
                 </View>
                 <View style={styles.profimage}>
                     <Image

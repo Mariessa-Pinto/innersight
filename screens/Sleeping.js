@@ -5,7 +5,7 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 
-export default function Recommendations({navigation}) {
+export default function Sleeping({navigation}) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -16,15 +16,15 @@ export default function Recommendations({navigation}) {
             <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
                 <ScrollView style={globalStyles.contentContainer}>
                     <View style={styles.maincontent}>
-                        <Header title='Exercise' navigation={navigation}/>
+                        <Header title='Sleeping Early' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/recmascots/Exercise.png')}
+                        source={require('../atom/assets/recmascots/Sleeping.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
-<Text>Engaging in regular exercise many benefits for both physical and mental wellbeing. </Text>
-<Text>Physically, it enhances cardiovascular health, strengthens muscles and bones, and aids in weight management. Beyond the physical advantages, exercise is a potent mood booster, releasing endorphins that alleviate stress and anxiety while promoting a sense of overall happiness. Additionally, consistent physical activity has been associated with improved cognitive function, better sleep quality, and a reduced risk of chronic conditions. </Text>
-<Text>Don’t know where to start? Take a stroll in the park with your headphones on, immersing yourself in the soothing blend of nature's serenity and your favourite tunes.</Text>
+<Text>Prioritizing early and sufficient sleep is a fundamental pillar of mental health. </Text>
+<Text>Adequate sleep supports cognitive function, emotional resilience, and stress management, fostering a positive impact on mood and overall mental well-being. By establishing a consistent sleep routine, you empower your mind to recharge, consolidate memories, and effectively navigate the challenges of each day, contributing to a healthier and more resilient mental state. </Text>
+<Text>Deep, quality sleep is essential for the brain's ability to process emotions and regulate stress hormones. In contrast, chronic sleep deprivation has been associated with increased irritability, heightened stress levels, and a greater susceptibility to anxiety and depression. Embracing the practice of sleeping early is not just a simple routine; it's a proactive investment in your mental and emotional well-being, providing a solid foundation for a more vibrant and resilient life.</Text>
 </View>
                     </View>
 
