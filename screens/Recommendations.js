@@ -18,7 +18,7 @@ export default function Recommendations({navigation}) {
                     <View style={styles.maincontent}>
                         <Header title='Exercise' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/Recmascots/exercise.png')}
+                        source={require('../atom/assets/recmascots/Exercise.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>

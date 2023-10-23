@@ -18,7 +18,7 @@ export default function SelfCare({navigation}) {
                     <View style={styles.maincontent}>
                         <Header title='Self-Care' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/Recmascots/self.png')}
+                        source={require('../atom/assets/recmascots/Self.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
     },
     writing: {
         gap: 20
+    },
+    picture: {
+        width: 328,
+        height: 131
     }
 
 });

@@ -18,7 +18,7 @@ export default function Hobbies({navigation}) {
                     <View style={styles.maincontent}>
                         <Header title='Engage in Hobbies' navigation={navigation}/>
                         <Image 
-                        source={require('../atom/assets/Recmascots/hobbies.png')}
+                        source={require('../atom/assets/recmascots/Hobbies.png')}
                         style={styles.picture}
                          />
 <View style={styles.writing}>
