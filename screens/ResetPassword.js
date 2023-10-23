@@ -14,7 +14,7 @@ export default function ResetPassword() {
     const theme = useContext(themeContext)
  
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <StatusBar style="auto" />
             <View style={styles.container}>
                 <View style={styles.titleContainer}>

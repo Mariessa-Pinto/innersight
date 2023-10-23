@@ -19,7 +19,7 @@ export default function CrisisInfoLines({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Crisis & Information Lines' navigation={navigation} />
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
             <SearchBar placeholder="Search by Name"/>
@@ -29,7 +29,6 @@ export default function CrisisInfoLines({ navigation }) {
                 <NavBar navigation={navigation} />
             </View>
         </View>
-
     );
 }
 
