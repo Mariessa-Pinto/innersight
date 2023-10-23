@@ -53,8 +53,8 @@ import Organizations from './screens/Organizations';
 import Hobbies from './screens/Hobbies';
 import SelfCare from './screens/SelfCare';
 import Sleeping from './screens/Sleeping';
-
-
+import LanguageSettings from './screens/LanguageSettings'
+import JournalPassword from './screens/JournalPassword'
 
 
 export default function App() {
@@ -136,6 +136,9 @@ export default function App() {
             <Stack.Screen name="Hobbies" component={Hobbies} />
             <Stack.Screen name="SelfCare" component={SelfCare} />
             <Stack.Screen name="Sleeping" component={Sleeping} />
+            <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
+            <Stack.Screen name="JournalPassword" component={JournalPassword} />
+
             
 
           </Stack.Navigator>

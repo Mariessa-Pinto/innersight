@@ -9,8 +9,7 @@ import {
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
-
-
+import Header from '../molecules/Header/Header';
 
 export default function CrisisandInformation({ navigation }) {
 
@@ -24,8 +23,8 @@ export default function CrisisandInformation({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Crisis Support Resources"
+            <Header 
+            Text="Crisis Support Resources"
             />
            
             </ScrollView>
