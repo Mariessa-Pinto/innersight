@@ -24,7 +24,7 @@ export default function CrisisSupport({ navigation }) {
 
     return (
 
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Crisis Support Resources' navigation={navigation} />
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
                 <Text style={globalStyles.bodyCopy}>
