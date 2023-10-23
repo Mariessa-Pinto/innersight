@@ -8,7 +8,6 @@ import SearchBar from '../atom/Search/SearchBar';
 import JournalCards from '../molecules/JournalCard/JournalCard';
 
 
-
 export default function JournalsEntries({ navigation }) {
 
     //Dark/Light Mode
@@ -19,22 +18,22 @@ export default function JournalsEntries({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-           
-                
+
+
                 <View style={styles.toggleCon}>
-                <JournalToggle />
+                    <JournalToggle />
                 </View>
                 <View style={styles.header}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Journals</Text>
+                    <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Journals</Text>
                 </View>
                 <SearchBar />
                 <JournalCards />
-                </ScrollView>
-                <NavBar navigation={navigation} />
-            </View>
-            
-         
-           
+            </ScrollView>
+            <NavBar navigation={navigation} />
+        </View>
+
+
+
 
     );
 }

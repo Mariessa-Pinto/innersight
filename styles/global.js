@@ -3,17 +3,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 
-    container: {
-        width: '100%',
-        height: '95%',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        backgroundColor: '#FDFDFD',
-        elevation: 3,
-        position: 'absolute',
-        bottom: 0,
-    },
-    
     h1TextBold:{
         fontFamily: 'Lexend-Regular',
         fontSize: 28,
@@ -91,18 +80,28 @@ export default StyleSheet.create({
         fontSize: 12,
         lineHeight: 25
     },
+    container: {
+        width: '100%',
+        height: '95%',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        backgroundColor: '#FDFDFD',
+        elevation: 3,
+        position: 'absolute',
+        bottom: 0,
+    },
+    
     contentContainer: {
         height: '100%',
         width: '100%',
         paddingHorizontal: 20,
-        paddingTop: 10,
+        paddingVertical: 10,
         flex: 1,
     },
     navContainer: {
-        height: '18%',
+        height: '15%',
         width: '100%',
-        position: 'absolute',
-        bottom: 0,
+
     },
     slider: {
         width: 100,

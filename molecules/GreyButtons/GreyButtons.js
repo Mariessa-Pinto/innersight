@@ -46,8 +46,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30
+        marginTop: 30,
+        width: '100%'
     },
+    box:{
+        width: '100%'
+    }
 });
 
 export default GreyButtons;

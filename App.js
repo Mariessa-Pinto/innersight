@@ -50,6 +50,7 @@ import InfoandPublications from './screens/InfoandPublications';
 import LocalDistress from './screens/LocalDistress';
 import Organizations from './screens/Organizations';
 import LanguageSettings from './screens/LanguageSettings';
+import JournalPassword from './screens/JournalPassword';
 
 
 
@@ -130,6 +131,7 @@ export default function App() {
             <Stack.Screen name="LocalDistress" component={LocalDistress} />
             <Stack.Screen name="Organizations" component={Organizations} />
             <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
+            <Stack.Screen name="JournalPassword" component={JournalPassword} />
 
           </Stack.Navigator>
         </NavigationContainer>

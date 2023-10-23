@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+
+import globalStyles from '../../styles/global';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useState, useContext } from 'react';
+import themeContext from '../../theme/themeContext';
 
 const MediumBtnLightTxt = (props) => {
   const navigation = useNavigation();
@@ -9,6 +12,9 @@ const MediumBtnLightTxt = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+
+      //Dark/Light Mode
+      const theme = useContext(themeContext)
   
   return (
     <TouchableWithoutFeedback
@@ -17,7 +23,7 @@ const MediumBtnLightTxt = (props) => {
       onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={[globalStyles.btnTextMed, {color: theme.colorLight}]}>{props.text}</Text>
       </View>
     </TouchableWithoutFeedback>
   );

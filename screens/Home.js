@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Name!</Text>
+                <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Name!</Text>
                 <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                     <View style={styles.journalHeader}>
                         <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
@@ -53,49 +53,9 @@ export default function Home({ navigation }) {
 
                 <View style={styles.tipsContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
-                    <View style={styles.recBtnContainer}>
-                        <RecommendationBtn />
-                    </View>
-
+                    <RecommendationBtn />
                 </View>
-                <Button
-                    title="Go to Tag Manager"
-                    onPress={() => navigation.push('TagManager')}
-                />
-                <Button
-                    title="Go to write entry"
-                    onPress={() => navigation.push('WriteEntry')}
-                />
-                <Button
-                    className="button"
-                    title="Go to about page"
-                    onPress={() => navigation.push('About')}
-                />
-                <Button
-                    title="Go to accessibility page"
-                    onPress={() => navigation.push('Accessibility')}
-                />
-                <Button
-                    title="Go to the font size page"
-                    onPress={() => navigation.push('Font Size')}
-                />
-
-                <Button
-                    title="Go to the Crisis Support Page"
-                    onPress={() => navigation.push('Crisis Support')}
-                />
-                <Button
-                    title="Go to Profile"
-                    onPress={() => navigation.push('Profile')}
-                />
-                <Button
-                    title="Go to Recommendations"
-                    onPress={() => navigation.push('Recommendations')}
-                />
-                <Button
-                    title="Go to Personal Information"
-                    onPress={() => navigation.push('PersonalInformation')}
-                />
+                
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
@@ -111,7 +71,14 @@ const styles = StyleSheet.create({
         height: 176,
         width: '100%',
         borderRadius: 15,
-        padding: 16
+        padding: 16,
+        marginBottom: 15
+    },
+    overviewContainer: {
+        marginBottom: 15
+    },
+    tipsContainer: {
+        marginBottom: 15
     },
     quickJournal: {
         borderRadius: 5
@@ -134,11 +101,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         gap: 16,
-    },
-    recBtnContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 10,
     },
     saveBtn: {
         position: 'absolute',

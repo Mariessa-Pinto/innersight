@@ -5,6 +5,7 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 import SearchBar from '../atom/Search/SearchBar'
+import LanguageGreyButtons from '../molecules/GreyButtons/LanguageGreyButtons'
 
 
 export default function LanguageSettings({ navigation }) {
@@ -15,13 +16,13 @@ export default function LanguageSettings({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
             <Header title='Language' navigation={navigation} />
-            
             <ScrollView style={globalStyles.contentContainer}>
-            <SearchBar placeholder="Find a Language"/>
+                <SearchBar placeholder="Find a Language" />
+                <LanguageGreyButtons />
             </ScrollView>
-            
+
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
             </View>

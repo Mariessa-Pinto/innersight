@@ -39,6 +39,7 @@ npm install @react-navigation/native-stack
 - [Font Support](https://www.npmjs.com/package/react-native-asset)
 - [React Native Paper](https://callstack.github.io/react-native-paper/)
 1. [Search Bar](https://callstack.github.io/react-native-paper/docs/components/Searchbar/)
+- [Hide With Keyboard](https://www.npmjs.com/package/react-native-hide-with-keyboard)
 
 ## Instructions
 

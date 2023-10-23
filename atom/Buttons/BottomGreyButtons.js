@@ -24,7 +24,7 @@ const BottomGreyButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 328,
+    width: '100%',
     height: 40,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,

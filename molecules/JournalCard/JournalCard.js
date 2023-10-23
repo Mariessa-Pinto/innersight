@@ -15,14 +15,14 @@ const JournalCards = () => {
             iconImage={require('../../atom/icons/Lock.png')}
             headerText="All My Vents"
             text="Short Description of journal that user puts in beginning when they create journal."
-            navigate="Entries"
+            navigate="JournalPassword"
             />
             <JournalPageCard 
             image={require('../..//atom/assets/Covers/OrangeCover.png')}
             iconImage={require('../../atom/icons/Lock.png')}
             headerText="Journal Title"
             text="Short Description of journal that user puts in beginning when they create journal."
-            navigate="Entries"
+            navigate="JournalPassword"
             />
         </View>
     );
