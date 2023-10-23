@@ -26,7 +26,7 @@ export default function TagManager({ navigation }) {
     const OverlayContent = tagSettingsOverlay
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <View style={styles.container}>
                 <Header title='Manage Tags' navigate='' />
                 <TouchableWithoutFeedback

@@ -16,15 +16,14 @@ export default function LanguageSettings({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Language' navigation={navigation} />
             <ScrollView style={globalStyles.contentContainer}>
                 <SearchBar placeholder="Find a Language"
-                style={styles.searchBar} />
+                    style={styles.searchBar} />
                 <LanguageGreyButtons />
             </ScrollView>
-
-                <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} />
         </View>
     );
 }

@@ -19,7 +19,7 @@ export default function Demo({ navigation } ) {
     // const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <StatusBar style="auto" />
             <View style={styles.animation}>
                 <DemoAnimation/>

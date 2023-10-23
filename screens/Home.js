@@ -42,9 +42,7 @@ export default function Home({ navigation }) {
                     <TouchableOpacity style={styles.saveBtn} >
                         <Image source={require('../atom/Buttons/CheckMark.png')} />
                     </TouchableOpacity>
-
                 </View>
-
                 <View style={styles.overviewContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Your Week So Far</Text>
                     <View style={styles.boosterContainers}>
@@ -52,21 +50,15 @@ export default function Home({ navigation }) {
                         <MoodDowners />
                     </View>
                 </View>
-
                 <View style={styles.tipsContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
                     <View style={styles.recBtnContainer}>
-                        <RecommendationBtn/>
+                        <RecommendationBtn />
                     </View>
                 </View>
-
             </ScrollView>
-
-                <NavBar navigation={navigation} />
-
-
+            <NavBar navigation={navigation} />
         </View>
-
     );
 }
 

@@ -41,7 +41,7 @@ export default function EditPhoto({ navigation }) {
     const OverlayContent = profilePicOverlay;
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <View style={styles.container}>
                 <Header
                     title='Customize Profile Photo'

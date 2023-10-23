@@ -13,7 +13,7 @@ export default function Recommendations({navigation}) {
 
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+            <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <ScrollView style={globalStyles.contentContainer}>
                     <View style={styles.maincontent}>
                         <Header title='Exercise' navigation={navigation}/>

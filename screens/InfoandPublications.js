@@ -25,15 +25,15 @@ export default function InfoandPublications({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <TopNav 
-            headerText="Information and Publications"
-            />
-            <View style={styles.content}>
-            <SearchBar
-            placeholder="Search by Publications"
-            />
-           <GreyButtons />
-           </View>
+                <TopNav
+                    headerText="Information and Publications"
+                />
+                <View style={styles.content}>
+                    <SearchBar
+                        placeholder="Search by Publications"
+                    />
+                    <GreyButtons />
+                </View>
             </ScrollView>
             <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
@@ -45,9 +45,9 @@ export default function InfoandPublications({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-   content: {
-    marginTop: 40,
-    gap: 10
-   }
+    content: {
+        marginTop: 40,
+        gap: 10
+    }
 
 })
