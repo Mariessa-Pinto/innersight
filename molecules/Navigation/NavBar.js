@@ -6,6 +6,7 @@ import NavBarContainer from '../../atom/icons/NavBarContainer';
 import ProfileIcon from '../../atom/icons/ProfileIcon';
 import JournalIcon from '../../atom/icons/JournalIcon';
 import plusButtonOverlay from '../Overlays/plusButtonOverlay';
+import HideWithKeyboard from 'react-native-hide-with-keyboard';
 
 import { useContext, useState } from 'react';
 import themeContext from '../../theme/themeContext';
@@ -29,6 +30,8 @@ export default function NavBar({ navigation }) {
     const OverlayContent = plusButtonOverlay
 
     return (
+        <>
+        <HideWithKeyboard>
         <View style={styles.container}>
             <View style={styles.iconView}>
                 <View style={[styles.iconSubContainer, styles.container1]}>
@@ -67,6 +70,9 @@ export default function NavBar({ navigation }) {
                 </View>
             </TouchableWithoutFeedback>
         </View >
+        </HideWithKeyboard>
+        </>
+        
     );
 };
 

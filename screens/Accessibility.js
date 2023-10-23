@@ -34,6 +34,7 @@ export default function Accessibility({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
             <Header title='Accessibility Settings' navigation={navigation} />
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
+                <View style={styles.settingsContainer}>
                 <Notifications title="Dark Mode"
                     valueChange2={(value) => {
                         setDarkMode(value);
@@ -58,6 +59,8 @@ export default function Accessibility({ navigation }) {
                         <Image source={require('../atom/assets/settingicons/Arrow.png')} />
                     </TouchableOpacity>
                 </View>
+                </View>
+                
             </View>
 
             <NavBar navigation={navigation} />
@@ -81,5 +84,8 @@ const styles = StyleSheet.create({
     label2: {
         fontSize: 13,
     },
+    settingsContainer:{
+        marginTop: 30
+    }
 })
 
