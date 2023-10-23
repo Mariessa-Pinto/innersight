@@ -53,8 +53,8 @@ import Organizations from './screens/Organizations';
 import Hobbies from './screens/Hobbies';
 import SelfCare from './screens/SelfCare';
 import Sleeping from './screens/Sleeping';
-import LanguageSettings from './screens/LanguageSettings';
-import JournalPassword from './screens/JournalPassword';
+import LanguageSettings from './screens/LanguageSettings'
+import JournalPassword from './screens/JournalPassword'
 
 
 
