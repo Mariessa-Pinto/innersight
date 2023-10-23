@@ -95,15 +95,10 @@ export default StyleSheet.create({
         height: '100%',
         width: '100%',
         paddingHorizontal: 20,
-        paddingTop: 10,
+        paddingVertical: 10,
         flex: 1,
     },
-    navContainer: {
-        height: '15%',
-        width: '100%',
-        backgroundColor: 'pink'
 
-    },
     slider: {
         width: 100,
         height: 50,
