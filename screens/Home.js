@@ -56,7 +56,7 @@ export default function Home({ navigation }) {
                 <View style={styles.tipsContainer}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
                     <View style={styles.recBtnContainer}>
-                        <RecommendationBtn />
+                        <RecommendationBtn/>
                     </View>
                 </View>
 
