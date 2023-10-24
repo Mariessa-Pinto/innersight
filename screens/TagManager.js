@@ -28,7 +28,7 @@ export default function TagManager({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <View style={styles.container}>
-                <Header title='Manage Tags' navigate='' />
+                <Header title='Manage Tags' navigation={navigation} />
                 <TouchableWithoutFeedback
                     onPress={toggleOverlay}
                     onPressIn={() => setPressed(true)}

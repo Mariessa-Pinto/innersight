@@ -21,10 +21,7 @@ export default function PersonalInformation({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header
-                title='Personal Information'
-                navigate="Profile"
-            />
+            <Header title='Amaya Lee' navigation={navigation}/>
             <View style={styles.maincontent}>
                 <View style={styles.headerBar}>
 
