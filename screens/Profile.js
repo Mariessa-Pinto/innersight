@@ -13,8 +13,8 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <Header title='' navigation={navigation} />
             <ScrollView style={globalStyles.contentContainer}>
-            <Header title='' navigation={navigation}/>
                 <View style={styles.maincontent}>
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
@@ -33,13 +33,13 @@ export default function Profile({ navigation }) {
                             </Text>
                         </View>
                         <View style={styles.statview}>
-                        <Text style={styles.stat}>28 days</Text>
+                            <Text style={styles.stat}>28 days</Text>
                             <Text style={styles.label}>
                                 Longest Streak
                             </Text>
                         </View>
                         <View style={styles.statview}>
-                        <Text style={styles.stat}>190,809</Text>
+                            <Text style={styles.stat}>190,809</Text>
                             <Text style={styles.label}>
                                 Words Written
                             </Text>
@@ -56,8 +56,8 @@ export default function Profile({ navigation }) {
                             />
                             <Text style={styles.label2}>Personal Information</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('PersonalInformation')} style={styles.arrow}>
-                                <Image 
-                                    source={require('../atom/assets/settingicons/Arrow.png')} 
+                                <Image
+                                    source={require('../atom/assets/settingicons/Arrow.png')}
                                     style={styles.arrow}
                                 />
                             </TouchableOpacity>
@@ -89,7 +89,7 @@ export default function Profile({ navigation }) {
                             />
                             <Text style={styles.label2}>Notification Settings</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('NotificationSettings')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -114,7 +114,7 @@ export default function Profile({ navigation }) {
                             />
                             <Text style={styles.label2}>Crisis Support Resources</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('CrisisSupport')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -139,7 +139,7 @@ export default function Profile({ navigation }) {
                             />
                             <Text style={styles.label2}>Terms Of Service</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('TermsPage')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.settingbar}>
@@ -149,7 +149,7 @@ export default function Profile({ navigation }) {
                             />
                             <Text style={styles.label2}>Artificial Intelligence Information</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('AiPage')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow}/>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         paddingBottom: 110,
-        marginTop: -40
+
     },
     profimage: {
         backgroundColor: '#FFF2AC',
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-        marginTop: 20,
+
         marginBottom: 10
     },
     otter: {

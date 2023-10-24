@@ -6,22 +6,22 @@ const JournalCards = () => {
         <View style={styles.container}>
             <JournalPageCard 
             image={require('../..//atom/assets/Covers/GreenCover.png')}
-            headerText="Journal Title"
-            text="Short Description of journal that user puts in beginning when they create journal."
+            headerText="My Mood"
+            text="Tracking my mood changes."
             navigate="Entries"
             />
             <JournalPageCard 
             image={require('../../atom/assets/Covers/OrangeCover.png')}
             iconImage={require('../../atom/icons/Lock.png')}
             headerText="All My Vents"
-            text="Short Description of journal that user puts in beginning when they create journal."
+            text="Complaining about anything and everything."
             navigate="JournalPassword"
             />
             <JournalPageCard 
             image={require('../..//atom/assets/Covers/OrangeCover.png')}
             iconImage={require('../../atom/icons/Lock.png')}
-            headerText="Journal Title"
-            text="Short Description of journal that user puts in beginning when they create journal."
+            headerText="Therapy"
+            text="Notes and techniques from therapy."
             navigate="JournalPassword"
             />
         </View>

@@ -29,7 +29,7 @@ export default function WriteEntry({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
-                    <Text style={styles.headers}>Example title</Text>
+                    <Text style={styles.headers}>Positive Thoughts</Text>
                     <Text style={styles.date}>September 23, 2023</Text>
                     <View style={styles.prompt}>
                         <Text style={styles.label}>Today's Prompt</Text>
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 30,
         paddingTop: 30,
-        marginBottom: 70
     },
     headers: {
         fontSize: 28,
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     content2: {
         alignItems: 'center',
         paddingTop: 20,
-        paddingBottom: 30
+
     },
     button: {
         position: 'absolute',
@@ -133,8 +132,8 @@ const styles = StyleSheet.create({
     },
     tool: {
         position: 'absolute',
-        top: 220,
-        right: 30
+        right: 30,
+        bottom: 0
     },
     pass: {
         width: 285,

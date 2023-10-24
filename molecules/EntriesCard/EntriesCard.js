@@ -5,21 +5,21 @@ const EntriesCards = () => {
     return(
         <View style={styles.container}>
             <EntriesPageCard 
-            headerText="Journal Entry Title"
+            headerText="Trip to Seattle"
             iconImage={require('../../atom/icons/Lock.png')}
             date="09/14/2023"
             text="Friends"
             navigate="WriteEntry"
             />
             <EntriesPageCard 
-            headerText="Journal Entry Title"
+            headerText="School Day"
             iconImage={require('../../atom/icons/Lock.png')}
             date="09/14/2023"
             text="Tag"
             navigate="WriteEntry"
             />
             <EntriesPageCard 
-            headerText="Journal Entry Title"
+            headerText="Presentation Day"
             iconImage={require('../../atom/icons/Lock.png')}
             date="09/14/2023"
             text="School"

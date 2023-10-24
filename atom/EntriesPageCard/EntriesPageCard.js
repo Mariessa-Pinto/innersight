@@ -13,10 +13,10 @@ const EntriesPageCard = (props) => {
     navigation.navigate(props.navigate);
   };
 
- 
- 
+
+
   return (
-   
+
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
@@ -24,24 +24,27 @@ const EntriesPageCard = (props) => {
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <View style={styles.txt}>
-            <View style={styles.title}>
-        <Text style={styles.headerText}>{props.headerText}</Text>
-        <Image
+          <View style={styles.title}>
+            <View style={styles.heading}>
+              <Text style={styles.headerText}>{props.headerText}</Text>
+              <Image
                 source={props.iconImage}
                 style={styles.icon}
-            />
+              />
+            </View>
+
             <View style={styles.set}>
-            <Image source={require('../icons/SettingsIcon.png')} style={styles.settings}/>
+              <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
             </View>
-            </View>
-            <View style={styles.textCon}>
-        <Text style={styles.text}>{props.date}</Text>
-        <Text style={styles.text}>{props.text}</Text>
-        </View>
+          </View>
+          <View style={styles.textCon}>
+            <Text style={styles.text}>{props.date}</Text>
+            <Text style={styles.text}>{props.text}</Text>
+          </View>
         </View>
       </View>
     </TouchableWithoutFeedback>
- 
+
   );
 };
 
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     color: '#525585',
     fontSize: 18,
     fontWeight: 'medium'
-    
+
   },
   text: {
     color: '#292929',
@@ -75,12 +78,14 @@ const styles = StyleSheet.create({
   txt: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
+    paddingHorizontal: 20
   },
   title: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15,
+    justifyContent: 'space-between',
     marginBottom: 2
   },
   textCon: {
@@ -91,7 +96,14 @@ const styles = StyleSheet.create({
     height: 3.11,
   },
   set: {
-   marginLeft: 90
+    marginLeft: 90
+  },
+  heading:{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10
+    
   }
 
 });
