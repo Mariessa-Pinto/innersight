@@ -21,13 +21,11 @@ export default function CrisisInfoLines({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Crisis & Information Lines' navigation={navigation} />
-            <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
-            <SearchBar placeholder="Search by Name"/>
-            <OrganizationCard/>
+            <View style={[globalStyles.contentContainer]}>
+                <SearchBar placeholder="Search by Name" />
+                <OrganizationCard />
             </View>
-            <View style={globalStyles.navContainer}>
-                <NavBar navigation={navigation} />
-            </View>
+            <NavBar navigation={navigation} />
         </View>
     );
 }

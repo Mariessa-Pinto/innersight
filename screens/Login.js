@@ -1,7 +1,6 @@
 import globalStyles from '../styles/global'
 import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import LoginForm from '../molecules/LoginForm/LoginForm';
@@ -26,19 +25,20 @@ export default function Login() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
-            <View style={styles.container}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Log In</Text>
-                    <Text>Please log in to your account to continue.</Text>
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.container}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>Log In</Text>
+                        <Text>Please log in to your account to continue.</Text>
+                    </View>
+                    <LoginForm />
+                    <ExtraLargeBtnLightTxt
+                        text="Login"
+                        navigate="Home"
+                    />
+                    <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
+                    <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
                 </View>
-                <LoginForm/>
-                <ExtraLargeBtnLightTxt 
-                    text="Login" 
-                    navigate="Home"
-                />
-                <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
-                <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
             </View>
         </View>
     );

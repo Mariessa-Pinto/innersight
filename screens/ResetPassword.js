@@ -12,20 +12,21 @@ export default function ResetPassword() {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
- 
+
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
-            <View style={styles.container}>
-                <View style={styles.titleContainer}>
-                    <Text style={[globalStyles.h1TextBold]}>Set Your Password</Text>
-                    <Text>Please input your new password below.</Text>
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.container}>
+                    <View style={styles.titleContainer}>
+                        <Text style={[globalStyles.h1TextBold]}>Set Your Password</Text>
+                        <Text>Please input your new password below.</Text>
+                    </View>
+                    <SetPasswordForm />
+                    <ExtraLargeBtnLightTxt
+                        text="Reset Password"
+                        navigate="EmailSent"
+                    />
                 </View>
-                <SetPasswordForm/>
-                <ExtraLargeBtnLightTxt 
-                    text="Reset Password" 
-                    navigate="EmailSent"
-                />
             </View>
         </View>
     );

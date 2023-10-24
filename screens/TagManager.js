@@ -27,32 +27,34 @@ export default function TagManager({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={styles.container}>
-                <Header title='Manage Tags' navigation={navigation} />
-                <TouchableWithoutFeedback
-                    onPress={toggleOverlay}
-                    onPressIn={() => setPressed(true)}
-                    onPressOut={() => setPressed(false)}
-                >
-                    <View style={[styles.tagMenu, pressed && styles.buttonPressed]}>
-                        <Image
-                            source={require('../atom/icons/threeDots.png')}
-                            style={styles.dotsButton}
-                        />
-                        <Modal
-                            visible={isOverlayVisible}
-                            animationType="slide"
-                            transparent={true}
-                            onRequestClose={toggleOverlay}
-                        >
-                            <OverlayContent />
-                        </Modal>
+            <Header title='Manage Tags' navigation={navigation} />
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.container}>
+                    <TouchableWithoutFeedback
+                        onPress={toggleOverlay}
+                        onPressIn={() => setPressed(true)}
+                        onPressOut={() => setPressed(false)}
+                    >
+                        <View style={[styles.tagMenu, pressed && styles.buttonPressed]}>
+                            <Image
+                                source={require('../atom/icons/threeDots.png')}
+                                style={styles.dotsButton}
+                            />
+                            <Modal
+                                visible={isOverlayVisible}
+                                animationType="slide"
+                                transparent={true}
+                                onRequestClose={toggleOverlay}
+                            >
+                                <OverlayContent />
+                            </Modal>
+                        </View>
+                    </TouchableWithoutFeedback>
+                    <View style={styles.body}>
+                        <SearchBar placeholder='Search for a Tag' />
+                        <JournalTags />
+                        <JournalTags />
                     </View>
-                </TouchableWithoutFeedback>
-                <View style={styles.body}>
-                    <SearchBar placeholder='Search for a Tag' />
-                    <JournalTags />
-                    <JournalTags />
                 </View>
             </View>
             <NavBar navigation={navigation} />

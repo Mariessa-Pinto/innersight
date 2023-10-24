@@ -18,10 +18,9 @@ export default function AiToolJournal({ navigation }) {
 
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-                <View style={styles.maincontent}>
-                  
-       
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <View style={globalStyles.contentContainer}>
+
                 <Text style={styles.headers}>Example title</Text>
                 <Text style={styles.date}>September 23, 2023</Text>
                 <View style={styles.prompt}>
@@ -31,26 +30,24 @@ export default function AiToolJournal({ navigation }) {
                         <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                     </View>
                 </View>
-               
-         <View style={styles.textCon}>
-           
-            <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep. 
-                Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent 
-                time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and 
-                didn't get much sleep. Because I was so tired a lot of things irriated me and made me feel angry. 
-                I went to bed at a decent time but I just kept tossing and turning.
-                 </Text>
-                 </View>
-            <View style={styles.ai}>
-         <AiToolInput />
-         </View>
-         </View>
-        
-          
-            <View style={styles.content2}>
-                <MediumBtnLightTxt
-                    text="View Ai Insights"
-                />
+
+                <View style={styles.textCon}>
+
+                    <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep.
+                        Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent
+                        time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and
+                        didn't get much sleep. Because I was so tired a lot of things irriated me and made me feel angry.
+                        I went to bed at a decent time but I just kept tossing and turning.
+                    </Text>
+                </View>
+                <View style={styles.ai}>
+                    <AiToolInput />
+                </View>
+                <View style={styles.content2}>
+                    <MediumBtnLightTxt
+                        text="View Ai Insights"
+                    />
+                </View>
             </View>
             <NavBar navigation={navigation} />
         </View>
@@ -58,16 +55,6 @@ export default function AiToolJournal({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    maincontent: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        gap: 10,
-        padding: 30,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        borderTopRightRadius: 30,
-        borderTopLeftRadius: 30,
-    },
     headers: {
         fontSize: 28,
         fontWeight: 'bold'

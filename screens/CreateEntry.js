@@ -15,6 +15,9 @@ export default function CreateEntry() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+                <View style={globalStyles.contentContainer}>
+
+                </View>
                 <NavBar navigation={navigation} />
         </View>
     );
