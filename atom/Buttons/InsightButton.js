@@ -6,6 +6,7 @@ const InsightButton = (props) => {
 
     return (
         <TouchableWithoutFeedback
+            onPress={props.toggle}
             onPressIn={() => setPressed(true)}
             onPressOut={() => setPressed(false)}
         >

@@ -69,7 +69,7 @@ export default function WriteEntry({ navigation }) {
                     <View style={styles.content2}>
                         <InsightButton
                             text="View Ai Insights"
-                            onPress={toggleInsights}
+                            toggle={toggleInsights}
                         />
                         {showInsights ? <AiInsightsMol />: <></>}
                     </View>
