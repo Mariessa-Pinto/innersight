@@ -7,11 +7,12 @@ import Tag from '../atom/Tag/Tag';
 import ToolBar from '../molecules/ToolBarJournal/ToolBar';
 import SmallInput from '../atom/InputBoxes/SmallInput';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
+import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn';
 
 
 
 
-export default function WriteEntry({ navigation }) {
+export default function AiInsights({ navigation }) {
     const [showInputBoxes, setShowInputBoxes] = useState(false);
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -81,6 +82,13 @@ export default function WriteEntry({ navigation }) {
               />
 
           </View>
+          <Text>
+            Feeling stressed, you are grappling with the looming pressure of upcoming midterms, hindering both your sleep and overall well-being. Despite the pleasant weather, an underlying frustration persits, reflecting the intense emotional toll of the approaching exams. This entry ecnapsulates a sense of fatigue and anxiety as you are navigating the challenges of a demanding acadmeic season.
+          </Text>
+          <Text>
+            Here are some recommendations you may consider to alleviate these negative emotions:
+          </Text>
+          <RecommendationBtn />
           <View style={styles.tool}>
                 <ToolBar />
                 </View>
