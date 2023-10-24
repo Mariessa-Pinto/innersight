@@ -16,8 +16,9 @@ export default function AiPage({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView>
             <Header title='AI Information' navigation={navigation} />
+
+            <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
                     <Text>We leverage intelligence (AI) technology to enhance your mental health journey. Our AI algorithms analyze journal entries, extracting valuable insights to provide personalized and constructive feedback. This process is designed to assist you in understanding patterns, managing stress, and fostering emotional well-being.</Text>
                     <Text>The AI in InnerSight continually learns and evolves based on user interactions, allowing for increasingly refined and tailored suggestions over time. It respects the sensitivity of the information shared, prioritizing user privacy through stringent anonymization measures.
@@ -26,6 +27,7 @@ export default function AiPage({ navigation }) {
                     <Text>Our dedication to innovation is grounded in the belief that, together with AI, we can create a more empathetic and responsive space for mental health support within InnerSight.</Text>
                 </View>
             </ScrollView>
+
             <NavBar navigation={navigation} />
         </View>
     );

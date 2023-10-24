@@ -71,9 +71,7 @@ export default function CustomizeJournal({ navigation }) {
                     />
                 </View>
             </ScrollView>
-            <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
-            </View>
         </View>
     );
 }

@@ -20,16 +20,17 @@ export default function ChooseMascot({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
-            <View style={styles.title}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Choose a friend to accompany your journey</Text>
-            </View>
-            <ChooseMascotMol/>
-            <View style={styles.button}>
-                <ExtraLargeBtnLightTxt 
-                        text="Continue" 
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.title}>
+                    <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Choose a friend to accompany your journey</Text>
+                </View>
+                <ChooseMascotMol />
+                <View style={styles.button}>
+                    <ExtraLargeBtnLightTxt
+                        text="Continue"
                         navigate="Home"
                     />
+                </View>
             </View>
         </View>
     );

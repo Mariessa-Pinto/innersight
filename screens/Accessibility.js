@@ -33,7 +33,7 @@ export default function Accessibility({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Accessibility Settings' navigation={navigation} />
-            <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
+            <View style={[globalStyles.contentContainer]}>
                 <View style={styles.settingsContainer}>
                     <Notifications title="Dark Mode"
                         valueChange2={(value) => {
