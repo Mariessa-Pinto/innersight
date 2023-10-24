@@ -16,8 +16,6 @@ import FontContext from './theme/fontContext';
 //Screens
 import Start from './screens/Start';
 
-
-
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
 import Entries from './screens/Entries';
