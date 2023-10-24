@@ -15,8 +15,6 @@ import FontContext from './theme/fontContext';
 
 //Screens
 import Start from './screens/Start';
-import About from './screens/About';
-
 
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
@@ -103,7 +101,6 @@ export default function App() {
   
           >
             <Stack.Screen name="Start" component={Start} />
-            <Stack.Screen name="About" component={About} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
             <Stack.Screen name="NewJournal" component={NewJournal} />
