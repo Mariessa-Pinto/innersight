@@ -7,6 +7,7 @@ import Tag from '../atom/Tag/Tag';
 import ToolBar from '../molecules/ToolBarJournal/ToolBar';
 import SmallInput from '../atom/InputBoxes/SmallInput';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
+import BigInput from '../atom/InputBoxes/BigInput';
 
 
 
@@ -22,74 +23,59 @@ export default function WriteEntry({ navigation }) {
     }
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <View style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
-                <Text style={styles.headers}>Example title</Text>
-                <Text style={styles.date}>September 23, 2023</Text>
-
-                <View style={styles.prompt}>
-                    <Text style={styles.label}>Today's Prompt</Text>
-                    <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life? </Text>
-                    <View style={styles.button}>
-                    <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                    <Text style={styles.headers}>Example title</Text>
+                    <Text style={styles.date}>September 23, 2023</Text>
+                    <View style={styles.prompt}>
+                        <Text style={styles.label}>Today's Prompt</Text>
+                        <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life? </Text>
+                        <View style={styles.button}>
+                            <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                        </View>
                     </View>
+                    <BigInput/>
+                <View style={styles.pass}>
+                    <Text style={styles.textTag}>Tag Your Entry</Text>
+                    <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
                 </View>
-                
-                <TextInput 
-                  style={styles.input}
-                  placeholder="Start your entry here"
-                  autoFocus={true}
-                  autoCapitalize="words"
-                  autoCorrect={true}
-                  keyboardType="default"
-                />
-         
-          </View>
-          <View style={styles.pass}>
-                <Text style={styles.textTag}>Tag Your Entry</Text>
-                <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes}/>
-            </View>
-            {showInputBoxes && (
-                <View style={styles.inputBoxes}>
-                    <View style={styles.tag}>
-                    <SmallInput 
-                    placeholder="Add New Tag"
+                {showInputBoxes && (
+                    <View style={styles.inputBoxes}>
+                        <View style={styles.tag}>
+                            <SmallInput
+                                placeholder="Add New Tag"
+                            />
+                            <Tag
+                                text="Draws"
+                            />
+                        </View>
+                        <View style={styles.tags}>
+                            <Tag
+                                text="Venting"
+                            />
+                            <Tag
+                                text="Anger"
+                            />
+                            <Tag
+                                text="Tired"
+                            />
+                        </View>
+                    </View>
+                )}
+                <View style={styles.content2}>
+                    <MediumBtnLightTxt
+                        text="View Ai Insights"
+                        navigate="AiInsights"
                     />
-                   <Tag 
-                   text="Draws"
-                   />
-                   
-                   </View>
-                   <View style={styles.tags}>
-                   <Tag 
-                   text="Venting"
-                   />
-                   <Tag 
-                   text="Anger"
-                   />
-                    <Tag 
-                   text="Tired"
-                   />
-                   
-                   </View>
-                    </View>
-            )}
-          <View style={styles.content2}>
-            <MediumBtnLightTxt
-              text="View Ai Insights"
-              navigate="AiInsights"
-              />
-
-          </View>
-          <View style={styles.tool}>
-                <ToolBar />
                 </View>
-                
-                <NavBar navigation={navigation} />
-
-            
+                <View style={styles.tool}>
+                    <ToolBar />
+                </View>
+                </View>
             </View>
-
+            <NavBar navigation={navigation} />
+        </View>
     );
 }
 
@@ -99,7 +85,10 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         gap: 10,
-        padding: 30
+        paddingLeft: 20,
+        paddingRight: 30,
+        paddingTop: 30,
+        marginBottom: 70
     },
     headers: {
         fontSize: 28,
@@ -119,15 +108,15 @@ const styles = StyleSheet.create({
         padding: 5
     },
     label: {
-    fontSize: 13
+        fontSize: 13
     },
     description: {
         fontSize: 12
     },
     content2: {
-     alignItems: 'center'
-        
-      
+        alignItems: 'center',
+        paddingTop: 20,
+        paddingBottom: 30
     },
     button: {
         position: 'absolute',
@@ -154,7 +143,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 130,
         alignItems: 'center',
-        marginLeft: 60
+        marginLeft: 20
     },
     textTag: {
         marginLeft: 10
@@ -162,7 +151,6 @@ const styles = StyleSheet.create({
     arrow: {
         width: 25,
         height: 25,
-        transform: 'rotate(90deg)'
     },
     tag: {
         display: 'flex',
@@ -175,5 +163,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
 })
