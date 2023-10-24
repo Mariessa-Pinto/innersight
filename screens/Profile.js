@@ -175,6 +175,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
+        gap: 15,
         paddingLeft: 38,
         paddingRight: 38,
         paddingBottom: 110,
