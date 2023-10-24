@@ -12,36 +12,36 @@ const JournalPageCard = (props) => {
     navigation.navigate(props.navigate);
   };
 
- 
+
   return (
-    
+
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-      <View style={styles.img}>
-      <Image
-                source={props.image}
-                style={styles.coverImage}
-            />
-            </View>
-        <View style={styles.txt}>
-            <View style={styles.title}>
-        <Text style={styles.headerText}>{props.headerText}</Text>
-        <Image source={require('../icons/SettingsIcon.png')} style={styles.settings}/>
+        <View style={styles.img}>
+          <Image
+            source={props.image}
+            style={styles.coverImage}
+          />
         </View>
-        <Image
-                source={props.iconImage}
-                style={styles.icon}
-            />
-        <Text style={styles.text}>{props.text}</Text>
+        <View style={styles.txt}>
+          <View style={styles.title}>
+            <Text style={styles.headerText}>{props.headerText}</Text>
+            <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+          </View>
+          <Image
+            source={props.iconImage}
+            style={styles.icon}
+          />
+          <Text style={styles.text}>{props.text}</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
-   
- 
+
+
   );
 };
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#525585',
     fontSize: 22,
-    
+
   },
   text: {
     color: '#292929',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 40
+    justifyContent: 'space-between'
   }
 
 });
