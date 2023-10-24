@@ -64,16 +64,16 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center'
     },
     icons: {
         position: 'absolute',
+        height: 275,
         width: 50,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
     },
     expandedIcons: {
         display: 'flex',

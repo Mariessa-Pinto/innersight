@@ -21,8 +21,7 @@ export default function AiToolJournal({ navigation }) {
             <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>
                   
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={styles.maincontent}>
+       
                 <Text style={styles.headers}>Example title</Text>
                 <Text style={styles.date}>September 23, 2023</Text>
                 <View style={styles.prompt}>
@@ -46,28 +45,8 @@ export default function AiToolJournal({ navigation }) {
          <AiToolInput />
          </View>
          </View>
-          </View>
-          <View style={styles.content2}>
-            <MediumBtnLightTxt
-              text="View Ai Insights"
-              />
-
-          </View>
-                
-                
-                <NavBar navigation={navigation} />
-
-            
-                <TextInput
-                    style={styles.input}
-                    placeholder="Start your entry here"
-                    autoFocus={true}
-                    autoCapitalize="words"
-                    autoCorrect={true}
-                    keyboardType="default"
-                />
-
-            </View>
+        
+          
             <View style={styles.content2}>
                 <MediumBtnLightTxt
                     text="View Ai Insights"
@@ -132,7 +111,8 @@ const styles = StyleSheet.create({
     },
     ai: {
         position: 'absolute',
-        marginTop: 280
+        marginTop: 350,
+        marginLeft: 10
     },
 
 
