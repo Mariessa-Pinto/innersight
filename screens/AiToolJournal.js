@@ -1,14 +1,11 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView} from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Tag from '../atom/Tag/Tag';
 import AiToolInput from '../atom/AITool/AiToolInput';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
-
-
-
 
 export default function AiToolJournal({ navigation }) {
 
@@ -19,42 +16,48 @@ export default function AiToolJournal({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
+            <ScrollView style={globalStyles.contentContainer}>
+                <View style={styles.maincontent}>
+                    <Text style={styles.headers}>Example title</Text>
+                    <Text style={styles.date}>September 23, 2023</Text>
+                    <View style={styles.prompt}>
+                        <Text style={styles.label}>Today's Prompt</Text>
+                        <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life?</Text>
+                        <View style={styles.button}>
+                            <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                        </View>
+                    </View>
 
-                <Text style={styles.headers}>Example title</Text>
-                <Text style={styles.date}>September 23, 2023</Text>
-                <View style={styles.prompt}>
-                    <Text style={styles.label}>Today's Prompt</Text>
-                    <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life?</Text>
-                    <View style={styles.button}>
-                        <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                    <View style={styles.textCon}>
+
+                        <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep.
+                            Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent
+                            time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and
+                            didn't get much sleep. Because I was so tired a lot of things irriated me and made me feel angry.
+                            I went to bed at a decent time but I just kept tossing and turning.
+                        </Text>
+                    </View>
+                    <View style={styles.ai}>
+                        <AiToolInput />
                     </View>
                 </View>
-
-                <View style={styles.textCon}>
-
-                    <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep.
-                        Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent
-                        time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and
-                        didn't get much sleep. Because I was so tired a lot of things irriated me and made me feel angry.
-                        I went to bed at a decent time but I just kept tossing and turning.
-                    </Text>
-                </View>
-                <View style={styles.ai}>
-                    <AiToolInput />
-                </View>
-                <View style={styles.content2}>
-                    <MediumBtnLightTxt
-                        text="View Ai Insights"
-                    />
-                </View>
-            </View>
+            </ScrollView>
             <NavBar navigation={navigation} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    maincontent: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        gap: 10,
+        paddingLeft: 20,
+        paddingRight: 30,
+        paddingTop: 30,
+
+    },
     headers: {
         fontSize: 28,
         fontWeight: 'bold'
@@ -67,7 +70,9 @@ const styles = StyleSheet.create({
     prompt: {
         height: 93,
         width: 328,
+        backgroundColor: '#F2F2FD',
         borderRadius: 10,
+        elevation: 4,
         padding: 5
     },
     label: {
@@ -93,13 +98,12 @@ const styles = StyleSheet.create({
 
     },
     textCon: {
-        marginTop: 50,
+        marginTop: 25,
         position: 'relative'
     },
     ai: {
-        position: 'absolute',
-        marginTop: 350,
-        marginLeft: 10
+
+        width: '100%'
     },
 
 

@@ -35,43 +35,43 @@ export default function WriteEntry({ navigation }) {
                             <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                         </View>
                     </View>
-                    <BigInput/>
-                <View style={styles.pass}>
-                    <Text style={styles.textTag}>Tag Your Entry</Text>
-                    <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
-                </View>
-                {showInputBoxes && (
-                    <View style={styles.inputBoxes}>
-                        <View style={styles.tag}>
-                            <SmallInput
-                                placeholder="Add New Tag"
-                            />
-                            <Tag
-                                text="Draws"
-                            />
-                        </View>
-                        <View style={styles.tags}>
-                            <Tag
-                                text="Venting"
-                            />
-                            <Tag
-                                text="Anger"
-                            />
-                            <Tag
-                                text="Tired"
-                            />
-                        </View>
+                    <BigInput />
+                    <View style={styles.pass}>
+                        <Text style={styles.textTag}>Tag Your Entry</Text>
+                        <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
                     </View>
-                )}
-                <View style={styles.content2}>
-                    <MediumBtnLightTxt
-                        text="View Ai Insights"
-                        navigate="AiInsights"
-                    />
-                </View>
-                <View style={styles.tool}>
-                    <ToolBar />
-                </View>
+                    {showInputBoxes && (
+                        <View style={styles.inputBoxes}>
+                            <View style={styles.tag}>
+                                <SmallInput
+                                    placeholder="Add New Tag"
+                                />
+                                <Tag
+                                    text="Draws"
+                                />
+                            </View>
+                            <View style={styles.tags}>
+                                <Tag
+                                    text="Venting"
+                                />
+                                <Tag
+                                    text="Anger"
+                                />
+                                <Tag
+                                    text="Tired"
+                                />
+                            </View>
+                        </View>
+                    )}
+                    <View style={styles.content2}>
+                        <MediumBtnLightTxt
+                            text="View Ai Insights"
+                            navigate="AiInsights"
+                        />
+                    </View>
+                    <View style={styles.tool}>
+                        <ToolBar />
+                    </View>
                 </View>
             </View>
             <NavBar navigation={navigation} />
