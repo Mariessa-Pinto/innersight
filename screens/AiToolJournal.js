@@ -4,7 +4,7 @@ import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Tag from '../atom/Tag/Tag';
-
+import AiToolInput from '../atom/AITool/AiToolInput';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 
 
@@ -18,27 +18,33 @@ export default function AiToolJournal({ navigation }) {
 
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+            <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>
+                    <View style={styles.overlay}>
                 <Text style={styles.headers}>Example title</Text>
                 <Text style={styles.date}>September 23, 2023</Text>
 
                 <View style={styles.prompt}>
-                    <Text style={styles.label}>Pick a prompt</Text>
-                    <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balanced life?</Text>
+                    <Text style={styles.label}>Today's Prompt</Text>
+                    <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life?</Text>
                     <View style={styles.button}>
                     <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                     </View>
                 </View>
-                <TextInput 
-                  style={styles.input}
-                  placeholder="Start your entry here"
-                  autoFocus={true}
-                  autoCapitalize="words"
-                  autoCorrect={true}
-                  keyboardType="default"
-                />
-         
+               
+         <View style={styles.textCon}>
+           
+            <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep. 
+                Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent 
+                time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and 
+                didn't get much sleep. Because I was so tired a lot of things irriated me and made me feel angry. 
+                I went to bed at a decent time but I just kept tossing and turning.
+                 </Text>
+                 </View>
+            <View style={styles.ai}>
+         <AiToolInput />
+         </View>
+         </View>
           </View>
           <View style={styles.content2}>
             <MediumBtnLightTxt
@@ -62,7 +68,10 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         gap: 10,
-        padding: 30
+        padding: 30,
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
     },
     headers: {
         fontSize: 28,
@@ -76,9 +85,7 @@ const styles = StyleSheet.create({
     prompt: {
         height: 93,
         width: 328,
-        backgroundColor: '#F2F2FD',
         borderRadius: 10,
-        elevation: 4,
         padding: 5
     },
     label: {
@@ -101,7 +108,14 @@ const styles = StyleSheet.create({
         height: 200,
         width: 325,
         borderColor: 'black'
-    
-
-    }
+    },
+    textCon: {
+        marginTop: 50,
+        position: 'relative'
+    },
+    ai: {
+        position: 'absolute',
+        marginTop: 280
+    },
+   
 })
