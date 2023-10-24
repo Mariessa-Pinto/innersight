@@ -35,34 +35,32 @@ export default function Accessibility({ navigation }) {
             <Header title='Accessibility Settings' navigation={navigation} />
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
                 <View style={styles.settingsContainer}>
-                <Notifications title="Dark Mode"
-                    valueChange2={(value) => {
-                        setDarkMode(value);
-                        EventRegister.emit('ChangeTheme', value)
-                    }}
-                    valueEnabled2={darkMode}
-                />
-                <Notifications title="Increase Contrast"
-                    valueChange2={contrastToggleSwitch}
-                    valueEnabled2={contrastIsEnabled}
-                />
-                <Notifications title="Auto Brightness"
-                    valueChange2={brightnessToggleSwitch}
-                    valueEnabled2={brightnessIsEnabled}
-                />
-                <View style={styles.languageContainer}>
-                    <Text style={[globalStyles.text, {
-                        color: theme.color,
-                        fontSize: fontTheme.fontSize
-                    }]}>Font Size</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
-                        <Image source={require('../atom/assets/settingicons/Arrow.png')} />
-                    </TouchableOpacity>
+                    <Notifications title="Dark Mode"
+                        valueChange2={(value) => {
+                            setDarkMode(value);
+                            EventRegister.emit('ChangeTheme', value)
+                        }}
+                        valueEnabled2={darkMode}
+                    />
+                    <Notifications title="Increase Contrast"
+                        valueChange2={contrastToggleSwitch}
+                        valueEnabled2={contrastIsEnabled}
+                    />
+                    <Notifications title="Auto Brightness"
+                        valueChange2={brightnessToggleSwitch}
+                        valueEnabled2={brightnessIsEnabled}
+                    />
+                    <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
+                        <Text style={[globalStyles.text, {
+                            color: theme.color,
+                            fontSize: fontTheme.fontSize
+                        }]}>Font Size</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
+                            <Image source={require('../atom/assets/settingicons/Arrow.png')} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                </View>
-                
             </View>
-
             <NavBar navigation={navigation} />
         </View>
     );
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
     label2: {
         fontSize: 13,
     },
-    settingsContainer:{
+    settingsContainer: {
         marginTop: 30
     }
 })
