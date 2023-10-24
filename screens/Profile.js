@@ -5,7 +5,6 @@ import themeContext from '../theme/themeContext';
 import Login from './Login';
 import NavBar from '../molecules/Navigation/NavBar';
 import { Image } from 'expo-image';
-import Header from '../molecules/Header/Header';
 
 export default function Profile({ navigation }) {
 
@@ -17,7 +16,6 @@ export default function Profile({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
-            <Header title='' navigation={navigation}/>
                 <View style={styles.maincontent}>
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
@@ -30,19 +28,16 @@ export default function Profile({ navigation }) {
                     </View>
                     <View style={styles.stats}>
                         <View style={styles.statview}>
-                            <Text style={styles.stat}>85</Text>
                             <Text style={styles.label}>
                                 Entries Complete
                             </Text>
                         </View>
                         <View style={styles.statview}>
-                        <Text style={styles.stat}>28 days</Text>
                             <Text style={styles.label}>
                                 Longest Streak
                             </Text>
                         </View>
                         <View style={styles.statview}>
-                        <Text style={styles.stat}>190,809</Text>
                             <Text style={styles.label}>
                                 Words Written
                             </Text>
@@ -164,6 +159,7 @@ export default function Profile({ navigation }) {
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} />
+
         </View>
 
     );
@@ -175,17 +171,15 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        gap: 15,
-        paddingLeft: 38,
-        paddingRight: 38,
-        paddingBottom: 110,
-        marginTop: -40
+        alignItems: 'center',
+        gap: 15
+
     },
     profimage: {
         backgroundColor: '#FFF2AC',
         borderRadius: 50,
-        height: 70,
-        width: 70,
+        height: 100,
+        width: 100,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -194,15 +188,14 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     otter: {
-        width: 60,
-        height: 52
+        width: 86,
+        height: 75
     },
     topcontent: {
         display: 'flex',
         flexDirection: 'row',
         gap: 20,
-        alignItems: 'center',
-        paddingLeft: 20
+        alignItems: 'center'
     },
     header: {
         fontSize: 28,
@@ -218,23 +211,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#C5C7F7",
         borderRadius: 20,
         height: 100,
-        width: 100,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        paddingLeft: 12,
-        paddingBottom: 12,
-        gap: 5
+        width: 100
+
     },
     label: {
-        fontFamily: 'Lexend-Regular',
+        padding: 15,
         fontSize: 13
-    },
-    stat: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600'
     },
     settings: {
         textAlign: 'left',
