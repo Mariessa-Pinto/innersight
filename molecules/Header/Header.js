@@ -18,6 +18,7 @@ const Header = ({
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
                 style={styles.touchContainer}
+                activeOpacity={1}
             >
                 <View style={[styles.fullBack, pressed && styles.buttonPressed]}>
                     <Image
