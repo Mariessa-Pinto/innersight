@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, Image, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -8,15 +8,12 @@ import ToolBar from '../molecules/ToolBarJournal/ToolBar';
 import SmallInput from '../atom/InputBoxes/SmallInput';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import BigInput from '../atom/InputBoxes/BigInput';
-import AiInsightsMol from '../molecules/AiInsights/AiInsightsMol';
-import InsightButton from '../atom/Buttons/InsightButton';
 
 
 
 
 export default function WriteEntry({ navigation }) {
     const [showInputBoxes, setShowInputBoxes] = useState(false);
-    const [showInsights, setShowInsights] = useState(false);
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
@@ -25,13 +22,9 @@ export default function WriteEntry({ navigation }) {
         setShowInputBoxes(!showInputBoxes)
     }
 
-    const toggleInsights = () => {
-        setShowInsights(!showInsights);
-    };
-
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
+            <View style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
                     <Text style={styles.headers}>Example title</Text>
                     <Text style={styles.date}>September 23, 2023</Text>
@@ -47,7 +40,7 @@ export default function WriteEntry({ navigation }) {
                         <Text style={styles.textTag}>Tag Your Entry</Text>
                         <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
                     </View>
-                    {showInputBoxes ? (
+                    {showInputBoxes && (
                         <View style={styles.inputBoxes}>
                             <View style={styles.tag}>
                                 <SmallInput
@@ -69,19 +62,18 @@ export default function WriteEntry({ navigation }) {
                                 />
                             </View>
                         </View>
-                    ): <></>}
+                    )}
                     <View style={styles.content2}>
-                        <InsightButton
+                        <MediumBtnLightTxt
                             text="View Ai Insights"
-                            onPress={toggleInsights}
+                            navigate="AiInsights"
                         />
-                        {showInsights ? <AiInsightsMol />: <></>}
                     </View>
                     <View style={styles.tool}>
                         <ToolBar />
                     </View>
                 </View>
-            </ScrollView>
+            </View>
             <NavBar navigation={navigation} />
         </View>
     );
@@ -137,9 +129,10 @@ const styles = StyleSheet.create({
         borderColor: 'black'
     },
     tool: {
-        position: 'absolute',
-        top: 220,
-        right: 30
+        display: 'flex',
+        marginLeft: 320,
+        marginTop: 10,
+        marginBottom: 50
     },
     pass: {
         width: 285,
