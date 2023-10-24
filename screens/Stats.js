@@ -18,7 +18,7 @@ export default function Stats({ navigation }) {
       
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor, marginTop: 100 }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView>
             <View style={styles.maincontent}>
                 <Header title="Your Week in Review"/>

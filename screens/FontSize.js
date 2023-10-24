@@ -20,11 +20,9 @@ export default function FontSize({ navigation }) {
     const fontTheme = useContext(fontContext);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor }]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Font Size' navigation={navigation} />
             <View style={globalStyles.contentContainer}>
-
-
                 <View style={styles.fontContainer}>
                     <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>
                         This is an example of how large your font size will be.
@@ -50,9 +48,6 @@ export default function FontSize({ navigation }) {
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>A</Text>
                     </View>
                 </View>
-
-
-
             </View>
             <NavBar navigation={navigation} />
         </View>

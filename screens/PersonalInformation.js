@@ -20,14 +20,11 @@ export default function PersonalInformation({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
-               <Header
-                        title='Personal Information'
-                        navigate="Profile"
-                    />
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <Header title='Amaya Lee' navigation={navigation}/>
             <View style={styles.maincontent}>
                 <View style={styles.headerBar}>
-                 
+
                 </View>
                 <View style={styles.profimage}>
                     <Image

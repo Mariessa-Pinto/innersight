@@ -21,14 +21,15 @@ export default function AiToolJournal({ navigation }) {
             <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>
                     <View style={styles.overlay}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <View style={styles.maincontent}>
                 <Text style={styles.headers}>Example title</Text>
                 <Text style={styles.date}>September 23, 2023</Text>
-
                 <View style={styles.prompt}>
                     <Text style={styles.label}>Today's Prompt</Text>
                     <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life?</Text>
                     <View style={styles.button}>
-                    <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                        <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                     </View>
                 </View>
                
@@ -57,8 +58,23 @@ export default function AiToolJournal({ navigation }) {
                 <NavBar navigation={navigation} />
 
             
-            </View>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Start your entry here"
+                    autoFocus={true}
+                    autoCapitalize="words"
+                    autoCorrect={true}
+                    keyboardType="default"
+                />
 
+            </View>
+            <View style={styles.content2}>
+                <MediumBtnLightTxt
+                    text="View Ai Insights"
+                />
+            </View>
+            <NavBar navigation={navigation} />
+        </View>
     );
 }
 
@@ -89,15 +105,15 @@ const styles = StyleSheet.create({
         padding: 5
     },
     label: {
-    fontSize: 13
+        fontSize: 13
     },
     description: {
         fontSize: 12
     },
     content2: {
-     alignItems: 'center'
-        
-      
+        alignItems: 'center'
+
+
     },
     button: {
         position: 'absolute',
@@ -108,6 +124,7 @@ const styles = StyleSheet.create({
         height: 200,
         width: 325,
         borderColor: 'black'
+
     },
     textCon: {
         marginTop: 50,
@@ -117,5 +134,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         marginTop: 280
     },
-   
+
+
 })
