@@ -13,6 +13,7 @@ const ToolBar = () => {
 
     const toggleSettings = () => {
         setShowSettings(!showSettings);
+        console.log(showSettings)
     };
 
     const containerStyles = {
@@ -21,12 +22,14 @@ const ToolBar = () => {
 
     return (
         <View style={[styles.container, containerStyles]}>
-            {!showSettings && (
-                <TouchableOpacity onPress={toggleSettings}>
-                    <SettingsLightBtnTB showSettings={showSettings}
-                    />
-                </TouchableOpacity>
-            )}
+            <View style={styles.touchIcon}>
+                {!showSettings && (
+                    <TouchableOpacity onPress={toggleSettings}>
+                        <SettingsLightBtnTB showSettings={showSettings}
+                        />
+                    </TouchableOpacity>
+                )}
+            </View>
             <View style={[styles.icons, showSettings && styles.expandedIcons]}>
                 {showSettings && (
                     <>
@@ -40,7 +43,11 @@ const ToolBar = () => {
                         <TypeLightBtnTB />
                         <SpeechLightBtnTB />
                         <View style={styles.spacing}>
-                            <ExitLightBtnTB />
+                            <TouchableOpacity
+                            onPress={() => setShowSettings(true)}>
+                                <ExitLightBtnTB />
+                            </TouchableOpacity>
+
                         </View>
                     </>
                 )}
@@ -60,10 +67,13 @@ const SettingsLightBtnTB = ({ showSettings }) => {
     );
 };
 const styles = StyleSheet.create({
+    touchIcon: {
+        position: 'absolute'
+    },
     container: {
         position: 'absolute',
         right: -10,
-        top: 10,
+        bottom: 0,
         width: 50,
         borderRadius: 30,
         backgroundColor: '#DDDDDD',

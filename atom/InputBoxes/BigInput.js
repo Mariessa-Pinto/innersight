@@ -24,7 +24,7 @@ const BigInput = () => {
 
 const styles = StyleSheet.create({
   input: {
-    height: 115,
+    height: 150,
     width: 297,
     margin: 12,
     borderRadius: 5,
