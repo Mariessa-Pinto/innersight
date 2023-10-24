@@ -31,7 +31,7 @@ export default function Accessibility({ navigation }) {
     const brightnessToggleSwitch = () => setBrightnessIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Accessibility Settings' navigation={navigation} />
             <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
                 <View style={styles.settingsContainer}>

@@ -24,7 +24,7 @@ export default function NewJournal({ navigation }) {
     };
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.backgroundColor}]}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView style={globalStyles.contentContainer}>
            <Header
            text="Create New Journal"
