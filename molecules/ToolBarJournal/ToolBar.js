@@ -15,33 +15,44 @@ const ToolBar = () => {
         setShowSettings(!showSettings);
     };
 
-    const containerStyles = {
-        height: showSettings ? 275 : 40,
-       
+    const closeSettings = () => {
+        setShowSettings(false);
     };
 
-    return(
-      
+    const containerStyles = {
+        height: showSettings ? 275 : 40,
+    };
+
+    return (
+
         <View style={[styles.container, containerStyles]}>
-            <TouchableOpacity onPress={toggleSettings}>
-           <SettingsLightBtnTB showSettings={showSettings}
-           />
-           </TouchableOpacity>
+            {!showSettings && (
+                <TouchableOpacity onPress={toggleSettings}>
+                    <SettingsLightBtnTB showSettings={showSettings}
+                    />
+                </TouchableOpacity>
+            )}
             <View style={[styles.icons, showSettings && styles.expandedIcons]}>
-             {showSettings && (
-            <>
-              <AiLightBtnTb 
-              navigate="AiToolJournal"
-              />
-              <DrawingLightBtnTB />
-              <PhotoLightBtnTB/>
-              <TypeLightBtnTB/>
-              <SpeechLightBtnTB/>
-              <ExitLightBtnTB />
-              </>
-           )}
-           
-        </View>
+                {showSettings && (
+                    <>
+                        <View style={styles.extraPadding}>
+
+                            <AiLightBtnTb
+                                navigate="AiToolJournal"
+                            />
+                        </View>
+                        <DrawingLightBtnTB />
+                        <PhotoLightBtnTB />
+                        <TypeLightBtnTB />
+                        <SpeechLightBtnTB />
+                        <View style={styles.extraPadding}>
+                            <TouchableOpacity onPress={closeSettings}>
+                                <ExitLightBtnTB />
+                            </TouchableOpacity>
+                        </View>
+                    </>
+                )}
+            </View>
         </View>
     );
 };
@@ -57,16 +68,20 @@ const SettingsLightBtnTB = ({ showSettings }) => {
 };
 const styles = StyleSheet.create({
     container: {
-        width: 40,
+        width: 50,
         borderRadius: 30,
         backgroundColor: '#DDDDDD',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+        right: -10
     },
     icons: {
         position: 'absolute',
+        bottom: 0,
         height: 275,
         width: 50,
         display: 'flex',
@@ -77,12 +92,17 @@ const styles = StyleSheet.create({
     },
     expandedIcons: {
         display: 'flex',
-        top: -125
+        bottom: 0,
+        right: -2
     },
     img: {
         width: 40,
         height: 40
+    },
+    extraPadding: {
+        marginTop: 10,
+        marginBottom: 10
     }
-    
+
 });
 export default ToolBar;

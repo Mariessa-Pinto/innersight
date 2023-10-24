@@ -5,6 +5,7 @@ import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 const BigInput = () => {
   const [text, onChangeText] = React.useState('');
   
+  
 
   return (
     <SafeAreaView>
@@ -14,7 +15,7 @@ const BigInput = () => {
         value={text}
         placeholder="Start typing..."
         placeholderTextColor={"#292929"}
-        keyboardType='text'
+        keyboardType='default'
       />
     
     </SafeAreaView>
