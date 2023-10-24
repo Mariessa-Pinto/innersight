@@ -8,18 +8,11 @@ import TypeButton from '../atom/TypeFace/TypeButton';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import Header from '../molecules/Header/Header';
 
-
-
-
 export default function CustomizeEntry({ navigation }) {
-
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
-
-
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
@@ -45,9 +38,7 @@ export default function CustomizeEntry({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <View style={globalStyles.navContainer}>
-                <NavBar navigation={navigation} />
-            </View>
+            <NavBar navigation={navigation} />
         </View>
     );
 }

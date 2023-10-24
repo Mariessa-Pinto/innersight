@@ -20,7 +20,7 @@ export default function Demo({ navigation } ) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
+            <View style={[globalStyles.contentContainer]}>
             <View style={styles.animation}>
                 <DemoAnimation/>
             </View>
@@ -36,6 +36,8 @@ export default function Demo({ navigation } ) {
                     navigate="SignUp"
                 />
             </View>
+            </View>
+         
         </View>
     );
 }
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
         width: 128,
         position: 'absolute',
         left: 10,
-        bottom: 195
+        bottom: 190
     },
     animation: {
         display: 'flex',
