@@ -14,8 +14,9 @@ export default function TermsPage({ navigation }) {
     const theme = useContext(themeContext)
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView>
-                <Header title='Terms of Service' navigation={navigation} />
+            <Header title='Terms of Service' navigation={navigation} />
+            <ScrollView style={globalStyles.contentContainer}>
+
                 <View style={styles.maincontent}>
                     <Text style={styles.list}>1. Acceptance Of Terms</Text>
                     <Text> By using InnerSight, you agree to abide by these Terms of Service. If you do not agree with any part of these terms, please refrain from using the app.</Text>

@@ -26,17 +26,14 @@ export default function LocalDistress({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header
                 title="Local Distress Centres"
-                navigation={navigation} 
+                navigation={navigation}
             />
             <ScrollView style={globalStyles.contentContainer}>
-                <SearchBar placeholder="Search by City/Town"/>
+                <SearchBar placeholder="Search by City/Town" />
                 <DistressCard />
 
             </ScrollView>
-            <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
-            </View>
-
         </View>
 
     );

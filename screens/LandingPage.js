@@ -16,7 +16,6 @@ export default function LandingPage() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
                     <Image 

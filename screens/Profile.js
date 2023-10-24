@@ -15,7 +15,7 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={{ height: 400 }}>
+            <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
@@ -45,7 +45,7 @@ export default function Profile({ navigation }) {
                     </View>
                     <View style={styles.content2}>
                         <Text style={styles.settings}>
-                            settings
+                            Settings
                         </Text>
                         <View style={styles.settingbar}>
                             <Image
@@ -171,7 +171,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        padding: 38
+        alignItems: 'center',
+        gap: 15
+
     },
     profimage: {
         backgroundColor: '#FFF2AC',
