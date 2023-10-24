@@ -23,17 +23,18 @@ export default function SignUp() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
-            <View style={styles.container}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Sign Up</Text>
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.container}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>Sign Up</Text>
+                    </View>
+                    <SignUpForm />
+                    <ExtraLargeBtnLightTxt
+                        text="Sign Up"
+                        navigate="ChooseMascot"
+                    />
+                    <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
                 </View>
-                <SignUpForm/>
-                <ExtraLargeBtnLightTxt 
-                    text="Sign Up" 
-                    navigate="ChooseMascot"
-                />
-                <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
             </View>
         </View>
     );

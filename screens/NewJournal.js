@@ -27,8 +27,6 @@ export default function NewJournal({ navigation }) {
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <Header title="Customize Journal"/>
             <ScrollView style={globalStyles.contentContainer}>
-
-
                 <View style={styles.header}>
                     <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
                 </View>
@@ -69,9 +67,7 @@ export default function NewJournal({ navigation }) {
                     />
                 </View>
             </ScrollView>
-            <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
-            </View>
         </View>
     );
 }

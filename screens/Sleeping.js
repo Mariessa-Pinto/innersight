@@ -14,9 +14,9 @@ export default function Sleeping({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <Header title='Sleeping Early' navigation={navigation} />
             <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
-                    <Header title='Sleeping Early' navigation={navigation} />
                     <Image
                         source={require('../atom/assets/Recmascots/sleeping.png')}
                         style={styles.picture}
@@ -26,8 +26,6 @@ export default function Sleeping({ navigation }) {
                         <Text>Adequate sleep supports cognitive function, emotional resilience, and stress management, fostering a positive impact on mood and overall mental well-being. By establishing a consistent sleep routine, you empower your mind to recharge, consolidate memories, and effectively navigate the challenges of each day, contributing to a healthier and more resilient mental state. </Text>
                         <Text>Deep, quality sleep is essential for the brain's ability to process emotions and regulate stress hormones. In contrast, chronic sleep deprivation has been associated with increased irritability, heightened stress levels, and a greater susceptibility to anxiety and depression. Embracing the practice of sleeping early is not just a simple routine; it's a proactive investment in your mental and emotional well-being, providing a solid foundation for a more vibrant and resilient life.</Text>
                     </View>
-                </View>
-                <View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} />

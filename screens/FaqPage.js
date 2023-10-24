@@ -26,8 +26,8 @@ export default function FaqPage({ navigation }) {
 
   return (
     <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-      <ScrollView>
       <Header title='FAQs' navigation={navigation} />
+      <ScrollView style={globalStyles.contentContainer}>
         <View style={styles.top}>
           <SearchBar placeholder='Search FAQs' />
         </View>

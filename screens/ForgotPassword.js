@@ -15,17 +15,18 @@ export default function ForgotPassword() {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <StatusBar style="auto" />
-            <View style={styles.container}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Forgot Pasword?</Text>
-                    <Text>Please provide the email associated with your account below. An email with a password reset link will be sent shortly.</Text>
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.container}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>Forgot Pasword?</Text>
+                        <Text>Please provide the email associated with your account below. An email with a password reset link will be sent shortly.</Text>
+                    </View>
+                    <ForgotPasswordForm />
+                    <ExtraLargeBtnLightTxt
+                        text="Send Password Reset Email"
+                        navigate="ResetPassword"
+                    />
                 </View>
-                <ForgotPasswordForm/>
-                <ExtraLargeBtnLightTxt 
-                    text="Send Password Reset Email" 
-                    navigate="ResetPassword"
-                />
             </View>
         </View>
     );

@@ -15,25 +15,24 @@ export default function Start() {
 
 
     return (
-        <>
-            <View>
-                <View style={styles.container}>
-                    <StatusBar style="auto" />
-                    <Image
-                        source={require('../atom/Logo/Logo.png')}
-                        style={styles.logo}
-                    />
-                    <Image
-                        source={require('../atom/Logo/Wordmark.png')}
-                        style={styles.wordmark}
-                    />
-                    <ExtraLargeBtnLightTxt 
-                        text="Get Started" 
-                        navigate="Demo"
-                    />
-                </View>
+        <View>
+            <View style={styles.container}>
+                <StatusBar style="auto" />
+                <Image
+                    source={require('../atom/Logo/Logo.png')}
+                    style={styles.logo}
+                />
+                <Image
+                    source={require('../atom/Logo/Wordmark.png')}
+                    style={styles.wordmark}
+                />
+                <ExtraLargeBtnLightTxt
+                    text="Get Started"
+                    navigate="Demo"
+                />
             </View>
-            </>
+        </View>
+
     );
 }
 

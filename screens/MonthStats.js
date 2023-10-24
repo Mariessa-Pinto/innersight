@@ -21,9 +21,10 @@ export default function MonthStats({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView>
+            <Header title="Your Month in Review" />
+            <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
-                    <Header title="Your Month in Review" />
+
                     <DateToggle />
                     <Image
                         source={require('../atom/assets/graph.png')}

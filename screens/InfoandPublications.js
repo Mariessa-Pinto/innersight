@@ -35,10 +35,7 @@ export default function InfoandPublications({ navigation }) {
                     <GreyButtons />
                 </View>
             </ScrollView>
-            <View style={globalStyles.navContainer}>
-                <NavBar navigation={navigation} />
-            </View>
-
+            <NavBar navigation={navigation} />
         </View>
 
     );

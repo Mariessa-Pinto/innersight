@@ -21,26 +21,28 @@ export default function PersonalInformation({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Amaya Lee' navigation={navigation}/>
-            <View style={styles.maincontent}>
-                <View style={styles.headerBar}>
+            <Header title='Amaya Lee' navigation={navigation} />
+            <View style={globalStyles.contentContainer}>
+                <View style={styles.maincontent}>
+                    <View style={styles.headerBar}>
 
-                </View>
-                <View style={styles.profimage}>
-                    <Image
-                        source={require('../atom/Mascots/Otter.png')}
-                        style={styles.otter}
+                    </View>
+                    <View style={styles.profimage}>
+                        <Image
+                            source={require('../atom/Mascots/Otter.png')}
+                            style={styles.otter}
+                        />
+                    </View>
+                    <SmallBtnDarkTxt
+                        text="Edit Photo"
+                        navigate="EditPhoto"
+                    />
+                    <PersonalForm />
+                    <MediumBtnLightTxt
+                        text="Save Changes"
+                        navigate=""
                     />
                 </View>
-                <SmallBtnDarkTxt
-                    text="Edit Photo"
-                    navigate="EditPhoto"
-                />
-                <PersonalForm />
-                <MediumBtnLightTxt
-                    text="Save Changes"
-                    navigate=""
-                />
             </View>
             <NavBar navigation={navigation} />
         </View>
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-        marginTop: 20,
+
         marginBottom: 10
     },
     otter: {

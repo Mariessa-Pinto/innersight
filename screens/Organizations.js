@@ -1,5 +1,4 @@
 import globalStyles from '../styles/global'
-
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {
@@ -9,6 +8,7 @@ import {
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
+import Header from '../molecules/Header/Header';
 
 import SearchBar from '../atom/Search/SearchBar';
 import OrganizationCard from '../molecules/CrisisSupportCard/OrganizationCard'
@@ -25,29 +25,24 @@ export default function Organizations({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <Header
+                title="Organizations"
+            />
             <ScrollView style={globalStyles.contentContainer}>
-                <TopNav
-                    headerText="Organizations"
-                />
-                <View style={styles.content}>
+                <View>
                     <SearchBar
                         placeholder="Search by City/Town"
                     />
                     <OrganizationCard />
                 </View>
             </ScrollView>
-            <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
-            </View>
-
         </View>
 
     );
 }
 
 const styles = StyleSheet.create({
-    content: {
-        marginTop: 40
-    }
+
 
 })
