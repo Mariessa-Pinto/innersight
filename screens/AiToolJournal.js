@@ -20,7 +20,7 @@ export default function AiToolJournal({ navigation }) {
     return (
             <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>
-                    <View style={styles.overlay}>
+                  
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <View style={styles.maincontent}>
                 <Text style={styles.headers}>Example title</Text>
