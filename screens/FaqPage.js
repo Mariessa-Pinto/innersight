@@ -5,6 +5,8 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import FaqData from '../molecules/FaqData/FaqData';
 import FaqAccordion from '../atom/FaqAccordian/FaqAccordian';
+import Header from '../molecules/Header/Header';
+import SearchBar from '../atom/Search/SearchBar';
 
 
 
@@ -25,16 +27,9 @@ export default function FaqPage({ navigation }) {
   return (
     <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
       <ScrollView>
+      <Header title='FAQs' navigation={navigation} />
         <View style={styles.top}>
-          <Text style={styles.header}>FAQS</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Search FAQs"
-            autoFocus={true}
-            autoCapitalize="words"
-            autoCorrect={true}
-            keyboardType="default"
-          />
+          <SearchBar placeholder='Search FAQs' />
         </View>
         <View style={styles.maincontent}>
           <Text style={styles.label}>Getting Started</Text>

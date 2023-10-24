@@ -24,7 +24,7 @@ export default function Profile({ navigation }) {
                                 style={styles.otter}
                             />
                         </View>
-                        <Text style={styles.header}>John Smith</Text>
+                        <Text style={styles.header}>Amaya Lee</Text>
                     </View>
                     <View style={styles.stats}>
                         <View style={styles.statview}>

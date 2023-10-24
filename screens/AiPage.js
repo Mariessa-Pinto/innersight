@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -16,9 +17,7 @@ export default function AiPage({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView>
-                <View style={styles.top}>
-                    <Text style={styles.header}>AI Information</Text>
-                </View>
+            <Header title='AI Information' navigation={navigation} />
                 <View style={styles.maincontent}>
                     <Text>We leverage intelligence (AI) technology to enhance your mental health journey. Our AI algorithms analyze journal entries, extracting valuable insights to provide personalized and constructive feedback. This process is designed to assist you in understanding patterns, managing stress, and fostering emotional well-being.</Text>
                     <Text>The AI in InnerSight continually learns and evolves based on user interactions, allowing for increasingly refined and tailored suggestions over time. It respects the sensitivity of the information shared, prioritizing user privacy through stringent anonymization measures.
