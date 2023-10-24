@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -14,9 +15,7 @@ export default function TermsPage({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView>
-                <View style={styles.top}>
-                    <Text style={styles.header}>Privacy Policy</Text>
-                </View>
+                <Header title='Terms of Service' navigation={navigation} />
                 <View style={styles.maincontent}>
                     <Text style={styles.list}>1. Acceptance Of Terms</Text>
                     <Text> By using InnerSight, you agree to abide by these Terms of Service. If you do not agree with any part of these terms, please refrain from using the app.</Text>
@@ -57,7 +56,6 @@ export default function TermsPage({ navigation }) {
                         <Text>For questions or concerns regarding these terms, please contact InnerSight at info@innersight.com.</Text>
                     </View>
                     <View style={styles.content2}>
-
                         <Text>By using InnerSight, you acknowledge that you have read, understood, and agree to these Terms of Service.</Text>
                     </View>
                 </View>
@@ -68,12 +66,12 @@ export default function TermsPage({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-
     maincontent: {
         display: 'flex',
         flexDirection: "column",
         alignItems: 'flex-start',
-        padding: 20
+        paddingRight: 20,
+        paddingLeft: 20
     },
     top: {
         alignItems: 'center',
@@ -82,15 +80,14 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 18,
         fontWeight: 'bold',
-
     },
     list: {
         fontSize: 14,
-        fontWeight: 'bold'
-
+        fontWeight: 'bold',
+        marginTop: 5
     },
     content2: {
         display: 'flex',
-        marginTop: 20,
+        marginTop: 10,
     }
 })
