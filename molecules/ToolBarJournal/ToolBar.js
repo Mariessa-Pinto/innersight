@@ -15,16 +15,11 @@ const ToolBar = () => {
         setShowSettings(!showSettings);
     };
 
-    const closeSettings = () => {
-        setShowSettings(false);
-    };
-
     const containerStyles = {
         height: showSettings ? 275 : 40,
     };
 
     return (
-
         <View style={[styles.container, containerStyles]}>
             {!showSettings && (
                 <TouchableOpacity onPress={toggleSettings}>
@@ -35,8 +30,7 @@ const ToolBar = () => {
             <View style={[styles.icons, showSettings && styles.expandedIcons]}>
                 {showSettings && (
                     <>
-                        <View style={styles.extraPadding}>
-
+                        <View style={styles.spacing}>
                             <AiLightBtnTb
                                 navigate="AiToolJournal"
                             />
@@ -45,13 +39,12 @@ const ToolBar = () => {
                         <PhotoLightBtnTB />
                         <TypeLightBtnTB />
                         <SpeechLightBtnTB />
-                        <View style={styles.extraPadding}>
-                            <TouchableOpacity onPress={closeSettings}>
-                                <ExitLightBtnTB />
-                            </TouchableOpacity>
+                        <View style={styles.spacing}>
+                            <ExitLightBtnTB />
                         </View>
                     </>
                 )}
+
             </View>
         </View>
     );
@@ -68,6 +61,9 @@ const SettingsLightBtnTB = ({ showSettings }) => {
 };
 const styles = StyleSheet.create({
     container: {
+        position: 'absolute',
+        right: -10,
+        top: 10,
         width: 50,
         borderRadius: 30,
         backgroundColor: '#DDDDDD',
@@ -75,13 +71,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
-        right: -10
     },
     icons: {
-        position: 'absolute',
-        bottom: 0,
         height: 275,
         width: 50,
         display: 'flex',
@@ -92,14 +83,14 @@ const styles = StyleSheet.create({
     },
     expandedIcons: {
         display: 'flex',
-        bottom: 0,
-        right: -2
+        // top: 0,
+        right: -2,
     },
     img: {
         width: 40,
         height: 40
     },
-    extraPadding: {
+    spacing: {
         marginTop: 10,
         marginBottom: 10
     }
