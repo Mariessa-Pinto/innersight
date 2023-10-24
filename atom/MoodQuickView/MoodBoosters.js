@@ -14,9 +14,9 @@ const MoodBoosters = () => {
     <View style={[styles.box, { backgroundColor: theme.backgroundLavender }]}>
       <Text style={globalStyles.h4TextBold}>Mood Boosters</Text>
       <View style={styles.textCon}>
-        <Text style={globalStyles.listText}>Text</Text>
-        <Text style={globalStyles.listText}>Text</Text>
-        <Text style={globalStyles.listText}>Text</Text>
+        <Text style={globalStyles.listText}>Eating Out</Text>
+        <Text style={globalStyles.listText}>Exercising</Text>
+        <Text style={globalStyles.listText}>Walking your pup</Text>
       </View>
 
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     color: '#292929'
   },
   textCon: {
-    marginTop: 15
+    marginTop: 10
   },
   txt: {
     fontSize: 12,

@@ -16,9 +16,9 @@ const MoodDowners = () => {
     <View style={[styles.box, {backgroundColor: theme.backgroundLavender}]}>
       <Text style={globalStyles.h4TextBold}>Mood Downers</Text>
       <View style={styles.textCon}>
-        <Text style={globalStyles.listText}>Text</Text>
-        <Text style={globalStyles.listText}>Text</Text>
-        <Text style={globalStyles.listText}>Text</Text>
+        <Text style={globalStyles.listText}>Upcoming midterms</Text>
+        <Text style={globalStyles.listText}>Argument with Bob</Text>
+        <Text style={globalStyles.listText}>Delayed flight</Text>
       </View>
 
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     color: '#292929'
   },
   textCon: {
-    marginTop: 15
+    marginTop: 10
   },
   txt: {
     fontSize: 12,
