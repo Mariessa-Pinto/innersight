@@ -42,7 +42,7 @@ export default function EditPhoto({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={styles.container}>
+            <View style={globalStyles.contentContainer}>
                 <Header
                     title='Customize Profile Photo'
                     navigate='PersonalInformation'

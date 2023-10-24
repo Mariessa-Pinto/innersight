@@ -16,8 +16,8 @@ export default function PrivacyPolicy({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView>
-                <Header title='Privacy Policy' navigation={navigation}/>
+             <Header title='Privacy Policy' navigation={navigation}/>
+            <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
                     <View>
                         <Text style={styles.list}>1. Information we collect:</Text>

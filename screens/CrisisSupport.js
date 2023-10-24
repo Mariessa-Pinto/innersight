@@ -26,7 +26,7 @@ export default function CrisisSupport({ navigation }) {
 
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <Header title='Crisis Support Resources' navigation={navigation} />
-            <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
+            <View style={[globalStyles.contentContainer]}>
                 <Text style={globalStyles.bodyCopy}>
                     Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1.
                 </Text> 
@@ -46,9 +46,7 @@ export default function CrisisSupport({ navigation }) {
                 </View>
 
             </View>
-            <View style={globalStyles.navContainer}>
                 <NavBar navigation={navigation} />
-            </View>
         </View>
     );
 }
