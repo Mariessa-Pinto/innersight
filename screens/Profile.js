@@ -16,7 +16,7 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={{ height: 400 }}>
+            <ScrollView style={globalStyles.contentContainer}>
             <Header title='' navigation={navigation}/>
                 <View style={styles.maincontent}>
                     <View style={styles.topcontent}>
