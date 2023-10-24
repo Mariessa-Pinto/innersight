@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
+import RecommendationBtn from '../RecommendationBtns/RecommendationBtn';
 
-const AiInsights = () => {
+
+const AiInsightsMol = () => {
     return (
         <View style={styles.container}>
             <Text>
@@ -23,4 +25,4 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 });
-export default AiInsights;
+export default AiInsightsMol;
