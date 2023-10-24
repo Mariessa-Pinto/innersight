@@ -22,8 +22,8 @@ export default function WriteEntry({ navigation }) {
     }
 
     return (
-            <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-                <View style={styles.maincontent}>
+        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+            <View style={styles.maincontent}>
                 <Text style={styles.headers}>Example title</Text>
                 <Text style={styles.date}>September 23, 2023</Text>
 
@@ -31,63 +31,63 @@ export default function WriteEntry({ navigation }) {
                     <Text style={styles.label}>Today's Prompt</Text>
                     <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life? </Text>
                     <View style={styles.button}>
-                    <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                        <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                     </View>
                 </View>
-                
-                <TextInput 
-                  style={styles.input}
-                  placeholder="Start your entry here"
-                  autoFocus={true}
-                  autoCapitalize="words"
-                  autoCorrect={true}
-                  keyboardType="default"
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Start your entry here"
+                    autoFocus={true}
+                    autoCapitalize="words"
+                    autoCorrect={true}
+                    keyboardType="default"
                 />
-         
-          </View>
-          <View style={styles.pass}>
+
+            </View>
+            <View style={styles.pass}>
                 <Text style={styles.textTag}>Tag Your Entry</Text>
-                <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes}/>
+                <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
             </View>
             {showInputBoxes && (
                 <View style={styles.inputBoxes}>
                     <View style={styles.tag}>
-                    <SmallInput 
-                    placeholder="Add New Tag"
-                    />
-                   <Tag 
-                   text="Draws"
-                   />
-                   
-                   </View>
-                   <View style={styles.tags}>
-                   <Tag 
-                   text="Venting"
-                   />
-                   <Tag 
-                   text="Anger"
-                   />
-                    <Tag 
-                   text="Tired"
-                   />
-                   
-                   </View>
+                        <SmallInput
+                            placeholder="Add New Tag"
+                        />
+                        <Tag
+                            text="Draws"
+                        />
+
                     </View>
-            )}
-          <View style={styles.content2}>
-            <MediumBtnLightTxt
-              text="View Ai Insights"
-              />
+                    <View style={styles.tags}>
+                        <Tag
+                            text="Venting"
+                        />
+                        <Tag
+                            text="Anger"
+                        />
+                        <Tag
+                            text="Tired"
+                        />
 
-          </View>
-          <View style={styles.tool}>
-                <ToolBar />
+                    </View>
                 </View>
-                
-                <NavBar navigation={navigation} />
+            )}
+            <View style={styles.content2}>
+                <MediumBtnLightTxt
+                    text="View Ai Insights"
+                />
 
-            
             </View>
+            <View style={styles.tool}>
+                <ToolBar />
+            </View>
+
+            <NavBar navigation={navigation} />
+
+
+        </View>
 
     );
 }
@@ -118,15 +118,15 @@ const styles = StyleSheet.create({
         padding: 5
     },
     label: {
-    fontSize: 13
+        fontSize: 13
     },
     description: {
         fontSize: 12
     },
     content2: {
-     alignItems: 'center'
-        
-      
+        alignItems: 'center'
+
+
     },
     button: {
         position: 'absolute',
