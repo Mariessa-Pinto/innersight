@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -16,18 +17,15 @@ export default function PrivacyPolicy({ navigation }) {
     return (
         <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
             <ScrollView>
-                <View style={styles.top}>
-                    <Text style={styles.header}>Privacy Policy</Text>
-                </View>
+                <Header title='Privacy Policy' navigation={navigation}/>
                 <View style={styles.maincontent}>
                     <View>
                         <Text style={styles.list}>1. Information we collect:</Text>
-                        <Text> We collect a minimal set of personal information, such as your name and email, during the registration process to create and secure your account.</Text>
-                        <Text style={styles.list}>b. Journal Entries</Text>
-                        <Text>  Our app encourages users to create journal entries. These entries are processed by our AI algorithms to provide personalized insights and recommendations. It's important to note that we prioritize anonymizing and securing this data to protect your privacy.</Text>
+                        <Text><Text style={styles.list}>a. Personal Information: </Text>We collect a minimal set of personal information, such as your name and email, during the registration process to create and secure your account.</Text>
+                        <Text><Text style={styles.list}>b. Journal Entries: </Text>Our app encourages users to create journal entries. These entries are processed by our AI algorithms to provide personalized insights and recommendations. It's important to note that we prioritize anonymizing and securing this data to protect your privacy.</Text>
                     </View>
                     <View style={styles.content2}>
-                        <Text style={styles.list}>2. How we use Information</Text>
+                        <Text style={styles.list}>2. How We Use Your Information</Text>
                         <Text>The primary purpose of collecting journal entries is to leverage artificial intelligence for analysis. The AI identifies patterns and trends in your entries to offer personalized insights aimed at supporting your mental well-being.</Text>
                     </View>
                     <View style={styles.content2}>
@@ -47,7 +45,7 @@ export default function PrivacyPolicy({ navigation }) {
                         <Text>We reserve the right to modify this Privacy Policy. If there are significant changes, we will notify you through the app or other appropriate means.</Text>
                     </View>
                     <View style={styles.content2}>
-                        <Text style={styles.list}>7. Childrens Privacy</Text>
+                        <Text style={styles.list}>7. Children's Privacy</Text>
                         <Text>Our app is intended for users aged 18 and above. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately.</Text>
                     </View>
                 </View>
@@ -58,12 +56,12 @@ export default function PrivacyPolicy({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-
     maincontent: {
         display: 'flex',
         flexDirection: "column",
         alignItems: 'flex-start',
-        padding: 20
+        paddingRight: 20,
+        paddingLeft: 20
     },
     top: {
         alignItems: 'center',
@@ -72,15 +70,14 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 18,
         fontWeight: 'bold',
-
     },
     list: {
         fontSize: 14,
-        fontWeight: 'bold'
-
+        fontWeight: 'bold',
+        marginTop: 5
     },
     content2: {
         display: 'flex',
-        marginTop: 20,
+        marginTop: 10,
     }
 })
