@@ -1,41 +1,34 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import { Image } from 'expo-image';
+import { SafeAreaView, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+
 
 
 const AiToolInput = () => {
   const [text, onChangeText] = React.useState('');
-  
+
 
   return (
-    <SafeAreaView>
-        <View>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="It looks like you’re feeling rather negative from this journal entry. I’ve highlighted all the different sections you indicated feeling irritated, angry. These emotions emotions made up 20% of your overall   
-            entry today. "
-        placeholderTextColor={"#3E3F42"}
-        
-        keyboardType='text'
-        multiline={true}
-        textAlignVertical='top'
-      />
+    <View style={styles.container}>
       <Image
-                source={require('../icons/bear.png')}
-                style={styles.mascot}
-            />
-            </View>
-    
-    </SafeAreaView>
+        source={require('../icons/bear.png')}
+        style={styles.mascot}
+      />
+      <Text style={styles.input}>It looks like you're feeling rather negative from this journal entry. I've highlighted all the different sections you indicated feeling irritated, angry. These emotions emotions made up 20% of your overall
+        entry today.</Text>
+    </View>
+
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center'
+  },
   input: {
-    height: 135,
-    width: 324,
+    width: '55%',
     margin: 12,
     borderRadius: 6,
     padding: 10,
@@ -44,17 +37,13 @@ const styles = StyleSheet.create({
     borderColor: '#525585',
     borderWidth: 1,
     elevation: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative'
+
   },
   mascot: {
-    height: 128,
-    width: 128,
-    position: 'absolute',
-    left: 0,
-    marginTop: 70
-},
+    width: '40%',
+    height: 150,
+    objectFit:'contain',
+  },
 });
 
 export default AiToolInput;
