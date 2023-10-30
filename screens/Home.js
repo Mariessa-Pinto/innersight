@@ -3,7 +3,7 @@ import globalStyles from '../styles/global'
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {
-    StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
+    StyleSheet, Text, View, ScrollView, TextInput, Image,
     TouchableOpacity
 } from 'react-native';
 import themeContext from '../theme/themeContext';
