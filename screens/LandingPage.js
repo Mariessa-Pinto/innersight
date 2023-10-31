@@ -15,7 +15,7 @@ export default function LandingPage() {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
                     <Image 
