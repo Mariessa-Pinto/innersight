@@ -18,24 +18,24 @@ const ChooseMascotMol = () => {
         },
         Sloth: {
             image: require('../../atom/Mascots/Sloth.png'),
-            width: 108,
+            width: 110,
             height: 101,
             backgroundWidth: '140%',
             backgroundHeight: '77%',
         },
         Otter: {
             image: require('../../atom/Mascots/Otter.png'),
-            width: 113,
-            height: 97,
+            width: 110,
+            height: 99,
             backgroundWidth: '140%',
-            backgroundHeight: '87%',
+            backgroundHeight: '83%',
         },
         Frog: {
             image: require('../../atom/Mascots/Frog.png'),
             width: 107,
             height: 88,
             backgroundWidth: '140%',
-            backgroundHeight: '82%',
+            backgroundHeight: '81%',
         },
     };
 

@@ -19,11 +19,11 @@ export default function Start() {
             <View style={styles.container}>
                 <StatusBar style="auto" />
                 <Image
-                    source={require('../atom/Logo/Logo.png')}
+                    source={require('../atom/Logo/logo.png')}
                     style={styles.logo}
                 />
                 <Image
-                    source={require('../atom/Logo/Wordmark.png')}
+                    source={require('../atom/Logo/wordmark.png')}
                     style={styles.wordmark}
                 />
                 <ExtraLargeBtnLightTxt
@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
     },
     logo: {
         height: 150,
-        width: 150,
+        width: 140,
         marginBottom: 20
     },
     wordmark: {
-        width: 300,
-        height: 65,
+        width: 280,
+        height: 58.8,
         marginBottom: 42
     }
 })
