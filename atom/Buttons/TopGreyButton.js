@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import test from '../../atom/assets/settingicons/Home.png'
 
 const TopGreyButton = (props) => {
   const navigation = useNavigation();
@@ -11,16 +12,42 @@ const TopGreyButton = (props) => {
   };
   return (
     <TouchableWithoutFeedback
-    onPressIn={() => setPressed(true)}
-    onPressOut={() => setPressed(false)}
-    onPress={navigateTo}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>{props.text}</Text>
+        <View style={styles.leftContent}>
+          {
+            props.image ?
+              <Image
+                source={props.image}
+                style={styles.icon}
+              />
+              :
+              ''
+          }
+          <Text style={styles.labelTextLight}>{props.text}</Text>
+        </View>
+        <View style={styles.rightContent}>
+          {
+            props.arrow ?
+              <Image
+                source={require('../../atom/assets/settingicons/Arrow.png')}
+                style={styles.arrow}
+              />
+              :
+              ""
+          }
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );
 };
+
+/**
+ *           
+ */
 
 const styles = StyleSheet.create({
   button: {
@@ -29,18 +56,39 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     backgroundColor: '#EAEAEA',
-    justifyContent: 'center',
+    alignItems: 'center',
     elevation: 7,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+
   },
+leftContent:{
+  display: 'flex',
+  flexDirection: 'row',
+  paddingLeft: 15,
+  alignItems: 'center',
+  gap: 10
+},
+rightContent:{
+  display: 'flex',
+  flexDirection: 'row',
+  paddingRight: 15,
+  alignItems: 'center',
+
+},
   buttonPressed: {
     backgroundColor: '#D5D7FF', // Change the color when pressed
   },
-  text: {
-    color: '#3E3F42',
-    fontSize: 13,
-    fontWeight: 'light',
-    marginLeft: 15
+  icon: {
+    height: 16,
+    width: 16,
+    objectFit: 'contain'
   },
+  arrow: {
+    height: 18,
+
+  }
 });
 
 export default TopGreyButton;
