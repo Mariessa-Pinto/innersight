@@ -36,7 +36,7 @@ export default function Organizations({ navigation }) {
                     <OrganizationCard />
                 </View>
             </ScrollView>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='profile'/>
         </View>
 
     );

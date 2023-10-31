@@ -61,7 +61,7 @@ export default function TermsPage({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

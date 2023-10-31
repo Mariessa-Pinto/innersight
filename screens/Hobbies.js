@@ -30,7 +30,7 @@ export default function Hobbies({ navigation }) {
                 <View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

@@ -67,7 +67,7 @@ export default function NewJournal({ navigation }) {
                     />
                 </View>
             </ScrollView>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='journal'/>
         </View>
     );
 }

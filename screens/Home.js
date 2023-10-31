@@ -56,7 +56,7 @@ export default function Home({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='home' />
         </View>
     );
 }

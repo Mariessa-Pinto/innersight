@@ -78,7 +78,7 @@ export default function WriteEntry({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='journal'/>
         </View>
     );
 }
