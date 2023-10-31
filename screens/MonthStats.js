@@ -36,8 +36,7 @@ export default function MonthStats({ navigation }) {
                 </View>
             </ScrollView>
             <NavBar
-                navigation={navigation}
-            />
+                navigation={navigation} variation='stats'/>
         </View>
     );
 }

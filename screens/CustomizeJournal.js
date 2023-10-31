@@ -71,7 +71,7 @@ export default function CustomizeJournal({ navigation }) {
                     />
                 </View>
             </ScrollView>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

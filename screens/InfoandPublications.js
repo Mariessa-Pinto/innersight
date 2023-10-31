@@ -35,7 +35,7 @@ export default function InfoandPublications({ navigation }) {
                     <GreyButtons />
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile' />
         </View>
 
     );

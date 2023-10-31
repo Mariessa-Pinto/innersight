@@ -36,7 +36,7 @@ export default function YearStats({ navigation }) {
                     <StatRecommendations />
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='stats'/>
         </View>
     );
 }

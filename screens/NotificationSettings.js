@@ -47,7 +47,7 @@ export default function NotificationSettings({ navigation }) {
                     />
                 </View>
             </View>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile'/>
         </View>
     );
 }

@@ -28,7 +28,7 @@ export default function Recommendations({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile'/>
         </View>
     );
 }
