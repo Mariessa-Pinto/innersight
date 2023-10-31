@@ -22,9 +22,11 @@ export default function MonthStats({ navigation }) {
     }, []);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title="Your Month in Review" />
-            <ScrollView style={globalStyles.contentContainer}>
+
                 <View style={styles.maincontent}>
                     <DateToggle selectedValue={selectedValue} />
                     <Image
@@ -33,6 +35,7 @@ export default function MonthStats({ navigation }) {
                     />
                     <IdentifiedEntries />
                     <StatRecommendations />
+                </View>
                 </View>
             </ScrollView>
             <NavBar

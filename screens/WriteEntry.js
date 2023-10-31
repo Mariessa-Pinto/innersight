@@ -26,8 +26,8 @@ export default function WriteEntry({ navigation }) {
         setShowInsights(!showInsights);
     };
     return (
-        <View>
-            <ScrollView>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.maincontent}>
                         <Text style={styles.headers}>Positive Thoughts</Text>
@@ -79,8 +79,8 @@ export default function WriteEntry({ navigation }) {
                         </View>
                     </View>
                 </View>
-                <NavBar navigation={navigation} variation='journal' />
             </ScrollView>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

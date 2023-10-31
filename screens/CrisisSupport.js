@@ -23,7 +23,7 @@ export default function CrisisSupport({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Crisis Support Resources' navigation={navigation} />

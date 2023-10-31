@@ -14,7 +14,7 @@ export default function CreateEntry() {
 
 
     return (
-        <View>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
 

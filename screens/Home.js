@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Amaya!</Text>

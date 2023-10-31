@@ -13,7 +13,7 @@ export default function Hobbies({ navigation }) {
 
 
     return (
-        <View>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>

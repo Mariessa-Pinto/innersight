@@ -13,22 +13,24 @@ export default function Recommendations({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-                <View style={styles.maincontent}>
-                    <Header title='Exercise' navigation={navigation} />
-                    <Image
-                        source={require('../atom/assets/Recmascots/exercise.png')}
-                        style={styles.picture}
-                    />
-                    <View style={styles.writing}>
-                        <Text>Engaging in regular exercise many benefits for both physical and mental wellbeing. </Text>
-                        <Text>Physically, it enhances cardiovascular health, strengthens muscles and bones, and aids in weight management. Beyond the physical advantages, exercise is a potent mood booster, releasing endorphins that alleviate stress and anxiety while promoting a sense of overall happiness. Additionally, consistent physical activity has been associated with improved cognitive function, better sleep quality, and a reduced risk of chronic conditions. </Text>
-                        <Text>Don't know where to start? Take a stroll in the park with your headphones on, immersing yourself in the soothing blend of nature's serenity and your favourite tunes.</Text>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <View style={styles.maincontent}>
+                        <Header title='Exercise' navigation={navigation} />
+                        <Image
+                            source={require('../atom/assets/Recmascots/exercise.png')}
+                            style={styles.picture}
+                        />
+                        <View style={styles.writing}>
+                            <Text>Engaging in regular exercise many benefits for both physical and mental wellbeing. </Text>
+                            <Text>Physically, it enhances cardiovascular health, strengthens muscles and bones, and aids in weight management. Beyond the physical advantages, exercise is a potent mood booster, releasing endorphins that alleviate stress and anxiety while promoting a sense of overall happiness. Additionally, consistent physical activity has been associated with improved cognitive function, better sleep quality, and a reduced risk of chronic conditions. </Text>
+                            <Text>Don't know where to start? Take a stroll in the park with your headphones on, immersing yourself in the soothing blend of nature's serenity and your favourite tunes.</Text>
+                        </View>
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='profile'/>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }
