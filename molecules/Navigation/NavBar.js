@@ -31,6 +31,8 @@ export default function NavBar({ navigation, variation }) {
 
     const OverlayContent = plusButtonOverlay
 
+    const [pressed, setPressed] = useState(false);
+
     return (
         <>
             <HideWithKeyboard>
@@ -52,8 +54,18 @@ export default function NavBar({ navigation, variation }) {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.addButtonContainer}>
-                            <TouchableOpacity style={styles.addButton} onPress={toggleOverlay}>
-                                <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                            <TouchableOpacity 
+                            style={styles.addButton} 
+                            onPress={toggleOverlay}
+                            onPressIn={() => setPressed(true)}
+                            onPressOut={() => setPressed(false)}>
+                                {
+                                    pressed ? 
+                                    <Image source={require('../../atom/icons/addButtonOnPress.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                                    :
+                                    <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                                }
+                                
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.iconSubContainer, styles.container2]} >
@@ -92,10 +104,6 @@ export default function NavBar({ navigation, variation }) {
 
 
 const styles = StyleSheet.create({
-
-
-
-
     container: {
 
         height: 65,
