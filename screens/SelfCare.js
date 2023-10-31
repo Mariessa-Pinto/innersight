@@ -13,18 +13,21 @@ export default function SelfCare({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Self-Care' navigation={navigation} />
-            <ScrollView style={globalStyles.contentContainer}>
-                <View style={styles.maincontent}>
-                    <Image
-                        source={require('../atom/assets/Recmascots/self.png')}
-                        style={styles.picture}
-                    />
-                    <View style={styles.writing}>
-                        <Text>Elevate your well-being with deliberate acts of self-care. Begin by creating small moments in your day—sip herbal tea, bask in sunlight, or relish a quiet pause.  </Text>
-                        <Text>Unplug from screens periodically, indulge in a favourite hobby, and prioritize quality sleep. Nourish your body with wholesome foods, and exercise when you can. Cultivate mindfulness, embrace solitude, and surround yourself with positive influences. Remember, self-care isn't a luxury but a vital investment in your overall happiness and resilience. </Text>
-                        <Text>Take it one step at a time. You can do it! </Text>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Self-Care' navigation={navigation} />
+
+                    <View style={styles.maincontent}>
+                        <Image
+                            source={require('../atom/assets/Recmascots/self.png')}
+                            style={styles.picture}
+                        />
+                        <View style={styles.writing}>
+                            <Text>Elevate your well-being with deliberate acts of self-care. Begin by creating small moments in your day—sip herbal tea, bask in sunlight, or relish a quiet pause.  </Text>
+                            <Text>Unplug from screens periodically, indulge in a favourite hobby, and prioritize quality sleep. Nourish your body with wholesome foods, and exercise when you can. Cultivate mindfulness, embrace solitude, and surround yourself with positive influences. Remember, self-care isn't a luxury but a vital investment in your overall happiness and resilience. </Text>
+                            <Text>Take it one step at a time. You can do it! </Text>
+                        </View>
                     </View>
                 </View>
             </ScrollView>

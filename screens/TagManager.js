@@ -26,9 +26,10 @@ export default function TagManager({ navigation }) {
     const OverlayContent = tagSettingsOverlay
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Manage Tags' navigation={navigation} />
-            <View style={globalStyles.contentContainer}>
                 <View style={styles.container}>
                     <TouchableWithoutFeedback
                         onPress={toggleOverlay}
@@ -57,6 +58,7 @@ export default function TagManager({ navigation }) {
                     </View>
                 </View>
             </View>
+            </ScrollView>
             <NavBar navigation={navigation} variation='journal'/>
         </View>
     );

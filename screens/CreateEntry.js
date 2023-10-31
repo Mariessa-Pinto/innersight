@@ -14,11 +14,13 @@ export default function CreateEntry() {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-                <View style={globalStyles.contentContainer}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
 
                 </View>
-                <NavBar navigation={navigation} variation='journal' />
+            </ScrollView>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

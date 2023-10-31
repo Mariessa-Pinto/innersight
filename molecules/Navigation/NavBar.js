@@ -36,9 +36,6 @@ export default function NavBar({ navigation, variation }) {
     return (
         <>
             <HideWithKeyboard>
-
-                <View style={styles.test} >
-                </View>
                 <View style={styles.container} >
                     <View style={styles.iconView}>
                         <View style={[styles.iconSubContainer, styles.container1]}>
@@ -105,8 +102,9 @@ export default function NavBar({ navigation, variation }) {
 
 const styles = StyleSheet.create({
     container: {
-
         height: 65,
+        position: 'absolute',
+        bottom: 0
     },
     iconButton: {
         height: '100%',

@@ -23,9 +23,10 @@ export default function YearStats({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title=" Your Year in Review" />
-            <ScrollView style={globalStyles.contentContainer}>
                 <View style={styles.maincontent}>
                     <DateToggle selectedValue={selectedValue} />
                     <Image
@@ -34,6 +35,7 @@ export default function YearStats({ navigation }) {
                     />
                     <IdentifiedEntries />
                     <StatRecommendations />
+                </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='stats'/>

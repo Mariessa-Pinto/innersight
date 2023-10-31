@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -21,33 +21,36 @@ export default function NotificationSettings({ navigation }) {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Notifications' navigation={navigation} />
-            <View style={globalStyles.contentContainer}>
-                <Notifications title="Journal Reminders"
-                    valueChange2={journalToggleSwitch}
-                    valueEnabled2={journalIsEnabled}
-                />
-                <Notifications title="Reminders"
-                    valueChange2={toggleSwitch}
-                    valueEnabled2={isEnabled}
-                />
-                <Notifications title="Reminders"
-                    valueChange2={toggleSwitch}
-                    valueEnabled2={isEnabled}
-                />
-                <Notifications title="Reminders"
-                    valueChange2={toggleSwitch}
-                    valueEnabled2={isEnabled}
-                />
-                <View style={styles.button}>
-                    <MediumBtnLightTxt
-                        text='Save Changes'
-                        navigate=''
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Notifications' navigation={navigation} />
+
+                    <Notifications title="Journal Reminders"
+                        valueChange2={journalToggleSwitch}
+                        valueEnabled2={journalIsEnabled}
                     />
+                    <Notifications title="Reminders"
+                        valueChange2={toggleSwitch}
+                        valueEnabled2={isEnabled}
+                    />
+                    <Notifications title="Reminders"
+                        valueChange2={toggleSwitch}
+                        valueEnabled2={isEnabled}
+                    />
+                    <Notifications title="Reminders"
+                        valueChange2={toggleSwitch}
+                        valueEnabled2={isEnabled}
+                    />
+                    <View style={styles.button}>
+                        <MediumBtnLightTxt
+                            text='Save Changes'
+                            navigate=''
+                        />
+                    </View>
                 </View>
-            </View>
-            <NavBar navigation={navigation} variation='profile'/>
+            </ScrollView>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

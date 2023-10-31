@@ -13,20 +13,24 @@ export default function EmailSent() {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
-                <StatusBar style="auto" />
-                <View style={styles.container}>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.title}>Email Sent</Text>
-                        <Text>Please check your email for a link to reset your password.</Text>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <View style={globalStyles.contentContainer}>
+                        <StatusBar style="auto" />
+                        <View style={styles.container}>
+                            <View style={styles.titleContainer}>
+                                <Text style={styles.title}>Email Sent</Text>
+                                <Text>Please check your email for a link to reset your password.</Text>
+                            </View>
+                            <ExtraLargeBtnLightTxt
+                                text="Return to Log In"
+                                navigate="Login"
+                            />
+                        </View>
                     </View>
-                    <ExtraLargeBtnLightTxt
-                        text="Return to Log In"
-                        navigate="Login"
-                    />
-                </View>
-            </View>
+                    </View>
+            </ScrollView>
         </View>
     );
 }

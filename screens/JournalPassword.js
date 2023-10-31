@@ -15,30 +15,31 @@ export default function JournalPassword({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='' navigation={navigation} />
-            <ScrollView style={globalStyles.contentContainer}>
-                <JournalBlobCard
-                    imgSource={require('../atom/assets/Covers/OrangeCover.png')} />
-                <View style={styles.textContainer}>
-                    <Text style={globalStyles.h1TextBold}>All My Vents</Text>
-                    <View style={styles.passwordContainer}>
-                        <Text style={globalStyles.labelText}>Enter Your Password</Text>
-                        <TextInput
-                            secureTextEntry={true}
-                            style={styles.password}
-                            placeholder='Password'
-                            textAlignVertical=''
-                            value="" />
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='' navigation={navigation} />
+                    <JournalBlobCard
+                        imgSource={require('../atom/assets/Covers/OrangeCover.png')} />
+                    <View style={styles.textContainer}>
+                        <Text style={globalStyles.h1TextBold}>All My Vents</Text>
+                        <View style={styles.passwordContainer}>
+                            <Text style={globalStyles.labelText}>Enter Your Password</Text>
+                            <TextInput
+                                secureTextEntry={true}
+                                style={styles.password}
+                                placeholder='Password'
+                                textAlignVertical=''
+                                value="" />
+                        </View>
+
+                        <MediumBtnLightTxt
+                            text="Unlock Journal"
+                            navigate='Entries' />
                     </View>
-
-                    <MediumBtnLightTxt
-                        text="Unlock Journal"
-                        navigate='Entries' />
                 </View>
-
             </ScrollView>
-            <NavBar navigation={navigation} variation='journal'/>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
 
     );

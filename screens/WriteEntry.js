@@ -26,59 +26,61 @@ export default function WriteEntry({ navigation }) {
         setShowInsights(!showInsights);
     };
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-                <View style={styles.maincontent}>
-                    <Text style={styles.headers}>Positive Thoughts</Text>
-                    <Text style={styles.date}>September 23, 2023</Text>
-                    <View style={styles.prompt}>
-                        <Text style={styles.label}>Today's Prompt</Text>
-                        <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life? </Text>
-                        <View style={styles.button}>
-                            <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
-                        </View>
-                    </View>
-                    <BigInput />
-                    <View style={styles.pass}>
-                        <Text style={styles.textTag}>Tag Your Entry</Text>
-                        <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
-                    </View>
-                    {showInputBoxes ? (
-                        <View style={styles.inputBoxes}>
-                            <View style={styles.tag}>
-                                <SmallInput
-                                    placeholder="Add New Tag"
-                                />
-                                <Tag
-                                    text="Draws"
-                                />
-                            </View>
-                            <View style={styles.tags}>
-                                <Tag
-                                    text="Venting"
-                                />
-                                <Tag
-                                    text="Anger"
-                                />
-                                <Tag
-                                    text="Tired"
-                                />
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView >
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <View style={styles.maincontent}>
+                        <Text style={styles.headers}>Positive Thoughts</Text>
+                        <Text style={styles.date}>September 23, 2023</Text>
+                        <View style={styles.prompt}>
+                            <Text style={styles.label}>Today's Prompt</Text>
+                            <Text style={styles.description}>What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balance life? </Text>
+                            <View style={styles.button}>
+                                <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                             </View>
                         </View>
-                    ): <></>}
-                    <View style={styles.content2}>
-                        <InsightButton
-                            text="View Ai Insights"
-                            toggle={toggleInsights}
-                        />
-                        {showInsights ? <AiInsightsMol />: <></>}
-                    </View>
-                    <View style={styles.tool}>
-                        <ToolBar />
+                        <BigInput />
+                        <View style={styles.pass}>
+                            <Text style={styles.textTag}>Tag Your Entry</Text>
+                            <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
+                        </View>
+                        {showInputBoxes ? (
+                            <View style={styles.inputBoxes}>
+                                <View style={styles.tag}>
+                                    <SmallInput
+                                        placeholder="Add New Tag"
+                                    />
+                                    <Tag
+                                        text="Draws"
+                                    />
+                                </View>
+                                <View style={styles.tags}>
+                                    <Tag
+                                        text="Venting"
+                                    />
+                                    <Tag
+                                        text="Anger"
+                                    />
+                                    <Tag
+                                        text="Tired"
+                                    />
+                                </View>
+                            </View>
+                        ) : <></>}
+                        <View style={styles.content2}>
+                            <InsightButton
+                                text="View Ai Insights"
+                                toggle={toggleInsights}
+                            />
+                            {showInsights ? <AiInsightsMol /> : <></>}
+                        </View>
+                        <View style={styles.tool}>
+                            <ToolBar />
+                        </View>
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='journal'/>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

@@ -24,50 +24,52 @@ export default function NewJournal({ navigation }) {
     };
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-                <Header title="Customize Journal"/>
-            <ScrollView style={globalStyles.contentContainer}>
-                <View style={styles.header}>
-                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
-                </View>
-                <View style={styles.comp}>
-                    <Text style={[globalStyles.h4TextLight, { color: theme.color }]}>Current</Text>
-                    <JournalCovers />
-                    <MediumBtnDarkText
-                        text="Add New Cover"
-                    />
-                </View>
-                <View style={styles.name}>
-                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Name Your Journal</Text>
-                </View>
-                <View style={styles.content}>
-                    <NormalInput />
-                    <View style={styles.pass}>
-                        <Text style={styles.text}>Password Protection</Text>
-                        <Toggle onToggle={toggleInputBoxes} />
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title="Customize Journal" />
+                    <View style={styles.header}>
+                        <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
                     </View>
-                    {showInputBoxes && (
-                        <View style={styles.inputBoxes}>
-                            <NormalInput
-                                placeholder="Input 4-Digit Password"
-                            />
-                            <NormalInput
-                                placeholder="Confirm Password"
-                            />
-                            <NormalInput
-                                placeholder="Password Hint Question"
-                            />
-                            <NormalInput
-                                placeholder="Password Hint Answer"
-                            />
+                    <View style={styles.comp}>
+                        <Text style={[globalStyles.h4TextLight, { color: theme.color }]}>Current</Text>
+                        <JournalCovers />
+                        <MediumBtnDarkText
+                            text="Add New Cover"
+                        />
+                    </View>
+                    <View style={styles.name}>
+                        <Text style={[globalStyles.h3Text, { color: theme.color }]}>Name Your Journal</Text>
+                    </View>
+                    <View style={styles.content}>
+                        <NormalInput />
+                        <View style={styles.pass}>
+                            <Text style={styles.text}>Password Protection</Text>
+                            <Toggle onToggle={toggleInputBoxes} />
                         </View>
-                    )}
-                    <ExtraLargeBtnLightTxt
-                        text="Create New Journal"
-                    />
+                        {showInputBoxes && (
+                            <View style={styles.inputBoxes}>
+                                <NormalInput
+                                    placeholder="Input 4-Digit Password"
+                                />
+                                <NormalInput
+                                    placeholder="Confirm Password"
+                                />
+                                <NormalInput
+                                    placeholder="Password Hint Question"
+                                />
+                                <NormalInput
+                                    placeholder="Password Hint Answer"
+                                />
+                            </View>
+                        )}
+                        <ExtraLargeBtnLightTxt
+                            text="Create New Journal"
+                        />
+                    </View>
                 </View>
             </ScrollView>
-                <NavBar navigation={navigation} variation='journal'/>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

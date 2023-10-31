@@ -15,9 +15,11 @@ export default function PrivacyPolicy({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
              <Header title='Privacy Policy' navigation={navigation}/>
-            <ScrollView style={globalStyles.contentContainer}>
+
                 <View style={styles.maincontent}>
                     <View>
                         <Text style={styles.list}>1. Information we collect:</Text>
@@ -48,6 +50,7 @@ export default function PrivacyPolicy({ navigation }) {
                         <Text style={styles.list}>7. Children's Privacy</Text>
                         <Text>Our app is intended for users aged 18 and above. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately.</Text>
                     </View>
+                </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile'/>

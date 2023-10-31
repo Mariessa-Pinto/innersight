@@ -24,42 +24,46 @@ export default function Home({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-                <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Amaya!</Text>
-                <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
-                    <View style={styles.journalHeader}>
-                        <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
-                        <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Amaya!</Text>
+                    <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
+                        <View style={styles.journalHeader}>
+                            <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
+                            <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                        </View>
+                        <View style={styles.journalWriting}>
+                            <TextInput style={[styles.quickJournal, { backgroundColor: theme.background }]}
+                                multiline
+                                numberOfLines={6}
+                            />
+                        </View>
+                        <TouchableOpacity style={styles.saveBtn} >
+                            <Image source={require('../atom/Buttons/CheckMark.png')} />
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.journalWriting}>
-                        <TextInput style={[styles.quickJournal, { backgroundColor: theme.background }]}
-                            multiline
-                            numberOfLines={6}
-                        />
+                    <View style={styles.overviewContainer}>
+                        <Text style={[globalStyles.h3Text, { color: theme.color }]}>Your Week So Far</Text>
+                        <View style={styles.boosterContainers}>
+                            <MoodBoosters />
+                            <MoodDowners />
+                        </View>
                     </View>
-                    <TouchableOpacity style={styles.saveBtn} >
-                        <Image source={require('../atom/Buttons/CheckMark.png')} />
-                    </TouchableOpacity>
+                    <View style={styles.tipsContainer}>
+                        <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
+                        <View style={styles.recBtnContainer}>
+                            <RecommendationBtn />
+                        </View>
+                    </View>
                 </View>
-                <View style={styles.overviewContainer}>
-                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Your Week So Far</Text>
-                    <View style={styles.boosterContainers}>
-                        <MoodBoosters />
-                        <MoodDowners />
-                    </View>
-                </View>
-                <View style={styles.tipsContainer}>
-                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommended Tips</Text>
-                    <View style={styles.recBtnContainer}>
-                        <RecommendationBtn />
-                    </View>
-                </View>
+
             </ScrollView>
             <NavBar navigation={navigation} variation='home' />
         </View>
     );
 }
+         
 
 const styles = StyleSheet.create({
     journalContainer: {
