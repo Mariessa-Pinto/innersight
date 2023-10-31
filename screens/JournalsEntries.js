@@ -17,7 +17,7 @@ export default function JournalsEntries({ navigation }) {
 
 
     return (
-<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.toggleCon}>

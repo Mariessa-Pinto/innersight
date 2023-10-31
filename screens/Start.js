@@ -15,7 +15,7 @@ export default function Start() {
 
 
     return (
-<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <View style={styles.container}>
                 <StatusBar style="auto" />
                 <Image

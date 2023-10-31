@@ -86,6 +86,7 @@ export default StyleSheet.create({
     },
     contentContainer: {
         height: '100%',
+        minHeight: 685,
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 10,
