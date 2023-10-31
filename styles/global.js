@@ -80,6 +80,10 @@ export default StyleSheet.create({
         fontSize: 12,
         lineHeight: 25
     },
+    outerContainer:{
+        height: '100%',
+
+    },
     contentContainer: {
         height: '100%',
         width: '100%',

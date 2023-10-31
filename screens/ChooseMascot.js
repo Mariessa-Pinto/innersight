@@ -19,7 +19,7 @@ export default function ChooseMascot({ navigation }) {
     //Add functionality to click and have the orange background appear around the users pick of mascot
 
     return (
-        <View>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.title}>

@@ -13,9 +13,10 @@ export default function TermsPage({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Terms of Service' navigation={navigation} />
-            <ScrollView style={globalStyles.contentContainer}>
 
                 <View style={styles.maincontent}>
                     <Text style={styles.list}>1. Acceptance Of Terms</Text>
@@ -59,6 +60,7 @@ export default function TermsPage({ navigation }) {
                     <View style={styles.content2}>
                         <Text>By using InnerSight, you acknowledge that you have read, understood, and agree to these Terms of Service.</Text>
                     </View>
+                </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />

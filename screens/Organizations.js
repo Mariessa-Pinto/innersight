@@ -24,19 +24,22 @@ export default function Organizations({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header
-                title="Organizations"
-            />
-            <ScrollView style={globalStyles.contentContainer}>
-                <View>
-                    <SearchBar
-                        placeholder="Search by City/Town"
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header
+                        title="Organizations"
                     />
-                    <OrganizationCard />
+
+                    <View>
+                        <SearchBar
+                            placeholder="Search by City/Town"
+                        />
+                        <OrganizationCard />
+                    </View>
                 </View>
             </ScrollView>
-                <NavBar navigation={navigation} variation='profile'/>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
 
     );

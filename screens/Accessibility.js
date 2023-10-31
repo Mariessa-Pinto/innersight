@@ -31,7 +31,7 @@ export default function Accessibility({ navigation }) {
     const brightnessToggleSwitch = () => setBrightnessIsEnabled(previousState => !previousState);
 
     return (
-        <View >
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
             <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Accessibility Settings' navigation={navigation} />
