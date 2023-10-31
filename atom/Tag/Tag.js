@@ -23,7 +23,7 @@ const Tag = (props) => {
  >
    
    <View style={[styles.button, buttonStates[font] && styles.buttonPressed]}>
-     <Text style={[styles.letter, buttonStates[font] && styles.buttonPressed]}>{props.text}</Text>
+     <Text style={[styles.labelTextLight, buttonStates[font] && styles.buttonPressed]}>{props.text}</Text>
    </View>
 
  </TouchableWithoutFeedback>
@@ -49,11 +49,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 4,
  },
-letter: {
-   color: '#3E3F42',
-   fontSize: 13,
-   fontWeight: 'light',
-},
 buttonPressed: {
    backgroundColor: '#6164C3',
    color: '#FDFDFD'

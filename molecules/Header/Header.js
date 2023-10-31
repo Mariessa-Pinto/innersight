@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import globalStyles from '../../styles/global';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import JournalToggle from '../../atom/WordToggle/JournalToggle';
 
 
 const Header = ({
     navigation,
-    title }) => {
+    title,
+    settings }) => {
     const [pressed, setPressed] = useState(false);
 
 
@@ -27,7 +29,22 @@ const Header = ({
                     />
                 </View>
             </TouchableOpacity>
-            <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
+            {
+                title === "journalToggle" ? 
+                <JournalToggle styles={styles.title} />
+                :
+                <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
+            }
+            {
+                settings ?
+                <Image
+                source={require('../../atom/icons/SettingsCircle.png')}
+                style={styles.settingsButton}
+            />
+            :
+            ""
+
+            }
         </View>
     );
 };
@@ -35,29 +52,34 @@ const Header = ({
 const styles = StyleSheet.create({
     header: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
-        paddingHorizontal: 25,
+        justifyContent: 'center',
         paddingBottom: 40,
-        paddingTop: 40,
         width: '100%',
+        paddingVertical: 20
     },
     backButton: {
         width: 7,
         height: 11,
-        position: 'absolute',
     },
-    touchContainer:{
+    settingsButton:{
+        width: 30,
+        height: 30,
+        position: 'absolute',
+        right: 0,
+        top: 20
+    },
+    touchContainer: {
         zIndex: 1,
         position: 'absolute',
-        paddingHorizontal: 25,
-        paddingVertical: 40,
+        left: 0,
+        top: 20
     },
     title: {
         width: '100%',
         textAlign: 'center',
-        position: 'absolute',
-        marginLeft: 25
+
     },
     fullBack: {
         width: 30,

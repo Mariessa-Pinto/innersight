@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import globalStyles from '../../styles/global';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -26,7 +27,7 @@ const EntriesPageCard = (props) => {
         <View style={styles.txt}>
           <View style={styles.title}>
             <View style={styles.heading}>
-              <Text style={styles.headerText}>{props.headerText}</Text>
+              <Text style={globalStyles.h3TextSemiBold}>{props.headerText}</Text>
               <Image
                 source={props.iconImage}
                 style={styles.icon}
@@ -38,8 +39,8 @@ const EntriesPageCard = (props) => {
             </View>
           </View>
           <View style={styles.textCon}>
-            <Text style={styles.text}>{props.date}</Text>
-            <Text style={styles.text}>{props.text}</Text>
+            <Text style={globalStyles.captionText}>{props.date}</Text>
+            <Text style={globalStyles.captionText}>{props.excerpt}</Text>
           </View>
         </View>
       </View>
@@ -50,7 +51,7 @@ const EntriesPageCard = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 328,
+    width: '100%',
     height: 115,
     borderRadius: 10,
     backgroundColor: '#F6F6F6',
@@ -63,12 +64,6 @@ const styles = StyleSheet.create({
   buttonPressed: {
     backgroundColor: '#EAEAEA', // Change the color when pressed
     borderColor: '#EAEAEA'
-  },
-  headerText: {
-    color: '#525585',
-    fontSize: 18,
-    fontWeight: 'medium'
-
   },
   text: {
     color: '#292929',
@@ -98,12 +93,12 @@ const styles = StyleSheet.create({
   set: {
     marginLeft: 90
   },
-  heading:{
+  heading: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10
-    
+
   }
 
 });
