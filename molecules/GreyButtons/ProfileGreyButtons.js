@@ -3,7 +3,7 @@ import TopGreyButton from '../../atom/Buttons/TopGreyButton';
 import MiddleGreyButton from '../../atom/Buttons/MiddleGreyButtons';
 import BottomGreyButton from '../../atom/Buttons/BottomGreyButtons';
 
-export default function ProfileGreyButtons({ navigation, section }) {
+export default function ProfileGreyButtons({ section }) {
     return (
         <View style={styles.container}>
 
@@ -19,7 +19,7 @@ export default function ProfileGreyButtons({ navigation, section }) {
                         text="Accessibility Settings"
                         image={require('../../atom/assets/settingicons/Access.png')}
                         arrow={true}
-                        navigate="Accessibility Settings"
+                        navigate="Accessibility"
                     />
                     <MiddleGreyButton
                         text="Language"
