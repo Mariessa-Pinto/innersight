@@ -11,13 +11,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { useContext, useState } from 'react';
 import themeContext from '../../theme/themeContext';
+import Home from '../../screens/Home';
 
 /*When importing the nav bar in other pages, it should be inserted as
 * a component like "<NavBar navigation={navigation} />" which
 * utilizes the navigation prop
 */
 
-export default function NavBar({ navigation }) {
+export default function NavBar({ navigation, variation }) {
 
     //Dark/Light Mode
     const theme = useContext(themeContext)
@@ -40,10 +41,14 @@ export default function NavBar({ navigation }) {
                     <View style={styles.iconView}>
                         <View style={[styles.iconSubContainer, styles.container1]}>
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Home')}>
-                                <HomeIcon style={styles.icon} />
+                                {
+                                    variation === "home" ? <HomeIcon style={styles.icon} icon='lightActive' /> : <HomeIcon style={styles.icon} icon='' />
+                                }
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Stats')}>
-                                <StatsIcon style={styles.icon} />
+                                {
+                                    variation === "stats" ? <StatsIcon style={styles.icon} icon='lightActive' /> : <StatsIcon style={styles.icon} icon='' />
+                                }
                             </TouchableOpacity>
                         </View>
                         <View style={styles.addButtonContainer}>
@@ -53,10 +58,14 @@ export default function NavBar({ navigation }) {
                         </View>
                         <View style={[styles.iconSubContainer, styles.container2]} >
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('JournalsEntries')}>
-                                <JournalIcon style={styles.icon} />
+                            {
+                                    variation === "journal" ? <JournalIcon style={styles.icon} icon='lightActive' /> : <JournalIcon style={styles.icon} icon='' />
+                                }
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Profile')}>
-                                <ProfileIcon style={styles.icon} />
+                            {
+                                    variation === "profile" ? <ProfileIcon style={styles.icon} icon='lightActive' /> : <ProfileIcon style={styles.icon} icon='' />
+                            }
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -83,16 +92,12 @@ export default function NavBar({ navigation }) {
 
 
 const styles = StyleSheet.create({
-    test: {
-        height: 100,
-        width: '100%',
-        fadingEdgeLength: 100
 
-    },
+
+
+
     container: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
+
         height: 65,
     },
     iconButton: {
