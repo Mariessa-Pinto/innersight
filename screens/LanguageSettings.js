@@ -23,7 +23,7 @@ export default function LanguageSettings({ navigation }) {
                     style={styles.searchBar} />
                 <LanguageGreyButtons />
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

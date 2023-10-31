@@ -61,7 +61,7 @@ export default function Accessibility({ navigation }) {
                     </View>
                 </View>
             </View>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

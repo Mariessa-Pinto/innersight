@@ -18,7 +18,7 @@ export default function CreateEntry() {
                 <View style={globalStyles.contentContainer}>
 
                 </View>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }

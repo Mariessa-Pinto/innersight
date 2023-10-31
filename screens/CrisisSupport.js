@@ -46,7 +46,7 @@ export default function CrisisSupport({ navigation }) {
                 </View>
 
             </View>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='profile'/>
         </View>
     );
 }

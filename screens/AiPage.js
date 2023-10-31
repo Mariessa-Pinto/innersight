@@ -28,7 +28,7 @@ export default function AiPage({ navigation }) {
                 </View>
             </ScrollView>
 
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='profile'/>
         </View>
     );
 }
