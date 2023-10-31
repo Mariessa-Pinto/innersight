@@ -8,6 +8,7 @@ import { Image } from 'expo-image';
 import Header from '../molecules/Header/Header';
 import QuickStatsCard from '../atom/QuickStats/QuickStatsCard';
 import ProfileGreyButtons from '../molecules/GreyButtons/ProfileGreyButtons'
+import SmallBtnLightTxt from '../atom/Buttons/SmallBtnLightTxt';
 
 export default function Profile({ navigation }) {
     //Dark/Light Mode
@@ -55,9 +56,9 @@ export default function Profile({ navigation }) {
                     
                     </View>
                     <View style={styles.content3}>
-                        <Pressable style={styles.logout}>
-                            <Text style={styles.buttonlabel}>Log Out</Text>
-                        </Pressable>
+                        <SmallBtnLightTxt
+                        text="Log Out"
+                        navigate="Start"/>
                     </View>
                 </View>
             </ScrollView>
@@ -84,7 +85,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-
         marginBottom: 10
     },
     otter: {
@@ -94,9 +94,10 @@ const styles = StyleSheet.create({
     topcontent: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 20,
+        gap: 30,
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingLeft: 20
+        paddingBottom: 10
     },
     header: {
         fontSize: 28,
@@ -124,24 +125,11 @@ const styles = StyleSheet.create({
         gap: 15,
         alignItems: 'center'
     },
-    logout: {
-        width: 114,
-        height: 32,
-        borderRadius: 10,
-        alignItems: 'center',
-        backgroundColor: '#6164C3'
-    },
-    buttonlabel: {
-        color: 'white',
-        fontSize: 12,
-        alignItems: 'center',
-        padding: 8
-    },
     content3: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: 20
+        marginBottom: 20
     },
     label2: {
         fontSize: 13,
