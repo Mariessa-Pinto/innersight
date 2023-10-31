@@ -61,6 +61,7 @@ export default StyleSheet.create({
     captionText:{
         fontFamily: 'Lexend-Regular',
         fontSize: 12,
+        fontWeight: '300'
         // lineHeight: '139.5%'
     },
     btnTextSml:{

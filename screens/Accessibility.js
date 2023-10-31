@@ -33,7 +33,7 @@ export default function Accessibility({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainer, styles.accessibilityContainer, { backgroundColor: theme.background }]}>
                     <Header title='Accessibility Settings' navigation={navigation} />
                     <Notifications title="Dark Mode"
                         valueChange2={(value) => {
@@ -41,24 +41,25 @@ export default function Accessibility({ navigation }) {
                             EventRegister.emit('ChangeTheme', value)
                         }}
                         valueEnabled2={darkMode}
+                        toggleType="toggle"
                     />
                     <Notifications title="Increase Contrast"
                         valueChange2={contrastToggleSwitch}
                         valueEnabled2={contrastIsEnabled}
+                        toggleType="toggle"
                     />
                     <Notifications title="Auto Brightness"
                         valueChange2={brightnessToggleSwitch}
                         valueEnabled2={brightnessIsEnabled}
+                        toggleType="toggle"
                     />
-                    <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-                        <Text style={[globalStyles.text, {
-                            color: theme.color,
-                            fontSize: fontTheme.fontSize
-                        }]}>Font Size</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
-                            <Image source={require('../atom/assets/settingicons/Arrow.png')} />
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
+                        <Notifications title="Font Size"
+                            toggleType="rightArrow"
+                            navigate="FontSize"
+                            onPress={() => navigation.navigate('FontSize')}
+                        />
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
@@ -80,9 +81,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
 
     },
-    label2: {
-        fontSize: 13,
-    },
+accessibilityContainer:{
+    
+}
 
 })
 
