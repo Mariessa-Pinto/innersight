@@ -19,11 +19,11 @@ export default function Start() {
             <View style={styles.container}>
                 <StatusBar style="auto" />
                 <Image
-                    source={require('../atom/Logo/logo.png')}
+                    source={require('../atom/Logo/logo_v2.png')}
                     style={styles.logo}
                 />
                 <Image
-                    source={require('../atom/Logo/wordmark.png')}
+                    source={require('../atom/Logo/wordmark_v2.png')}
                     style={styles.wordmark}
                 />
                 <ExtraLargeBtnLightTxt
