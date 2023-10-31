@@ -46,7 +46,7 @@ export default function FaqPage({ navigation }) {
           ))}
         </View>
       </ScrollView>
-      <NavBar navigation={navigation} />
+      <NavBar navigation={navigation} variation='profile'/>
     </View>
   );
 }

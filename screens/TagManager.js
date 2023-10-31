@@ -57,7 +57,7 @@ export default function TagManager({ navigation }) {
                     </View>
                 </View>
             </View>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='journal'/>
         </View>
     );
 }

@@ -33,7 +33,7 @@ export default function LocalDistress({ navigation }) {
                 <DistressCard />
 
             </ScrollView>
-                <NavBar navigation={navigation} />
+                <NavBar navigation={navigation} variation='profile'/>
         </View>
 
     );

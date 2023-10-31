@@ -40,7 +40,7 @@ export default function Entries({ navigation }) {
                 </View>
                 <EntriesCards />
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='journal'/>
         </View>
     );
 }
