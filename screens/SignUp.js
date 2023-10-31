@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
@@ -22,8 +22,9 @@ export default function SignUp() {
     };
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
+        <View>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.container}>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>Sign Up</Text>
@@ -36,6 +37,7 @@ export default function SignUp() {
                     <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
                 </View>
             </View>
+            </ScrollView>
         </View>
     );
 }

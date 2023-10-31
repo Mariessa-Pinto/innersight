@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import Slider from "@react-native-community/slider";
 import NavBar from '../molecules/Navigation/NavBar';
@@ -20,9 +20,10 @@ export default function FontSize({ navigation }) {
     const fontTheme = useContext(fontContext);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+        <View>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Font Size' navigation={navigation} />
-            <View style={globalStyles.contentContainer}>
                 <View style={styles.fontContainer}>
                     <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>
                         This is an example of how large your font size will be.
@@ -49,6 +50,7 @@ export default function FontSize({ navigation }) {
                     </View>
                 </View>
             </View>
+            </ScrollView>
             <NavBar navigation={navigation} variation='profile'/>
         </View>
     );

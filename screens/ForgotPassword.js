@@ -14,8 +14,9 @@ export default function ForgotPassword() {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
+        <View>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.container}>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>Forgot Pasword?</Text>
@@ -28,6 +29,7 @@ export default function ForgotPassword() {
                     />
                 </View>
             </View>
+            </ScrollView>
         </View>
     );
 }

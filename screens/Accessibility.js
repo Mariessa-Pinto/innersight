@@ -35,37 +35,34 @@ export default function Accessibility({ navigation }) {
             <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Accessibility Settings' navigation={navigation} />
-                    <View style={styles.settingsContainer}>
-                        <Notifications title="Dark Mode"
-                            valueChange2={(value) => {
-                                setDarkMode(value);
-                                EventRegister.emit('ChangeTheme', value)
-                            }}
-                            valueEnabled2={darkMode}
-                        />
-                        <Notifications title="Increase Contrast"
-                            valueChange2={contrastToggleSwitch}
-                            valueEnabled2={contrastIsEnabled}
-                        />
-                        <Notifications title="Auto Brightness"
-                            valueChange2={brightnessToggleSwitch}
-                            valueEnabled2={brightnessIsEnabled}
-                        />
-                        <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-                            <Text style={[globalStyles.text, {
-                                color: theme.color,
-                                fontSize: fontTheme.fontSize
-                            }]}>Font Size</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
-                            </TouchableOpacity>
-                        </View>
+                    <Notifications title="Dark Mode"
+                        valueChange2={(value) => {
+                            setDarkMode(value);
+                            EventRegister.emit('ChangeTheme', value)
+                        }}
+                        valueEnabled2={darkMode}
+                    />
+                    <Notifications title="Increase Contrast"
+                        valueChange2={contrastToggleSwitch}
+                        valueEnabled2={contrastIsEnabled}
+                    />
+                    <Notifications title="Auto Brightness"
+                        valueChange2={brightnessToggleSwitch}
+                        valueEnabled2={brightnessIsEnabled}
+                    />
+                    <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
+                        <Text style={[globalStyles.text, {
+                            color: theme.color,
+                            fontSize: fontTheme.fontSize
+                        }]}>Font Size</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
+                            <Image source={require('../atom/assets/settingicons/Arrow.png')} />
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
         </View>
-
 
     );
 }
