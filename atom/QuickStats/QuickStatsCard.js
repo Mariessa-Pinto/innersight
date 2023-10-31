@@ -12,7 +12,7 @@ export default function QuickStatsCard({
 
   return (
     <View style={styles.statview}>
-      <Text style={globalStyles.h3Text}>{metric}</Text>
+      <Text style={globalStyles.h2Text}>{metric}</Text>
       <Text style={globalStyles.labelText}>
         {label}
       </Text>
@@ -24,14 +24,14 @@ const styles = StyleSheet.create({
   statview: {
     backgroundColor: "#C5C7F7",
     borderRadius: 20,
-    height: 100,
-    width: 100,
+    height: 110,
+    width: 110,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
-    paddingLeft: 15,
-    paddingBottom: 15,
+    paddingHorizontal: 12,
+    paddingVertical: 15,
     gap: 5
 },
 
