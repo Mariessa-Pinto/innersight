@@ -6,6 +6,7 @@ import NavBar from '../molecules/Navigation/NavBar';
 import JournalToggle from '../atom/WordToggle/JournalToggle';
 import SearchBar from '../atom/Search/SearchBar';
 import JournalCards from '../molecules/JournalCard/JournalCard';
+import Header from '../molecules/Header/Header';
 
 
 
@@ -20,9 +21,7 @@ export default function JournalsEntries({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <View style={styles.toggleCon}>
-                    <JournalToggle />
-                </View>
+            <Header title="journalToggle" navigation={navigation}/>
                 <View style={styles.header}>
                     <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Journals</Text>
                 </View>

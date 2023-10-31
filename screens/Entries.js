@@ -7,6 +7,7 @@ import JournalToggle from '../atom/WordToggle/JournalToggle';
 import SearchBar from '../atom/Search/SearchBar';
 import Tag from '../atom/Tag/Tag';
 import EntriesCards from '../molecules/EntriesCard/EntriesCard';
+import Header from '../molecules/Header/Header'
 
 
 
@@ -21,13 +22,11 @@ export default function Entries({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <View style={styles.toggleCon}>
-                    <JournalToggle />
-                </View>
+                <Header title="journalToggle" settings={true} navigation={navigation}/>
                 <View style={styles.header}>
                     <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                 </View>
-                <SearchBar />
+                <SearchBar placeholder="Search by Title or Tags" />
                 <View style={styles.tags}>
                     <Tag
                         text="Friends"
@@ -48,11 +47,6 @@ export default function Entries({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    toggleCon: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     header: {
         marginLeft: 20,
         marginTop: 10

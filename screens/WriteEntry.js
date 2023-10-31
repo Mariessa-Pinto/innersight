@@ -10,6 +10,7 @@ import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import BigInput from '../atom/InputBoxes/BigInput';
 import AiInsightsMol from '../molecules/AiInsights/AiInsightsMol';
 import InsightButton from '../atom/Buttons/InsightButton';
+import Header from '../molecules/Header/Header'
 
 
 
@@ -29,6 +30,7 @@ export default function WriteEntry({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <Header title="" settings={true} navigation={navigation}/>
                     <View style={styles.maincontent}>
                         <Text style={styles.headers}>Positive Thoughts</Text>
                         <Text style={styles.date}>September 23, 2023</Text>
