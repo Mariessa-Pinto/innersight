@@ -41,8 +41,9 @@ export default function EditPhoto({ navigation }) {
     const OverlayContent = profilePicOverlay;
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
+        <View>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <Header
                     title='Customize Profile Photo'
                     navigate='PersonalInformation'
@@ -91,6 +92,7 @@ export default function EditPhoto({ navigation }) {
                     </Modal>
                 </View>
             </TouchableWithoutFeedback>
+            </ScrollView>
         </View>
     );
 }

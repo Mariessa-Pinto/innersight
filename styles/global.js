@@ -81,7 +81,7 @@ export default StyleSheet.create({
         lineHeight: 25
     },
     contentContainer: {
-        height: 675,
+        height: '100%',
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 10,
@@ -90,6 +90,8 @@ export default StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         elevation: 3,
+        paddingBottom: 100
+
     },
 
     slider: {

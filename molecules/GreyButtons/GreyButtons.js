@@ -6,7 +6,6 @@ import BottomGreyButton from '../../atom/Buttons/BottomGreyButtons';
 const GreyButtons = () => {
     return(
         <View style={styles.container}>
-           <View style={styles.box}>
             <TopGreyButton 
             text="Publication"
             />
@@ -35,7 +34,7 @@ const GreyButtons = () => {
             text="Publication"
             />
 
-           </View>
+
         </View>
     );
 };
