@@ -6,6 +6,7 @@ import Login from './Login';
 import NavBar from '../molecules/Navigation/NavBar';
 import { Image } from 'expo-image';
 import Header from '../molecules/Header/Header';
+import QuickStatsCard from '../atom/QuickStats/QuickStatsCard';
 export default function Profile({ navigation }) {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -13,9 +14,9 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <Header title='' navigation={navigation} />
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='' navigation={navigation} />
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
                             <Image
@@ -25,25 +26,11 @@ export default function Profile({ navigation }) {
                         </View>
                         <Text style={styles.header}>Amaya Lee</Text>
                     </View>
+
                     <View style={styles.stats}>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>85</Text>
-                            <Text style={styles.label}>
-                                Entries Complete
-                            </Text>
-                        </View>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>28 days</Text>
-                            <Text style={styles.label}>
-                                Longest Streak
-                            </Text>
-                        </View>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>190,809</Text>
-                            <Text style={styles.label}>
-                                Words Written
-                            </Text>
-                        </View>
+                        <QuickStatsCard metric="85" label="Entries Completed" />
+                        <QuickStatsCard metric="28 days" label="Longest Streak" />
+                        <QuickStatsCard metric="190,809" label="Words Written" />
                     </View>
                     <View style={styles.content2}>
                         <Text style={styles.settings}>
@@ -160,7 +147,7 @@ export default function Profile({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation="profile"/>
+            <NavBar navigation={navigation} variation="profile" />
         </View>
     );
 }
@@ -201,33 +188,10 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold'
     },
-    stats: {
+    stats:{
         display: 'flex',
         flexDirection: 'row',
-        gap: 20,
-        paddingTop: 20
-    },
-    statview: {
-        backgroundColor: "#C5C7F7",
-        borderRadius: 20,
-        height: 100,
-        width: 100,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        paddingLeft: 12,
-        paddingBottom: 12,
-        gap: 5
-    },
-    label: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 13
-    },
-    stat: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600'
+        justifyContent: 'space-between'
     },
     settings: {
         textAlign: 'left',
