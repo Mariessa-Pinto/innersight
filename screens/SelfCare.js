@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         gap: 20
     },
     picture: {
-        width: 328,
+        width: 340,
         height: 131
     }
 
