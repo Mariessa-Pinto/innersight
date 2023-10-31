@@ -80,23 +80,16 @@ export default StyleSheet.create({
         fontSize: 12,
         lineHeight: 25
     },
-    container: {
-        width: '100%',
-        height: '95%',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        backgroundColor: '#FDFDFD',
-        elevation: 3,
-        position: 'absolute',
-        bottom: 0,
-
-    },
     contentContainer: {
-        height: '100%',
+        height: 675,
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 10,
         flex: 1,
+        marginTop: 30,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        elevation: 3,
     },
 
     slider: {

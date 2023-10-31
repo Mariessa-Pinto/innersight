@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import NavBar from '../molecules/Navigation/NavBar';
 import Notifications from '../molecules/Notifications/Notifications';
@@ -31,44 +31,48 @@ export default function Accessibility({ navigation }) {
     const brightnessToggleSwitch = () => setBrightnessIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Accessibility Settings' navigation={navigation} />
-            <View style={[globalStyles.contentContainer]}>
-                <View style={styles.settingsContainer}>
-                    <Notifications title="Dark Mode"
-                        valueChange2={(value) => {
-                            setDarkMode(value);
-                            EventRegister.emit('ChangeTheme', value)
-                        }}
-                        valueEnabled2={darkMode}
-                    />
-                    <Notifications title="Increase Contrast"
-                        valueChange2={contrastToggleSwitch}
-                        valueEnabled2={contrastIsEnabled}
-                    />
-                    <Notifications title="Auto Brightness"
-                        valueChange2={brightnessToggleSwitch}
-                        valueEnabled2={brightnessIsEnabled}
-                    />
-                    <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-                        <Text style={[globalStyles.text, {
-                            color: theme.color,
-                            fontSize: fontTheme.fontSize
-                        }]}>Font Size</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
-                            <Image source={require('../atom/assets/settingicons/Arrow.png')} />
-                        </TouchableOpacity>
+        <View >
+            <ScrollView >
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Accessibility Settings' navigation={navigation} />
+                    <View style={styles.settingsContainer}>
+                        <Notifications title="Dark Mode"
+                            valueChange2={(value) => {
+                                setDarkMode(value);
+                                EventRegister.emit('ChangeTheme', value)
+                            }}
+                            valueEnabled2={darkMode}
+                        />
+                        <Notifications title="Increase Contrast"
+                            valueChange2={contrastToggleSwitch}
+                            valueEnabled2={contrastIsEnabled}
+                        />
+                        <Notifications title="Auto Brightness"
+                            valueChange2={brightnessToggleSwitch}
+                            valueEnabled2={brightnessIsEnabled}
+                        />
+                        <View style={[styles.languageContainer, { backgroundColor: theme.backgroundGreyLight }]}>
+                            <Text style={[globalStyles.text, {
+                                color: theme.color,
+                                fontSize: fontTheme.fontSize
+                            }]}>Font Size</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
+                                <Image source={require('../atom/assets/settingicons/Arrow.png')} />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
         </View>
+
+
     );
 }
 
 const styles = StyleSheet.create({
     languageContainer: {
-        width: 355,
+        width: '100%',
         height: 47,
         backgroundColor: '#EAEAEA',
         borderRadius: 10,
@@ -82,8 +86,6 @@ const styles = StyleSheet.create({
     label2: {
         fontSize: 13,
     },
-    settingsContainer: {
-        marginTop: 30
-    }
+
 })
 
