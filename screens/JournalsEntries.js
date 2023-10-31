@@ -28,7 +28,7 @@ export default function JournalsEntries({ navigation }) {
                 <SearchBar />
                 <JournalCards />
             </ScrollView>
-            <NavBar navigation={navigation} />
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }
