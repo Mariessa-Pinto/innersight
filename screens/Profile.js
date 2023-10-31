@@ -6,6 +6,10 @@ import Login from './Login';
 import NavBar from '../molecules/Navigation/NavBar';
 import { Image } from 'expo-image';
 import Header from '../molecules/Header/Header';
+import QuickStatsCard from '../atom/QuickStats/QuickStatsCard';
+import ProfileGreyButtons from '../molecules/GreyButtons/ProfileGreyButtons'
+import SmallBtnLightTxt from '../atom/Buttons/SmallBtnLightTxt';
+
 export default function Profile({ navigation }) {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -13,9 +17,9 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <Header title='' navigation={navigation} />
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='' navigation={navigation} />
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
                             <Image
@@ -25,142 +29,40 @@ export default function Profile({ navigation }) {
                         </View>
                         <Text style={styles.header}>Amaya Lee</Text>
                     </View>
+
                     <View style={styles.stats}>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>85</Text>
-                            <Text style={styles.label}>
-                                Entries Complete
-                            </Text>
-                        </View>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>28 days</Text>
-                            <Text style={styles.label}>
-                                Longest Streak
-                            </Text>
-                        </View>
-                        <View style={styles.statview}>
-                            <Text style={styles.stat}>190,809</Text>
-                            <Text style={styles.label}>
-                                Words Written
-                            </Text>
-                        </View>
+                        <QuickStatsCard metric="85" label="Entries Completed" />
+                        <QuickStatsCard metric="28 days" label="Longest Streak" />
+                        <QuickStatsCard metric="190,809" label="Words Written" />
                     </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.settings}>
+                    <View style={styles.content}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Settings
                         </Text>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Home.png')}
-                                style={styles.icon}
-                            />
-                            <Text style={styles.label2}>Personal Information</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('PersonalInformation')} style={styles.arrow}>
-                                <Image
-                                    source={require('../atom/assets/settingicons/Arrow.png')}
-                                    style={styles.arrow}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Access.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Accessibility Settings</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Accessibility')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Language.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Language Settings</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('LanguageSettings')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Notification.png')}
-                                style={styles.icon}
-                            />
-                            <Text style={styles.label2}>Notification Settings</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('NotificationSettings')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
+                        <ProfileGreyButtons section="settings"/>
                     </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.settings}>
+                    <View style={styles.content}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Support
                         </Text>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/FAQ.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Frequently Asked Questions</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('FaqPage')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Crisis.png')}
-                                style={styles.icon3}
-                            />
-                            <Text style={styles.label2}>Crisis Support Resources</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('CrisisSupport')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
+                        <ProfileGreyButtons section="support"/>
+                        
                     </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.settings}>
+                    <View style={styles.content}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Legal
                         </Text>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Privacy.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Privacy Policy</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Terms.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Terms Of Service</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('TermsPage')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.settingbar}>
-                            <Image
-                                source={require('../atom/assets/settingicons/Ai.png')}
-                                style={styles.icon2}
-                            />
-                            <Text style={styles.label2}>Artificial Intelligence Information</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('AiPage')} style={styles.arrow}>
-                                <Image source={require('../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
-                            </TouchableOpacity>
-                        </View>
+                        <ProfileGreyButtons section="legal"/>
+                    
                     </View>
                     <View style={styles.content3}>
-                        <Pressable style={styles.logout}>
-                            <Text style={styles.buttonlabel}>Log Out</Text>
-                        </Pressable>
+                        <SmallBtnLightTxt
+                        text="Log Out"
+                        navigate="Start"/>
                     </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation="profile"/>
+            <NavBar navigation={navigation} variation="profile" />
         </View>
     );
 }
@@ -183,7 +85,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-
         marginBottom: 10
     },
     otter: {
@@ -193,9 +94,10 @@ const styles = StyleSheet.create({
     topcontent: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 20,
+        gap: 30,
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingLeft: 20
+        paddingBottom: 10
     },
     header: {
         fontSize: 28,
@@ -204,39 +106,11 @@ const styles = StyleSheet.create({
     stats: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 20,
-        paddingTop: 20
+        justifyContent: 'space-between',
+        marginBottom: 40
     },
-    statview: {
-        backgroundColor: "#C5C7F7",
-        borderRadius: 20,
-        height: 100,
-        width: 100,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        paddingLeft: 12,
-        paddingBottom: 12,
-        gap: 5
-    },
-    label: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 13
-    },
-    stat: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600'
-    },
-    settings: {
-        textAlign: 'left',
-        fontSize: 18,
-        paddingTop: 5
-    },
-    content2: {
-        display: 'flex',
-        gap: 1
+    content: {
+        marginBottom: 27,
     },
     settingbar: {
         width: 328,
@@ -251,32 +125,16 @@ const styles = StyleSheet.create({
         gap: 15,
         alignItems: 'center'
     },
-    logout: {
-        width: 114,
-        height: 32,
-        borderRadius: 10,
-        alignItems: 'center',
-        backgroundColor: '#6164C3'
-    },
-    buttonlabel: {
-        color: 'white',
-        fontSize: 12,
-        alignItems: 'center',
-        padding: 8
-    },
     content3: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: 20
+        marginBottom: 20
     },
     label2: {
         fontSize: 13,
     },
-    icon: {
-        width: 10,
-        height: 12.5
-    },
+
     icon2: {
         width: 13,
         height: 12.5
