@@ -46,7 +46,7 @@ export default function Demo({ navigation }) {
 const styles = StyleSheet.create({
     mascot: {
         height: 128,
-        width: 128,
+        width: 130,
         position: 'absolute',
         left: 10,
         bottom: 190
