@@ -20,7 +20,7 @@ export default function PersonalInformation({ navigation }) {
 
 
     return (
-<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Amaya Lee' navigation={navigation} />

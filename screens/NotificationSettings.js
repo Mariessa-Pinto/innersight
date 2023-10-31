@@ -21,7 +21,7 @@ export default function NotificationSettings({ navigation }) {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Notifications' navigation={navigation} />

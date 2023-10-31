@@ -19,7 +19,7 @@ export default function Demo({ navigation }) {
     // const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.animation}>

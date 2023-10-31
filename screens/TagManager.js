@@ -26,7 +26,7 @@ export default function TagManager({ navigation }) {
     const OverlayContent = tagSettingsOverlay
 
     return (
-<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Manage Tags' navigation={navigation} />
