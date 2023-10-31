@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import SmallBtnDarkTxt from '../atom/Buttons/SmallBtnDarkTxt';
@@ -20,31 +20,33 @@ export default function PersonalInformation({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Amaya Lee' navigation={navigation} />
-            <View style={globalStyles.contentContainer}>
-                <View style={styles.maincontent}>
-                    <View style={styles.headerBar}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Amaya Lee' navigation={navigation} />
+                    <View style={styles.maincontent}>
+                        <View style={styles.headerBar}>
 
-                    </View>
-                    <View style={styles.profimage}>
-                        <Image
-                            source={require('../atom/Mascots/Otter.png')}
-                            style={styles.otter}
+                        </View>
+                        <View style={styles.profimage}>
+                            <Image
+                                source={require('../atom/Mascots/Otter.png')}
+                                style={styles.otter}
+                            />
+                        </View>
+                        <SmallBtnDarkTxt
+                            text="Edit Photo"
+                            navigate="EditPhoto"
+                        />
+                        <PersonalForm />
+                        <MediumBtnLightTxt
+                            text="Save Changes"
+                            navigate=""
                         />
                     </View>
-                    <SmallBtnDarkTxt
-                        text="Edit Photo"
-                        navigate="EditPhoto"
-                    />
-                    <PersonalForm />
-                    <MediumBtnLightTxt
-                        text="Save Changes"
-                        navigate=""
-                    />
                 </View>
-            </View>
-            <NavBar navigation={navigation} variation='profile'/>
+            </ScrollView>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
 
     );

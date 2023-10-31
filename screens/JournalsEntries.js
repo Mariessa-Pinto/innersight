@@ -17,8 +17,9 @@ export default function JournalsEntries({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.toggleCon}>
                     <JournalToggle />
                 </View>
@@ -27,6 +28,7 @@ export default function JournalsEntries({ navigation }) {
                 </View>
                 <SearchBar />
                 <JournalCards />
+                </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />
         </View>

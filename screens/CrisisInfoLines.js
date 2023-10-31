@@ -1,8 +1,7 @@
 import globalStyles from '../styles/global'
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import { ScrollView } from 'react-native-gesture-handler';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 import OrganizationCard from '../molecules/CrisisSupportCard/OrganizationCard'
@@ -19,13 +18,15 @@ export default function CrisisInfoLines({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Crisis & Information Lines' navigation={navigation} />
-            <View style={[globalStyles.contentContainer]}>
-                <SearchBar placeholder="Search by Name" />
-                <OrganizationCard />
-            </View>
-            <NavBar navigation={navigation} variation='profile'/>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Crisis & Information Lines' navigation={navigation} />
+                    <SearchBar placeholder="Search by Name" />
+                    <OrganizationCard />
+                </View>
+                <NavBar navigation={navigation} variation='profile' />
+            </ScrollView>
         </View>
     );
 }

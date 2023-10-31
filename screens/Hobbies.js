@@ -13,8 +13,9 @@ export default function Hobbies({ navigation }) {
 
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.maincontent}>
                     <Header title='Engage in Hobbies' navigation={navigation} />
                     <Image
@@ -28,6 +29,7 @@ export default function Hobbies({ navigation }) {
                     </View>
                 </View>
                 <View>
+                </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />

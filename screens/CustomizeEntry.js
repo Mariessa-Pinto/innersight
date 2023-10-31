@@ -15,30 +15,32 @@ export default function CustomizeEntry({ navigation }) {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-                <Header
-                    title="Customize Your Entry"
-                />
-                <View style={styles.header}>
-                    <Text style={[globalStyles.h3Text, { color: theme.color }]}>Text Highlight Colour</Text>
-                </View>
-                <View style={styles.content}>
-                    <ColorBtns />
-                    <View>
-                        <View style={styles.header}>
-                            <Text style={[globalStyles.h3Text, { color: theme.color }]}>TypeFace</Text>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header
+                        title="Customize Your Entry"
+                    />
+                    <View style={styles.header}>
+                        <Text style={[globalStyles.h3Text, { color: theme.color }]}>Text Highlight Colour</Text>
+                    </View>
+                    <View style={styles.content}>
+                        <ColorBtns />
+                        <View>
+                            <View style={styles.header}>
+                                <Text style={[globalStyles.h3Text, { color: theme.color }]}>TypeFace</Text>
+                            </View>
+                            <TypeButton />
                         </View>
-                        <TypeButton />
-                    </View>
-                    <View>
-                        <MediumBtnLightTxt
-                            text="Save Changes"
-                        />
+                        <View>
+                            <MediumBtnLightTxt
+                                text="Save Changes"
+                            />
+                        </View>
                     </View>
                 </View>
+                <NavBar navigation={navigation} variation='journal' />
             </ScrollView>
-            <NavBar navigation={navigation} variation='journal'/>
         </View>
     );
 }

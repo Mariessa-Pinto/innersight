@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import NavBar from '../molecules/Navigation/NavBar';
 import Notifications from '../molecules/Notifications/Notifications';
@@ -31,10 +31,10 @@ export default function Accessibility({ navigation }) {
     const brightnessToggleSwitch = () => setBrightnessIsEnabled(previousState => !previousState);
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='Accessibility Settings' navigation={navigation} />
-            <View style={[globalStyles.contentContainer]}>
-                <View style={styles.settingsContainer}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView >
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Accessibility Settings' navigation={navigation} />
                     <Notifications title="Dark Mode"
                         valueChange2={(value) => {
                             setDarkMode(value);
@@ -60,15 +60,16 @@ export default function Accessibility({ navigation }) {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
         </View>
+
     );
 }
 
 const styles = StyleSheet.create({
     languageContainer: {
-        width: 355,
+        width: '100%',
         height: 47,
         backgroundColor: '#EAEAEA',
         borderRadius: 10,
@@ -82,8 +83,6 @@ const styles = StyleSheet.create({
     label2: {
         fontSize: 13,
     },
-    settingsContainer: {
-        marginTop: 30
-    }
+
 })
 

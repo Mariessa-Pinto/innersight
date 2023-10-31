@@ -10,6 +10,8 @@ import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import SearchBar from '../atom/Search/SearchBar';
 import GreyButtons from '../molecules/GreyButtons/GreyButtons';
+import Header from '../molecules/Header/Header';
+import NavBar from '../molecules/Navigation/NavBar';
 
 
 
@@ -23,16 +25,18 @@ export default function InfoandPublications({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <ScrollView style={globalStyles.contentContainer}>
-                <TopNav
-                    headerText="Information and Publications"
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <Header
+                    title="Information and Publications"
                 />
                 <View style={styles.content}>
                     <SearchBar
                         placeholder="Search by Publications"
                     />
                     <GreyButtons />
+                </View>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />

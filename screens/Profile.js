@@ -12,10 +12,10 @@ export default function Profile({ navigation }) {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header title='' navigation={navigation} />
-            <ScrollView style={globalStyles.contentContainer}>
-                <View style={styles.maincontent}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <Header title='' navigation={navigation} />
                     <View style={styles.topcontent}>
                         <View style={styles.profimage}>
                             <Image

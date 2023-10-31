@@ -23,17 +23,18 @@ export default function LocalDistress({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <Header
-                title="Local Distress Centres"
-                navigation={navigation}
-            />
-            <ScrollView style={globalStyles.contentContainer}>
-                <SearchBar placeholder="Search by City/Town" />
-                <DistressCard />
-
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header
+                        title="Local Distress Centres"
+                        navigation={navigation}
+                    />
+                    <SearchBar placeholder="Search by City/Town" />
+                    <DistressCard />
+                </View>
             </ScrollView>
-                <NavBar navigation={navigation} variation='profile'/>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
 
     );

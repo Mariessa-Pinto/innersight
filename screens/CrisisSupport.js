@@ -23,10 +23,10 @@ export default function CrisisSupport({ navigation }) {
     const fontTheme = useContext(fontContext)
 
     return (
-
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+        <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Crisis Support Resources' navigation={navigation} />
-            <View style={[globalStyles.contentContainer]}>
                 <Text style={globalStyles.bodyCopy}>
                     Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1.
                 </Text> 
@@ -46,7 +46,8 @@ export default function CrisisSupport({ navigation }) {
                 </View>
 
             </View>
-                <NavBar navigation={navigation} variation='profile'/>
+            </ScrollView>
+                <NavBar navigation={navigation} />
         </View>
     );
 }

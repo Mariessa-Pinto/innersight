@@ -14,8 +14,9 @@ export default function ResetPassword() {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+        <ScrollView>
+            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.container}>
                     <View style={styles.titleContainer}>
                         <Text style={[globalStyles.h1TextBold]}>Set Your Password</Text>
@@ -28,6 +29,7 @@ export default function ResetPassword() {
                     />
                 </View>
             </View>
+            </ScrollView>
         </View>
     );
 }

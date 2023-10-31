@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
@@ -24,22 +24,24 @@ export default function Login() {
     };
 
     return (
-        <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
-            <View style={globalStyles.contentContainer}>
-                <View style={styles.container}>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.title}>Log In</Text>
-                        <Text>Please log in to your account to continue.</Text>
+<View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <View style={styles.container}>
+                        <View style={styles.titleContainer}>
+                            <Text style={styles.title}>Log In</Text>
+                            <Text>Please log in to your account to continue.</Text>
+                        </View>
+                        <LoginForm />
+                        <ExtraLargeBtnLightTxt
+                            text="Login"
+                            navigate="Home"
+                        />
+                        <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
+                        <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
                     </View>
-                    <LoginForm />
-                    <ExtraLargeBtnLightTxt
-                        text="Login"
-                        navigate="Home"
-                    />
-                    <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
-                    <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
                 </View>
-            </View>
+            </ScrollView>
         </View>
     );
 }

@@ -25,9 +25,11 @@ export default function FaqPage({ navigation }) {
   const [data, setData] = useState(FaqData.questions);
 
   return (
-    <View style={[globalStyles.container, { backgroundColor: theme.background }]}>
+    <View style={[globalStyles.outerContainer, { backgroundColor: theme.background }]}>
+    <ScrollView>
+        <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
       <Header title='FAQs' navigation={navigation} />
-      <ScrollView style={globalStyles.contentContainer}>
+
         <View style={styles.top}>
           <SearchBar placeholder='Search FAQs' />
         </View>
@@ -44,6 +46,7 @@ export default function FaqPage({ navigation }) {
               />
             </View>
           ))}
+        </View>
         </View>
       </ScrollView>
       <NavBar navigation={navigation} variation='profile'/>
