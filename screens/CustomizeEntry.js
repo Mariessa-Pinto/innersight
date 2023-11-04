@@ -20,6 +20,7 @@ export default function CustomizeEntry({ navigation }) {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header
                         title="Customize Your Entry"
+                        navigation={navigation}
                     />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h3Text, { color: theme.color }]}>Text Highlight Colour</Text>
@@ -39,8 +40,8 @@ export default function CustomizeEntry({ navigation }) {
                         </View>
                     </View>
                 </View>
-                <NavBar navigation={navigation} variation='journal' />
             </ScrollView>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }
