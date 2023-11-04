@@ -15,8 +15,9 @@ const ToolBar = () => {
     const containerStyles = {
         height: showSettings ? 275 : 35,
         width: showSettings ? 50 : 35,
-        right: showSettings? -4 : 0,
-        bottom: showSettings? -7 : 0
+        bottom: showSettings ? 70 : 70,
+        right: showSettings ? 15 : 20
+
     };
 
     const SettingsLightBtnTB = ({ showSettings }) => {

@@ -77,11 +77,12 @@ export default function WriteEntry({ navigation }) {
                             {showInsights ? <AiInsightsMol /> : <></>}
                         </View>
                         <View style={styles.tool}>
-                            <ToolBar />
+
                         </View>
                     </View>
                 </View>
             </ScrollView>
+            <ToolBar />
             <NavBar navigation={navigation} variation='journal' />
         </View>
     );
@@ -133,11 +134,6 @@ const styles = StyleSheet.create({
         height: 200,
         width: 325,
         borderColor: 'black'
-    },
-    tool: {
-        position: 'absolute',
-        right: 30,
-        bottom: 0
     },
     pass: {
         width: 285,
