@@ -30,7 +30,7 @@ export default function WriteEntry({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <Header title="" settings={true} navigation={navigation}/>
+                    <Header title="" settings={true} navigation={navigation} />
                     <View style={styles.maincontent}>
                         <Text style={styles.headers}>Positive Thoughts</Text>
                         <Text style={styles.date}>September 23, 2023</Text>
