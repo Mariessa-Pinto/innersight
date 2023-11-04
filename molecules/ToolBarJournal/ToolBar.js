@@ -1,38 +1,50 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import AiLightBtnTb from '../../atom/ToolBar/AiLightBtnTB';
 import DrawingLightBtnTB from '../../atom/ToolBar/DrawingLightBtnTB';
-import ExitLightBtnTB from '../../atom/ToolBar/ExitLightBtnTB';
 import PhotoLightBtnTB from '../../atom/ToolBar/PhotoLightBtnTB';
 import SpeechLightBtnTB from '../../atom/ToolBar/SpeechLightBtnTB';
 import TypeLightBtnTB from '../../atom/ToolBar/TypeLightBtnTB';
-import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react'
 
 const ToolBar = () => {
+
+
+
     const [showSettings, setShowSettings] = useState(false);
 
-    const toggleSettings = () => {
-        setShowSettings(!showSettings);
-        console.log(showSettings)
+    const containerStyles = {
+        height: showSettings ? 275 : 35,
+        width: showSettings ? 50 : 35,
+        bottom: showSettings ? 70 : 70,
+        right: showSettings ? 15 : 20
+
     };
 
-    const containerStyles = {
-        height: showSettings ? 275 : 40,
+    const SettingsLightBtnTB = ({ showSettings }) => {
+        const settingsButtonImage = showSettings
+            ? require('../../atom/icons/SettingsLightOnPress.png')
+            : require('../../atom/icons/SettingsLight.png');
+
+        return (
+            <Image source={settingsButtonImage} style={styles.img} />
+        );
+    };
+
+    const ExitLightBtnTB = ({ showSettings }) => {
+        const exitButtonImage = showSettings
+            ? require('../../atom/icons/ExitLightOnPress.png')
+            : require('../../atom/icons/ExitLightBtn.png');
+
+        return (
+            <Image source={exitButtonImage} style={styles.img} />
+        );
     };
 
     return (
         <View style={[styles.container, containerStyles]}>
             <View style={styles.touchIcon}>
-                {!showSettings && (
-                    <TouchableOpacity onPress={toggleSettings}>
-                        <SettingsLightBtnTB showSettings={showSettings}
-                        />
-                    </TouchableOpacity>
-                )}
-            </View>
-            <View style={[styles.icons, showSettings && styles.expandedIcons]}>
-                {showSettings && (
-                    <>
+                {showSettings === true ?
+                    <View style={[styles.icons, showSettings && styles.expandedIcons]}>
                         <View style={styles.spacing}>
                             <AiLightBtnTb
                                 navigate="AiToolJournal"
@@ -42,39 +54,32 @@ const ToolBar = () => {
                         <PhotoLightBtnTB />
                         <TypeLightBtnTB />
                         <SpeechLightBtnTB />
-                        <View style={styles.spacing}>
-                            <TouchableOpacity
-                            onPress={() => setShowSettings(true)}>
-                                <ExitLightBtnTB />
-                            </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => setShowSettings(false)}
+                            style={styles.spacing}>
+                            <ExitLightBtnTB />
+                        </TouchableOpacity>
 
-                        </View>
-                    </>
-                )}
+                    </View>
 
+                    :
+                    <TouchableOpacity onPress={() => setShowSettings(true)}>
+                        <SettingsLightBtnTB
+                        />
+                    </TouchableOpacity>
+                }
             </View>
         </View>
     );
 };
 
-const SettingsLightBtnTB = ({ showSettings }) => {
-    const buttonImage = showSettings
-        ? require('../../atom/icons/SettingsLightOnPress.png')
-        : require('../../atom/icons/SettingsLight.png');
 
-    return (
-        <Image source={buttonImage} style={styles.img} />
-    );
-};
 const styles = StyleSheet.create({
     touchIcon: {
         position: 'absolute'
     },
     container: {
         position: 'absolute',
-        right: -10,
-        bottom: 0,
-        width: 50,
         borderRadius: 30,
         backgroundColor: '#DDDDDD',
         display: 'flex',
@@ -93,7 +98,6 @@ const styles = StyleSheet.create({
     },
     expandedIcons: {
         display: 'flex',
-        // top: 0,
         right: -2,
     },
     img: {

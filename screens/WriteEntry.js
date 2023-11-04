@@ -30,7 +30,7 @@ export default function WriteEntry({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <Header title="" settings={true} navigation={navigation}/>
+                    <Header title="" settings={true} navigation={navigation} />
                     <View style={styles.maincontent}>
                         <Text style={styles.headers}>Positive Thoughts</Text>
                         <Text style={styles.date}>September 23, 2023</Text>
@@ -77,11 +77,12 @@ export default function WriteEntry({ navigation }) {
                             {showInsights ? <AiInsightsMol /> : <></>}
                         </View>
                         <View style={styles.tool}>
-                            <ToolBar />
+
                         </View>
                     </View>
                 </View>
             </ScrollView>
+            <ToolBar />
             <NavBar navigation={navigation} variation='journal' />
         </View>
     );
@@ -133,11 +134,6 @@ const styles = StyleSheet.create({
         height: 200,
         width: 325,
         borderColor: 'black'
-    },
-    tool: {
-        position: 'absolute',
-        right: 30,
-        bottom: 0
     },
     pass: {
         width: 285,
