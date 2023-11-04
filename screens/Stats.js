@@ -23,7 +23,7 @@ export default function Stats({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title="Your Week in Review" />
+            <Header title="Your Week in Review" navigation={navigation}/>
                 <View style={styles.maincontent}>
                     <DateToggle selectedValue={selectedValue}/>
                     <Image

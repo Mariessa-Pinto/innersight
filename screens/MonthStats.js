@@ -25,7 +25,7 @@ export default function MonthStats({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title="Your Month in Review" />
+            <Header title="Your Month in Review" navigation={navigation}/>
 
                 <View style={styles.maincontent}>
                     <DateToggle selectedValue={selectedValue} />
