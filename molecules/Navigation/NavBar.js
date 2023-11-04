@@ -11,12 +11,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { useContext, useState } from 'react';
 import themeContext from '../../theme/themeContext';
-import Home from '../../screens/Home';
-
-/*When importing the nav bar in other pages, it should be inserted as
-* a component like "<NavBar navigation={navigation} />" which
-* utilizes the navigation prop
-*/
 
 export default function NavBar({ navigation, variation }) {
 

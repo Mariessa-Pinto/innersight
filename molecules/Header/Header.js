@@ -4,6 +4,7 @@ import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import JournalToggle from '../../atom/WordToggle/JournalToggle';
+import EntrySettings from '../Navigation/EntrySettings';
 
 
 const Header = ({
@@ -30,19 +31,16 @@ const Header = ({
                 </View>
             </TouchableOpacity>
             {
-                title === "journalToggle" ? 
-                <JournalToggle styles={styles.title} />
-                :
-                <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
+                title === "journalToggle" ?
+                    <JournalToggle styles={styles.title} />
+                    :
+                    <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
             }
             {
                 settings ?
-                <Image
-                source={require('../../atom/icons/SettingsCircle.png')}
-                style={styles.settingsButton}
-            />
-            :
-            ""
+                    <EntrySettings />
+                    :
+                    ""
 
             }
         </View>
@@ -63,13 +61,7 @@ const styles = StyleSheet.create({
         width: 7,
         height: 11,
     },
-    settingsButton:{
-        width: 30,
-        height: 30,
-        position: 'absolute',
-        right: 0,
-        top: 20
-    },
+
     touchContainer: {
         zIndex: 1,
         position: 'absolute',
