@@ -11,6 +11,8 @@ import BigInput from '../atom/InputBoxes/BigInput';
 import AiInsightsMol from '../molecules/AiInsights/AiInsightsMol';
 import InsightButton from '../atom/Buttons/InsightButton';
 import Header from '../molecules/Header/Header'
+import AiSent from '../component/AiSentiment';
+
 
 
 
@@ -41,7 +43,7 @@ export default function WriteEntry({ navigation }) {
                                 <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                             </View>
                         </View>
-                        <BigInput />
+                   <AiSent />
                         <View style={styles.pass}>
                             <Text style={styles.textTag}>Tag Your Entry</Text>
                             <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
