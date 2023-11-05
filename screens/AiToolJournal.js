@@ -4,7 +4,7 @@ import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Tag from '../atom/Tag/Tag';
-import AiToolInput from '../atom/AITool/AiToolInput';
+
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 
 export default function AiToolJournal({ navigation }) {
@@ -40,7 +40,7 @@ export default function AiToolJournal({ navigation }) {
                             </Text>
                         </View>
                         <View style={styles.ai}>
-                            <AiToolInput />
+                          
                         </View>
                     </View>
                 </View>
