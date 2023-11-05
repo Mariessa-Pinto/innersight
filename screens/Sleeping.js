@@ -1,36 +1,52 @@
 import globalStyles from '../styles/global'
-import { Text, View, Button, Switch, StyleSheet, ScrollView, Image } from 'react-native';
-import { useState, useContext } from 'react';
+import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
+import RecData from '../data/RecData';
+import fontContext from '../theme/fontContext';
 
-export default function Sleeping({ navigation }) {
+export default function Recommendations({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+    //Font Size
+    const fontTheme = useContext(fontContext)
+
+    const [data, setData] = useState('');
+
+    useEffect(() => {
+        setData(RecData.sleep)
+    }, [])
 
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title='Sleeping Early' navigation={navigation} />
-                <View style={styles.maincontent}>
-                    <Image
-                        source={require('../atom/assets/Recmascots/sleeping.png')}
-                        style={styles.picture}
-                    />
-                    <View style={styles.writing}>
-                        <Text>Prioritizing early and sufficient sleep is a fundamental pillar of mental health. </Text>
-                        <Text>Adequate sleep supports cognitive function, emotional resilience, and stress management, fostering a positive impact on mood and overall mental well-being. By establishing a consistent sleep routine, you empower your mind to recharge, consolidate memories, and effectively navigate the challenges of each day, contributing to a healthier and more resilient mental state. </Text>
-                        <Text>Deep, quality sleep is essential for the brain's ability to process emotions and regulate stress hormones. In contrast, chronic sleep deprivation has been associated with increased irritability, heightened stress levels, and a greater susceptibility to anxiety and depression. Embracing the practice of sleeping early is not just a simple routine; it's a proactive investment in your mental and emotional well-being, providing a solid foundation for a more vibrant and resilient life.</Text>
-                    </View>
-                </View>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    {
+                        data && data.map((item, index) => {
+                            return (
+                                <View key={index} style={styles.maincontent}>
+                                    <Header title={item.type} navigation={navigation} />
+                                    <Image
+                                        source={item.source}
+                                        style={styles.picture}
+                                    />
+                                    <View style={styles.writing}>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.description}</Text>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc2}</Text>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc3}</Text>
+                                    </View>
+                                </View>
+                            )
+                        })
+                    }
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='profile'/>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }
@@ -41,13 +57,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 10
     },
     header: {
         fontSize: 18
     },
     writing: {
-        gap: 20
+        gap: 15,
+        paddingTop: 15
+    },
+    picture: {
+        height: '25%',
+        width: '80%',
+        marginTop: -10
     }
-
 });
