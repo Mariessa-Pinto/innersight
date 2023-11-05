@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 
-const entrySettingsOverlay = () => {
+const EntrySettingsOverlay = () => {
 
     return (
         <View style={styles.container}>
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default entrySettingsOverlay;
+export default EntrySettingsOverlay;

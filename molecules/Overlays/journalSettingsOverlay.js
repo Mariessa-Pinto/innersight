@@ -1,29 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
+import { useState } from 'react';
 
-const journalSettingsOverlay = () => {
+
+const JournalSettingsOverlay = () => {
+
+    const [pressed, setPressed] = useState(false);
 
     return (
-        <View style={styles.outerContainer}>
+        <>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
                     <ExtraLargeBtnLightTxt
                         text='Edit Journal Name'
-                        navigate=''
                     />
                     <ExtraLargeBtnLightTxt
                         text='Customize Journal'
                         navigate='CustomizeJournal'
-                    /> 
-                    <ExtraLargeBtnDarkTxt
-                        text='Delete Journal' 
-                        navigate=''
                     />
-                </View> 
+                    <ExtraLargeBtnDarkTxt
+                        text='Delete Journal'
+                        navigate='JournalsEntries'
+                    />
+
+                </View>
             </View>
-        </View>
+        
+        </>
     );
 };
 
@@ -41,10 +46,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
-    },
-    outerContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
+        position: 'absolute',
+        bottom: -20,
+        left: -20
     },
     inside: {
         display: 'flex',
@@ -62,4 +66,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default journalSettingsOverlay;
+export default JournalSettingsOverlay;

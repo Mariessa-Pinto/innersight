@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
+
 const plusButtonOverlay = () => {
 
     return (
-        <View style={styles.outerContainer}>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
@@ -18,7 +18,6 @@ const plusButtonOverlay = () => {
                     />
                 </View>
             </View>
-        </View>
     );
 };
 
@@ -36,11 +35,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
+        position: 'absolute',
+        bottom: -20,
+        left: -20
+
     },
-    outerContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-    },
+
     inside: {
         display: 'flex',
         flexDirection: 'column',
