@@ -4,6 +4,7 @@ import { useState } from 'react';
 import EntrySettingsOverlay from '../Overlays/entrySettingsOverlay';
 import SettingsButtonOverlay from '../Overlays/settingsButtonOverlay';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import TagSettingsOverlay from '../Overlays/tagSettingsOverlay';
 
 export default function EntrySettings({
     overlayType2
@@ -42,10 +43,15 @@ export default function EntrySettings({
                             {overlayType2 === "entriesList" ?
                                 <SettingsButtonOverlay />
                                 :
-                                <Text>Error!</Text>
+                                <>
+                                    {overlayType2 === "tagsList" ?
+                                        <TagSettingsOverlay/>
+                                        :
+                                        <Text>Error!</Text>
+                                    }
+                                </>
                             }
                         </>
-
                     }
 
                 </Modal>
