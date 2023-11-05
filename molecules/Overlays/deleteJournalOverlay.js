@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
 import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
 
-const deleteJournalOverlay = () => {
+const DeleteJournalOverlay = () => {
 
     return (
         <View style={styles.outerContainer}>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default deleteJournalOverlay;
+export default DeleteJournalOverlay;

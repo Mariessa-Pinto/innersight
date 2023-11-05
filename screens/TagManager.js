@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -29,28 +29,9 @@ export default function TagManager({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title='Manage Tags' navigation={navigation} />
+            <Header title='Manage Tags' navigation={navigation} settings={true} overlayType="tagsList" />
                 <View style={styles.container}>
-                    <TouchableWithoutFeedback
-                        onPress={toggleOverlay}
-                        onPressIn={() => setPressed(true)}
-                        onPressOut={() => setPressed(false)}
-                    >
-                        <View style={[styles.tagMenu, pressed && styles.buttonPressed]}>
-                            <Image
-                                source={require('../atom/icons/threeDots.png')}
-                                style={styles.dotsButton}
-                            />
-                            <Modal
-                                visible={isOverlayVisible}
-                                animationType="slide"
-                                transparent={true}
-                                onRequestClose={toggleOverlay}
-                            >
-                                <OverlayContent />
-                            </Modal>
-                        </View>
-                    </TouchableWithoutFeedback>
+
                     <View style={styles.body}>
                         <SearchBar placeholder='Search for a Tag' />
                         <JournalTags />

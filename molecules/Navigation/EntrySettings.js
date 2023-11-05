@@ -1,14 +1,16 @@
 import { StyleSheet, Image, TouchableWithoutFeedback, Text, } from 'react-native';
 import Modal from "react-native-modal";
 import { useState } from 'react';
-import entrySettingsOverlay from '../Overlays/entrySettingsOverlay';
+import EntrySettingsOverlay from '../Overlays/entrySettingsOverlay';
+import SettingsButtonOverlay from '../Overlays/settingsButtonOverlay';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import TagSettingsOverlay from '../Overlays/tagSettingsOverlay';
 
-export default function EntrySettings() {
+export default function EntrySettings({
+    overlayType2
+}) {
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-
-    const OverlayContent = entrySettingsOverlay
 
     const [pressed, setPressed] = useState(false);
 
@@ -17,26 +19,45 @@ export default function EntrySettings() {
             <TouchableWithoutFeedback
                 onPress={() => setOverlayVisible(!isOverlayVisible)}
                 onPressIn={() => setPressed(true)}
-                onPressOut={() => setPressed(false)}>
+                onPressOut={() => setPressed(false)}
+            >
                 <Image
                     source={require('../../atom/icons/SettingsCircle.png')}
                     style={styles.settingsButton}
                 />
             </TouchableWithoutFeedback>
+
             <GestureRecognizer
                 style={{ flex: 1 }}
                 onSwipeDown={() => setOverlayVisible(false)}
-                
             >
                 <Modal
                     isVisible={isOverlayVisible}
                     onBackdropPress={() => setOverlayVisible(false)}
-                    directionalOffsetThreshold={21}
+                    directionalOffsetThreshold={20}
                 >
-                    <OverlayContent />
+                    {overlayType2 === "entry" ?
+                        <EntrySettingsOverlay />
+                        :
+                        <>
+                            {overlayType2 === "entriesList" ?
+                                <SettingsButtonOverlay />
+                                :
+                                <>
+                                    {overlayType2 === "tagsList" ?
+                                        <TagSettingsOverlay/>
+                                        :
+                                        <Text>Error!</Text>
+                                    }
+                                </>
+                            }
+                        </>
+                    }
 
                 </Modal>
             </GestureRecognizer>
+
+
 
         </>
     )
