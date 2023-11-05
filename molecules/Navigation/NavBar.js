@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity, Modal, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import * as React from 'react';
 import HomeIcon from '../../atom/icons/HomeIcon'
 import StatsIcon from '../../atom/icons/StatsIcon';
@@ -7,7 +7,8 @@ import ProfileIcon from '../../atom/icons/ProfileIcon';
 import JournalIcon from '../../atom/icons/JournalIcon';
 import plusButtonOverlay from '../Overlays/plusButtonOverlay';
 import HideWithKeyboard from 'react-native-hide-with-keyboard';
-import { LinearGradient } from 'expo-linear-gradient';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import Modal from "react-native-modal";
 
 import { useContext, useState } from 'react';
 import themeContext from '../../theme/themeContext';
@@ -45,47 +46,50 @@ export default function NavBar({ navigation, variation }) {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.addButtonContainer}>
-                            <TouchableOpacity 
-                            style={styles.addButton} 
-                            onPress={toggleOverlay}
-                            onPressIn={() => setPressed(true)}
-                            onPressOut={() => setPressed(false)}>
+                            <TouchableOpacity
+                                style={styles.addButton}
+                                onPress={toggleOverlay}
+                                onPressIn={() => setPressed(true)}
+                                onPressOut={() => setPressed(false)}>
                                 {
-                                    pressed ? 
-                                    <Image source={require('../../atom/icons/addButtonOnPress.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
-                                    :
-                                    <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                                    pressed ?
+                                        <Image source={require('../../atom/icons/addButtonOnPress.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                                        :
+                                        <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
                                 }
-                                
+
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.iconSubContainer, styles.container2]} >
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('JournalsEntries')}>
-                            {
+                                {
                                     variation === "journal" ? <JournalIcon style={styles.icon} icon='lightActive' /> : <JournalIcon style={styles.icon} icon='' />
                                 }
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.iconButton} onPress={() => navigation.push('Profile')}>
-                            {
+                                {
                                     variation === "profile" ? <ProfileIcon style={styles.icon} icon='lightActive' /> : <ProfileIcon style={styles.icon} icon='' />
-                            }
+                                }
                             </TouchableOpacity>
                         </View>
                     </View>
                     <NavBarContainer style={styles.background} />
-                    <TouchableWithoutFeedback onPress={toggleOverlay}>
-                        <View style={{ flex: 1 }}>
-                            <Modal
-                                visible={isOverlayVisible}
-                                animationType="slide"
-                                transparent={true}
-                                onRequestClose={toggleOverlay}
-                            >
-                                <OverlayContent />
-                            </Modal>
-                        </View>
-                    </TouchableWithoutFeedback>
                 </View >
+                <GestureRecognizer
+                        style={{ flex: 1 }}
+                        onSwipeDown={() => setOverlayVisible(false)}
+
+                    >
+                        <Modal
+                            isVisible={isOverlayVisible}
+                            onBackdropPress={() => setOverlayVisible(false)}
+                            directionalOffsetThreshold={10}
+                        
+                        >
+                            <OverlayContent />
+
+                        </Modal>
+                    </GestureRecognizer>
 
             </HideWithKeyboard>
         </>
