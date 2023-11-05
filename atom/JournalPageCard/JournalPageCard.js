@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import journalSettingsOverlay from '../../molecules/Overlays/journalSettingsOverlay';
+import JournalSettingsOverlay from '../../molecules/Overlays/journalSettingsOverlay';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 
-const JournalPageCard = (props) => {
+const JournalPageCard = (props, {value}) => {
   const navigation = useNavigation();
 
   const navigateTo = () => {
@@ -15,8 +15,6 @@ const JournalPageCard = (props) => {
   const [pressed, setPressed] = useState(false);
 
   const [isOverlayVisible, setOverlayVisible] = useState(false);
-
-  const OverlayContent = journalSettingsOverlay
 
 
   return (
@@ -64,7 +62,7 @@ const JournalPageCard = (props) => {
               onBackdropPress={() => setOverlayVisible(false)}
               directionalOffsetThreshold={21}
             >
-              <OverlayContent/>
+              <JournalSettingsOverlay/>
 
 
             </Modal>

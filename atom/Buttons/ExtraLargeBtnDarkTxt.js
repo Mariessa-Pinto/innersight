@@ -12,7 +12,7 @@ const ExtraLargeBtnDarkTxt = (props) => {
   };
 return (
     <TouchableWithoutFeedback
-    onPress={navigateTo}
+      onPress={navigateTo}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
     >

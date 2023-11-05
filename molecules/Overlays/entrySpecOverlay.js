@@ -2,10 +2,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 
-const entrySpecOverlay = () => {
+const EntrySpecOverlay = () => {
 
     return (
-        <View style={styles.outerContainer}>
+
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
@@ -23,7 +23,7 @@ const entrySpecOverlay = () => {
                     />
                 </View> 
             </View>
-        </View>
+
     );
 };
 
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
+        position: 'absolute',
+        bottom: -20,
+        left: -20
     },
-    outerContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-    },
+
     inside: {
         display: 'flex',
         flexDirection: 'column',
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default entrySpecOverlay;
+export default EntrySpecOverlay;
