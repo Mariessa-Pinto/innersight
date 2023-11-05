@@ -1,51 +1,87 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-
+import journalSettingsOverlay from '../../molecules/Overlays/journalSettingsOverlay';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import Modal from "react-native-modal";
 
 const JournalPageCard = (props) => {
   const navigation = useNavigation();
-  const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
 
+  const [pressed, setPressed] = useState(false);
+
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+  const OverlayContent = journalSettingsOverlay
+
 
   return (
+    <>
 
-    <TouchableWithoutFeedback
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-      onPress={navigateTo}
-    >
-      <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <View style={styles.img}>
-          <Image
-            source={props.image}
-            style={styles.coverImage}
-          />
-        </View>
-        <View style={styles.txt}>
-          <View style={styles.title}>
-            <Text style={styles.headerText}>{props.headerText}</Text>
-            <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+      <TouchableWithoutFeedback
+        onPressIn={() => setPressed(true)}
+        onPressOut={() => setPressed(false)}
+        onPress={navigateTo}
+      >
+        <View style={[styles.button, pressed && styles.buttonPressed]}>
+          <View style={styles.img}>
+            <Image
+              source={props.image}
+              style={styles.coverImage}
+            />
           </View>
-          <Image
-            source={props.iconImage}
-            style={styles.icon}
-          />
-          <Text style={styles.text}>{props.text}</Text>
+          <View style={styles.txt}>
+            <View style={styles.title}>
+              <Text style={styles.headerText}>{props.headerText}</Text>
+              <TouchableWithoutFeedback
+              onPress={() => setOverlayVisible(true)}>
+                <View style={styles.touchBox}>
+                <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+                </View>
+                
+              </TouchableWithoutFeedback>
+
+            </View>
+            <Image
+              source={props.iconImage}
+              style={styles.icon}
+            />
+            <Text style={styles.text}>{props.text}</Text>
+          </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+      <GestureRecognizer
+        style={{ flex: 1 }}
+        onSwipeDown={() => setOverlayVisible(false)}
+
+      >
+        <Modal
+          isVisible={isOverlayVisible}
+          onBackdropPress={() => setOverlayVisible(false)}
+          directionalOffsetThreshold={21}
+        >
+          <OverlayContent />
+
+        </Modal>
+      </GestureRecognizer>
+    </>
 
 
   );
 };
 
 const styles = StyleSheet.create({
+  touchBox:{
+    height: 30,
+    width: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   button: {
     width: 328,
     height: 158,

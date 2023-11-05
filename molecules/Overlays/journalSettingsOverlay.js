@@ -5,7 +5,6 @@ import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 const journalSettingsOverlay = () => {
 
     return (
-        <View style={styles.outerContainer}>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
@@ -23,7 +22,6 @@ const journalSettingsOverlay = () => {
                     />
                 </View> 
             </View>
-        </View>
     );
 };
 
@@ -41,10 +39,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
-    },
-    outerContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
+        position: 'absolute',
+        bottom: -20,
+        left: -20
     },
     inside: {
         display: 'flex',

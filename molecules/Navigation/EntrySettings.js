@@ -17,7 +17,8 @@ export default function EntrySettings() {
             <TouchableWithoutFeedback
                 onPress={() => setOverlayVisible(!isOverlayVisible)}
                 onPressIn={() => setPressed(true)}
-                onPressOut={() => setPressed(false)}>
+                onPressOut={() => setPressed(false)}
+            >
                 <Image
                     source={require('../../atom/icons/SettingsCircle.png')}
                     style={styles.settingsButton}
@@ -26,7 +27,6 @@ export default function EntrySettings() {
             <GestureRecognizer
                 style={{ flex: 1 }}
                 onSwipeDown={() => setOverlayVisible(false)}
-                
             >
                 <Modal
                     isVisible={isOverlayVisible}
