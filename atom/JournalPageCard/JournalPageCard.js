@@ -38,11 +38,11 @@ const JournalPageCard = (props) => {
             <View style={styles.title}>
               <Text style={styles.headerText}>{props.headerText}</Text>
               <TouchableWithoutFeedback
-              onPress={() => setOverlayVisible(true)}>
+                onPress={() => setOverlayVisible(true)}>
                 <View style={styles.touchBox}>
-                <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+                  <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
                 </View>
-                
+
               </TouchableWithoutFeedback>
 
             </View>
@@ -54,20 +54,22 @@ const JournalPageCard = (props) => {
           </View>
         </View>
       </TouchableWithoutFeedback>
-      <GestureRecognizer
-        style={{ flex: 1 }}
-        onSwipeDown={() => setOverlayVisible(false)}
+          <GestureRecognizer
+            style={{ flex: 1 }}
+            onSwipeDown={() => setOverlayVisible(false)}
 
-      >
-        <Modal
-          isVisible={isOverlayVisible}
-          onBackdropPress={() => setOverlayVisible(false)}
-          directionalOffsetThreshold={21}
-        >
-          <OverlayContent />
+          >
+            <Modal
+              isVisible={isOverlayVisible}
+              onBackdropPress={() => setOverlayVisible(false)}
+              directionalOffsetThreshold={21}
+            >
+              <OverlayContent/>
 
-        </Modal>
-      </GestureRecognizer>
+
+            </Modal>
+          </GestureRecognizer>
+
     </>
 
 
@@ -75,7 +77,7 @@ const JournalPageCard = (props) => {
 };
 
 const styles = StyleSheet.create({
-  touchBox:{
+  touchBox: {
     height: 30,
     width: 30,
     display: 'flex',

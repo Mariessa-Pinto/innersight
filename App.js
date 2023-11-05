@@ -142,8 +142,6 @@ export default function App() {
             <Stack.Screen name="EmailSent" component={EmailSent} />
 
 
-            
-
           </Stack.Navigator>
         </NavigationContainer>
         </FontContext.Provider>
