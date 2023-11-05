@@ -21,7 +21,7 @@ export default function Entries({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <Header title="journalToggle" settings={true} navigation={navigation} />
+                    <Header title="journalToggle" settings={true} navigation={navigation} overlayType="entriesList" />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                     </View>

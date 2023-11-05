@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 import { useState } from 'react';
 
-const journalSettingsOverlay = () => {
-    const [deleteJournal, setDeleteJournal] = useState(false)
+
+const JournalSettingsOverlay = () => {
+
+    const [pressed, setPressed] = useState(false);
 
     return (
+        <>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
@@ -16,14 +19,16 @@ const journalSettingsOverlay = () => {
                     <ExtraLargeBtnLightTxt
                         text='Customize Journal'
                         navigate='CustomizeJournal'
-                    /> 
-                    <ExtraLargeBtnDarkTxt
-                        text='Delete Journal' 
-                        navigate='JournalsEntries'
-                        //onPress={() => deleteJournal(true)}
                     />
-                </View> 
+                    <ExtraLargeBtnDarkTxt
+                        text='Delete Journal'
+                        navigate='JournalsEntries'
+                    />
+
+                </View>
             </View>
+        
+        </>
     );
 };
 
@@ -61,4 +66,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default journalSettingsOverlay;
+export default JournalSettingsOverlay;

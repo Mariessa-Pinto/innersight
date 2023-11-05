@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import globalStyles from '../../styles/global';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-
-
+import GestureRecognizer from 'react-native-swipe-gestures';
+import Modal from "react-native-modal";
+import EntrySpecOverlay from '../../molecules/Overlays/entrySpecOverlay'
 
 const EntriesPageCard = (props) => {
   const navigation = useNavigation();
@@ -14,37 +14,55 @@ const EntriesPageCard = (props) => {
     navigation.navigate(props.navigate);
   };
 
-
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   return (
+    <>
+      <TouchableWithoutFeedback
+        onPressIn={() => setPressed(true)}
+        onPressOut={() => setPressed(false)}
+        onPress={navigateTo}
+      >
+        <View style={[styles.button, pressed && styles.buttonPressed]}>
+          <View style={styles.txt}>
+            <View style={styles.title}>
+              <View style={styles.heading}>
+                <Text style={globalStyles.h3TextSemiBold}>{props.headerText}</Text>
+                <Image
+                  source={props.iconImage}
+                  style={styles.icon}
+                />
+              </View>
 
-    <TouchableWithoutFeedback
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-      onPress={navigateTo}
-    >
-      <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <View style={styles.txt}>
-          <View style={styles.title}>
-            <View style={styles.heading}>
-              <Text style={globalStyles.h3TextSemiBold}>{props.headerText}</Text>
-              <Image
-                source={props.iconImage}
-                style={styles.icon}
-              />
+              <TouchableWithoutFeedback
+                onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                  <View
+                  style={styles.tapBox}>
+                  <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+                  </View>
+                
+              </TouchableWithoutFeedback>
             </View>
-
-            <View style={styles.set}>
-              <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+            <View style={styles.textCon}>
+              <Text style={globalStyles.captionText}>{props.date}</Text>
+              <Text style={globalStyles.captionText}>{props.excerpt}</Text>
             </View>
-          </View>
-          <View style={styles.textCon}>
-            <Text style={globalStyles.captionText}>{props.date}</Text>
-            <Text style={globalStyles.captionText}>{props.excerpt}</Text>
           </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+      <GestureRecognizer
+        style={{ flex: 1 }}
+        onSwipeDown={() => setOverlayVisible(false)}
+      >
+        <Modal
+          isVisible={isOverlayVisible}
+          onBackdropPress={() => setOverlayVisible(false)}
+          directionalOffsetThreshold={20}
+        >
+         <EntrySpecOverlay/> 
+        </Modal>
+      </GestureRecognizer>
+    </>
 
   );
 };
@@ -60,6 +78,13 @@ const styles = StyleSheet.create({
     elevation: 7,
     borderColor: '#F6F6F6',
     borderWidth: 1
+  },
+  tapBox:{
+    height: 30,
+    width: 30,
+    display: 'flex',
+    justifyContent:'center',
+    alignItems: 'center',
   },
   buttonPressed: {
     backgroundColor: '#EAEAEA', // Change the color when pressed
@@ -90,9 +115,7 @@ const styles = StyleSheet.create({
     width: 14,
     height: 3.11,
   },
-  set: {
-    marginLeft: 90
-  },
+
   heading: {
     display: 'flex',
     flexDirection: 'row',

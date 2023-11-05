@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
-import GestureRecognizer from 'react-native-swipe-gestures';
+
 
 const plusButtonOverlay = () => {
 

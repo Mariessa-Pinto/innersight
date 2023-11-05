@@ -10,7 +10,8 @@ import EntrySettings from '../Navigation/EntrySettings';
 const Header = ({
     navigation,
     title,
-    settings }) => {
+    settings,
+    overlayType }) => {
     const [pressed, setPressed] = useState(false);
 
 
@@ -38,7 +39,7 @@ const Header = ({
             }
             {
                 settings ?
-                    <EntrySettings />
+                    <EntrySettings overlayType2={overlayType} />
                     :
                     ""
 
