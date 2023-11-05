@@ -3,8 +3,7 @@ import { SafeAreaView, StyleSheet, TextInput, Text, View, Image } from 'react-na
 
 
 
-const AiToolInput = () => {
-  const [text, onChangeText] = React.useState('');
+const AiToolInput = (props) => {
 
 
   return (
@@ -13,8 +12,7 @@ const AiToolInput = () => {
         source={require('../icons/bear.png')}
         style={styles.mascot}
       />
-      <Text style={styles.input}>It looks like you're feeling rather negative from this journal entry. I've highlighted all the different sections you indicated feeling irritated, angry. These emotions emotions made up 20% of your overall
-        entry today.</Text>
+      <Text style={styles.input}>{props.response ? props.response : ''}</Text>
     </View>
 
   );
@@ -42,7 +40,6 @@ const styles = StyleSheet.create({
   mascot: {
     width: '40%',
     height: 150,
-    objectFit:'contain',
   },
 });
 
