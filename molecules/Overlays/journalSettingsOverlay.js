@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
+import { useState } from 'react';
 
 const journalSettingsOverlay = () => {
+    const [deleteJournal, setDeleteJournal] = useState(false)
 
     return (
             <View style={styles.container}>
@@ -10,7 +12,6 @@ const journalSettingsOverlay = () => {
                     <View style={styles.line}></View>
                     <ExtraLargeBtnLightTxt
                         text='Edit Journal Name'
-                        navigate=''
                     />
                     <ExtraLargeBtnLightTxt
                         text='Customize Journal'
@@ -18,7 +19,8 @@ const journalSettingsOverlay = () => {
                     /> 
                     <ExtraLargeBtnDarkTxt
                         text='Delete Journal' 
-                        navigate=''
+                        navigate='JournalsEntries'
+                        //onPress={() => deleteJournal(true)}
                     />
                 </View> 
             </View>
