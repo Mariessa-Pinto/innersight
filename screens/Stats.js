@@ -29,10 +29,6 @@ export default function Stats({ navigation }) {
                 <View style={styles.maincontent}>
                     <DateToggle selectedValue={selectedValue}/>
                     <DonutChart />
-                    {/* <Image
-                        source={require('../atom/assets/graph.png')}
-                        style={styles.graph}
-                    /> */}
                     <IdentifiedEntries />
                     <StatRecommendations />
                 </View>
