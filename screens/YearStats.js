@@ -8,6 +8,7 @@ import 'react-native-gesture-handler';
 import Header from '../molecules/Header/Header';
 import IdentifiedEntries from '../molecules/IdentifiedEntries/IdentifiedEntries';
 import StatRecommendations from '../molecules/StatRecommendations/StatRecommendations';
+import DonutChart from '../molecules/DonutChart/DonutChart';
 
 
 export default function YearStats({ navigation }) {
@@ -24,21 +25,18 @@ export default function YearStats({ navigation }) {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title=" Your Year in Review" navigation={navigation} />
-                <View style={styles.maincontent}>
-                    <DateToggle selectedValue={selectedValue} />
-                    <Image
-                        source={require('../atom/assets/graph.png')}
-                        style={styles.graph}
-                    />
-                    <IdentifiedEntries />
-                    <StatRecommendations />
-                </View>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title=" Your Year in Review" navigation={navigation} />
+                    <View style={styles.maincontent}>
+                        <DateToggle selectedValue={selectedValue} />
+                        <DonutChart />
+                        <IdentifiedEntries />
+                        <StatRecommendations />
+                    </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='stats'/>
+            <NavBar navigation={navigation} variation='stats' />
         </View>
     );
 }
