@@ -1,34 +1,49 @@
 import globalStyles from '../styles/global'
 import { Text, View, Button, Switch, StyleSheet, ScrollView, Image } from 'react-native';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
+import RecData from '../data/RecData';
+import fontContext from '../theme/fontContext';
 
-export default function SelfCare({ navigation }) {
+export default function Recommendations({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+    //Font Size
+    const fontTheme = useContext(fontContext)
+
+    const [data, setData] = useState('');
+
+    useEffect(() => {
+        setData(RecData.self)
+    }, [])
 
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <Header title='Self-Care' navigation={navigation} />
-
-                    <View style={styles.maincontent}>
-                        <Image
-                            source={require('../atom/assets/Recmascots/self.png')}
-                            style={styles.picture}
-                        />
-                        <View style={styles.writing}>
-                            <Text>Elevate your well-being with deliberate acts of self-care. Begin by creating small moments in your day—sip herbal tea, bask in sunlight, or relish a quiet pause.  </Text>
-                            <Text>Unplug from screens periodically, indulge in a favourite hobby, and prioritize quality sleep. Nourish your body with wholesome foods, and exercise when you can. Cultivate mindfulness, embrace solitude, and surround yourself with positive influences. Remember, self-care isn't a luxury but a vital investment in your overall happiness and resilience. </Text>
-                            <Text>Take it one step at a time. You can do it! </Text>
-                        </View>
-                    </View>
+                    {
+                        data && data.map((item, index) => {
+                            return (
+                                <View key={index} style={styles.maincontent}>
+                                    <Header title={item.type} navigation={navigation} />
+                                    <Image
+                                        source={item.source}
+                                        style={styles.picture}
+                                    />
+                                    <View style={styles.writing}>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.description}</Text>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc2}</Text>
+                                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc3}</Text>
+                                    </View>
+                                </View>
+                            )
+                        })
+                    }
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
@@ -42,17 +57,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 10
     },
     header: {
         fontSize: 18
     },
     writing: {
-        gap: 20
+        gap: 15,
+        paddingTop: 15
     },
     picture: {
-        width: 340,
-        height: 131
+        height: '24%',
+        width: '80%',
+        marginTop: -10
     }
-
 });
