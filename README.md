@@ -41,6 +41,8 @@ npm install @react-navigation/native-stack
 1. [Search Bar](https://callstack.github.io/react-native-paper/docs/components/Searchbar/)
 - [Hide With Keyboard](https://www.npmjs.com/package/react-native-hide-with-keyboard)
 - [Victory Interactive Donut Chart](https://formidable.com/open-source/victory/docs/victory-pie/)
+- [React Native Modal](https://github.com/react-native-modal/react-native-modal)
+- [React Native Swipe Gestures](https://www.npmjs.com/package/react-native-swipe-gestures)
 
 ## Instructions
 

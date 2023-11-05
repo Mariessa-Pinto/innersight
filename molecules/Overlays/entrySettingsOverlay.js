@@ -5,23 +5,21 @@ import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 const entrySettingsOverlay = () => {
 
     return (
-        <View style={styles.outerContainer}>
-            <View style={styles.container}>
-                <View style={styles.inside}>
-                    <View style={styles.line}></View>
-                    <ExtraLargeBtnLightTxt
-                        text='Customize Entry'
-                        navigate='CustomizeEntry'
-                    />
-                    <ExtraLargeBtnLightTxt
-                        text='Add Tags'
-                        navigate=''
-                    /> 
-                    <ExtraLargeBtnDarkTxt
-                        text='Delete Entry' 
-                        navigate=''
-                    />
-                </View> 
+        <View style={styles.container}>
+            <View style={styles.inside}>
+                <View style={styles.line}></View>
+                <ExtraLargeBtnLightTxt
+                    text='Customize Entry'
+                    navigate='CustomizeEntry'
+                />
+                <ExtraLargeBtnLightTxt
+                    text='Add Tags'
+                    navigate=''
+                />
+                <ExtraLargeBtnDarkTxt
+                    text='Delete Entry'
+                    navigate=''
+                />
             </View>
         </View>
     );
@@ -41,10 +39,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
-    },
-    outerContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
+        position: 'absolute',
+        bottom: -20,
+        left: -20
+
     },
     inside: {
         display: 'flex',
