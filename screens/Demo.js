@@ -30,8 +30,6 @@ export default function Demo({ navigation }) {
                         style={styles.mascot}
                     />
                     <View style={styles.button}>
-                        {/* Add currentIndex={currentIndex} totalDemos={3} to Progress Dots */}
-                        <ProgressDots currentIndex={0} totalDemos={3} />
                         <ExtraLargeBtnLightTxt
                             text="Create an Account"
                             navigate="SignUp"
@@ -49,17 +47,17 @@ const styles = StyleSheet.create({
         width: 130,
         position: 'absolute',
         left: 10,
-        bottom: 190
+        bottom: 200
     },
     animation: {
         display: 'flex',
         alignItems: 'center',
-        marginBottom: 40,
-        paddingTop: 40
+        marginTop: -100
     },
     button: {
         display: 'flex',
         alignItems: 'center',
-        gap: 30
+        gap: 30,
+        marginTop: -60
     }
 })
