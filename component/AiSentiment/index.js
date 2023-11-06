@@ -64,7 +64,7 @@ const AiSent = () => {
       setResponse(responseText);
       setShowImage(true);
 
-      const keywords = ['tired', 'low energy'];
+      const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad'];
       const recommendations = [];
       keywords.forEach((keyword) => {
         if (text.toLowerCase().includes(keyword)) {
@@ -99,6 +99,7 @@ const AiSent = () => {
       </View>
       {response ? <Text style={styles.respText}>{response}</Text> : null}
       </View>
+      <View style={styles.recCon}>
       {showRecommendations.includes('Sleeping Early') ? (
         <RecommendationButton 
         image={require('../../atom/Mascots/otterSleep.png')}
@@ -121,7 +122,7 @@ const AiSent = () => {
               />
             ) : null}
      
-     
+     </View>
       </View>
     </SafeAreaView>
   );
@@ -158,6 +159,13 @@ const styles = StyleSheet.create({
   },
   pCon: {
     marginTop: 15
+  },
+  recCon: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 20,
+    justifyContent: 'center',
+    marginTop: 10
   }
 });
 
