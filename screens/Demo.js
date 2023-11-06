@@ -6,7 +6,7 @@ import { Image } from 'expo-image';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import DemoAnimation from '../atom/Demo/DemoAnimation';
-import ProgressDots from '../atom/ProgressDots/ProgressDots';
+
 
 
 export default function Demo({ navigation }) {
