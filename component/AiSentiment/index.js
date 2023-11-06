@@ -10,6 +10,7 @@ const AiSent = () => {
   const [response, setResponse] = useState('');
   const [showImage, setShowImage] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState([]);
+  const [paragraph, setParagraph] = useState('')
 
   const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
@@ -64,18 +65,26 @@ const AiSent = () => {
       setResponse(responseText);
       setShowImage(true);
 
-      const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad'];
+      let paragraph = `Feeling ${sentiment.toLowerCase()}, you are grappling with: "${text}. `;
+      paragraph += `This entry encapsulates a sense of ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions. Here are some recommendations you may consider to alleviate these ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions: `;
+      setParagraph(paragraph);
+
+      const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed'];
       const recommendations = [];
+
       keywords.forEach((keyword) => {
         if (text.toLowerCase().includes(keyword)) {
           if (keyword === 'tired') {
             recommendations.push('Sleeping Early');
           } else if (keyword === 'low energy') {
             recommendations.push('Sleeping Early', 'Exercise');
+          } else if (keyword === 'stressed') {
+            recommendations.push('Practice Self-Care', 'Exercise')
           }
         }
       });
       setShowRecommendations(recommendations);
+
       console.log(response);
     })
     .catch((error) => console.error(error));
@@ -99,6 +108,7 @@ const AiSent = () => {
       </View>
       {response ? <Text style={styles.respText}>{response}</Text> : null}
       </View>
+      {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
       <View style={styles.recCon}>
       {showRecommendations.includes('Sleeping Early') ? (
         <RecommendationButton 
@@ -166,7 +176,7 @@ const styles = StyleSheet.create({
     gap: 20,
     justifyContent: 'center',
     marginTop: 10
-  }
+  },
 });
 
 export default AiSent;
