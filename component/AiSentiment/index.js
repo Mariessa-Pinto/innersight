@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
+import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
 
 
 
@@ -8,6 +9,9 @@ const AiSent = () => {
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
   const [showImage, setShowImage] = useState(false);
+  const [showRecommendations, setShowRecommendations] = useState([]);
+
+  const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
   const handleApiCall = () => {
 
@@ -16,7 +20,7 @@ const AiSent = () => {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDJmZjk3N2QtYzQ1Yy00YmM4LTg2NWItZThmZDMwZGNiNjA5IiwidHlwZSI6ImFwaV90b2tlbiJ9.nChLtfSMydyG8r7dyuPrK7ZXa95p-V6OcyhhRNump3U',
+        authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         response_as_dict: true,
@@ -59,6 +63,19 @@ const AiSent = () => {
      // responseText += `You mentioned ${numSegments} different sections in your entry today.\n`;
       setResponse(responseText);
       setShowImage(true);
+
+      const keywords = ['tired', 'low energy'];
+      const recommendations = [];
+      keywords.forEach((keyword) => {
+        if (text.toLowerCase().includes(keyword)) {
+          if (keyword === 'tired') {
+            recommendations.push('Sleeping Early');
+          } else if (keyword === 'low energy') {
+            recommendations.push('Sleeping Early', 'Exercise');
+          }
+        }
+      });
+      setShowRecommendations(recommendations);
       console.log(response);
     })
     .catch((error) => console.error(error));
@@ -80,10 +97,29 @@ const AiSent = () => {
         <View style={styles.pCon}>
       {showImage ? <Image  style={styles.panda} source={require('../../atom/Mascots/Panda.png')}/> : null }
       </View>
-      <View style={styles.respText}>
-      {response ? <Text>{response}</Text> : null}
+      {response ? <Text style={styles.respText}>{response}</Text> : null}
       </View>
-      </View>
+      {showRecommendations.includes('Sleeping Early') ? (
+        <RecommendationButton 
+        image={require('../../atom/Mascots/otterSleep.png')}
+        text="Sleeping Early"
+        navigate="Sleeping"
+        />
+      ): null}
+      {showRecommendations.includes('Exercise') ? (
+        <RecommendationButton
+        image={require('../../atom/Mascots/pandaExercise.png')}
+        text="Exercise"
+        navigate="Recommendations"
+        />
+      ) : null}
+      {showRecommendations.includes('Practice Self-Care') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/frogMeditate.png')}
+                text="Practice Self-Care"
+                navigate="SelfCare"
+              />
+            ) : null}
      
      
       </View>
