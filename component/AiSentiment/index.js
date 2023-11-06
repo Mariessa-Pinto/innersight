@@ -1,11 +1,13 @@
-import { View, Text, SafeAreaView, StyleSheet, TextInput, Button } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
+
 
 
 const AiSent = () => {
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
+  const [showImage, setShowImage] = useState(false);
 
   const handleApiCall = () => {
 
@@ -26,33 +28,38 @@ const AiSent = () => {
     })
     .then((response) => response.json())
     .then((data) => {
-      const sentiment = data.microsoft.sentiment;
+      console.log(data);
+      const generalSentiment = data.microsoft.general_sentiment;
+      const sentiment = data.microsoft.general_sentiment;
       const segments = data.microsoft.segment;
-      const numSegments = segments.length;
-      const emotions = {
-        positive: 0,
-        negative: 0,
-        neutral: 0,
-      };
-      segments.forEach((segment) => {
-        emotions[segment.sentiment] += 1;
-      });
-      const totalEmotions = emotions.positive + emotions.negative + emotions.neutral;
-      const positivePercent = emotions.positive / totalEmotions;
-      const negativePercent = emotions.negative / totalEmotions;
-      const neutralPercent = emotions.neutral / totalEmotions;
+      const rate = data.microsoft.general_sentiment_rate;
+     // const numSegments = segments.length;
+     // const emotions = {
+      //  positive: 0,
+     //   negative: 0,
+     //   neutral: 0
+      //};
+     // segments.forEach((segment) => {
+     //   emotions[segment.sentiment] += 1;
+     // });
+     // const totalEmotions = emotions.positive + emotions.negative + emotions.neutral;
+     // const positivePercent = emotions.positive / totalEmotions;
+     // const negativePercent = emotions.negative / totalEmotions;
+     // const neutralPercent = emotions.neutral / totalEmotions;
       let responseText = '';
-      if (sentiment === 'Positive') {
+      if (sentiment === "Positive") {
         responseText = `It looks like you're feeling rather positive from this journal entry.`
-      } else if (sentiment === 'Negative') {
+      } else if (sentiment === "Negative") {
         responseText = `It looks like you're feeling rather negative from this journal entry.`
       } else {
         responseText = `It looks like you're feeling rather neutral from this journal entry.`
       }
-      responseText += `I've highlighted all the different sections you indicated feeling ${emotions.negative > 0 ? 'irritated, angry' : 'positive'}.\n`;
-      responseText += `These emotions made up ${Math.round(negativePercent * 100)}% of your overall entry today.\n`;
-      responseText += `You mentioned ${numSegments} different sections in your entry today.\n`;
+      responseText += `I've highlighted all the different sections you indicated feeling ${sentiment  ? 'negative' : 'positive'}.\n`;
+      responseText += `These emotions made up ${Math.round(rate * 100)}% of your overall entry today.\n`;
+     // responseText += `You mentioned ${numSegments} different sections in your entry today.\n`;
       setResponse(responseText);
+      setShowImage(true);
+      console.log(response);
     })
     .catch((error) => console.error(error));
   };
@@ -69,7 +76,16 @@ const AiSent = () => {
         keyboardType="default"
       />
       <Button title="Analyze Sentiment" onPress={handleApiCall} />
+      <View style={styles.resCon}>
+        <View style={styles.pCon}>
+      {showImage ? <Image  style={styles.panda} source={require('../../atom/Mascots/Panda.png')}/> : null }
+      </View>
+      <View style={styles.respText}>
       {response ? <Text>{response}</Text> : null}
+      </View>
+      </View>
+     
+     
       </View>
     </SafeAreaView>
   );
@@ -86,6 +102,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDFDFD',
     color: '#292929',
   },
+  panda: {
+    width: 130,
+    height: 130
+  },
+  resCon: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 10
+  },
+  respText: {
+    width: 180,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#525585',
+    borderRadius: 6,
+    padding: 5,
+  },
+  pCon: {
+    marginTop: 15
+  }
 });
 
 export default AiSent;
