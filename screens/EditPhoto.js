@@ -42,57 +42,57 @@ export default function EditPhoto({ navigation }) {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <Header
-                    title='Customize Profile Photo'
-                    navigate='PersonalInformation'
-                />
-                <View style={styles.profimage}>
-                    <Image
-                        source={selectedProfileImage}
-                        style={styles.otter}
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header
+                        title='Customize Profile Photo'
+                        navigation={navigation}
                     />
-                </View>
-                <View style={styles.subHeadBox}>
-                    <Text style={styles.subHeading}>Choose Your Photo</Text>
-                </View>
-                <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
-                    {profilePictureOptions.map((option, index) => (
-                        <View style={styles.colorCircle}
-                            key={index}>
-                            <View
-                                style={styles.profileOption}
-                            >
-                                <Image
-                                    source={option.source}
-                                    style={[styles.optionImage, selectedOption === index ? styles.selectedOption : null]}
-                                    onPress={() => onOptionPress(index)}
-                                />
+                    <View style={styles.profimage}>
+                        <Image
+                            source={selectedProfileImage}
+                            style={styles.otter}
+                        />
+                    </View>
+                    <View style={styles.subHeadBox}>
+                        <Text style={styles.subHeading}>Choose Your Photo</Text>
+                    </View>
+                    <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
+                        {profilePictureOptions.map((option, index) => (
+                            <View style={styles.colorCircle}
+                                key={index}>
+                                <View
+                                    style={styles.profileOption}
+                                >
+                                    <Image
+                                        source={option.source}
+                                        style={[styles.optionImage, selectedOption === index ? styles.selectedOption : null]}
+                                        onPress={() => onOptionPress(index)}
+                                    />
+                                </View>
                             </View>
-                        </View>
-                    ))}
-                </ScrollView>
-                <View onPress={toggleOverlay}>
-                    <UpdatePhoto
-                        text='Update Photo'
-                    />
+                        ))}
+                    </ScrollView>
+                    <View onPress={toggleOverlay}>
+                        <UpdatePhoto
+                            text='Update Photo'
+                        />
+                    </View>
                 </View>
-            </View>
-            <NavBar navigation={navigation} />
-            <TouchableWithoutFeedback onPress={toggleOverlay}>
-                <View style={{ flex: 1 }}>
-                    <Modal
-                        visible={isOverlayVisible}
-                        animationType="slide"
-                        transparent={true}
-                        onRequestClose={toggleOverlay}
-                    >
-                        <OverlayContent />
-                    </Modal>
-                </View>
-            </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={toggleOverlay}>
+                    <View style={{ flex: 1 }}>
+                        <Modal
+                            visible={isOverlayVisible}
+                            animationType="slide"
+                            transparent={true}
+                            onRequestClose={toggleOverlay}
+                        >
+                            <OverlayContent />
+                        </Modal>
+                    </View>
+                </TouchableWithoutFeedback>
             </ScrollView>
+            <NavBar navigation={navigation} />
         </View>
     );
 }
