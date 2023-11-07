@@ -1,7 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
+<<<<<<< HEAD
 import ProgressDots from "../ProgressDots/ProgressDots";
+=======
+
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
 
 
 const JournalCovers = () => {
@@ -15,7 +19,11 @@ const JournalCovers = () => {
           <Image source={require('../assets/Covers/GreenCover.png')} style={styles.image}/>
           <Image source={require('../assets/Covers/OrangeCover.png')} style={styles.image}/>
           </View>
+<<<<<<< HEAD
             <ProgressDots currentIndex={0} totalDemos={3}/>
+=======
+         
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
 
         </View>
     )

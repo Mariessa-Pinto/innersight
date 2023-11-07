@@ -47,7 +47,10 @@ const ToolBar = () => {
                     <View style={[styles.icons, showSettings && styles.expandedIcons]}>
                         <View style={styles.spacing}>
                             <AiLightBtnTb
+<<<<<<< HEAD
                                 navigate="AiToolJournal"
+=======
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
                             />
                         </View>
                         <DrawingLightBtnTB />

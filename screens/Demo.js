@@ -6,7 +6,11 @@ import { Image } from 'expo-image';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import DemoAnimation from '../atom/Demo/DemoAnimation';
+<<<<<<< HEAD
 import ProgressDots from '../atom/ProgressDots/ProgressDots';
+=======
+
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
 
 
 export default function Demo({ navigation }) {
@@ -30,8 +34,11 @@ export default function Demo({ navigation }) {
                         style={styles.mascot}
                     />
                     <View style={styles.button}>
+<<<<<<< HEAD
                         {/* Add currentIndex={currentIndex} totalDemos={3} to Progress Dots */}
                         <ProgressDots currentIndex={0} totalDemos={3} />
+=======
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
                         <ExtraLargeBtnLightTxt
                             text="Create an Account"
                             navigate="SignUp"
@@ -49,17 +56,30 @@ const styles = StyleSheet.create({
         width: 130,
         position: 'absolute',
         left: 10,
+<<<<<<< HEAD
         bottom: 190
+=======
+        bottom: 200
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
     },
     animation: {
         display: 'flex',
         alignItems: 'center',
+<<<<<<< HEAD
         marginBottom: 40,
         paddingTop: 40
+=======
+        marginTop: -100
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
     },
     button: {
         display: 'flex',
         alignItems: 'center',
+<<<<<<< HEAD
         gap: 30
+=======
+        gap: 30,
+        marginTop: -60
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
     }
 })

@@ -39,6 +39,10 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "13.9.0",
     "react-native-swipe-gestures": "^1.0.5",
+<<<<<<< HEAD
+=======
+    "react-native-swiper": "^1.6.0",
+>>>>>>> 39b20511c6a22a36c81d2b7d3f0e36e5aa6c626e
     "victory": "^36.6.12",
     "victory-native": "^36.6.12"
   },
