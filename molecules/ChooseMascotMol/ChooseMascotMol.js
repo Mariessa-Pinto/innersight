@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const ChooseMascotMol = () => {
     const [selectedMascot, setSelectedMascot] = useState(null);
 
-    const handleMascotSelect = (mascot) => {
-        setSelectedMascot(mascot);
+    const handleMascotSelect = async (mascotName) => {
+        setSelectedMascot(mascotName);
+        try {
+            await AsyncStorage.setItem('selectedMascot', mascotName);
+        } catch (error) {
+            console.error('Error saving mascot to AsyncStorage:', error);
+        }
     };
 
     const mascotData = {

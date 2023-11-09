@@ -1,10 +1,10 @@
-import globalStyles from '../styles/global'
+import globalStyles from '../styles/global';
 import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
-import { Image } from 'expo-image';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt';
+import LottieView from 'lottie-react-native';
 
 
 export default function Start() {
@@ -13,19 +13,18 @@ export default function Start() {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    const animation = require('../atom/assets/Animations/landing_page_logo.json');
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <View style={styles.container}>
                 <StatusBar style="auto" />
-                <Image
-                    source={require('../atom/Logo/logo_v2.png')}
-                    style={styles.logo}
-                />
-                <Image
-                    source={require('../atom/Logo/wordmark_v2.png')}
-                    style={styles.wordmark}
-                />
+                <LottieView
+                            source={animation}
+                            autoPlay
+                            loop={false}
+                            style={styles.animationStyle}
+                        />
                 <ExtraLargeBtnLightTxt
                     text="Get Started"
                     navigate="Demo"
@@ -43,21 +42,10 @@ const styles = StyleSheet.create({
         height: "100%",
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingBottom: 50
+        justifyContent: 'flex-end',
+        paddingBottom: 180
     },
-    button: {
-        borderRadius: 10,
-        backgroundColor: "#6164C3",
-    },
-    logo: {
-        height: 150,
-        width: 140,
-        marginBottom: 20
-    },
-    wordmark: {
-        width: 280,
-        height: 58.8,
-        marginBottom: 42
+    animationStyle: {
+        marginBottom: 70
     }
 })

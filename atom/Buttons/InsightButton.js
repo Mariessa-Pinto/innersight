@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const InsightButton = (props) => {
     const [pressed, setPressed] = useState(false);
 
+    const handlePress = () => {
+        console.log('Button pressed!');
+        setPressed(!pressed);
+        props.onPress(); // Check if this line triggers your handleApiCall function
+    };
+
+
     return (
-        <TouchableWithoutFeedback
-            onPress={props.toggle}
+        <TouchableOpacity
+            onPress={handlePress}
             onPressIn={() => setPressed(true)}
             onPressOut={() => setPressed(false)}
+            activeOpacity={1}
         >
             <View style={[styles.button, pressed && styles.buttonPressed]}>
                 <Text style={styles.text}>{props.text}</Text>
             </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
     );
 };
 
