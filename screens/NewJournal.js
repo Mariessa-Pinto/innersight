@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -9,6 +9,7 @@ import NormalInput from '../atom/InputBoxes/NormalInput';
 import Toggle from '../atom/ToggleSwitch/Toggle';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import Header from '../molecules/Header/Header';
+import LottieView from 'lottie-react-native';
 
 
 export default function NewJournal({ navigation }) {
@@ -23,6 +24,10 @@ export default function NewJournal({ navigation }) {
         setShowInputBoxes(!showInputBoxes);
     };
 
+    //Animation
+    const animation = require('../atom/assets/Animations/blob_animation.json');
+
+
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
@@ -33,6 +38,12 @@ export default function NewJournal({ navigation }) {
                     </View>
                     <View style={styles.comp}>
                         <Text style={[globalStyles.h4TextLight, { color: theme.color }]}>Current</Text>
+                        <LottieView
+                            source={animation}
+                            autoPlay
+                            loop
+                            style={styles.animationStyle}
+                        />
                         <JournalCovers />
                         <MediumBtnDarkText
                             text="Add New Cover"
