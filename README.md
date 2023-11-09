@@ -44,6 +44,7 @@ npm install @react-navigation/native-stack
 - [React Native Modal](https://github.com/react-native-modal/react-native-modal)
 - [React Native Swipe Gestures](https://www.npmjs.com/package/react-native-swipe-gestures)
 - [React Native Swiper](https://github.com/leecade/react-native-swiper#installation)
+- [React Native Async Storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
 
 ## Instructions
 
