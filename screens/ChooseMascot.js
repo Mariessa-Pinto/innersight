@@ -1,20 +1,30 @@
 import globalStyles from '../styles/global'
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import ChooseMascotMol from '../molecules/ChooseMascotMol/ChooseMascotMol';
 
 
 
-export default function ChooseMascot({ navigation }) {
+export default function ChooseMascot() {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+    const navigation = useNavigation();
+    const [selectedMascot, setSelectedMascot] = useState(null);
 
-    const [clicked, setClicked] = useState(false);
+    const pandaMascot =  require('../atom/Mascots/Panda.png');
+
+    const handleContinue = () => {
+        if (selectedMascot) {
+            navigation.navigate('AiSent', { selectedMascot });
+        } else {
+            navigation.navigate('AiSent', { pandaMascot })
+        }
+    };
 
     //Add functionality to click and have the orange background appear around the users pick of mascot
 
@@ -30,6 +40,7 @@ export default function ChooseMascot({ navigation }) {
                         <ExtraLargeBtnLightTxt
                             text="Continue"
                             navigate="Home"
+                            onPress={handleContinue}
                         />
                     </View>
                 </View>

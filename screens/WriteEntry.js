@@ -43,7 +43,6 @@ export default function WriteEntry({ navigation }) {
                                 <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                             </View>
                         </View>
-                   <AiSent />
                         <View style={styles.pass}>
                             <Text style={styles.textTag}>Tag Your Entry</Text>
                             <Image source={require('../atom/assets/settingicons/Arrow.png')} onPress={toggleInputBoxes} style={styles.arrow} onTouchEnd={toggleInputBoxes} />
@@ -71,16 +70,7 @@ export default function WriteEntry({ navigation }) {
                                 </View>
                             </View>
                         ) : <></>}
-                        <View style={styles.content2}>
-                            <InsightButton
-                                text="View Ai Insights"
-                                toggle={toggleInsights}
-                            />
-                            {showInsights ? <AiInsightsMol /> : <></>}
-                        </View>
-                        <View style={styles.tool}>
-
-                        </View>
+                        <AiSent />
                     </View>
                 </View>
             </ScrollView>
