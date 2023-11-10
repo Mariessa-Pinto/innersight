@@ -22,13 +22,17 @@ export default function Accessibility({ navigation }) {
     const [darkIsEnabled, setDarkIsEnabled] = useState(false);
     const darkToggleSwitch = () => setDarkIsEnabled(previousState => !previousState);
 
-    //Contrast Toggle Switch
-    const [contrastIsEnabled, setContrastIsEnabled] = useState(false);
-    const contrastToggleSwitch = () => setContrastIsEnabled(previousState => !previousState);
+    //Tritanomaly Toggle Switch
+    const [tritIsEnabled, setTritIsEnabled] = useState(false);
+    const tritToggleSwitch = () => setTritIsEnabled(previousState => !previousState);
 
-    //Brightness Toggle Switch
-    const [brightnessIsEnabled, setBrightnessIsEnabled] = useState(false);
-    const brightnessToggleSwitch = () => setBrightnessIsEnabled(previousState => !previousState);
+    //Protanomaly Toggle Switch
+    const [protIsEnabled, setProtIsEnabled] = useState(false);
+    const protToggleSwitch = () => setProtIsEnabled(previousState => !previousState);
+
+    //Achromatopsia Toggle Switch
+    const [achroIsEnabled, setAchroIsEnabled] = useState(false);
+    const achroToggleSwitch = () => setAchroIsEnabled(previousState => !previousState);
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -43,14 +47,19 @@ export default function Accessibility({ navigation }) {
                         valueEnabled2={darkMode}
                         toggleType="toggle"
                     />
-                    <Notifications title="Increase Contrast"
-                        valueChange2={contrastToggleSwitch}
-                        valueEnabled2={contrastIsEnabled}
+                    <Notifications title="Tritanomaly Colours"
+                        valueChange2={tritToggleSwitch}
+                        valueEnabled2={tritIsEnabled}
                         toggleType="toggle"
                     />
-                    <Notifications title="Auto Brightness"
-                        valueChange2={brightnessToggleSwitch}
-                        valueEnabled2={brightnessIsEnabled}
+                    <Notifications title="Protanomaly Colours"
+                        valueChange2={protToggleSwitch}
+                        valueEnabled2={protIsEnabled}
+                        toggleType="toggle"
+                    />
+                    <Notifications title="Achromatopsia Colours"
+                        valueChange2={achroToggleSwitch}
+                        valueEnabled2={achroIsEnabled}
                         toggleType="toggle"
                     />
                     <TouchableOpacity onPress={() => navigation.navigate('Font Size')} style={styles.arrow}>
@@ -81,9 +90,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
 
     },
-accessibilityContainer:{
-    
-}
+    accessibilityContainer: {
+
+    }
 
 })
 

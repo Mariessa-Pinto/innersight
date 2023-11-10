@@ -21,8 +21,7 @@ const NormalInput = (props) => {
 const styles = StyleSheet.create({
   input: {
     height: 35,
-    width: 281,
-    margin: 12,
+    marginVertical: 12,
     borderWidth: 1,
     borderColor: '#88898C',
     borderRadius: 10,
@@ -31,7 +30,8 @@ const styles = StyleSheet.create({
     color: "#000"
   },
   container: {
-    backgroundColor: '#00000000'
+    backgroundColor: '#00000000',
+    width: '100%'
   }
 });
 

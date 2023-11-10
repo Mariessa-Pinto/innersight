@@ -6,10 +6,10 @@ import NavBar from '../molecules/Navigation/NavBar';
 import JournalCovers from '../atom/JournalCovers/JournalCovers';
 import MediumBtnDarkText from '../atom/Buttons/MediumBtnDarkTxt';
 import NormalInput from '../atom/InputBoxes/NormalInput';
-import Toggle from '../atom/ToggleSwitch/Toggle';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import Header from '../molecules/Header/Header';
 import LottieView from 'lottie-react-native';
+import Notifications from '../molecules/Notifications/Notifications';
 
 
 export default function NewJournal({ navigation }) {
@@ -19,10 +19,9 @@ export default function NewJournal({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-
-    const toggleInputBoxes = () => {
-        setShowInputBoxes(!showInputBoxes);
-    };
+    //Password Toggle Switch
+    const [passIsEnabled, setPassIsEnabled] = useState(false);
+    const passToggleSwitch = () => setPassIsEnabled(previousState => !previousState);
 
     //Animation
     const animation = require('../atom/assets/Animations/blob_animation.json');
@@ -37,7 +36,6 @@ export default function NewJournal({ navigation }) {
                         <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
                     </View>
                     <View style={styles.comp}>
-                        <Text style={[globalStyles.h4TextLight, { color: theme.color }]}>Current</Text>
                         <LottieView
                             source={animation}
                             autoPlay
@@ -55,10 +53,13 @@ export default function NewJournal({ navigation }) {
                     <View style={styles.content}>
                         <NormalInput />
                         <View style={styles.pass}>
-                            <Text style={styles.text}>Password Protection</Text>
-                            <Toggle onToggle={toggleInputBoxes} />
+                            <Notifications title="Password Protection"
+                                valueChange2={passToggleSwitch}
+                                valueEnabled2={passIsEnabled}
+                                toggleType="toggle"
+                            />
                         </View>
-                        {showInputBoxes && (
+                        {passIsEnabled && (
                             <View style={styles.inputBoxes}>
                                 <NormalInput
                                     placeholder="Input 4-Digit Password"
@@ -88,7 +89,7 @@ export default function NewJournal({ navigation }) {
 const styles = StyleSheet.create({
     header: {
         marginTop: 30,
-        marginLeft: 10
+
     },
     comp: {
         marginTop: 20,
@@ -97,33 +98,23 @@ const styles = StyleSheet.create({
         gap: 10
     },
     name: {
-        marginLeft: 10,
         marginTop: 50
+    },
+    pass: {
+        width: '100%',
+        marginTop: 20
     },
     content: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 20
-    },
-    pass: {
-        width: 285,
-        height: 47,
-        borderRadius: 10,
-        backgroundColor: '#EAEAEA',
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 80,
-        alignItems: 'center'
     },
     text: {
         marginLeft: 10
     },
     inputBoxes: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
+        width: '100%',
+        marginBottom: 20
     }
 })

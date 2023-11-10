@@ -96,7 +96,7 @@ export default StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         elevation: 3,
-        paddingBottom: 100
+        paddingBottom: 100,
 
     },
 
