@@ -4,6 +4,8 @@ import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import FaqData from "../../molecules/FaqData/FaqData";
 
 const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
+
+
   return (
     <View style={`${styles.questions} ${isActive ? styles.faqActive : ""}`}>
       <TouchableOpacity
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingLeft: 13,
-    paddingVertical: 12,
+    paddingVertical: 13,
     width: '100%',
   },
   answerActive:{

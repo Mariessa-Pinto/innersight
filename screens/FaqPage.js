@@ -12,6 +12,7 @@ import SearchBar from '../atom/Search/SearchBar';
 
 export default function FaqPage({ navigation }) {
 
+
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
   const theme = useContext(themeContext)
@@ -34,18 +35,66 @@ export default function FaqPage({ navigation }) {
             <SearchBar placeholder='Search FAQs' />
           </View>
 
-          <Text style={globalStyles.h4TextSemiBold}>Getting Started</Text>
-          {data.map((info, index) => (
-            <View style={styles.questions} key={index}>
-              <FaqAccordion
-                question={info.question}
-                answer={info.answer}
-                isActive={activeIndex === index}
-                setIsActive={() => handleAccordionClick(index)}
-                index={index}
-              />
+          <View style={styles.accCategories}>
+            <View>
+              <Text style={globalStyles.h4TextSemiBold}>Getting Started</Text>
+              {data.map((info, index) => (
+                info.category === "Getting Started" ?
+                <View style={[styles.noBorder, info.border && styles.border]} 
+                key={index}>
+                    <FaqAccordion
+                      question={info.question}
+                      answer={info.answer}
+                      isActive={activeIndex === index}
+                      setIsActive={() => handleAccordionClick(index)}
+                      index={index}
+                    />
+                  </View>
+                  :
+                  ""
+              ))}
             </View>
-          ))}
+            <View>
+              <Text style={globalStyles.h4TextSemiBold}>Artificial Intelligence</Text>
+              {data.map((info, index) => (
+                info.category === "AI" ?
+                  <View style={[styles.noBorder, info.border && styles.border]} 
+                  key={index}>
+                    <FaqAccordion
+                      question={info.question}
+                      answer={info.answer}
+                      isActive={activeIndex === index}
+                      setIsActive={() => handleAccordionClick(index)}
+                      index={index}
+                    />
+
+                  </View>
+
+                  :
+                  ""
+              ))}
+            </View>
+            <View>
+              <Text style={globalStyles.h4TextSemiBold}>Other</Text>
+              {data.map((info, index) => (
+                info.category === "Other" ?
+                <View style={[styles.noBorder, info.border && styles.border]} 
+                key={index}>
+                    <FaqAccordion
+                      question={info.question}
+                      answer={info.answer}
+                      isActive={activeIndex === index}
+                      setIsActive={() => handleAccordionClick(index)}
+                      index={index}
+                    />
+                  </View>
+                  :
+                  ""
+              ))}
+            </View>
+
+
+          </View>
 
         </View>
       </ScrollView>
@@ -74,6 +123,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#88898C',
     padding: 10,
+  },
+  border:{
+    borderBottomWidth: 1
+  },
+  noBorder: {
+    borderBottomWidth: 0
+  },
+  accCategories: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 35
   }
 
 })
