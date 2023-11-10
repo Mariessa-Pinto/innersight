@@ -26,15 +26,15 @@ export default function FaqPage({ navigation }) {
 
   return (
     <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-    <ScrollView>
+      <ScrollView>
         <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-      <Header title='FAQs' navigation={navigation} />
+          <Header title='FAQs' navigation={navigation} />
 
-        <View style={styles.top}>
-          <SearchBar placeholder='Search FAQs' />
-        </View>
-        <View style={styles.maincontent}>
-          <Text style={styles.label}>Getting Started</Text>
+          <View style={styles.top}>
+            <SearchBar placeholder='Search FAQs' />
+          </View>
+
+          <Text style={globalStyles.h4TextSemiBold}>Getting Started</Text>
           {data.map((info, index) => (
             <View style={styles.questions} key={index}>
               <FaqAccordion
@@ -46,31 +46,26 @@ export default function FaqPage({ navigation }) {
               />
             </View>
           ))}
-        </View>
+
         </View>
       </ScrollView>
-      <NavBar navigation={navigation} variation='profile'/>
+      <NavBar navigation={navigation} variation='profile' />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
 
-  top: {
-    alignItems: 'center',
-    padding: 10
-  },
+
   header: {
     fontSize: 18,
     fontWeight: 'bold'
   },
 
-
-  maincontent: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    padding: 20
+  top: {
+    marginBottom: 35
   },
+
   input: {
     height: 40,
     width: 328,
@@ -79,11 +74,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#88898C',
     padding: 10,
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: 'bold'
-  },
-
+  }
 
 })

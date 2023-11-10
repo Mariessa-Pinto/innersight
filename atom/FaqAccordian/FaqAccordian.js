@@ -1,3 +1,4 @@
+import globalStyles from "../../styles/global";
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import FaqData from "../../molecules/FaqData/FaqData";
@@ -5,12 +6,12 @@ import FaqData from "../../molecules/FaqData/FaqData";
 const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
   return (
     <View style={`${styles.questions} ${isActive ? styles.faqActive : ""}`}>
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.questionBar}
         onPress={() => setIsActive(!isActive)}
       >
         <View style={styles.questionContent}>
-          <Text style={styles.questionText}>{question}</Text>
+          <Text style={globalStyles.labelTextLight}>{question}</Text>
           <View style={styles.arrow}>
             {isActive ? (
               <Image
@@ -30,7 +31,7 @@ const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
       </TouchableOpacity>
       {isActive && (
         <View style={styles.answerActive}>
-          <Text>{answer}</Text>
+          <Text style={globalStyles.bodyCopy}>{answer}</Text>
         </View>
       )}
     </View>
@@ -38,42 +39,21 @@ const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
 };
 
 const styles = StyleSheet.create({
- 
-  questionBar: {
-    position: 'relative',
-    top: 0,
-    padding: 1,
+
+  questionContent: {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-   
-    
-},
-questionContent: {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-evenly', 
-  alignItems: 'center',
-  paddingHorizontal: 5,
-  
-},
-
-questionText: {
-  fontSize: 15,
-  lineHeight: 60,
-
-},
-arrow: {
-
-
-}
-
-
-
-
-
-
- 
- 
+    paddingLeft: 13,
+    paddingVertical: 12,
+    width: '100%',
+  },
+  answerActive:{
+    paddingLeft: 13,
+    paddingTop: 12,
+    paddingBottom: 20
+  }
 
 });
 
