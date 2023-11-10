@@ -43,12 +43,17 @@ export default function Accessibility({ navigation }) {
                         valueEnabled2={darkMode}
                         toggleType="toggle"
                     />
-                    <Notifications title="Increase Contrast"
+                    <Notifications title="Tritanomaly Colours"
                         valueChange2={contrastToggleSwitch}
                         valueEnabled2={contrastIsEnabled}
                         toggleType="toggle"
                     />
-                    <Notifications title="Auto Brightness"
+                    <Notifications title="Protanomaly Colours"
+                        valueChange2={brightnessToggleSwitch}
+                        valueEnabled2={brightnessIsEnabled}
+                        toggleType="toggle"
+                    />
+                    <Notifications title="Achromatopsia Colours"
                         valueChange2={brightnessToggleSwitch}
                         valueEnabled2={brightnessIsEnabled}
                         toggleType="toggle"
@@ -81,9 +86,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
 
     },
-accessibilityContainer:{
-    
-}
+    accessibilityContainer: {
+
+    }
 
 })
 
