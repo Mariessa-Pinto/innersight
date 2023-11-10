@@ -13,7 +13,7 @@ const ToolBar = () => {
     const [showSettings, setShowSettings] = useState(false);
 
     const containerStyles = {
-        height: showSettings ? 275 : 35,
+        height: showSettings ? 225 : 35,
         width: showSettings ? 50 : 35,
         bottom: showSettings ? 70 : 70,
         right: showSettings ? 15 : 20
@@ -45,10 +45,7 @@ const ToolBar = () => {
             <View style={styles.touchIcon}>
                 {showSettings === true ?
                     <View style={[styles.icons, showSettings && styles.expandedIcons]}>
-                        <View style={styles.spacing}>
-                            <AiLightBtnTb
-                            />
-                        </View>
+
                         <DrawingLightBtnTB />
                         <PhotoLightBtnTB />
                         <TypeLightBtnTB />
@@ -105,7 +102,6 @@ const styles = StyleSheet.create({
     },
     spacing: {
         marginTop: 10,
-        marginBottom: 10
     }
 
 });
