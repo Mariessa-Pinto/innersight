@@ -24,6 +24,10 @@ export default function WriteEntry({ navigation }) {
     const handleNewPrompt = () =>
         setPromptNum(Math.floor(Math.random() * (promptLength - 0)));
 
+    const toggleInsights = () => {
+        setShowInsights(!showInsights);
+    }
+
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
@@ -90,34 +94,9 @@ const styles = StyleSheet.create({
         width: 325,
         borderColor: 'black'
     },
-    pass: {
-        width: '100%',
-        height: 47,
-        borderRadius: 10,
-        backgroundColor: '#EAEAEA',
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 130,
-        alignItems: 'center',
 
-    },
     textTag: {
         marginLeft: 10
     },
-    arrow: {
-        width: 25,
-        height: 25,
-    },
-    tag: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    tags: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+
 })

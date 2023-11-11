@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
   input: {
     height: 35,
     width: 170,
-    margin: 12,
+    marginVertical: 12,
     borderWidth: 1,
     borderColor: '#88898C',
     borderRadius: 10,
     padding: 10,
     backgroundColor: "#FDFDFD",
-    color: "#000"
+    color: "#000",
   },
   container: {
-    backgroundColor: '#00000000'
+    backgroundColor: '#00000000',
   }
 });
 
