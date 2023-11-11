@@ -5,7 +5,7 @@ import JournalSettingsOverlay from '../../molecules/Overlays/journalSettingsOver
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 
-const JournalPageCard = (props, {value}) => {
+const JournalPageCard = (props, { value }) => {
   const navigation = useNavigation();
 
   const navigateTo = () => {
@@ -33,40 +33,44 @@ const JournalPageCard = (props, {value}) => {
             />
           </View>
           <View style={styles.txt}>
-            <View style={styles.title}>
-              <Text style={styles.headerText}>{props.headerText}</Text>
-              <TouchableWithoutFeedback
-                onPress={() => setOverlayVisible(true)}>
-                <View style={styles.touchBox}>
-                  <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+            <View style={styles.textContainer}>
+              <View>
+                <View style={styles.titleContainer}>
+                  <Text style={styles.headerText}>{props.headerText}</Text>
+                  <TouchableWithoutFeedback
+                    onPress={() => setOverlayVisible(true)}>
+                    <View style={styles.touchBox}>
+                      <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
+                    </View>
+                  </TouchableWithoutFeedback>
                 </View>
+                <Image
+                  source={props.iconImage}
+                  style={styles.icon}
+                />
+              </View>
 
-              </TouchableWithoutFeedback>
-
+              <Text style={styles.text}>{props.text}</Text>
             </View>
-            <Image
-              source={props.iconImage}
-              style={styles.icon}
-            />
-            <Text style={styles.text}>{props.text}</Text>
+
           </View>
         </View>
       </TouchableWithoutFeedback>
-          <GestureRecognizer
-            style={{ flex: 1 }}
-            onSwipeDown={() => setOverlayVisible(false)}
+      <GestureRecognizer
+        style={{ flex: 1 }}
+        onSwipeDown={() => setOverlayVisible(false)}
 
-          >
-            <Modal
-              isVisible={isOverlayVisible}
-              onBackdropPress={() => setOverlayVisible(false)}
-              directionalOffsetThreshold={21}
-            >
-              <JournalSettingsOverlay/>
+      >
+        <Modal
+          isVisible={isOverlayVisible}
+          onBackdropPress={() => setOverlayVisible(false)}
+          directionalOffsetThreshold={21}
+        >
+          <JournalSettingsOverlay />
 
 
-            </Modal>
-          </GestureRecognizer>
+        </Modal>
+      </GestureRecognizer>
 
     </>
 
@@ -83,15 +87,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   button: {
-    width: 328,
+    width: '100%',
     height: 158,
     borderRadius: 10,
     backgroundColor: '#F6F6F6',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     elevation: 7,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    padding: 20
   },
   buttonPressed: {
     backgroundColor: '#D5D7FF', // Change the color when pressed
@@ -104,31 +109,38 @@ const styles = StyleSheet.create({
   text: {
     color: '#292929',
     fontSize: 12,
-    fontWeight: 'light'
+    fontWeight: 'light',
+
   },
-  txt: {
+  textContainer: {
+    display: 'flex',
+    flexDirection: 'column',
     gap: 10,
-    float: 'right',
-    width: 160,
-    marginRight: 20
+    width: '100%',
+    height: '100%',
+    paddingVertical: 10,
+
+
   },
   coverImage: {
-    width: 98,
-    height: 127.7
+    height: '110%',
+    objectFit: 'contain'
+  },
+  txt: {
+    width: '60%'
   },
   img: {
-    float: 'left',
-    width: 120,
+    width: '40%',
   },
   settings: {
     width: 14,
     height: 3.11
   },
-  title: {
+  titleContainer: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginBottom: 5
   }
 
 });

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InsightButton from '../../atom/Buttons/InsightButton';
+import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
 
 
 const AiSent = () => {
@@ -153,6 +154,7 @@ const AiSent = () => {
           placeholderTextColor="#292929"
           keyboardType="default"
         />
+        <TagEntryBtn/>
         <InsightButton
           text="View Ai Insights"
           onPress={handleApiCall}

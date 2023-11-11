@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import JournalToggle from '../atom/WordToggle/JournalToggle';
 import SearchBar from '../atom/Search/SearchBar';
 import JournalCards from '../molecules/JournalCard/JournalCard';
 import Header from '../molecules/Header/Header';

@@ -82,6 +82,9 @@ export default function App() {
 
   const [fontsLoaded] = useFonts({
     'Lexend-Regular': require('./atom/assets/Fonts/Lexend-Regular.ttf'),
+    'Lexend-Light': require('./atom/assets/Fonts/Lexend-Light.ttf'),
+    'Lexend-Bold': require('./atom/assets/Fonts/Lexend-Bold.ttf'),
+    'Lexend-SemiBold': require('./atom/assets/Fonts/Lexend-SemiBold.ttf'),
   });
 
   return (

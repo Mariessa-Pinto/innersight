@@ -4,9 +4,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     
     h1TextBold:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Bold',
         fontSize: 28,
-        fontWeight: '700',
         marginBottom: 15
     },
 
@@ -16,34 +15,30 @@ export default StyleSheet.create({
     },
 
     h2TextBold:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Bold',
         fontSize: 22,
-        fontWeight: '700'
     },
+
     h3Text: {
         fontFamily: 'Lexend-Regular',
         fontSize: 18,
     },
 
     h3TextSemiBold:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-SemiBold',
         fontSize: 18,
-        fontWeight: '600'
     },
     h4TextLight:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Light',
         fontSize: 15,
-        fontWeight: '300'
     },
     h4TextBold:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Bold',
         fontSize: 15,
-        fontWeight: '700'
     },
     h4TextSemiBold:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-SemiBold',
         fontSize: 15,
-        fontWeight: '600'
     },
     bodyCopy:{
         fontFamily: 'Lexend-Regular',
@@ -54,9 +49,9 @@ export default StyleSheet.create({
         fontSize: 13,
     },
     labelTextLight:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Light',
         fontSize: 13,
-        fontWeight: '300'
+
     },
     captionText:{
         fontFamily: 'Lexend-Regular',
