@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 25,
+        gap: 12,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 20

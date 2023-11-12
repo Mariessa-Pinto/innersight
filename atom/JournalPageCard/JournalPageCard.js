@@ -115,11 +115,11 @@ const JournalPageCard = (props, { value }) => {
                     <View style={styles.line}></View>
                     <Text>Your Journal has been deleted.</Text>
                     <TouchableWithoutFeedback
-                  onPress={() => setOverlayVisible(!isOverlayVisible)}>
-                  <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
-                    <Text style={styles.deleteTextLight}>Go to Journal Overview</Text>
-                  </View>
-                </TouchableWithoutFeedback>
+                      onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                      <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
+                        <Text style={styles.deleteTextLight}>Go to Journal Overview</Text>
+                      </View>
+                    </TouchableWithoutFeedback>
                   </View>
                 </View>
 
