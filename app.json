@@ -15,13 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.innersight.bcit"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./atom/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.innersight.bcit"
     },
     "web": {
       "favicon": "./atom/assets/favicon.png"

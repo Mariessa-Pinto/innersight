@@ -29,6 +29,7 @@ npm install @react-navigation/native-stack
 - [Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
 - [Dark Mode for Expo/Variable Font Size](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
 - [Lexend Font Installation](https://github.com/expo/google-fonts/tree/master/font-packages/lexend#readme)
+- [Firebase for Expo instructions](https://rnfirebase.io/)
 
 ## Dependencies
 - [react-native-event-listeners for for dark mode](https://www.npmjs.com/package/react-native-event-listeners) 
@@ -45,6 +46,7 @@ npm install @react-navigation/native-stack
 - [React Native Swipe Gestures](https://www.npmjs.com/package/react-native-swipe-gestures)
 - [React Native Swiper](https://github.com/leecade/react-native-swiper#installation)
 - [React Native Async Storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
+- [React Native Gradle Plugin](https://www.npmjs.com/package/react-native-gradle-plugin)
 
 ## Instructions
 
