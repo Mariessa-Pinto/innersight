@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image, Touchable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import JournalSettingsOverlay from '../../molecules/Overlays/journalSettingsOverlay';
+import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
+import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
+import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 
@@ -13,8 +15,8 @@ const JournalPageCard = (props, { value }) => {
   };
 
   const [pressed, setPressed] = useState(false);
-
   const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [overlayType, setOverlayType] = useState()
 
 
   return (
@@ -38,7 +40,7 @@ const JournalPageCard = (props, { value }) => {
                 <View style={styles.titleContainer}>
                   <Text style={styles.headerText}>{props.headerText}</Text>
                   <TouchableWithoutFeedback
-                    onPress={() => setOverlayVisible(true)}>
+                    onPress={() => { setOverlayVisible(true); setOverlayType("settingsOverlay") }}>
                     <View style={styles.touchBox}>
                       <Image source={require('../icons/SettingsIcon.png')} style={styles.settings} />
                     </View>
@@ -59,15 +61,72 @@ const JournalPageCard = (props, { value }) => {
       <GestureRecognizer
         style={{ flex: 1 }}
         onSwipeDown={() => setOverlayVisible(false)}
-
       >
         <Modal
           isVisible={isOverlayVisible}
           onBackdropPress={() => setOverlayVisible(false)}
           directionalOffsetThreshold={21}
         >
-          <JournalSettingsOverlay />
+          {overlayType === "settingsOverlay" ?
+            <View style={styles.container}>
+              <View style={styles.inside}>
+                <View style={styles.line}></View>
+                <ExtraLargeBtnLightTxt
+                  text='Edit Journal Name'
+                />
+                <ExtraLargeBtnLightTxt
+                  text='Customize Journal'
+                  navigate='CustomizeJournal'
+                />
+                <TouchableWithoutFeedback
+                  onPress={() => setOverlayType("deleteOverlay")}>
+                  <View style={[styles.deleteButton, pressed && styles.deleteButtonPressed]}>
+                    <Text style={styles.deleteText}>Delete Journal</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            </View>
+            :
+            <>
+              {overlayType === "deleteOverlay" ?
+                <View style={styles.container}>
+                  <View style={styles.inside}>
+                    <View style={styles.line} />
+                    <Text>Are you sure you want to delete this entry?</Text>
+                    <View style={styles.confirmButtons}>
+                      <TouchableWithoutFeedback
+                        onPress={() => setOverlayType("confirmDeleteOverlay")}>
+                        <View style={[styles.deleteConfirmButtonDark, pressed && styles.deleteButtonPressed]}>
+                          <Text style={styles.deleteTextLight}>Yes, delete it</Text>
+                        </View>
+                      </TouchableWithoutFeedback>
+                      <TouchableWithoutFeedback
+                        onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                        <View style={[styles.deleteConfirmButtonLight, pressed && styles.deleteButtonPressed]}>
+                          <Text style={styles.deleteText}>Cancel</Text>
+                        </View>
+                      </TouchableWithoutFeedback>
+                    </View>
+                  </View>
+                </View>
+                :
+                <View style={styles.container}>
+                  <View style={styles.inside}>
+                    <View style={styles.line}></View>
+                    <Text>Your Journal has been deleted.</Text>
+                    <TouchableWithoutFeedback
+                  onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                  <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
+                    <Text style={styles.deleteTextLight}>Go to Journal Overview</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+                  </View>
+                </View>
 
+              }
+            </>
+
+          }
 
         </Modal>
       </GestureRecognizer>
@@ -141,7 +200,92 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 5
-  }
+  },
+  container: {
+    width: 410,
+    height: 'auto',
+    paddingBottom: 40,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    backgroundColor: '#F2F2FD',
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: -200 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 30,
+    position: 'absolute',
+    bottom: -20,
+    left: -20
+  },
+  inside: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 15,
+    marginTop: 10
+  },
+  line: {
+    width: 65,
+    height: 3,
+    backgroundColor: '#88898C',
+    marginBottom: 10
+  },
+  deleteButton: {
+    width: 228,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#C5C7F7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+  },
+  deleteButtonPressed: {
+    backgroundColor: '#D5D7FF', // Change the color when pressed
+  },
+  deleteText: {
+    color: '#3E3F42',
+    fontSize: 14,
+  },
+  deleteTextLight: {
+    color: '#FDFDFD',
+  },
+  confirmButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  deleteConfirmButtonDark: {
+    width: 130,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: '#6164C3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+  },
+  deleteConfirmButtonLight: {
+    width: 130,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: '#C5C7F7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+  },
+  confirmButtonDark: {
+    width: 228,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#6164C3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+  },
+
 
 });
 
