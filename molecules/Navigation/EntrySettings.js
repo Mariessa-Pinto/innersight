@@ -2,11 +2,10 @@ import { StyleSheet, Image, TouchableWithoutFeedback, Text, View } from 'react-n
 import Modal from "react-native-modal";
 import { useState } from 'react';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
-import SettingsButtonOverlay from '../Overlays/settingsButtonOverlay';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import TagSettingsOverlay from '../Overlays/tagSettingsOverlay';
-import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
-import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
+import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
+import SelectButtonOverlay from '../Overlays/selectButtonOverlay';
 
 export default function EntrySettings({
     overlayType2
@@ -21,7 +20,7 @@ export default function EntrySettings({
     return (
         <>
             <TouchableWithoutFeedback
-                onPress={() => setOverlayVisible(!isOverlayVisible)}
+                onPress={() => {setOverlayVisible(!isOverlayVisible); setOverlayType("")}}
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
             >
@@ -89,28 +88,51 @@ export default function EntrySettings({
                                 <>
                                     {
                                         overlayType2 === "entry" && overlayType === "confirmDeleteOverlay" ?
-                                        <View style={styles.container}>
-                                        <View style={styles.inside}>
-                                            <View style={styles.line}></View>
-                                            <Text>Your journal entry has been deleted.</Text>
-                                            <ExtraLargeBtnLightTxt 
-                                                text='Go to Entry Overview'
-                                                navigate='Entries'
-                                            /> 
-                                        </View>  
-                                    </View>
+                                            <View style={styles.container}>
+                                                <View style={styles.inside}>
+                                                    <View style={styles.line}></View>
+                                                    <Text>Your journal entry has been deleted.</Text>
+                                                    <ExtraLargeBtnLightTxt
+                                                        text='Go to Entry Overview'
+                                                        navigate='Entries'
+                                                    />
+                                                </View>
+                                            </View>
                                             :
                                             <>
                                                 {overlayType2 === "entriesList" && !overlayType ?
-                                                    <SettingsButtonOverlay />
+                                                    <View style={styles.container}>
+                                                        <View style={styles.inside}>
+                                                            <View style={styles.line}></View>
+                                                            <TouchableWithoutFeedback
+                                                                onPress={() => setOverlayType("manageSelect")}
+                                                            >
+                                                                <View style={[styles.confirmButtonDark, pressed && styles.buttonPressed]}>
+                                                                    <Text style={styles.deleteTextLight}>Select Multiple Entries</Text>
+                                                                </View>
+                                                            </TouchableWithoutFeedback>
+                                                            <ExtraLargeBtnDarkTxt
+                                                                text='Manage Tags'
+                                                                navigate='TagManager'
+                                                            />
+                                                        </View>
+                                                    </View>
                                                     :
                                                     <>
-                                                        {overlayType2 === "tagsList" && !overlayType ?
-                                                            <TagSettingsOverlay />
-                                                            :
-                                                            <Text>Error!</Text>
+                                                        {
+                                                            overlayType2 === "entriesList" && overlayType === "manageSelect" ?
+                                                                <SelectButtonOverlay />
+                                                                :
+                                                                <>
+                                                                    {overlayType2 === "tagsList" && !overlayType ?
+                                                                        <TagSettingsOverlay />
+                                                                        :
+                                                                        <Text>Error!</Text>
+                                                                    }
+                                                                </>
                                                         }
                                                     </>
+
                                                 }
                                             </>
                                     }
@@ -229,5 +251,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 7,
-      },
+    },
 })
