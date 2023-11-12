@@ -28,8 +28,7 @@
       "package": "com.innersight.bcit"
     },
     "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/crashlytics"
+      "@react-native-firebase/app"
     ],
     "web": {
       "favicon": "./atom/assets/favicon.png"
