@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
-const changesSavedOverlay = () => {
+const ChangesSavedOverlay = () => {
 
     return (
         <View style={styles.outerContainer}>
@@ -11,7 +11,7 @@ const changesSavedOverlay = () => {
                     <Text>Your changes have been saved.</Text>
                     <ExtraLargeBtnLightTxt 
                         text='Go Back'
-                        navigate=''
+                        navigate={() => navigation.goBack()}
                     /> 
                 </View>  
             </View>
@@ -22,7 +22,8 @@ const changesSavedOverlay = () => {
 const styles = StyleSheet.create({
     container: { 
         width: 410,
-        height: 175,
+        height: 'auto',
+        paddingBottom: 40,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,
@@ -37,6 +38,9 @@ const styles = StyleSheet.create({
     outerContainer: {
         flex: 1,
         justifyContent: 'flex-end',
+        position: 'absolute',
+        bottom: -20,
+        left: -20
     },
     inside: {
         display: 'flex',
@@ -54,4 +58,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default changesSavedOverlay;
+export default ChangesSavedOverlay;

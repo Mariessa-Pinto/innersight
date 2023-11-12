@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
-const deleteJComfirmOverlay = () => {
+const DeleteJComfirmOverlay = () => {
 
     return (
         <View style={styles.outerContainer}>
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default deleteJComfirmOverlay;
+export default DeleteJComfirmOverlay;

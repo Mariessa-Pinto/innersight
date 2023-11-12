@@ -7,8 +7,7 @@ import ColorBtns from '../atom/ColorButtons/ColorBtns';
 import TypeButton from '../atom/TypeFace/TypeButton';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import Header from '../molecules/Header/Header';
-import Modal from "react-native-modal";
-import GestureRecognizer from 'react-native-swipe-gestures';
+
 
 export default function CustomizeEntry({ navigation }) {
 
@@ -16,7 +15,7 @@ export default function CustomizeEntry({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-    const [isOverlayVisible, setOverlayVisible] = useState(false);
+
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -37,28 +36,13 @@ export default function CustomizeEntry({ navigation }) {
                             </View>
                             <TypeButton />
                         </View>
-                        <TouchableWithoutFeedback
-                            onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                        <TouchableWithoutFeedback>
                                 <MediumBtnLightTxt
                                 text="Save Changes"
                                 navigate={CustomizeEntry}
                             />
-
                         </TouchableWithoutFeedback>
                     </View>
-                    <GestureRecognizer
-                        style={{ flex: 1 }}
-                        onSwipeDown={() => setOverlayVisible(false)}
-                    >
-                        <Modal
-                            isVisible={isOverlayVisible}
-                            onBackdropPress={() => setOverlayVisible(false)}
-                            directionalOffsetThreshold={20}
-                        >
-                            <Text>hello</Text>
-
-                        </Modal>
-                    </GestureRecognizer>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />

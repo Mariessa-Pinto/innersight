@@ -57,7 +57,7 @@ const EntriesPageCard = (props) => {
         <Modal
           isVisible={isOverlayVisible}
           onBackdropPress={() => setOverlayVisible(false)}
-          directionalOffsetThreshold={20}
+          directionalOffsetThreshold={20} 
         >
          <EntrySpecOverlay/> 
         </Modal>

@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import globalStyles from '../../styles/global';
 import { Image } from 'expo-image';
-import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import JournalToggle from '../../atom/WordToggle/JournalToggle';
 import EntrySettings from '../Navigation/EntrySettings';

@@ -1,15 +1,19 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, ScrollView, Switch, Modal, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import Header from '../molecules/Header/Header';
 import { Image } from 'expo-image';
 import NavBar from '../molecules/Navigation/NavBar';
-import profilePicOverlay from '../molecules/Overlays/profilePicOverlay';
+import ProfilePicOverlay from '../molecules/Overlays/profilePicOverlay';
 import UpdatePhoto from '../atom/Buttons/UpdatePhotoButton';
+import Modal from "react-native-modal";
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 
 export default function EditPhoto({ navigation }) {
+
+    const [pressed, setPressed] = useState(false);
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -33,12 +37,6 @@ export default function EditPhoto({ navigation }) {
     //Overlay
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-
-    const toggleOverlay = () => {
-        setOverlayVisible(!isOverlayVisible);
-    };
-
-    const OverlayContent = profilePicOverlay;
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -73,24 +71,28 @@ export default function EditPhoto({ navigation }) {
                             </View>
                         ))}
                     </ScrollView>
-                    <View onPress={toggleOverlay}>
-                        <UpdatePhoto
-                            text='Update Photo'
-                        />
-                    </View>
+                    <TouchableWithoutFeedback
+                        onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                        <View style={[styles.button, pressed && styles.buttonPressed]}>
+                            <Text style={styles.text}>Update Photo</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
-                <TouchableWithoutFeedback onPress={toggleOverlay}>
-                    <View style={{ flex: 1 }}>
+
+                <View>
+                    <GestureRecognizer
+                        style={{ flex: 1 }}
+                        onSwipeDown={() => setOverlayVisible(false)}
+                    >
                         <Modal
-                            visible={isOverlayVisible}
-                            animationType="slide"
-                            transparent={true}
-                            onRequestClose={toggleOverlay}
+                            isVisible={isOverlayVisible}
+                            onBackdropPress={() => setOverlayVisible(false)}
+                            directionalOffsetThreshold={20}
                         >
-                            <OverlayContent />
+                            <ProfilePicOverlay />
                         </Modal>
-                    </View>
-                </TouchableWithoutFeedback>
+                    </GestureRecognizer>
+                </View>
             </ScrollView>
             <NavBar navigation={navigation} />
         </View>
@@ -149,5 +151,21 @@ const styles = StyleSheet.create({
         width: 350,
         display: 'flex',
         alignItems: 'flex-start'
-    }
+    },
+    button: {
+        width: 130,
+        height: 38,
+        borderRadius: 10,
+        backgroundColor: '#6164C3',
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 7,
+    },
+    buttonPressed: {
+        backgroundColor: '#43479A', // Change the color when pressed
+    },
+    text: {
+        color: '#FDFDFD',
+        fontSize: 13,
+    },
 })
