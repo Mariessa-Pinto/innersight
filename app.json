@@ -16,15 +16,22 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.innersight.bcit"
+      "bundleIdentifier": "com.innersight.bcit",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./atom/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.innersight.bcit"
     },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/perf",
+      "@react-native-firebase/crashlytics"
+    ],
     "web": {
       "favicon": "./atom/assets/favicon.png"
     }
