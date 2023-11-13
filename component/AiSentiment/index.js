@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
@@ -13,6 +13,8 @@ const AiSent = () => {
   const [showImage, setShowImage] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState([]);
   const [paragraph, setParagraph] = useState('')
+  const [keyWords, setKeyWords] = useState("")
+  const [keywordValue, setKeywordValue] = useState("")
 
   const [selectedMascot, setSelectedMascot] = useState("Panda");
 
@@ -89,6 +91,7 @@ const AiSent = () => {
         console.log(data);
         const generalSentiment = data.microsoft.general_sentiment;
         const sentiment = data.microsoft.general_sentiment;
+        const sentimentArray = data.microsoft.sentiment;
         const segments = data.microsoft.segment;
         const rate = data.microsoft.general_sentiment_rate;
         // const numSegments = segments.length;
@@ -139,9 +142,32 @@ const AiSent = () => {
         setShowRecommendations(recommendations);
 
         console.log(response);
+        //find the position of negative sentiment phrases
+        const phraseToFind = "Negative";
+        const positions = [];
+        let currentPosition = sentimentArray.indexOf(phraseToFind);
+
+        while (currentPosition !== -1) {
+          positions.push(currentPosition);
+          currentPosition = sentimentArray.indexOf(phraseToFind, currentPosition + 1);
+        }
+
+        if (positions.length > 0) {
+          console.log(`The phrase "${phraseToFind}" is found at positions ${positions.join(', ')}.`);
+        } else {
+          console.log(`The phrase "${phraseToFind}" is not found in the string.`);
+        }
+
+        //Find the words at these positions
+        const highlightedWords = positions.map((position) => segments[position]);
+        setKeyWords(highlightedWords.join(', '));
+        AsyncStorage.setItem('keyWords', keyWords)
+
       })
       .catch((error) => console.error(error));
   };
+
+
 
   return (
     <SafeAreaView>
@@ -154,7 +180,7 @@ const AiSent = () => {
           placeholderTextColor="#292929"
           keyboardType="default"
         />
-        <TagEntryBtn/>
+        <TagEntryBtn />
         <InsightButton
           text="View Ai Insights"
           onPress={handleApiCall}
