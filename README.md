@@ -29,6 +29,7 @@ npm install @react-navigation/native-stack
 - [Colour Themes](https://docs.expo.dev/develop/user-interface/color-themes/)
 - [Dark Mode for Expo/Variable Font Size](https://www.youtube.com/watch?v=PUzPqfhkeDI&t=681s)
 - [Lexend Font Installation](https://github.com/expo/google-fonts/tree/master/font-packages/lexend#readme)
+- [Expo Firebase](https://docs.expo.dev/guides/using-firebase/)
 
 ## Dependencies
 - [react-native-event-listeners for for dark mode](https://www.npmjs.com/package/react-native-event-listeners) 

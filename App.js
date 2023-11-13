@@ -57,6 +57,7 @@ import ResetPassword from './screens/ResetPassword';
 import ForgotPassword from './screens/ForgotPassword';
 import EmailSent from './screens/EmailSent';
 import CustomizeJournal from './screens/CustomizeJournal'
+import FirebaseTest from './screens/FirebaseTest'
 
 export default function App() {
 
@@ -145,6 +146,8 @@ export default function App() {
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
             <Stack.Screen name="EmailSent" component={EmailSent} />
             <Stack.Screen name="CustomizeJournal" component={CustomizeJournal} />
+            <Stack.Screen name="FirebaseTest" component={FirebaseTest} />
+
 
 
           </Stack.Navigator>
