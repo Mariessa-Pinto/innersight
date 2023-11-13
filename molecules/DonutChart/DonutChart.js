@@ -1,19 +1,40 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { VictoryPie, VictoryLabel } from "victory-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const DonutChart = () => {
+
+    const [keyWords, setKeyWords] = useState([])
+    const [data, setData] = useState([]);
+
+    //get keywords from entry and set it in useState in chart format
+    const getData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('statsKeywords');
+            if (value !== null) {
+                const keyWordArray = value.split(",")
+                setKeyWords(keyWordArray)
+
+                const newData = keyWords.map(keyword => ({ y: 25, x: keyword }));
+
+                setData(newData);
+                console.log(data)
+
+            }
+        } catch (e) {
+            console.log("error!")
+        }
+    };
+
+    //run get data on page load
+    useEffect(() => {
+
+        getData();
+    }, []); 
+
     const [selectedSlice, setSelectedSlice] = useState(null);
-
-    const data = [
-        { y: 35, x: 'Content' },
-        { y: 25, x: 'Happy' },
-        { y: 60, x: 'Sad' },
-        { y: 30, x: 'Super Happy' },
-        { y: 30, x: 'Angy' },
-        { y: 60, x: 'Jealous' },
-    ];
-
     const colorScale = ["#96D1EA", "#F5E79D", "#9792C7", "#FFCD6C", "#FFA39F", "#91BD70"];
 
     const handleSliceClick = (event, props) => {
@@ -91,6 +112,14 @@ const DonutChart = () => {
                     },
                 }]}
             />
+            <TouchableOpacity
+                onPress={() => getData()}>
+                <Text>Get Data</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => setKeyWords([])}>
+                <Text>Clear Data</Text>
+            </TouchableOpacity>
         </View>
     );
 };

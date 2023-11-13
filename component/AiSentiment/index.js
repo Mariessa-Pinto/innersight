@@ -15,7 +15,7 @@ const AiSent = () => {
   const [paragraph, setParagraph] = useState('')
   const [keyWordsNeg, setKeyWordsNeg] = useState("")
   const [keyWordsPos, setKeyWordsPos] = useState("")
-  const [statsKeyWords, setStatsKeyWords] = useState()
+  const [statsKeyWords, setStatsKeyWords] = useState("")
 
   const [selectedMascot, setSelectedMascot] = useState("Panda");
 
@@ -147,13 +147,15 @@ const AiSent = () => {
         keywords.forEach((keyword) => {
           if (text.toLowerCase().includes(keyword)){
             statsKeyWordsArray.push(keyword)
-            setStatsKeyWords([statsKeyWordsArray])
+            let stringKeyWords = statsKeyWordsArray.toString()
+            setStatsKeyWords(stringKeyWords)
             console.log(statsKeyWords)
-          }
-        })
 
-        AsyncStorage.setItem('statsKeywords', statsKeyWords)
-        console.log("statsKeywords saved")
+          }
+        }
+        )
+
+
 
         console.log(response);
         //find the position of negative sentiment phrases
