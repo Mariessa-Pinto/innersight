@@ -126,6 +126,7 @@ const AiSent = () => {
         paragraph += `This entry encapsulates a sense of ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions. Here are some recommendations you may consider to alleviate these ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions: `;
         setParagraph(paragraph);
 
+        const keywordsPos = ['happy', 'excited', 'motivated, high energy', 'calm', 'relaxed'];
         const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed'];
         const recommendations = [];
 
@@ -142,10 +143,20 @@ const AiSent = () => {
         });
         setShowRecommendations(recommendations);
 
-        //Save target keywords
+        //Save negative target keywords 
         const statsKeyWordsArray = []
         keywords.forEach((keyword) => {
-          if (text.toLowerCase().includes(keyword)){
+          if (text.toLowerCase().includes(keyword)) {
+            statsKeyWordsArray.push(keyword)
+            let stringKeyWords = statsKeyWordsArray.toString()
+            setStatsKeyWords(stringKeyWords)
+          }
+        }
+        )
+
+        //Save positivetarget keywords
+        keywordsPos.forEach((keyword) => {
+          if (text.toLowerCase().includes(keyword)) {
             statsKeyWordsArray.push(keyword)
             let stringKeyWords = statsKeyWordsArray.toString()
             setStatsKeyWords(stringKeyWords)
@@ -155,16 +166,17 @@ const AiSent = () => {
         }
         )
 
-
+        AsyncStorage.setItem('statsKeywords', statsKeyWords);
+        console.log("statsKeywords Stored")
 
         console.log(response);
         //find the position of negative sentiment phrases
         const phraseToFindNeg = "Negative";
         const phraseToFindPos = "Positive";
         const positionsNeg = [];
-        const positionsPos= [];
+        const positionsPos = [];
         let currentPositionNeg = sentimentArray.indexOf(phraseToFindNeg);
-        let currentPositionPos= sentimentArray.indexOf(phraseToFindPos);
+        let currentPositionPos = sentimentArray.indexOf(phraseToFindPos);
 
         while (currentPositionNeg !== -1) {
           positionsNeg.push(currentPositionNeg);

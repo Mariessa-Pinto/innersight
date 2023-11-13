@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { VictoryPie, VictoryLabel } from "victory-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 const DonutChart = () => {
+
 
     const [keyWords, setKeyWords] = useState([])
     const [data, setData] = useState([]);
 
     //get keywords from entry and set it in useState in chart format
-    const getData = async () => {
+    const getData = async () => { 
         try {
             const value = await AsyncStorage.getItem('statsKeywords');
             if (value !== null) {
@@ -20,9 +20,9 @@ const DonutChart = () => {
                 const newData = keyWords.map(keyword => ({ y: 25, x: keyword }));
 
                 setData(newData);
-                console.log(data)
+                console.log(data) 
 
-            }
+            } 
         } catch (e) {
             console.log("error!")
         }
@@ -112,14 +112,6 @@ const DonutChart = () => {
                     },
                 }]}
             />
-            <TouchableOpacity
-                onPress={() => getData()}>
-                <Text>Get Data</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => setKeyWords([])}>
-                <Text>Clear Data</Text>
-            </TouchableOpacity>
         </View>
     );
 };
