@@ -197,6 +197,7 @@ const AiSent = () => {
           </View>
           {response ? <Text style={styles.respText}>{response}</Text> : null}
         </View>
+        <Text>{keyWords}</Text>
         {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
         <View style={styles.recCon}>
           {showRecommendations.includes('Sleeping Early') ? (
