@@ -1,21 +1,28 @@
 import { auth } from '../firebase/firebaseConfig'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth,signInAnonymously } from "firebase/auth";
 import { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 
-export default function FirebaseTest() {
+export default function FirebaseTest({navigation}) {
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+    const [userType, setUserType] = useState()
 
-    const register = async () => {
+
+    const guestLogin = async () => {
         try {
-            const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+            const user = await signInAnonymously(auth);
             console.log(user);
+            setUserType('guest')
+            console.log(userType)
+            navigation.push('Home')
+            
 
         } catch(error) {
             console.log(error)
+            
         }
     }
 
@@ -41,10 +48,9 @@ export default function FirebaseTest() {
                 </View>
 
                 <TouchableOpacity onPress={() => {
-                    register()
-
+                    guestLogin()
                 }}>
-                    <Text>Sign In</Text>
+                    <Text>Sign In as Guest</Text>
                 </TouchableOpacity>
 
             </View>
