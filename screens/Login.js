@@ -22,6 +22,9 @@ export default function Login() {
     const navigateToForgot = () => {
         navigation.navigate('ForgotPassword');
     };
+    const navigateToFirebase = () => {
+        navigation.navigate('FirebaseTest');
+    };
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -37,6 +40,7 @@ export default function Login() {
                             text="Login"
                             navigate="Home"
                         />
+                        <Text style={styles.password} onPress={navigateToFirebase}>FirebaseTest</Text>
                         <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
                         <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
                     </View>
