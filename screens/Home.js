@@ -1,7 +1,6 @@
 import globalStyles from '../styles/global'
 
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import {
     StyleSheet, Text, View, ScrollView, TextInput, Image,
     TouchableOpacity
@@ -11,7 +10,6 @@ import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
-import RecommendationButtons from '../atom/RecommendationButtons/RecommendationButtons';
 import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn';
 
 export default function Home({ navigation }) {
