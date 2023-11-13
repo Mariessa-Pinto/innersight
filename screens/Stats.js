@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -15,26 +15,29 @@ export default function Stats({ navigation }) {
     const [darkMode, setDarkMode] = useState(false);
     const theme = useContext(themeContext);
 
-    const [selectedValue, setSelectedValue] = useState('Week'); 
+
+    const [selectedValue, setSelectedValue] = useState('Week');
 
     useEffect(() => {
-        setSelectedValue('Week'); 
+        setSelectedValue('Week');
     }, []);
+
+
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title="Your Week in Review" navigation={navigation}/>
-                <View style={styles.maincontent}>
-                    <DateToggle selectedValue={selectedValue}/>
-                    <DonutChart />
-                    <IdentifiedEntries />
-                    <StatRecommendations />
-                </View>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title="Your Week in Review" navigation={navigation} />
+                    <View style={styles.maincontent}>
+                        <DateToggle selectedValue={selectedValue} />
+                        <DonutChart />
+                        <IdentifiedEntries />
+                        <StatRecommendations />
+                    </View>
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='stats'/>
+            <NavBar navigation={navigation} variation='stats' />
         </View>
     );
 }

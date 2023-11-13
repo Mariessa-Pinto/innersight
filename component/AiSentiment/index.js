@@ -13,8 +13,9 @@ const AiSent = () => {
   const [showImage, setShowImage] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState([]);
   const [paragraph, setParagraph] = useState('')
-  const [keyWords, setKeyWords] = useState("")
-  const [keywordValue, setKeywordValue] = useState("")
+  const [keyWordsNeg, setKeyWordsNeg] = useState("")
+  const [keyWordsPos, setKeyWordsPos] = useState("")
+  const [statsKeyWords, setStatsKeyWords] = useState("")
 
   const [selectedMascot, setSelectedMascot] = useState("Panda");
 
@@ -125,6 +126,7 @@ const AiSent = () => {
         paragraph += `This entry encapsulates a sense of ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions. Here are some recommendations you may consider to alleviate these ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions: `;
         setParagraph(paragraph);
 
+        const keywordsPos = ['happy', 'excited', 'motivated, high energy', 'calm', 'relaxed'];
         const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed'];
         const recommendations = [];
 
@@ -141,27 +143,73 @@ const AiSent = () => {
         });
         setShowRecommendations(recommendations);
 
+        //Save negative target keywords 
+        const statsKeyWordsArray = []
+        keywords.forEach((keyword) => {
+          if (text.toLowerCase().includes(keyword)) {
+            statsKeyWordsArray.push(keyword)
+            let stringKeyWords = statsKeyWordsArray.toString()
+            setStatsKeyWords(stringKeyWords)
+          }
+        }
+        )
+
+        //Save positivetarget keywords
+        keywordsPos.forEach((keyword) => {
+          if (text.toLowerCase().includes(keyword)) {
+            statsKeyWordsArray.push(keyword)
+            let stringKeyWords = statsKeyWordsArray.toString()
+            setStatsKeyWords(stringKeyWords)
+            console.log(statsKeyWords)
+
+          }
+        }
+        )
+
+        AsyncStorage.setItem('statsKeywords', statsKeyWords);
+        console.log("statsKeywords Stored")
+
         console.log(response);
         //find the position of negative sentiment phrases
-        const phraseToFind = "Negative";
-        const positions = [];
-        let currentPosition = sentimentArray.indexOf(phraseToFind);
+        const phraseToFindNeg = "Negative";
+        const phraseToFindPos = "Positive";
+        const positionsNeg = [];
+        const positionsPos = [];
+        let currentPositionNeg = sentimentArray.indexOf(phraseToFindNeg);
+        let currentPositionPos = sentimentArray.indexOf(phraseToFindPos);
 
-        while (currentPosition !== -1) {
-          positions.push(currentPosition);
-          currentPosition = sentimentArray.indexOf(phraseToFind, currentPosition + 1);
+        while (currentPositionNeg !== -1) {
+          positionsNeg.push(currentPositionNeg);
+          currentPositionNeg = sentimentArray.indexOf(phraseToFindNeg, currentPositionNeg + 1);
         }
 
-        if (positions.length > 0) {
-          console.log(`The phrase "${phraseToFind}" is found at positions ${positions.join(', ')}.`);
+        if (positionsNeg.length > 0) {
+          console.log(`The phrase "${phraseToFindNeg}" is found at positions ${positionsNeg.join(', ')}.`);
         } else {
-          console.log(`The phrase "${phraseToFind}" is not found in the string.`);
+          console.log(`The phrase "${phraseToFindNeg}" is not found in the string.`);
+        }
+
+        while (currentPositionPos !== -1) {
+          positionsPos.push(currentPositionPos);
+          currentPositionPos = sentimentArray.indexOf(phraseToFindPos, currentPositionPos + 1);
+        }
+
+        if (positionsPos.length > 0) {
+          console.log(`The phrase "${phraseToFindPos}" is found at positions ${positionsPos.join(', ')}.`);
+        } else {
+          console.log(`The phrase "${phraseToFindPos}" is not found in the string.`);
         }
 
         //Find the words at these positions
-        const highlightedWords = positions.map((position) => segments[position]);
-        setKeyWords(highlightedWords.join(', '));
-        AsyncStorage.setItem('keyWords', keyWords)
+        const highlightedNegWords = positionsNeg.map((position) => segments[position]);
+        setKeyWordsNeg(highlightedNegWords.join(', '));
+        AsyncStorage.setItem('keyWordsNeg', keyWordsNeg)
+        console.log("Negative Keywords stored")
+
+        const highlightedPosWords = positionsPos.map((position) => segments[position]);
+        setKeyWordsPos(highlightedPosWords.join(', '));
+        AsyncStorage.setItem('keyWordsPos', keyWordsPos)
+        console.log("Positive Keywords stored")
 
       })
       .catch((error) => console.error(error));
@@ -197,7 +245,8 @@ const AiSent = () => {
           </View>
           {response ? <Text style={styles.respText}>{response}</Text> : null}
         </View>
-        <Text>{keyWords}</Text>
+        {keyWordsPos ? <Text>Positive phrases: {keyWordsPos}</Text> : null}
+        {keyWordsNeg ? <Text>Negative phrases: {keyWordsNeg}</Text> : null}
         {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
         <View style={styles.recCon}>
           {showRecommendations.includes('Sleeping Early') ? (

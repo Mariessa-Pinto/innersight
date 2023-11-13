@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Modal from "react-native-modal";
-import GestureRecognizer from 'react-native-swipe-gestures';
+
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 
@@ -14,45 +13,20 @@ const MediumBtnLightTxt = (props) => {
     navigation.navigate(props.navigate);
   };
 
-  const [isOverlayVisible, setOverlayVisible] = useState(false);
+
 
   return (
     <>
       <TouchableWithoutFeedback
         onPressIn={() => setPressed(true)}
         onPressOut={() => setPressed(false)}
-        onPress={() => { navigateTo; setOverlayVisible(!isOverlayVisible) }}
+        onPress={navigateTo}
       >
         <View style={[styles.button, pressed && styles.buttonPressed]}>
           <Text style={styles.text}>{props.text}</Text>
         </View>
       </TouchableWithoutFeedback>
-      <GestureRecognizer
-        style={{ flex: 1 }}
-        onSwipeDown={() => setOverlayVisible(false)}
-      >
-        <Modal
-          isVisible={isOverlayVisible}
-          onBackdropPress={() => setOverlayVisible(false)}
-          directionalOffsetThreshold={20}
-        >
-          <View style={styles.container}>
-            <View style={styles.inside}>
-              <View style={styles.line}></View>
-              <Text>Your changes have been saved.</Text>
-              <TouchableWithoutFeedback
-
-                onPress={() => setOverlayVisible(!isOverlayVisible)}
-              >
-                <View style={[styles.backButton, pressed && styles.backButtonPressed]}>
-                  <Text style={styles.backText}>Go Back</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-          </View>
-
-        </Modal>
-      </GestureRecognizer>
+      
     </>
   );
 };
