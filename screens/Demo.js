@@ -1,7 +1,6 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { Image } from 'expo-image';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
@@ -9,14 +8,11 @@ import DemoAnimation from '../atom/Demo/DemoAnimation';
 
 
 
-export default function Demo({ navigation }) {
+export default function Demo({ navigation }) { 
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
-    // Grab currentIndex from demo with props
-    // const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -31,8 +27,8 @@ export default function Demo({ navigation }) {
                     />
                     <View style={styles.button}>
                         <ExtraLargeBtnLightTxt
-                            text="Create an Account"
-                            navigate="SignUp"
+                            text="Continue as Guest"
+                            navigate="Home" 
                         />
                     </View>
                 </View>
