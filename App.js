@@ -58,6 +58,7 @@ import ForgotPassword from './screens/ForgotPassword';
 import EmailSent from './screens/EmailSent';
 import CustomizeJournal from './screens/CustomizeJournal'
 import FirebaseTest from './screens/FirebaseTest'
+import JournalListPage from './screens/JournalListPage';
 
 export default function App() {
 
@@ -147,6 +148,7 @@ export default function App() {
             <Stack.Screen name="EmailSent" component={EmailSent} />
             <Stack.Screen name="CustomizeJournal" component={CustomizeJournal} />
             <Stack.Screen name="FirebaseTest" component={FirebaseTest} />
+            <Stack.Screen name="JournalListPage" component={JournalListPage} />
 
 
 

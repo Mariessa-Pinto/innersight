@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -7,6 +7,7 @@ import SearchBar from '../atom/Search/SearchBar';
 import Tag from '../atom/Tag/Tag';
 import EntriesCards from '../molecules/EntriesCard/EntriesCard';
 import Header from '../molecules/Header/Header'
+import ExtraLargeBtnDarkTxt from '../atom/Buttons/ExtraLargeBtnDarkTxt';
 
 
 
@@ -26,6 +27,7 @@ export default function Entries({ navigation }) {
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                     </View>
                     <SearchBar placeholder="Search by Title or Tags" />
+                    <ExtraLargeBtnDarkTxt navigate='JournalListPage' text='Entry'/>
                     <View style={styles.tags}>
                         <ScrollView horizontal={true}
                         showsHorizontalScrollIndicator={false}

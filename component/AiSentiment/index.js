@@ -5,9 +5,11 @@ import RecommendationButton from '../../atom/RecommendationButtons/Recommendatio
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InsightButton from '../../atom/Buttons/InsightButton';
 import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
+import { saveJournalEntry } from '../../firebase/firebaseService';
 
 
-const AiSent = () => {
+const AiSent = ({ userId }) => {
+  const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
   const [showImage, setShowImage] = useState(false);
@@ -16,6 +18,7 @@ const AiSent = () => {
   const [keyWordsNeg, setKeyWordsNeg] = useState("")
   const [keyWordsPos, setKeyWordsPos] = useState("")
   const [statsKeyWords, setStatsKeyWords] = useState("")
+
 
   const [selectedMascot, setSelectedMascot] = useState("Panda");
 
@@ -67,6 +70,10 @@ const AiSent = () => {
     getSelectedMascot();
   }, []);
 
+  const handleSave = () => {
+    saveJournalEntry(userId, { content: journalEntry, timestamp: Date.now()});
+    setJournalEntry('');
+  }
 
   const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
@@ -84,7 +91,7 @@ const AiSent = () => {
         attributes_as_list: true,
         show_original_response: true,
         providers: 'microsoft',
-        text: text,
+        text: journalEntry,
       }),
     })
       .then((response) => response.json())
@@ -220,12 +227,12 @@ const AiSent = () => {
       <View style={styles.container}>
         <TextInput
           style={styles.input}
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={(newText) => onChangeText(newText)}
           placeholder="Start typing..."
           placeholderTextColor="#292929"
           keyboardType="default"
         />
+        <Button title="Save Journal Entry" onPress={handleSave} />
         <TagEntryBtn />
         <InsightButton
           text="View Ai Insights"

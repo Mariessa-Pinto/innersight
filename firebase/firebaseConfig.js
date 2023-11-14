@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { initializeAuth, getAuth, getReactNativePersistence } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
+
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 // Optionally import the services that you want to use
@@ -13,7 +15,7 @@ import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 const firebaseConfig = {
     apiKey: 'AIzaSyDWs5opYcnnlMv5OYRGSKWXhhfuehdFmYo',
     authDomain: 'innersight-af9d1.firebaseapp.com',
-    databaseURL: 'https://innersight-af9d1.firebaseio.com',
+    databaseURL: 'https://innersight-af9d1-default-rtdb.europe-west1.firebasedatabase.app',
     projectId: 'innersight-af9d1',
     storageBucket: 'innersight-af9d1.appspot.com',
     messagingSenderId: '614603313394',
@@ -27,3 +29,4 @@ initializeAuth(app, {
 });
 
 export const auth = getAuth(app);
+export const database = getDatabase(app); 
