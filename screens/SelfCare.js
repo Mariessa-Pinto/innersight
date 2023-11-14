@@ -19,7 +19,7 @@ export default function Recommendations({ navigation }) {
     const [data, setData] = useState('');
 
     //Animation
-    const animation = require('../atom/assets/Animations/frog-data.json');
+    const animation = require('../atom/assets/Animations/yoga-frog.json');
 
     useEffect(() => {
         setData(RecData.self)
@@ -34,7 +34,7 @@ export default function Recommendations({ navigation }) {
                         source={animation}
                         autoPlay
                         loop
-                        style={{ marginTop: -160 }}
+                        style={{ marginTop: -190 }}
                     />
                     {
                         data && data.map((item, index) => {
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
         gap: 15
     },
     animationContainer: {
-        marginTop: 200,
+        marginTop: 130,
     },
 });

@@ -19,7 +19,7 @@ export default function Recommendations({ navigation }) {
     const [data, setData] = useState('');
 
     //Animation
-    const animation = require('../atom/assets/Animations/otter-sleep.json');
+    const animation = require('../atom/assets/Animations/otter-sleeping.json');
 
     useEffect(() => {
         setData(RecData.sleep)
