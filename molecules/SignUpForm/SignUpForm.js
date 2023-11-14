@@ -16,11 +16,12 @@ const SignUpForm = () => {
 const styles = StyleSheet.create({
     container: {
         width: 328,
-        height: 356, 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 15
+        gap: 10,
+        paddingTop: 20,
+        paddingBottom: 40
     },
 
 });
