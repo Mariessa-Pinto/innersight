@@ -13,7 +13,6 @@ export default function JournalPassword({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
@@ -32,7 +31,6 @@ export default function JournalPassword({ navigation }) {
                                 textAlignVertical=''
                                 value="" />
                         </View>
-
                         <MediumBtnLightTxt
                             text="Unlock Journal"
                             navigate='Entries' />

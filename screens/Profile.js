@@ -39,26 +39,29 @@ export default function Profile({ navigation }) {
                         <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Settings
                         </Text>
-                        <ProfileGreyButtons section="settings"/>
+                        <ProfileGreyButtons section="settings" />
                     </View>
                     <View style={styles.content}>
                         <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Support
                         </Text>
-                        <ProfileGreyButtons section="support"/>
-                        
+                        <ProfileGreyButtons section="support" />
+
                     </View>
                     <View style={styles.content}>
                         <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
                             Legal
                         </Text>
-                        <ProfileGreyButtons section="legal"/>
-                    
+                        <ProfileGreyButtons section="legal" />
+
                     </View>
                     <View style={styles.content3}>
                         <SmallBtnLightTxt
-                        text="Log Out"
-                        navigate="Start"/>
+                            text="Sign Up"
+                            navigate="SignUp" />
+                        <SmallBtnLightTxt
+                            text="Log Out"
+                            navigate="Start" />
                     </View>
                 </View>
             </ScrollView>
@@ -129,7 +132,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        gap: 10
     },
     label2: {
         fontSize: 13,

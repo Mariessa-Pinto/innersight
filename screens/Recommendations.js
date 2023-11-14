@@ -1,11 +1,12 @@
 import globalStyles from '../styles/global'
-import { Text, View, Button, Switch, StyleSheet, ScrollView, Image } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
 import RecData from '../data/RecData';
 import fontContext from '../theme/fontContext';
+import LottieView from 'lottie-react-native';
 
 export default function Recommendations({ navigation }) {
 
@@ -17,24 +18,29 @@ export default function Recommendations({ navigation }) {
 
     const [data, setData] = useState('');
 
+    //Animation
+    const animation = require('../atom/assets/Animations/panda-workout.json');
+
     useEffect(() => {
         setData(RecData.exercise)
     }, [])
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <LottieView
+                        source={animation}
+                        autoPlay
+                        loop
+                        style={{ marginTop: -160 }}
+                    />
                     {
                         data && data.map((item, index) => {
                             return (
                                 <View key={index} style={styles.maincontent}>
                                     <Header title={item.type} navigation={navigation} />
-                                    <Image
-                                        source={item.source}
-                                        style={styles.picture}
-                                    />
+                                    <View style={styles.animationContainer}></View>
                                     <View style={styles.writing}>
                                         <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.description}</Text>
                                         <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc2}</Text>
@@ -62,12 +68,11 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     writing: {
-        gap: 15,
-        paddingTop: 15
+        paddingTop: 10,
+        paddingHorizontal: 20,
+        gap: 15
     },
-    picture: {
-        height: '28%',
-        width: '80%',
-        marginTop: -10
-    }
+    animationContainer: {
+        marginTop: 200,
+    },
 });

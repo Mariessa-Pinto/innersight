@@ -5,9 +5,9 @@ import Swiper from 'react-native-swiper';
 
 const DemoAnimation = () => {
     const animations = [
-        require('../assets/Animations/first_page.json'),
-        require('../assets/Animations/second_page.json'),
-        require('../assets/Animations/last_page.json'),
+        require('../assets/Animations/demo_page1.json'),
+        require('../assets/Animations/demo_page2.json'),
+        require('../assets/Animations/demo_page3.json'),
     ];
 
     return (

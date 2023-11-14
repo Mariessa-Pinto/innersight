@@ -8,7 +8,6 @@ import MediumBtnDarkText from '../atom/Buttons/MediumBtnDarkTxt';
 import NormalInput from '../atom/InputBoxes/NormalInput';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import Header from '../molecules/Header/Header';
-import LottieView from 'lottie-react-native';
 import Notifications from '../molecules/Notifications/Notifications';
 
 
@@ -23,9 +22,6 @@ export default function NewJournal({ navigation }) {
     const [passIsEnabled, setPassIsEnabled] = useState(false);
     const passToggleSwitch = () => setPassIsEnabled(previousState => !previousState);
 
-    //Animation
-    const animation = require('../atom/assets/Animations/blob_animation.json');
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -36,12 +32,6 @@ export default function NewJournal({ navigation }) {
                         <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
                     </View>
                     <View style={styles.comp}>
-                        <LottieView
-                            source={animation}
-                            autoPlay
-                            loop
-                            style={styles.animationStyle}
-                        />
                         <JournalCovers />
                         <MediumBtnDarkText
                             text="Add New Cover"

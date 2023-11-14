@@ -13,6 +13,7 @@ export default function Login() {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    //Navigation
     const navigation = useNavigation();
 
     const navigateTo = () => {
@@ -24,6 +25,9 @@ export default function Login() {
     };
     const navigateToFirebase = () => {
         navigation.navigate('FirebaseTest');
+    };
+    const navigateHome = () => {
+        navigation.navigate('Home');
     };
 
     return (
@@ -43,6 +47,8 @@ export default function Login() {
                         <Text style={styles.password} onPress={navigateToFirebase}>FirebaseTest</Text>
                         <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
                         <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
+                        <Text>or</Text>
+                        <Text style={styles.guest} onPress={navigateHome}>Continue as Guest</Text>
                     </View>
                 </View>
             </ScrollView>
@@ -67,14 +73,18 @@ const styles = StyleSheet.create({
     titleContainer: {
         display: "flex",
         alignItems: 'flex-start',
-        width: 280,
-        paddingTop: 150,
+        width: 320,
+        paddingTop: 100,
         gap: 10
     },
     account: {
         paddingTop: 20
     },
     password: {
-        paddingTop: 50
+        paddingTop: 50,
+        fontWeight: '500'
+    },
+    guest: {
+        fontWeight: '500'
     }
 })

@@ -161,7 +161,6 @@ const AiSent = () => {
             let stringKeyWords = statsKeyWordsArray.toString()
             setStatsKeyWords(stringKeyWords)
             console.log(statsKeyWords)
-
           }
         }
         )
@@ -210,7 +209,6 @@ const AiSent = () => {
         setKeyWordsPos(highlightedPosWords.join(', '));
         AsyncStorage.setItem('keyWordsPos', keyWordsPos)
         console.log("Positive Keywords stored")
-
       })
       .catch((error) => console.error(error));
   };

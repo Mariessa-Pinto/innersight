@@ -1,13 +1,10 @@
 import globalStyles from '../styles/global'
 import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import SignUpForm from '../molecules/SignUpForm/SignUpForm';
 import { useNavigation } from '@react-navigation/native';
-
-
 
 export default function SignUp() {
 
@@ -15,10 +12,15 @@ export default function SignUp() {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    //Navigation
     const navigation = useNavigation();
 
     const navigateTo = () => {
         navigation.navigate('Login');
+    };
+
+    const navigateHome = () => {
+        navigation.navigate('Home');
     };
 
     return (
@@ -35,6 +37,8 @@ export default function SignUp() {
                         navigate="ChooseMascot"
                     />
                     <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
+                    <Text>or</Text>
+                    <Text style={styles.guest} onPress={navigateHome}>Continue as Guest</Text>
                 </View>
             </View>
             </ScrollView>
@@ -59,10 +63,13 @@ const styles = StyleSheet.create({
     titleContainer: {
         display: "flex",
         alignItems: 'flex-start',
-        width: 280,
+        width: 320,
         paddingTop: 70
     },
     account: {
-        paddingTop: 50
+        paddingTop: 40
+    },
+    guest: {
+        fontWeight: '500'
     }
 })
