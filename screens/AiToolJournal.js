@@ -1,11 +1,8 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import Tag from '../atom/Tag/Tag';
-
-import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 
 export default function AiToolJournal({ navigation }) {
 
@@ -29,9 +26,7 @@ export default function AiToolJournal({ navigation }) {
                                 <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                             </View>
                         </View>
-
                         <View style={styles.textCon}>
-
                             <Text>Today I wasn't feeling very good. I was very tired and didn't get much sleep.
                                 Because I was so tired a lot of things {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>irritated me and made me feel angry.</Text> I went to bed at a decent
                                 time but I just kept {' '} <Text style={{ backgroundColor: 'red', color: 'white' }}>tossing and turning.</Text> Today I wasn't feeling very good. I was very tired and
@@ -40,7 +35,6 @@ export default function AiToolJournal({ navigation }) {
                             </Text>
                         </View>
                         <View style={styles.ai}>
-                          
                         </View>
                     </View>
                 </View>
