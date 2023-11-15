@@ -1,13 +1,14 @@
 import { ref, set, push, get } from 'firebase/database';
 import { database } from './firebaseConfig';
 
-export const saveJournalEntry = async (userId, entry) => {
-    const journalRef = ref(database, `users/${userId}/journal`);
-    await push(journalRef, entry);
+export const saveJournalEntry = async (username, entry) => {
+    const journalRef = ref(database, `users/anika${username}/journal`);
+    const newJournalEntryRef = push(journalRef);
+    await set(newJournalEntryRef, entry);
 };
 
-export const getJournalEntries = async (userId) => {
-    const journalRef = ref(database, `users/${userId}/journal`);
+export const getJournalEntries = async (username) => {
+    const journalRef = ref(database, `users/${username}/journal`);
     const snapshot = await get(journalRef);
     return snapshot.val() || {}
 }

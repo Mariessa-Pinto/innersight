@@ -11,13 +11,13 @@ import { getJournalEntries } from '../firebase/firebaseService';
 
 
 
-export default function JournalListPage({ navigation, userId }) {
+export default function JournalListPage({ navigation }) {
     const [entries, setEntries] = useState([]);
 
     useEffect(() => {
         const fetchJournalEntries = async () => {
             try {
-                const journalEntries = await getJournalEntries(userId);
+                const journalEntries = await getJournalEntries("anika");
                 console.log('Journal Entries:', journalEntries);
             setEntries(Object.values(journalEntries));
             } catch(error) {
@@ -25,7 +25,7 @@ export default function JournalListPage({ navigation, userId }) {
             }
         };
         fetchJournalEntries();
-    }, [userId]);
+    }, []);
 
     const handleViewEntry = (entry) => {
         navigation.navigate('JournalViewPage', { entry });
