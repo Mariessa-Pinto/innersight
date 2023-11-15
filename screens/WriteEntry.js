@@ -50,7 +50,7 @@ export default function WriteEntry({ navigation }) {
 
                             </View>
                         </View>
-                        <AiSent />
+                        <AiSent username="anika"/>
                     </View>
                 </View>
             </ScrollView>

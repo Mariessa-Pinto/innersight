@@ -8,7 +8,7 @@ import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
 import { saveJournalEntry } from '../../firebase/firebaseService';
 
 
-const AiSent = ({ userId }) => {
+const AiSent = ({ username }) => {
   const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
@@ -71,7 +71,7 @@ const AiSent = ({ userId }) => {
   }, []);
 
   const handleSave = () => {
-    saveJournalEntry(userId, { content: journalEntry, timestamp: Date.now()});
+    saveJournalEntry(username, { content: text, timestamp: Date.now()});
     setJournalEntry('');
   }
 
@@ -91,7 +91,7 @@ const AiSent = ({ userId }) => {
         attributes_as_list: true,
         show_original_response: true,
         providers: 'microsoft',
-        text: journalEntry,
+        text: text,
       }),
     })
       .then((response) => response.json())
