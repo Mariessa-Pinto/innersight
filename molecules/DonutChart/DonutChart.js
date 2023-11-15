@@ -1,41 +1,46 @@
 import { useState, useEffect } from 'react';
+import globalStyles from '../../styles/global';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { VictoryPie, VictoryLabel } from "victory-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { VictoryPie, VictoryLabel, VictoryTheme } from "victory-native";
 import { dummy } from '../../data/DummyJournalData'
+//import { useFonts, Lexend_400Regular } from 'expo-font';
+import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
 
 const DonutChart = () => {
 
-    const [keyWords, setKeyWords] = useState([])
-    const [data2, setData2] = useState(dummy);
+    //run get data on page load
+    useEffect(() => {
+        getData();
+    }, []);
+
     const [data, setData] = useState()
 
-    //get keywords from entry and set it in useState in chart format
     const getData = async () => {
         try {
-            const value = data2.journals[0].sentiments
-            if (value !== null) {
-                //Set keywords
-                setKeyWords(value)
+            const sentimentsArray = dummy.journals.map(journal => journal.sentiments).flat();
 
-                //Set Count # of keywords for pie chart
+            if (sentimentsArray.length > 0) {
 
-                //Set keywords and Y value into data object for pie chart
-                const newData = keyWords.map(keyword => ({ y: 25, x: keyword }));
-                setData(newData);
-                console.log(data)
+                // Looks thru all journals and count occurrences of each sentiment
+                const sentimentCounts = {};
+                sentimentsArray.forEach(sentiment => {
+                    sentimentCounts[sentiment] = (sentimentCounts[sentiment] || 0) + 1;
+                });
 
+                // sentiments + count into array/object for pie chart
+                const newData = Object.entries(sentimentCounts).map(([sentiment, count]) => ({
+                    y: ((count / (sentimentsArray.length)).toFixed(2) * 100),
+                    x: sentiment,
+                }));
+                setData(newData)
+
+                // Example: Log the sentiment counts
+                console.log(newData);
             }
         } catch (e) {
             console.log("error!")
         }
     };
-
-    //run get data on page load
-    useEffect(() => {
-
-        getData();
-    }, []);
 
     const [selectedSlice, setSelectedSlice] = useState(null);
     const colorScale = ["#96D1EA", "#F5E79D", "#9792C7", "#FFCD6C", "#FFA39F", "#91BD70"];
@@ -49,56 +54,19 @@ const DonutChart = () => {
         }
     };
 
-    // Position Absolute it all lol
+    //Label Font. This is connected to the app.json "font" object.
+    const [fontsLoaded] = useFonts({
+        Lexend_400Regular,
+    });
 
-    // const CustomLabel = ({ datum, index }) => {
-    //     const label = datum.label;
-
-    //     return (
-    //         <View 
-    //         style={{ position: 'absolute', left: 100 }}>
-    //             <Image source={label} style={{ width: 20, height: 20 }} />
-    //         </View>
-    //     );
-    // };
-
-
-    //One Test
-
-    //  const CustomLabel = ({ datum, index }) => {
-    //     // Array of icons
-    //     const icons = [
-    //         require('../../atom/icons/contentEmoji.png'),
-    //         require('../../atom/icons/happyEmoji.png'),
-    //         require('../../atom/icons/sadEmoji.png'),
-    //         require('../../atom/icons/superHappyEmoji.png'),
-    //         require('../../atom/icons/angryEmoji.png'),
-    //         require('../../atom/icons/jealousEmoji.png'),
-    //         // Add more icons as needed
-    //     ];
-
-    //     const icon = icons[index % icons.length];
-
-    //     // Calculate label position
-    //     const midAngle = (datum.startAngle + datum.endAngle) / 2;
-    //     const iconX = Math.cos(midAngle) * 500; // Adjust the radius for icon
-    //     const iconY = Math.sin(midAngle) * 290;  // Adjust the radius for icon
-    //     const labelX = Math.cos(midAngle) * 70; // Adjust the radius for label
-    //     const labelY = Math.sin(midAngle) * 1000;  // Adjust the radius for label
-
-    //     return (
-    //         <View style={{ position: 'absolute', left: iconX, top: iconY, flexDirection: 'row', alignItems: 'center' }}>
-    //             <Image source={icon} style={{ width: 20, height: 20 }} />
-    //             <Text style={{ color: 'white', fontSize: 15, marginLeft: 5, position: 'absolute', left: labelX, top: labelY }}>
-    //                 {datum.x}
-    //             </Text>
-    //         </View>
-    //     );
-    // };
+    if (!fontsLoaded) {
+        return (
+            console.log("font error")
+        );
+    }
 
     return (
-        <View style={styles.container}>
-
+        <View style={[styles.container, globalStyles.labelText]}>
             <VictoryPie
                 data={data}
                 colorScale={colorScale}
@@ -107,7 +75,6 @@ const DonutChart = () => {
                 radius={({ index }) => index === selectedSlice ? 170 : 150}
                 width={350}
                 height={369}
-                labelComponent={<VictoryLabel />} //Use CustomLabel here to try and get the icons in
                 labelRadius={({ innerRadius }) => innerRadius + 65}
                 events={[{
                     target: "data",
@@ -115,8 +82,15 @@ const DonutChart = () => {
                         onPressIn: handleSliceClick,
                     },
                 }]}
-            />
+                style={{
+                    labels: {
+                        fontFamily: 'Lexend_400Regular',
+                    },
+                }}
+                labelComponent={<VictoryLabel style={{ fontFamily: 'Lexend_400Regular' }} />}
 
+
+            />
         </View>
     );
 };
@@ -128,6 +102,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+
     },
 });
 
