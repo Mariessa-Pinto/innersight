@@ -25,6 +25,9 @@
     },
     "web": {
       "favicon": "./atom/assets/favicon.png"
+    },
+    "fonts": {
+      "Lexend_400Regular": "./atom/assets/Fonts/Lexend_400Regular.ttf"
     }
   }
 }
