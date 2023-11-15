@@ -2,27 +2,30 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { VictoryPie, VictoryLabel } from "victory-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { dummy } from '../../data/DummyJournalData'
 
 const DonutChart = () => {
 
-
     const [keyWords, setKeyWords] = useState([])
-    const [data, setData] = useState([]);
+    const [data2, setData2] = useState(dummy);
+    const [data, setData] = useState()
 
     //get keywords from entry and set it in useState in chart format
-    const getData = async () => { 
+    const getData = async () => {
         try {
-            const value = await AsyncStorage.getItem('statsKeywords');
+            const value = data2.journals[0].sentiments
             if (value !== null) {
-                const keyWordArray = value.split(",")
-                setKeyWords(keyWordArray)
+                //Set keywords
+                setKeyWords(value)
 
+                //Set Count # of keywords for pie chart
+
+                //Set keywords and Y value into data object for pie chart
                 const newData = keyWords.map(keyword => ({ y: 25, x: keyword }));
-
                 setData(newData);
-                console.log(data) 
+                console.log(data)
 
-            } 
+            }
         } catch (e) {
             console.log("error!")
         }
@@ -32,7 +35,7 @@ const DonutChart = () => {
     useEffect(() => {
 
         getData();
-    }, []); 
+    }, []);
 
     const [selectedSlice, setSelectedSlice] = useState(null);
     const colorScale = ["#96D1EA", "#F5E79D", "#9792C7", "#FFCD6C", "#FFA39F", "#91BD70"];
@@ -95,6 +98,7 @@ const DonutChart = () => {
 
     return (
         <View style={styles.container}>
+
             <VictoryPie
                 data={data}
                 colorScale={colorScale}
@@ -112,6 +116,7 @@ const DonutChart = () => {
                     },
                 }]}
             />
+
         </View>
     );
 };
