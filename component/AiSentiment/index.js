@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
@@ -20,6 +20,8 @@ const AiSent = ({ username }) => {
   const [statsKeyWords, setStatsKeyWords] = useState("")
 
 
+
+  //Mascot Displayed
   const [selectedMascot, setSelectedMascot] = useState("Panda");
 
   const mascotData = {
@@ -70,8 +72,10 @@ const AiSent = ({ username }) => {
     getSelectedMascot();
   }, []);
 
+
+  //Save Journal Entry 
   const handleSave = () => {
-    saveJournalEntry(username, { content: text, timestamp: Date.now()});
+    saveJournalEntry(username, { content: text, timestamp: Date.now() });
     setJournalEntry('');
   }
 
@@ -133,18 +137,26 @@ const AiSent = ({ username }) => {
         paragraph += `This entry encapsulates a sense of ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions. Here are some recommendations you may consider to alleviate these ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions: `;
         setParagraph(paragraph);
 
-        const keywordsPos = ['happy', 'excited', 'motivated, high energy', 'calm', 'relaxed'];
-        const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed'];
+        const keywordsPos = ['happy', 'excited', 'motivated', 'high energy', 'calm', 'relaxed', 'gratitude', 'joy', 'serenity', 'empowered', 'inspired', 'hopeful', 'love', 'bliss', 'harmony', 'courage', 'triumph', 'abundance', ' content', 'fulfilled', 'optimistic', 'healing', 'success', 'good', 'appreciation', 'growth'];
+        const keywords = ['tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed', 'anguished', 'despair', 'frustrated', 'lonely', 'anxious', 'depressed', 'regret', 'resent', 'sorrow', 'grief', 'stress', 'confused', 'envious', 'bitter', 'rejected', 'guilty', 'irritated', 'melancholy', 'pessimistic'];
         const recommendations = [];
 
         keywords.forEach((keyword) => {
           if (text.toLowerCase().includes(keyword)) {
-            if (keyword === 'tired') {
+            if (keyword === 'tired' || keyword === 'low energy' || keyword === 'anxious') {
               recommendations.push('Sleeping Early');
-            } else if (keyword === 'low energy') {
-              recommendations.push('Sleeping Early', 'Exercise');
-            } else if (keyword === 'stressed') {
-              recommendations.push('Practice Self-Care', 'Exercise')
+            }
+            if (keyword === 'low energy' || keyword === 'irritated' || keyword === 'confused' || keyword === 'stress' || keyword === 'stressed' || keyword === 'depressed' || keyword === 'lazy' || keyword === 'anxious') {
+              recommendations.push('Exercise');
+            }
+            if (keyword === 'stressed' || keyword === 'pessimistic' || keyword === 'envious' || keyword === 'guilty' || keyword === 'stress' || keyword === 'angry' || keyword === 'grief' || keyword === 'sorrow' || keyword === 'anxious' || keyword === 'depressed' || keyword === 'sad' || keyword === 'anguised' || keyword === 'frustrated' || keyword === 'regret') {
+              recommendations.push('Practice Self-Care')
+            }
+            if (keyword === 'unmotivated' || keyword === 'confused' || keyword === 'melancholy' || keyword === 'lonely' || keyword === 'anxious') {
+              recommendations.push('Engage in Hobbies')
+            }
+            if (keyword === 'angry' || keyword === 'sorrow' || keyword === 'pessimistic' || keyword === 'bitter' || keyword === 'rejected' || keyword === 'grief' || keyword === 'dissapointed' || keyword === 'resent' || keyword === 'depressed' || keyword === 'sad' || keyword === 'anguised' || keyword === 'despair' || keyword === 'frustrated' || keyword === 'lonely' || keyword === 'regret') {
+              recommendations.push('Talk it Out')
             }
           }
         });
@@ -231,6 +243,7 @@ const AiSent = ({ username }) => {
           placeholder="Start typing..."
           placeholderTextColor="#292929"
           keyboardType="default"
+          multiline={true}
         />
         <Button title="Save Journal Entry" onPress={handleSave} />
         <TagEntryBtn />
@@ -253,29 +266,48 @@ const AiSent = ({ username }) => {
         {keyWordsPos ? <Text>Positive phrases: {keyWordsPos}</Text> : null}
         {keyWordsNeg ? <Text>Negative phrases: {keyWordsNeg}</Text> : null}
         {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
-        <View style={styles.recCon}>
-          {showRecommendations.includes('Sleeping Early') ? (
-            <RecommendationButton
-              image={require('../../atom/Mascots/otterSleep.png')}
-              text="Sleeping Early"
-              navigate="Sleeping"
-            />
-          ) : null}
-          {showRecommendations.includes('Exercise') ? (
-            <RecommendationButton
-              image={require('../../atom/Mascots/pandaExercise.png')}
-              text="Exercise"
-              navigate="Recommendations"
-            />
-          ) : null}
-          {showRecommendations.includes('Practice Self-Care') ? (
-            <RecommendationButton
-              image={require('../../atom/Mascots/frogMeditate.png')}
-              text="Practice Self-Care"
-              navigate="SelfCare"
-            />
-          ) : null}
-        </View>
+        <ScrollView
+          horizontal={true}
+          style={{ paddingBottom: 15 }}
+        >
+          <View style={styles.recCon}>
+            {showRecommendations.includes('Sleeping Early') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/otterSleep.png')}
+                text="Sleeping Early"
+                navigate="Sleeping"
+              />
+            ) : null}
+            {showRecommendations.includes('Exercise') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/pandaExercise.png')}
+                text="Exercise"
+                navigate="Recommendations"
+              />
+            ) : null}
+            {showRecommendations.includes('Practice Self-Care') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/frogMeditate.png')}
+                text="Practice Self-Care"
+                navigate="SelfCare"
+              />
+            ) : null}
+            {showRecommendations.includes('Engage in Hobbies') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/slothKnit.png')}
+                text="Engage In Hobbies"
+                navigate="Hobbies"
+              />
+            ) : null}
+            {showRecommendations.includes('Talk it Out') ? (
+              <RecommendationButton
+                image={require('../../atom/Mascots/slothPhone.png')}
+                text="Talk It Out"
+                navigate="TalkItOut"
+              />
+            ) : null}
+          </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );

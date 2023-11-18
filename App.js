@@ -60,6 +60,7 @@ import CustomizeJournal from './screens/CustomizeJournal'
 import FirebaseTest from './screens/FirebaseTest'
 import JournalListPage from './screens/JournalListPage';
 import JournalViewPage from './screens/JournalViewPage';
+import TalkItOut from './screens/TalkItOut';
 
 export default function App() {
 
@@ -151,6 +152,7 @@ export default function App() {
             <Stack.Screen name="FirebaseTest" component={FirebaseTest} />
             <Stack.Screen name="JournalListPage" component={JournalListPage} />
             <Stack.Screen name="JournalViewPage" component={JournalViewPage} />
+            <Stack.Screen name="TalkItOut" component={TalkItOut} />
 
 
 

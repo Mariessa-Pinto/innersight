@@ -8,7 +8,7 @@ import RecData from '../data/RecData';
 import fontContext from '../theme/fontContext';
 import LottieView from 'lottie-react-native';
 
-export default function Recommendations({ navigation }) {
+export default function TalkItOut({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -19,10 +19,10 @@ export default function Recommendations({ navigation }) {
     const [data, setData] = useState('');
 
     //Animation
-    const animation = require('../atom/assets/Animations/sloth-hobbies.json');
+    const animation = require('../atom/assets/Animations/sloth-talking.json');
 
     useEffect(() => {
-        setData(RecData.hobbies)
+        setData(RecData.talk)
     }, [])
 
 
@@ -34,7 +34,7 @@ export default function Recommendations({ navigation }) {
                         source={animation}
                         autoPlay
                         loop
-                        style={{ marginTop: -250 }}
+                        style={{ marginTop: -160 }}
                     />
                     {
                         data && data.map((item, index) => {
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
         gap: 15
     },
     animationContainer: {
-        marginTop: 170,
+        marginTop: 180,
     },
 });

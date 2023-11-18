@@ -38,7 +38,6 @@ export default function WriteEntry({ navigation }) {
                             <Text style={[styles.headerText, globalStyles.h1TextBold]}>Positive Thoughts</Text>
                             <Text style={globalStyles.h4TextLight}>September 23, 2023 at 9:30PM</Text>
                         </View>
-
                         <View style={styles.prompt}>
                             <Text style={globalStyles.labelText}>Today's Prompt</Text>
                             <Text style={globalStyles.captionText}>{newPrompt[promptNum]} </Text>
@@ -47,7 +46,6 @@ export default function WriteEntry({ navigation }) {
                                     onPress={handleNewPrompt}>
                                     <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
                                 </TouchableOpacity>
-
                             </View>
                         </View>
                         <AiSent username="anika"/>
