@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import globalStyles from '../../styles/global';
+import themeContext from '../../theme/themeContext';
+
+import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const ExtraLargeBtnLightTxt = (props) => {
+
+  //Dark/Light Mode
+  const [darkMode, setDarkMode] = useState(false)
+  const theme = useContext(themeContext)
+
+  //Navigation
   const navigation = useNavigation();
 
   const [pressed, setPressed] = useState(false);
@@ -17,7 +26,7 @@ const ExtraLargeBtnLightTxt = (props) => {
       onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={[globalStyles.bodyCopy, { color: '#FDFDFD'}]}>{props.text}</Text>
       </View>
     </TouchableWithoutFeedback>
   );

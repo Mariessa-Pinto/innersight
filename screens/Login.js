@@ -36,19 +36,19 @@ export default function Login() {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.container}>
                         <View style={styles.titleContainer}>
-                            <Text style={styles.title}>Log In</Text>
-                            <Text>Please log in to your account to continue.</Text>
+                            <Text style={[globalStyles.h1TextBold, { color: theme.color}]}>Log In</Text>
+                            <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Please log in to your account to continue.</Text>
                         </View>
                         <LoginForm />
                         <ExtraLargeBtnLightTxt
-                            text="Login"
+                            text="Log In"
                             navigate="Home"
                         />
-                        <Text style={styles.password} onPress={navigateToFirebase}>FirebaseTest</Text>
-                        <Text style={styles.password} onPress={navigateToForgot}>Forgot Your Password?</Text>
-                        <Text style={styles.account}>Don't have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign up.</Text></Text>
-                        <Text>or</Text>
-                        <Text style={styles.guest} onPress={navigateHome}>Continue as Guest</Text>
+                        <Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateToFirebase}>FirebaseTest</Text>
+                        <Text style={[globalStyles.boldBody, { color: theme.color, marginTop: 40, marginBottom: 30}]}  onPress={navigateToForgot}>Forgot Your Password?</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Don't have an account?<Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateTo}> Sign up.</Text></Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>or</Text>
+                        <Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateHome}>Continue as Guest</Text>
                     </View>
                 </View>
             </ScrollView>

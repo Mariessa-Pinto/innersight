@@ -1,9 +1,19 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import globalStyles from '../../styles/global'
+
+import themeContext from '../../theme/themeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { useState, useContext } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 const ChooseMascotMol = () => {
+
+    //Dark/Light Mode
+    const [darkMode, setDarkMode] = useState(false)
+    const theme = useContext(themeContext)
+
+    //Select Mascot
     const [selectedMascot, setSelectedMascot] = useState(null);
 
     const handleMascotSelect = async (mascotName) => {
@@ -39,7 +49,7 @@ const ChooseMascotMol = () => {
         },
         Frog: {
             image: require('../../atom/Mascots/Frog.png'),
-            width: 107,
+            width: 107, 
             height: 88,
             backgroundWidth: '140%',
             backgroundHeight: '81%',
@@ -87,7 +97,7 @@ const ChooseMascotMol = () => {
                         height: mascot.height,
                     }}
                 />
-                <Text>{mascotName}</Text>
+                <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{mascotName}</Text>
             </TouchableOpacity>
         );
     }

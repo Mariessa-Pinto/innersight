@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
@@ -16,19 +16,16 @@ export default function EmailSent() {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <View style={globalStyles.contentContainer}>
-                        <StatusBar style="auto" />
                         <View style={styles.container}>
                             <View style={styles.titleContainer}>
-                                <Text style={styles.title}>Email Sent</Text>
-                                <Text>Please check your email for a link to reset your password.</Text>
+                                <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Email Sent</Text>
+                                <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please check your email for a link to reset your password.</Text>
                             </View>
                             <ExtraLargeBtnLightTxt
                                 text="Return to Log In"
                                 navigate="Login"
                             />
                         </View>
-                    </View>
                     </View>
             </ScrollView>
         </View>
@@ -52,7 +49,7 @@ const styles = StyleSheet.create({
     titleContainer: {
         display: "flex",
         alignItems: 'flex-start',
-        width: 280,
+        width: 320,
         paddingTop: 200,
         gap: 10,
         paddingBottom: 40

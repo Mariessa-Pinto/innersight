@@ -1,11 +1,13 @@
 import globalStyles from '../styles/global';
+import themeContext from '../theme/themeContext';
+
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import themeContext from '../theme/themeContext';
+import { useNavigation } from '@react-navigation/native';
+
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt';
 import LottieView from 'lottie-react-native';
-import { useNavigation } from '@react-navigation/native';
 
 export default function Start() {
 
@@ -43,8 +45,9 @@ export default function Start() {
                         navigate="Login"
                     />
                     <TouchableOpacity onPress={navigateTo} style={styles.guestButton}>
-                        <Text style={styles.text}>or</Text>
-                        <Text style={styles.text}>Continue as Guest</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center'}]}>or</Text>
+
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center'}]}>Continue as Guest</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -75,7 +78,4 @@ const styles = StyleSheet.create({
     guestButton: {
         marginTop: 10
     },
-    text: {
-        textAlign: 'center'
-    }
 })

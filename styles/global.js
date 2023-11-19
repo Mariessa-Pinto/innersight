@@ -40,6 +40,10 @@ export default StyleSheet.create({
         fontFamily: 'Lexend-SemiBold',
         fontSize: 15,
     },
+    boldBody: {
+        fontFamily: 'Lexend-SemiBold',
+        fontSize: 14,
+    },
     bodyCopy:{
         fontFamily: 'Lexend-Regular',
         fontSize: 14,
