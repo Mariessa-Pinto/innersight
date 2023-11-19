@@ -1,10 +1,13 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { useState, useContext } from 'react';
-import { useNavigation } from '@react-navigation/native';
+
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import ChooseMascotMol from '../molecules/ChooseMascotMol/ChooseMascotMol';
+
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { useState, useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -13,10 +16,14 @@ export default function ChooseMascot() {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+
+    //Navigation
     const navigation = useNavigation();
+
+    //Mascot Select
     const [selectedMascot, setSelectedMascot] = useState(null);
 
-    const pandaMascot =  require('../atom/Mascots/Panda.png');
+    const pandaMascot = require('../atom/Mascots/Panda.png');
 
     const handleContinue = () => {
         if (selectedMascot) {
@@ -25,8 +32,6 @@ export default function ChooseMascot() {
             navigation.navigate('AiSent', { pandaMascot })
         }
     };
-
-    //Add functionality to click and have the orange background appear around the users pick of mascot
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>

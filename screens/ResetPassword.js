@@ -1,7 +1,6 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import SetPasswordForm from '../molecules/SetPasswordForm/SetPasswordForm';
@@ -19,8 +18,8 @@ export default function ResetPassword() {
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.container}>
                     <View style={styles.titleContainer}>
-                        <Text style={[globalStyles.h1TextBold]}>Set Your Password</Text>
-                        <Text>Please input your new password below.</Text>
+                        <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Set Your Password</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please input your new password below.</Text>
                     </View>
                     <SetPasswordForm />
                     <ExtraLargeBtnLightTxt
@@ -40,18 +39,10 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    signIn: {
-        fontWeight: '700',
-    },
-    title: {
-        fontSize: 28,
-        fontWeight: '700',
-        textAlign: 'left'
-    },
     titleContainer: {
         display: "flex",
         alignItems: 'flex-start',
-        width: 280,
-        paddingTop: 150,
+        width: 320,
+        paddingTop: 120,
     },
 })

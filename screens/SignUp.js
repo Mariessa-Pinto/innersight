@@ -29,16 +29,16 @@ export default function SignUp() {
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <View style={styles.container}>
                     <View style={styles.titleContainer}>
-                        <Text style={styles.title}>Sign Up</Text>
+                        <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Sign Up</Text>
                     </View>
                     <SignUpForm />
                     <ExtraLargeBtnLightTxt
                         text="Sign Up"
                         navigate="ChooseMascot"
                     />
-                    <Text style={styles.account}>Already have an account?<Text style={styles.signIn} onPress={navigateTo}> Sign in.</Text></Text>
-                    <Text>or</Text>
-                    <Text style={styles.guest} onPress={navigateHome}>Continue as Guest</Text>
+                    <Text style={[globalStyles.bodyCopy, { color: theme.color, paddingTop: 30 }]}>Already have an account?<Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateTo}> Sign in.</Text></Text>
+                    <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>or</Text>
+                    <Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateHome}>Continue as Guest</Text>
                 </View>
             </View>
             </ScrollView>

@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
         width: 7,
         height: 11,
     },
-
     touchContainer: {
         zIndex: 1,
         position: 'absolute',
@@ -71,7 +70,6 @@ const styles = StyleSheet.create({
     title: {
         width: '100%',
         textAlign: 'center',
-
     },
     fullBack: {
         width: 30,
@@ -98,10 +96,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
     },
-    align: {
+    align: { 
         marginRight: 20
     }
-
 });
 
 export default Header;

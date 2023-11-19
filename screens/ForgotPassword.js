@@ -1,11 +1,11 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
-import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
+
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import ForgotPasswordForm from '../molecules/ForgotPasswordForm/ForgotPasswordForm';
 
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { useState, useContext } from 'react';
 
 export default function ForgotPassword() {
 
@@ -19,8 +19,8 @@ export default function ForgotPassword() {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.container}>
                         <View style={styles.titleContainer}>
-                            <Text style={styles.title}>Forgot Pasword?</Text>
-                            <Text>Please provide the email associated with your account below. An email with a password reset link will be sent shortly.</Text>
+                            <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Forgot Pasword?</Text>
+                            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please provide the email associated with your account below. An email with a password reset link will be sent shortly.</Text>
                         </View>
                         <ForgotPasswordForm />
                         <ExtraLargeBtnLightTxt
@@ -40,19 +40,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    signIn: {
-        fontWeight: '700',
-    },
-    title: {
-        fontSize: 28,
-        fontWeight: '700',
-        textAlign: 'left'
-    },
     titleContainer: {
         display: "flex",
+        flexDirection: 'column',
         alignItems: 'flex-start',
-        width: 280,
+        width: 330,
         paddingTop: 120,
-        gap: 10
     },
 })
