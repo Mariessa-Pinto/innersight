@@ -11,7 +11,8 @@ import StatRecommendations from '../molecules/StatRecommendations/StatRecommenda
 import DonutChart from '../molecules/DonutChart/DonutChart';
 
 
-export default function Stats({ navigation }) {
+export default function Stats({ navigation, username }) {
+    console.log("Username in Stats: ", username)
     const [darkMode, setDarkMode] = useState(false);
     const theme = useContext(themeContext);
 
@@ -31,7 +32,7 @@ export default function Stats({ navigation }) {
                     <Header title="Your Week in Review" navigation={navigation} />
                     <View style={styles.maincontent}>
                         <DateToggle selectedValue={selectedValue} />
-                        <DonutChart />
+                        <DonutChart username={"anika"}/>
                         <IdentifiedEntries />
                         <StatRecommendations />
                     </View>

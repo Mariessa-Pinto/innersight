@@ -5,54 +5,53 @@ import { VictoryPie, VictoryLabel, VictoryTheme } from "victory-native";
 import { dummy } from '../../data/DummyJournalData'
 //import { useFonts, Lexend_400Regular } from 'expo-font';
 import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
+import { getJournalEntries } from '../../firebase/firebaseService';
 
-const DonutChart = () => {
-
-    //run get data on page load
-    useEffect(() => {
-        getData();
-    }, []);
-
+const DonutChart = ({ username }) => {
+    console.log("Username in donutchart: ", username)
     const [data, setData] = useState()
-
-    const getData = async () => {
-        try {
-            const sentimentsArray = dummy.journals.map(journal => journal.sentiments).flat();
-
-            if (sentimentsArray.length > 0) {
-
-                // Looks thru all journals and count occurrences of each sentiment
-                const sentimentCounts = {};
-                sentimentsArray.forEach(sentiment => {
-                    sentimentCounts[sentiment] = (sentimentCounts[sentiment] || 0) + 1;
-                });
-
-                // sentiments + count into array/object for pie chart
-                const newData = Object.entries(sentimentCounts).map(([sentiment, count]) => ({
-                    y: ((count / (sentimentsArray.length)).toFixed(2) * 100),
-                    x: sentiment,
-                }));
-                setData(newData)
-
-                // Example: Log the sentiment counts
-                console.log(newData);
-            }
-        } catch (e) {
-            console.log("error!")
-        }
-    };
-
     const [selectedSlice, setSelectedSlice] = useState(null);
     const colorScale = ["#96D1EA", "#F5E79D", "#9792C7", "#FFCD6C", "#FFA39F", "#91BD70"];
 
-    const handleSliceClick = (event, props) => {
-        if (selectedSlice === props.index) {
-            // Reset the selected slice if it's clicked again
-            setSelectedSlice(null);
-        } else {
-            setSelectedSlice(props.index);
+
+    //run get data on page load
+    useEffect(() => {
+        const fetchData = async () => {
+            const username = 'anika'
+            try {
+                const journals = await getJournalEntries(username);
+                console.log("Fetched journals: ", journals);
+                processJournalData(journals);
+            } catch (error) {
+                console.error('Error fetching journal entries:', error);
+            }
+        };
+        fetchData();
+    }, [username]);
+
+    const processJournalData = (journals) => {
+        let keywordCounts = {};
+        let totalKeywords = 0;
+
+        Object.values(journals).forEach(entry => {
+            if(Array.isArray(entry.keywords)) {
+            entry.keywords?.forEach(keyword => {
+                keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
+                totalKeywords++;
+            });
         }
+        });
+        const chartData = Object.entries(keywordCounts).map(([keyword, count]) => ({
+            x: keyword,
+            y: (count / totalKeywords * 100).toFixed(2)
+        }));
+        setData(chartData);
+    }
+
+    const handleSliceClick = (event, props) => {
+        setSelectedSlice(selectedSlice === props.index ? null : props.index);
     };
+
 
     //Label Font. This is connected to the app.json "font" object.
     const [fontsLoaded] = useFonts({
