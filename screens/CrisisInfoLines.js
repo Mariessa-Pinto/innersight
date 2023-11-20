@@ -25,8 +25,8 @@ export default function CrisisInfoLines({ navigation }) {
                     <SearchBar placeholder="Search by Name" />
                     <OrganizationCard />
                 </View>
-                <NavBar navigation={navigation} variation='profile' />
             </ScrollView>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }

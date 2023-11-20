@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import globalStyles from '../../styles/global';
 
 const DateToggle = () => {
   const navigation = useNavigation();
@@ -42,7 +43,7 @@ const DateToggle = () => {
         ]}
         onPress={() => handleToggle('Week')}
       >
-        <Text style={selectedValue === 'Week' ? styles.selectedText : null}>Week</Text>
+        <Text style={[selectedValue === 'Week' ? styles.selectedText : null, globalStyles.labelText]}>Week</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -51,7 +52,7 @@ const DateToggle = () => {
         ]}
         onPress={() => handleToggle('Month')}
       >
-        <Text style={selectedValue === 'Month' ? styles.selectedText : null}>Month</Text>
+        <Text style={[selectedValue === 'Month' ? styles.selectedText : null, globalStyles.labelText]}>Month</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
@@ -60,7 +61,7 @@ const DateToggle = () => {
         ]}
         onPress={() => handleToggle('Year')}
       >
-        <Text style={selectedValue === 'Year' ? styles.selectedText : null}>Year</Text>
+        <Text style={[selectedValue === 'Year' ? styles.selectedText : null, globalStyles.labelText]}>Year</Text>
       </TouchableOpacity>
     </View>
   );

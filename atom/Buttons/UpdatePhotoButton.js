@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import globalStyles from '../../styles/global'
 
 const UpdatePhoto = (props) => {
     const [pressed, setPressed] = useState(false);
@@ -10,7 +11,7 @@ const UpdatePhoto = (props) => {
             onPressOut={() => setPressed(false)}
         >
             <View style={[styles.button, pressed && styles.buttonPressed]}>
-                <Text style={styles.text}>{props.text}</Text>
+                <Text style={[globalStyles.btnTextSml, styles.text]}>{props.text}</Text>
             </View>
         </TouchableWithoutFeedback>
     );
@@ -31,7 +32,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#FDFDFD',
-        fontSize: 13,
     },
 });
 

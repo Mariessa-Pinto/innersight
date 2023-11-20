@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../styles/global'
 
 
 
@@ -22,9 +23,9 @@ const CrisisCardBtn = (props) => {
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <View style={styles.txt}>
-        <Text style={styles.headerText}>{props.headerText}</Text>
-        <Text style={styles.num}>{props.numText}</Text>
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={globalStyles.h4TextSemiBold}>{props.headerText}</Text>
+        <Text style={globalStyles.bodyCopy}>{props.numText}</Text>
+        <Text style={globalStyles.captionText}>{props.text}</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -46,26 +47,12 @@ const styles = StyleSheet.create({
   buttonPressed: {
     backgroundColor: '#D5D7FF', // Change the color when pressed
   },
-  headerText: {
-    color: '#292929',
-    fontSize: 15,
-    fontWeight: 'semibold'
-  },
-  num: {
-    color: '#292929',
-    fontSize: 14,
-    fontWeight: 'light'
-  },
-  text: {
-    color: '#292929',
-    fontSize: 12,
-    fontWeight: 'light'
-  },
   txt: {
     gap: 5,
     marginRight: 85,
     marginLeft: 7
   },
+  
 
 });
 

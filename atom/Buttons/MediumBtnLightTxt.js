@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../styles/global';
 
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
@@ -23,7 +24,7 @@ const MediumBtnLightTxt = (props) => {
         onPress={navigateTo}
       >
         <View style={[styles.button, pressed && styles.buttonPressed]}>
-          <Text style={styles.text}>{props.text}</Text>
+          <Text style={[globalStyles.btnTextMed, styles.text]}>{props.text}</Text>
         </View>
       </TouchableWithoutFeedback>
       
@@ -93,7 +94,6 @@ const styles = StyleSheet.create({
   },
   backText: {
     color: '#FDFDFD',
-    fontSize: 14,
   },
 });
 

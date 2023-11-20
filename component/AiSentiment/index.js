@@ -324,6 +324,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#FDFDFD',
     color: '#292929',
+    textAlignVertical: 'top'
   },
   panda: {
     width: 130,

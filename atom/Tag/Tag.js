@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-
+import globalStyles from '../../styles/global';
 
 
 const Tag = (props) => {
@@ -23,7 +23,7 @@ const Tag = (props) => {
  >
    
    <View style={[styles.button, buttonStates[font] && styles.buttonPressed]}>
-     <Text style={[styles.labelTextLight, buttonStates[font] && styles.buttonPressed]}>{props.text}</Text>
+     <Text style={[globalStyles.labelTextLight, buttonStates[font] && styles.buttonPressed]}>{props.text}</Text>
    </View>
 
  </TouchableWithoutFeedback>

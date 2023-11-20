@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../styles/global'
 
 const BottomGreyButton = (props) => {
   const navigation = useNavigation();
@@ -26,7 +27,7 @@ const BottomGreyButton = (props) => {
               :
               ''
           }
-          <Text style={styles.labelTextLight}>{props.text}</Text>
+          <Text style={globalStyles.labelTextLight}>{props.text}</Text>
         </View>
         <View style={styles.rightContent}>
           {

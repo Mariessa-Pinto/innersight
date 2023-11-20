@@ -20,7 +20,7 @@ export default function TagEntryBtn() {
                     style={styles.pass}
                     onPress={toggleInputBoxes}
                     onTouchEnd={toggleInputBoxes}>
-                    <Text style={styles.textTag}>Tag Your Entry</Text>
+                    <Text style={globalStyles.labelText}>Tag Your Entry</Text>
                     <Image source={require('../../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                 </TouchableOpacity>
             </View>
