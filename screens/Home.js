@@ -92,7 +92,8 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
     quickJournal: {
-        borderRadius: 5
+        borderRadius: 5,
+        textAlignVertical: 'top'
     },
     button: {
         height: 50,
