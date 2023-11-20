@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'expo-image'
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../styles/global';
 
 
 const RecommendationButton = (props) => {
@@ -25,7 +26,7 @@ const RecommendationButton = (props) => {
                 style={styles.sleeping}
             />
             </View>
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={globalStyles.labelText}>{props.text}</Text>
        <Image />
       </View>
     </TouchableWithoutFeedback>

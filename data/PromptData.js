@@ -1,5 +1,6 @@
 const PromptData = {
     prompt: [
+    "How are you feeling today?",
     "What is one positive change you can make in your daily routine that would contribute to a more fulfilling and balanced life?",
     "Explore a decision that shaped your path. How did it challenge or affirm your values and goals?",
     "Recall a setback. How did you overcome it, and what did you learn about yourself in the process?",

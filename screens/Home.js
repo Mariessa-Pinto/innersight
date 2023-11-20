@@ -1,16 +1,14 @@
 import globalStyles from '../styles/global'
 
 import { useState, useContext } from 'react';
-import {
-    StyleSheet, Text, View, ScrollView, TextInput, Image,
-    TouchableOpacity
-} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput, Image, TouchableOpacity } from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import MoodBoosters from '../atom/MoodQuickView/MoodBoosters.js'
 import MoodDowners from '../atom/MoodQuickView/MoodDowners.js'
 import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn';
+import data from '../data/PromptData'
 
 export default function Home({ navigation }) {
 
@@ -21,6 +19,18 @@ export default function Home({ navigation }) {
     //Font Size
     const fontTheme = useContext(fontContext)
 
+    //Prompt Function
+    const [newPrompt, setNewPrompt] = useState(data.prompt)
+    const [promptLength, setPromptLength] = useState(newPrompt.length)
+    const [promptNum, setPromptNum] = useState(0)
+    const handleNewPrompt = () =>
+        setPromptNum(Math.floor(Math.random() * (promptLength - 0)));
+
+    const toggleInsights = () => {
+        setShowInsights(!showInsights);
+    }
+
+
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
@@ -28,8 +38,11 @@ export default function Home({ navigation }) {
                     <Text style={[globalStyles.h1TextBold, { color: theme.color, paddingTop: 20 }]}>Good morning, Amaya!</Text>
                     <View style={[styles.journalContainer, { backgroundColor: theme.backgroundPurple }]}>
                         <View style={styles.journalHeader}>
-                            <Text style={[globalStyles.h4TextSemiBold, { color: theme.color }]}>How are you feeling today?</Text>
-                            <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                            <Text style={[globalStyles.h4TextSemiBold, styles.promptWidth, { color: theme.color }]}>{newPrompt[promptNum]}</Text>
+                            <TouchableOpacity
+                                onPress={handleNewPrompt}>
+                                <Image source={require('../atom/icons/RefreshButton.png')} style={styles.refreshBtn} />
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.journalWriting}>
                             <TextInput style={[styles.quickJournal, { backgroundColor: theme.background }]}
@@ -62,11 +75,11 @@ export default function Home({ navigation }) {
         </View>
     );
 }
-         
+
 
 const styles = StyleSheet.create({
     journalContainer: {
-        height: 176,
+        height: 'auto',
         width: '100%',
         borderRadius: 15,
         padding: 16,
@@ -87,13 +100,16 @@ const styles = StyleSheet.create({
     },
     refreshBtn: {
         objectFit: 'contain',
+
     },
     journalHeader: {
+        width: '100%',
         flex: 1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 10,
     },
     boosterContainers: {
         display: 'flex',
@@ -105,6 +121,9 @@ const styles = StyleSheet.create({
         bottom: 5,
         right: 10
 
+    },
+    promptWidth:{
+        width: '85%'
     }
 
 })

@@ -40,7 +40,7 @@ export default function WriteEntry({ navigation }) {
                         </View>
                         <View style={styles.prompt}>
                             <Text style={globalStyles.labelText}>Today's Prompt</Text>
-                            <Text style={globalStyles.captionText}>{newPrompt[promptNum]} </Text>
+                            <Text style={[globalStyles.captionText, styles.promptWidth]}>{newPrompt[promptNum]}</Text>
                             <View style={styles.button}>
                                 <TouchableOpacity
                                     onPress={handleNewPrompt}>
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
     },
 
     prompt: {
-        height: 93,
+        height: 'auto',
         width: 328,
         backgroundColor: '#F2F2FD',
         borderRadius: 10,
         elevation: 4,
-        padding: 5
+        padding: 10
     },
 
     content2: {
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
     },
     button: {
         position: 'absolute',
-        right: 0,
-        bottom: 0
+        right: 10,
+        bottom: 5
     },
     input: {
         height: 200,
@@ -96,5 +96,9 @@ const styles = StyleSheet.create({
     textTag: {
         marginLeft: 10
     },
+
+    promptWidth:{
+        width: '85%'
+    }
 
 })
