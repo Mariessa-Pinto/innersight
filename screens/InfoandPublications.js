@@ -30,7 +30,9 @@ export default function InfoandPublications({ navigation }) {
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                 <Header
                     title="Information and Publications"
+                    navigation={navigation} 
                 />
+
                 <View style={styles.content}>
                     <SearchBar
                         placeholder="Search by Publications"

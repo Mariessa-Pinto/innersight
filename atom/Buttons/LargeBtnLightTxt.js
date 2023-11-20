@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../styles/global'
 
 const LargeBtnLightTxt = (props) => {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ const LargeBtnLightTxt = (props) => {
     onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={[globalStyles.btnTextLrg, styles.text]}>{props.text}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -37,7 +38,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#FDFDFD',
-    fontSize: 14,
   },
 });
 

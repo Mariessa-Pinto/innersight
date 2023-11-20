@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import globalStyles from '../../styles/global';
 
 const InsightButton = (props) => {
     const [pressed, setPressed] = useState(false);
@@ -19,7 +20,7 @@ const InsightButton = (props) => {
             activeOpacity={1}
         >
             <View style={[styles.button, pressed && styles.buttonPressed]}>
-                <Text style={styles.text}>{props.text}</Text>
+                <Text style={[styles.text, globalStyles.btnTextLrg]}>{props.text}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#FDFDFD',
-        fontSize: 13,
     },
 });
 

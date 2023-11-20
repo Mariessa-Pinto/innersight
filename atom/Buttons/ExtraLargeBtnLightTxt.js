@@ -26,7 +26,7 @@ const ExtraLargeBtnLightTxt = (props) => {
       onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-        <Text style={[globalStyles.bodyCopy, { color: '#FDFDFD'}]}>{props.text}</Text>
+        <Text style={[globalStyles.btnTextLrg, styles.text]}>{props.text}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#FDFDFD',
-    fontSize: 14,
   },
 });
 

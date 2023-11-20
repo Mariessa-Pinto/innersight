@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image, Touchable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
-import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
-import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
+import globalStyles from '../../styles/global';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 
@@ -38,7 +37,7 @@ const JournalPageCard = (props, { value }) => {
             <View style={styles.textContainer}>
               <View>
                 <View style={styles.titleContainer}>
-                  <Text style={styles.headerText}>{props.headerText}</Text>
+                  <Text style={[globalStyles.h2Text, styles.headerText]}>{props.headerText}</Text>
                   <TouchableWithoutFeedback
                     onPress={() => { setOverlayVisible(true); setOverlayType("settingsOverlay") }}>
                     <View style={styles.touchBox}>
@@ -51,8 +50,7 @@ const JournalPageCard = (props, { value }) => {
                   style={styles.icon}
                 />
               </View>
-
-              <Text style={styles.text}>{props.text}</Text>
+              <Text style={[globalStyles.captionText, styles.text]}>{props.text}</Text>
             </View>
 
           </View>
@@ -81,7 +79,7 @@ const JournalPageCard = (props, { value }) => {
                 <TouchableWithoutFeedback
                   onPress={() => setOverlayType("deleteOverlay")}>
                   <View style={[styles.deleteButton, pressed && styles.deleteButtonPressed]}>
-                    <Text style={styles.deleteText}>Delete Journal</Text>
+                    <Text style={[globalStyles.btnTextLrg, styles.deleteText]}>Delete Journal</Text>
                   </View>
                 </TouchableWithoutFeedback>
               </View>
@@ -92,18 +90,18 @@ const JournalPageCard = (props, { value }) => {
                 <View style={styles.container}>
                   <View style={styles.inside}>
                     <View style={styles.line} />
-                    <Text>Are you sure you want to delete this entry?</Text>
+                    <Text style={globalStyles.h4TextLight}>Are you sure you want to delete this entry?</Text>
                     <View style={styles.confirmButtons}>
                       <TouchableWithoutFeedback
                         onPress={() => setOverlayType("confirmDeleteOverlay")}>
                         <View style={[styles.deleteConfirmButtonDark, pressed && styles.deleteButtonPressed]}>
-                          <Text style={styles.deleteTextLight}>Yes, delete it</Text>
+                          <Text style={[globalStyles.btnTextMed, styles.deleteTextLight]}>Yes, delete it</Text>
                         </View>
                       </TouchableWithoutFeedback>
                       <TouchableWithoutFeedback
                         onPress={() => setOverlayVisible(!isOverlayVisible)}>
                         <View style={[styles.deleteConfirmButtonLight, pressed && styles.deleteButtonPressed]}>
-                          <Text style={styles.deleteText}>Cancel</Text>
+                          <Text style={[globalStyles.btnTextMed, styles.deleteText]}>Cancel</Text>
                         </View>
                       </TouchableWithoutFeedback>
                     </View>
@@ -113,11 +111,11 @@ const JournalPageCard = (props, { value }) => {
                 <View style={styles.container}>
                   <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Your Journal has been deleted.</Text>
+                    <Text style={globalStyles.h4TextLight}>Your Journal has been deleted.</Text>
                     <TouchableWithoutFeedback
                       onPress={() => setOverlayVisible(!isOverlayVisible)}>
                       <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
-                        <Text style={styles.deleteTextLight}>Go to Journal Overview</Text>
+                        <Text style={[globalStyles.btnTextLrg, styles.deleteTextLight]}>Go to Journal Overview</Text>
                       </View>
                     </TouchableWithoutFeedback>
                   </View>
@@ -162,13 +160,10 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#525585',
-    fontSize: 22,
 
   },
   text: {
-    color: '#292929',
-    fontSize: 12,
-    fontWeight: 'light',
+    color: '#292929'
 
   },
   textContainer: {
@@ -246,7 +241,6 @@ const styles = StyleSheet.create({
   },
   deleteText: {
     color: '#3E3F42',
-    fontSize: 14,
   },
   deleteTextLight: {
     color: '#FDFDFD',
