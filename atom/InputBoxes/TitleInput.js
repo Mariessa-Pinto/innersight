@@ -15,6 +15,7 @@ const TitleInput = (props) => {
         value={props.value}
         placeholder={props.text}
         keyboardType="default"
+        blurOnSubmit={true}
       />
     
     </SafeAreaView>

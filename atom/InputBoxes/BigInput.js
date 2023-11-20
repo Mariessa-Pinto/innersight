@@ -16,6 +16,7 @@ const BigInput = () => {
         placeholder="Start typing..."
         placeholderTextColor={"#292929"}
         keyboardType='default'
+        blurOnSubmit={true}
       />
     
     </SafeAreaView>
