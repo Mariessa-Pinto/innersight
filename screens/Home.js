@@ -35,6 +35,7 @@ export default function Home({ navigation }) {
                             <TextInput style={[styles.quickJournal, { backgroundColor: theme.background }]}
                                 multiline
                                 numberOfLines={6}
+                                blurOnSubmit={true}
                             />
                         </View>
                         <TouchableOpacity style={styles.saveBtn} >

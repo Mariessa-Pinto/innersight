@@ -13,6 +13,7 @@ const NormalInput = (props) => {
         value={text}
         placeholder={props.placeholder}
         keyboardType="default"
+        blurOnSubmit={true}
       />
     </View>
   );

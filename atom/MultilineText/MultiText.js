@@ -20,6 +20,7 @@ const MultiText = () => {
         onChangeText={text => onChangeText(text)}
         value={value}
         style={{padding: 10}}
+        blurOnSubmit={true}
       />
     </View>
   );

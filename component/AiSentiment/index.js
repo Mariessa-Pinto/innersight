@@ -244,6 +244,7 @@ const AiSent = ({ username }) => {
           placeholderTextColor="#292929"
           keyboardType="default"
           multiline={true}
+          blurOnSubmit={true}
         />
         <Button title="Save Journal Entry" onPress={handleSave} />
         <TagEntryBtn />
