@@ -8,7 +8,7 @@ import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
 import { saveJournalEntry } from '../../firebase/firebaseService';
 
 
-const AiSent = ({ username }) => {
+const AiSent = ({ username, entryContent }) => {
   const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
@@ -233,7 +233,6 @@ const AiSent = ({ username }) => {
   };
 
 
-
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -245,8 +244,8 @@ const AiSent = ({ username }) => {
           keyboardType="default"
           multiline={true}
           blurOnSubmit={true}
+          value={entryContent}
         />
-        <Button title="Save Journal Entry" onPress={handleSave} />
         <TagEntryBtn />
         <InsightButton
           text="View Ai Insights"
@@ -309,10 +308,13 @@ const AiSent = ({ username }) => {
             ) : null}
           </View>
         </ScrollView>
+        <InsightButton
+          text="Save Entry"
+          onPress={handleSave}
+        />
       </View>
     </SafeAreaView>
   );
-
 };
 
 const styles = StyleSheet.create({
