@@ -18,26 +18,25 @@ const JournalToggle = (props) => {
   const handleToggle = (value) => {
     setSelectedValue(value);
     if (value === 'Entries') {
-      navigation.navigate('Entries');
+      navigation.navigate('JournalListPage');
     } else {
       navigation.navigate('JournalsEntries')
     }
   };
 
- 
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.btn, selectedValue === 'Entries' && styles.selectedBtn]}
-        onPress={() => 
+        onPress={() =>
           handleToggle('Entries')}
       >
         <Text style={selectedValue === 'Entries' && styles.selectedText}>Entries</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.btn, selectedValue === 'Journals' && styles.selectedBtn]}
-        onPress={() => 
+        onPress={() =>
           handleToggle('Journals')}
       >
         <Text style={selectedValue === 'Journals' && styles.selectedText}>Journals</Text>
