@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import globalStyles from '../../styles/global';
 import { Image } from 'expo-image';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import JournalToggle from '../../atom/WordToggle/JournalToggle';
 import EntrySettings from '../Navigation/EntrySettings';
+
+import themeContext from '../../theme/themeContext';
 
 
 const Header = ({
@@ -13,6 +15,10 @@ const Header = ({
     overlayType,
     type }) => {
     const [pressed, setPressed] = useState(false);
+
+        //Dark/Light Mode
+    const theme = useContext(themeContext);
+
 
 
     return (
@@ -35,7 +41,7 @@ const Header = ({
                 title === "journalToggle" ?
                     <JournalToggle styles={styles.title} navigation={navigation} type={type} />
                     :
-                    <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
+                    <Text style={[styles.title, globalStyles.h3Text, {color: theme.color}]}>{title}</Text>
             }
             {
                 settings ?

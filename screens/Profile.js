@@ -27,7 +27,7 @@ export default function Profile({ navigation }) {
                                 style={styles.otter}
                             />
                         </View>
-                        <Text style={globalStyles.h1TextBold}>Amaya Lee</Text>
+                        <Text style={[globalStyles.h1TextBold, {color: theme.color}]}>Amaya Lee</Text>
                     </View>
 
                     <View style={styles.stats}>
@@ -36,20 +36,20 @@ export default function Profile({ navigation }) {
                         <QuickStatsCard metric="190,809" label="Words Written" />
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
                             Settings
                         </Text>
                         <ProfileGreyButtons section="settings" />
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
                             Support
                         </Text>
                         <ProfileGreyButtons section="support" />
 
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
                             Legal
                         </Text>
                         <ProfileGreyButtons section="legal" />

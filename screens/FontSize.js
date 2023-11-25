@@ -25,7 +25,7 @@ export default function FontSize({ navigation }) {
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
             <Header title='Font Size' navigation={navigation} />
                 <View style={styles.fontContainer}>
-                    <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize }]}>
+                    <Text style={[styles.textExample, globalStyles.bodyCopy, { fontSize: fontTheme.fontSize, color: theme.color }]}>
                         This is an example of how large your font size will be.
                     </Text>
                 </View>
@@ -33,7 +33,7 @@ export default function FontSize({ navigation }) {
                     <Slider
                         style={[styles.slider]}
                         minimumValue={0}
-                        maximumValue={4}
+                        maximumValue={4} 
                         step={1}
                         value={fontSize}
                         onValueChange={(value) => {
@@ -45,8 +45,8 @@ export default function FontSize({ navigation }) {
                         maximumTrackTintColor={theme.sliderTrackColorMax}
                     />
                     <View style={styles.anchorText}>
-                        <Text style={{ fontSize: 14, fontWeight: 'bold' }}>A</Text>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>A</Text>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: theme.color }}>A</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: theme.color }}>A</Text>
                     </View>
                 </View>
             </View>

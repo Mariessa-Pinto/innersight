@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import globalStyles from '../../styles/global'
+import themeContext from '../../theme/themeContext';
 
 const BottomGreyButton = (props) => {
   const navigation = useNavigation();
@@ -10,13 +11,18 @@ const BottomGreyButton = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+
+    //Dark/Light Mode
+    const [darkMode, setDarkMode] = useState(false)
+    const theme = useContext(themeContext)
+
   return (
     <TouchableWithoutFeedback
     onPressIn={() => setPressed(true)}
     onPressOut={() => setPressed(false)}
     onPress={navigateTo}
     >
- <View style={[styles.button, pressed && styles.buttonPressed]}>
+ <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
         <View style={styles.leftContent}>
           {
             props.image ?
@@ -27,17 +33,27 @@ const BottomGreyButton = (props) => {
               :
               ''
           }
-          <Text style={globalStyles.labelTextLight}>{props.text}</Text>
+          <Text style={[globalStyles.labelTextLight, {color: theme.color}]}>{props.text}</Text>
         </View>
         <View style={styles.rightContent}>
-          {
-            props.arrow ?
+        {
+            theme.theme === "light" && props.arrow ?
               <Image
                 source={require('../../atom/assets/settingicons/Arrow.png')}
                 style={styles.arrow}
               />
               :
-              ""
+              <>
+                {
+                  theme.theme === "dark" && props.arrow ?
+                    <Image
+                      source={require('../../atom/assets/settingicons/darkMode/Arrow.png')}
+                      style={styles.arrow}
+                    />
+                    :
+                    ""
+                }
+              </>
           }
         </View>
       </View>

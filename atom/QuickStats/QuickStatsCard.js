@@ -1,6 +1,8 @@
 import * as React from 'react';
 import globalStyles from '../../styles/global';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useState, useContext } from 'react';
+import themeContext from '../../theme/themeContext';
 
 
 
@@ -9,11 +11,15 @@ export default function QuickStatsCard({
   label
 }) {
 
+      //Dark/Light Mode
+      const [darkMode, setDarkMode] = useState(false)
+      const theme = useContext(themeContext)
+
 
   return (
-    <View style={styles.statview}>
-      <Text style={globalStyles.h2Text}>{metric}</Text>
-      <Text style={globalStyles.labelText}>
+    <View style={[styles.statview, {backgroundColor: theme.periwinkleLight}]}>
+      <Text style={[globalStyles.h2Text, {color: theme.color}]}>{metric}</Text>
+      <Text style={[globalStyles.labelText, {color: theme.color}]}>
         {label}
       </Text>
     </View>
@@ -22,7 +28,6 @@ export default function QuickStatsCard({
 
 const styles = StyleSheet.create({
   statview: {
-    backgroundColor: "#C5C7F7",
     borderRadius: 20,
     height: 110,
     width: 110,
