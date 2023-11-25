@@ -47,7 +47,7 @@ export default function JournalListPage() {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <Header title="journalToggle" settings={true} navigation={navigation} overlayType="entriesList" />
+                    <Header title="journalToggle" settings={true} type="Entries" navigation={navigation} overlayType="entriesList" />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                     </View>
@@ -93,7 +93,7 @@ export default function JournalListPage() {
                                             <View style={styles.txt}>
                                                 <View style={styles.title}>
                                                     <View style={styles.heading}>
-                                                        <Text style={globalStyles.h3TextSemiBold}>{item.content}</Text>
+                                                        <Text style={[globalStyles.h3TextSemiBold, styles.cardHeader]}>{item.content}</Text>
                                                         <Image
                                                             source={require('../atom/icons/Lock.png')}
                                                             style={styles.icon}
@@ -114,22 +114,23 @@ export default function JournalListPage() {
                                             </View>
                                         </View>
                                     </TouchableWithoutFeedback>
-                                    <GestureRecognizer
-                                        style={{ flex: 1 }}
-                                        onSwipeDown={() => setOverlayVisible(false)}
-                                    >
-                                        <Modal
-                                            isVisible={isOverlayVisible}
-                                            onBackdropPress={() => setOverlayVisible(false)}
-                                            directionalOffsetThreshold={20}
-                                        >
-                                            <EntrySpecOverlay />
-                                        </Modal>
-                                    </GestureRecognizer>
+
                                 </View>
                             )}
                         />
                     </View>
+                    <GestureRecognizer
+                        style={{ flex: 1 }}
+                        onSwipeDown={() => setOverlayVisible(false)}
+                    >
+                        <Modal
+                            isVisible={isOverlayVisible}
+                            onBackdropPress={() => setOverlayVisible(false)}
+                            directionalOffsetThreshold={20}
+                        >
+                            <EntrySpecOverlay />
+                        </Modal>
+                    </GestureRecognizer>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />
@@ -149,18 +150,21 @@ const styles = StyleSheet.create({
         gap: 12,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20
+        marginTop: 20,
+    },
+    cardHeader:{
+        width: '85%',
     },
     button: {
-        width: '100%',
-        height: 115,
+        width: '98%',
+        paddingVertical: 10,
         borderRadius: 10,
         backgroundColor: '#F6F6F6',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 7,
         borderColor: '#F6F6F6',
-        borderWidth: 1
+        borderWidth: 1,
     },
     tapBox: {
         height: 30,
@@ -202,6 +206,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 10
+        gap: 10,
     }
 })

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import globalStyles from '../../styles/global';
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import * as Font from 'expo-font';
 
@@ -46,7 +47,7 @@ const TypeButton = () => {
          <View style={[buttonStates[font] && styles.buttonPressed]}>
             <View style={styles.button}>
                <Text style={styles.letter}>aA</Text>
-               <Text style={styles.fontName}>{label}</Text>
+               <Text style={[styles.fontName, globalStyles.bodyCopy]}>{label}</Text>
             </View>
          </View>
       </TouchableWithoutFeedback>

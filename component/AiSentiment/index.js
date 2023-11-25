@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, ScrollView } from 'react-native'
 import React from 'react'
+import globalStyles from '../../styles/global';
 import { useState, useEffect } from 'react'
 import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -127,7 +128,7 @@ const AiSent = ({ username, entryContent }) => {
         } else {
           responseText = `It looks like you're feeling rather neutral from this journal entry.`
         }
-        responseText += `I've highlighted all the different sections you indicated feeling ${sentiment ? 'negative' : 'positive'}.\n`;
+        responseText += ` I've highlighted all the different sections you indicated feeling ${sentiment ? 'negative' : 'positive'}.\n`;
         responseText += `These emotions made up ${Math.round(rate * 100)}% of your overall entry today.\n`;
         // responseText += `You mentioned ${numSegments} different sections in your entry today.\n`;
         setResponse(responseText);
@@ -245,6 +246,7 @@ const AiSent = ({ username, entryContent }) => {
           multiline={true}
           blurOnSubmit={true}
           value={entryContent}
+          
         />
         <TagEntryBtn />
         <InsightButton
@@ -261,11 +263,11 @@ const AiSent = ({ username, entryContent }) => {
               source={mascotData[selectedMascot].image}
             /> : null}
           </View>
-          {response ? <Text style={styles.respText}>{response}</Text> : null}
+          {response ? <Text style={[styles.respText, globalStyles.bodyCopy]}>{response}</Text> : null}
         </View>
-        {keyWordsPos ? <Text>Positive phrases: {keyWordsPos}</Text> : null}
-        {keyWordsNeg ? <Text>Negative phrases: {keyWordsNeg}</Text> : null}
-        {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
+        {keyWordsPos ? <Text style={globalStyles.bodyCopy}>Positive phrases: {keyWordsPos}</Text> : null}
+        {keyWordsNeg ? <Text style={globalStyles.bodyCopy}>Negative phrases: {keyWordsNeg}</Text> : null}
+        {paragraph ? <Text style={globalStyles.bodyCopy}>{paragraph}</Text> : null}
         <ScrollView
           horizontal={true}
           style={{ paddingBottom: 15 }}
@@ -326,7 +328,9 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#FDFDFD',
     color: '#292929',
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    fontWeight: 'normal', 
+    fontFamily: 'Lexend-Regular'
   },
   panda: {
     width: 130,

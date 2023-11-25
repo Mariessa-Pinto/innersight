@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 const ChangesSavedOverlay = () => {
@@ -8,7 +9,7 @@ const ChangesSavedOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Your changes have been saved.</Text>
+                    <Text style={globalStyles.h4TextLight}>Your changes have been saved.</Text>
                     <ExtraLargeBtnLightTxt 
                         text='Go Back'
                         navigate={() => navigation.goBack()}

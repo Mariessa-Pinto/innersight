@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Switch, ScrollView, TextInput } from 'r
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import FaqData from '../molecules/FaqData/FaqData';
+import FaqData from '../data/FaqData';
 import FaqAccordion from '../atom/FaqAccordian/FaqAccordian';
 import Header from '../molecules/Header/Header';
 import SearchBar from '../atom/Search/SearchBar';

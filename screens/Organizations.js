@@ -29,6 +29,7 @@ export default function Organizations({ navigation }) {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header
                         title="Organizations"
+                        navigation={navigation}
                     />
 
                     <View>

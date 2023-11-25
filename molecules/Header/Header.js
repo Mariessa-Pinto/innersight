@@ -10,7 +10,8 @@ const Header = ({
     navigation,
     title,
     settings,
-    overlayType }) => {
+    overlayType,
+    type }) => {
     const [pressed, setPressed] = useState(false);
 
 
@@ -32,7 +33,7 @@ const Header = ({
             </TouchableOpacity>
             {
                 title === "journalToggle" ?
-                    <JournalToggle styles={styles.title} />
+                    <JournalToggle styles={styles.title} navigation={navigation} type={type} />
                     :
                     <Text style={[styles.title, globalStyles.h3Text]}>{title}</Text>
             }
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
     },
-    align: { 
+    align: {
         marginRight: 20
     }
 });

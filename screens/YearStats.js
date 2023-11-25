@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -29,7 +29,10 @@ export default function YearStats({ navigation }) {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title=" Your Year in Review" navigation={navigation} />
                     <View style={styles.maincontent}>
-                        <DateToggle selectedValue={selectedValue} />
+                        <DateToggle 
+                        selectedValue={selectedValue} 
+                        navigation={navigation}
+                        type="Year"/>
                         <DonutChart />
                         <IdentifiedEntries />
                         <StatRecommendations />

@@ -49,7 +49,7 @@ export default function EntrySettings({
                                 />
                                 <ExtraLargeBtnLightTxt
                                     text='Add Tags'
-                                    navigate=''
+                                    navigate='TagManager'
                                 />
                                 <TouchableWithoutFeedback
                                     onPress={() => setOverlayType("deleteEntry")}

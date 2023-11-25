@@ -1,45 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
 
-const JournalToggle = (props) => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const [selectedValue, setSelectedValue] = useState();
-
-  useEffect(() => {
-    if (route.name === 'JournalsEntries') {
-      setSelectedValue('Journals')
-    } else {
-      setSelectedValue('Entries')
-    }
-  }, [route.name])
-
-  const handleToggle = (value) => {
-    setSelectedValue(value);
-    if (value === 'Entries') {
-      navigation.navigate('JournalListPage');
-    } else {
-      navigation.navigate('JournalsEntries')
-    }
-  };
-
+const JournalToggle = ({navigation, type}) => {
+  const [selectedValue, setSelectedValue] = useState("Journals");
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={[styles.btn, selectedValue === 'Entries' && styles.selectedBtn]}
-        onPress={() =>
-          handleToggle('Entries')}
+        style={[styles.btn, type === 'Entries' && styles.selectedBtn]}
+        onPress={() => {setSelectedValue("Entries"); navigation.navigate('JournalListPage')}}
       >
-        <Text style={selectedValue === 'Entries' && styles.selectedText}>Entries</Text>
+        <Text style={type === 'Entries' && styles.selectedText}>Entries</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.btn, selectedValue === 'Journals' && styles.selectedBtn]}
-        onPress={() =>
-          handleToggle('Journals')}
+        style={[styles.btn, type === 'Journals' && styles.selectedBtn]}
+        onPress={() => {setSelectedValue("Journals"); navigation.navigate('JournalsEntries')}}
       >
-        <Text style={selectedValue === 'Journals' && styles.selectedText}>Journals</Text>
+        <Text style={type === 'Journals' && styles.selectedText}>Journals</Text>
       </TouchableOpacity>
     </View>
   );

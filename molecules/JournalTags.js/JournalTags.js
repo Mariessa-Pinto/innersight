@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from 'react-native';
-import NormalInput from '../../atom/InputBoxes/NormalInput'
 
 const JournalTags = () => {
 

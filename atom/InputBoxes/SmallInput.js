@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#FDFDFD",
     color: "#000",
+    fontWeight: 'normal', 
+    fontFamily: 'Lexend-Regular'
   },
   container: {
     backgroundColor: '#00000000',

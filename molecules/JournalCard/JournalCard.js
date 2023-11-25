@@ -8,7 +8,7 @@ const JournalCards = () => {
             image={require('../..//atom/assets/Covers/GreenCover.png')}
             headerText="My Mood"
             text="Tracking my mood changes."
-            navigate="Entries"
+            navigate="JournalListPage"
             />
             <JournalPageCard 
             image={require('../../atom/assets/Covers/OrangeCover.png')}

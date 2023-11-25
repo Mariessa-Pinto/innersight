@@ -27,7 +27,7 @@ export default function Profile({ navigation }) {
                                 style={styles.otter}
                             />
                         </View>
-                        <Text style={styles.header}>Amaya Lee</Text>
+                        <Text style={globalStyles.h1TextBold}>Amaya Lee</Text>
                     </View>
 
                     <View style={styles.stats}>
@@ -101,10 +101,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: 10
-    },
-    header: {
-        fontSize: 28,
-        fontWeight: 'bold'
     },
     stats: {
         display: 'flex',

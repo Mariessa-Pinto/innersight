@@ -8,7 +8,7 @@ const ProfilePicOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Your profile photo has been updated.</Text>
+                    <Text style={globalStyles.h4TextLight}>Your profile photo has been updated.</Text>
                     <ExtraLargeBtnLightTxt 
                         text='Go Back'
                         navigate='PersonalInformation'

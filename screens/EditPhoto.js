@@ -53,7 +53,7 @@ export default function EditPhoto({ navigation }) {
                         />
                     </View>
                     <View style={styles.subHeadBox}>
-                        <Text style={styles.subHeading}>Choose Your Photo</Text>
+                        <Text style={[styles.subHeading, globalStyles.labelText]}>Choose Your Photo</Text>
                     </View>
                     <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
                         {profilePictureOptions.map((option, index) => (
@@ -74,7 +74,7 @@ export default function EditPhoto({ navigation }) {
                     <TouchableWithoutFeedback
                         onPress={() => setOverlayVisible(!isOverlayVisible)}>
                         <View style={[styles.button, pressed && styles.buttonPressed]}>
-                            <Text style={styles.text}>Update Photo</Text>
+                            <Text style={[styles.text, globalStyles.btnTextMed]}>Update Photo</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
@@ -166,6 +166,5 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#FDFDFD',
-        fontSize: 13,
     },
 })

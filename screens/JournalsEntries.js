@@ -20,11 +20,11 @@ export default function JournalsEntries({ navigation }) {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
         <ScrollView>
             <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title="journalToggle" navigation={navigation}/>
+            <Header title="journalToggle" type="Journals" navigation={navigation}/>
                 <View style={styles.header}>
                     <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Journals</Text>
                 </View>
-                <SearchBar />
+                <SearchBar placeholder="Search by Title or Tags"  />
                 <JournalCards />
                 </View>
             </ScrollView>

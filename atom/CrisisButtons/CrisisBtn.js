@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import globalStyles from '../../styles/global'
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -18,8 +19,8 @@ const CrisisBtn = (props) => {
           onPress={navigateTo}
         >
           <View style={[styles.button, pressed && styles.buttonPressed]}>
-            <View style={styles.txt}>
-            <Text style={styles.text}>{props.text}</Text>
+            <View>
+            <Text style={[styles.text, globalStyles.h3Text]}>{props.text}</Text>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -55,7 +56,6 @@ const CrisisBtn = (props) => {
       },
       text: {
         color: '#FDFDFD',
-        fontSize: 18,
       },
       txt: {
         alignItems: 'center',

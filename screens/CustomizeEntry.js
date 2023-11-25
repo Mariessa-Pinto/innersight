@@ -46,7 +46,7 @@ export default function CustomizeEntry({ navigation }) {
                                 onPress={() => setOverlayVisible(true)}
                             >
                                 <View style={[styles.button, pressed && styles.buttonPressed]}>
-                                    <Text style={styles.text}>Save Changes</Text>
+                                    <Text style={[styles.text, globalStyles.btnTextMed]}>Save Changes</Text>
                                 </View>
                             </TouchableWithoutFeedback>
 
@@ -64,13 +64,13 @@ export default function CustomizeEntry({ navigation }) {
                             <View style={styles.container}>
                                 <View style={styles.inside}>
                                     <View style={styles.line}></View>
-                                    <Text>Your changes have been saved.</Text>
+                                    <Text style={globalStyles.h4TextLight}>Your changes have been saved.</Text>
                                     <TouchableWithoutFeedback
 
                                         onPress={() => setOverlayVisible(!isOverlayVisible)}
                                     >
                                         <View style={[styles.backButton, pressed && styles.backButtonPressed]}>
-                                            <Text style={styles.backText}>Go Back</Text>
+                                            <Text style={[styles.backText, globalStyles.btnTextLrg]}>Go Back</Text>
                                         </View>
                                     </TouchableWithoutFeedback>
                                 </View>
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#FDFDFD',
-        fontSize: 13,
     },
     container: {
         width: 410,
@@ -158,6 +157,5 @@ const styles = StyleSheet.create({
     },
     backText: {
         color: '#FDFDFD',
-        fontSize: 14,
     },
 })

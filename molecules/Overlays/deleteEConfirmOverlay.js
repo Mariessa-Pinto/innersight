@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 const deleteEComfirmOverlay = () => {
@@ -8,7 +9,7 @@ const deleteEComfirmOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Your Journal entry has been deleted.</Text>
+                    <Text style={globalStyles.h4TextLight}>Your Journal entry has been deleted.</Text>
                     <ExtraLargeBtnLightTxt 
                         text='Go to Entry Overview'
                         navigate=''
