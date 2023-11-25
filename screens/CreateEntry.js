@@ -17,7 +17,6 @@ export default function CreateEntry() {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />

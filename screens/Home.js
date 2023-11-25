@@ -49,6 +49,7 @@ export default function Home({ navigation }) {
                                 multiline
                                 numberOfLines={6}
                                 blurOnSubmit={true}
+                                placeholder="Start typing..."
                             />
                         </View>
                         <TouchableOpacity style={styles.saveBtn} >
@@ -94,7 +95,9 @@ const styles = StyleSheet.create({
     quickJournal: {
         borderRadius: 5,
         textAlignVertical: 'top',
-        padding: 10
+        padding: 10,
+        fontWeight: 'normal', 
+        fontFamily: 'Lexend-Regular'
     },
     button: {
         height: 50,

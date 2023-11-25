@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, ScrollView } from 'react-native'
 import React from 'react'
+import globalStyles from '../../styles/global';
 import { useState, useEffect } from 'react'
 import RecommendationButton from '../../atom/RecommendationButtons/RecommendationButtons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -245,6 +246,7 @@ const AiSent = ({ username, entryContent }) => {
           multiline={true}
           blurOnSubmit={true}
           value={entryContent}
+          
         />
         <TagEntryBtn />
         <InsightButton
@@ -326,7 +328,9 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#FDFDFD',
     color: '#292929',
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    fontWeight: 'normal', 
+    fontFamily: 'Lexend-Regular'
   },
   panda: {
     width: 130,

@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 
   return (
     <Searchbar
-    style={styles.bar}
+      style={styles.bar}
       placeholder={props.placeholder}
       placeholderTextColor={'#3E3F42'}
       onChangeText={onChangeSearch}
@@ -24,24 +24,25 @@ const SearchBar = (props) => {
 
 
 const styles = StyleSheet.create({
-    bar: {
-      width: '100%',
-      height: 40,
-      display: 'flex',
-      borderRadius: 10,
-      justifyContent: 'center',
-      alignItems: 'center',
-      alignContent: 'center',
-      backgroundColor: '#FDFDFD',
-      borderWidth: 1,
-      borderColor: '#88898C',
-    },
-    input: {
-        textAlign: 'left',
-        textAlignVertical: 'center',
-        fontSize: 13,
-        height: '100%',
-        paddingBottom: 18
-    }
-  });
+  bar: {
+    width: '100%',
+    height: 40,
+    display: 'flex',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    backgroundColor: '#FDFDFD',
+    borderWidth: 1,
+    borderColor: '#88898C',
+    
+  },
+  input: {
+    textAlign: 'left',
+    textAlignVertical: 'center',
+    fontSize: 13,
+    height: '100%',
+    paddingBottom: 18
+  }
+});
 export default SearchBar;

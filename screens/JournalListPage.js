@@ -47,7 +47,7 @@ export default function JournalListPage() {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <Header title="journalToggle" settings={true} navigation={navigation} overlayType="entriesList" />
+                    <Header title="journalToggle" settings={true} type="Entries" navigation={navigation} overlayType="entriesList" />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
                     </View>

@@ -51,7 +51,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         display: 'flex',
-        marginTop: 5
+        marginTop: 5,
+        fontWeight: 'normal', 
+        fontFamily: 'Lexend-Regular'
     },
     textContainer: {
         display: 'flex',

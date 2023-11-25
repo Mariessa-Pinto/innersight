@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import globalStyles from '../../styles/global';
 
 const DateToggle = ({navigation, type}) => {
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 13,
     color: '#3E3F42'
   },
   selectedBtn: {
@@ -66,7 +65,6 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     color: '#FDFDFD',
-    fontSize: 13,
 
   },
 });
