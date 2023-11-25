@@ -31,7 +31,10 @@ export default function Stats({ navigation, username }) {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title="Your Week in Review" navigation={navigation} />
                     <View style={styles.maincontent}>
-                        <DateToggle selectedValue={selectedValue} />
+                        <DateToggle 
+                        selectedValue={selectedValue} 
+                        navigation={navigation}
+                        type="Week" />
                         <DonutChart username={"anika"}/>
                         <IdentifiedEntries />
                         <StatRecommendations />
