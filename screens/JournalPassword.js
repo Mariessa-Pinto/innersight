@@ -33,7 +33,7 @@ export default function JournalPassword({ navigation }) {
                         </View>
                         <MediumBtnLightTxt
                             text="Unlock Journal"
-                            navigate='Entries' />
+                            navigate='JournalListPage' />
                     </View>
                 </View>
             </ScrollView>
