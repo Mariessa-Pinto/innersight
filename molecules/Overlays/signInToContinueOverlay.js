@@ -8,7 +8,7 @@ const signIntoContinueOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Please sign up to continue.</Text>
+                    <Text style={globalStyles.h4TextLight}>Please sign up to continue.</Text>
                     <ExtraLargeBtnLightTxt 
                         text='Sign Up'
                         navigate='SignUp'

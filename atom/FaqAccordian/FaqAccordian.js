@@ -1,7 +1,7 @@
 import globalStyles from "../../styles/global";
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
-import FaqData from "../../molecules/FaqData/FaqData";
+import FaqData from "../../data/FaqData";
 
 const FaqAccordion = ({ question, answer, isActive, setIsActive, index }) => {
 

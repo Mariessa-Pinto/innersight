@@ -52,7 +52,6 @@ import SelfCare from './screens/SelfCare';
 import Sleeping from './screens/Sleeping';
 import LanguageSettings from './screens/LanguageSettings'
 import JournalPassword from './screens/JournalPassword'
-import AiToolJournal from './screens/AiToolJournal';
 import ResetPassword from './screens/ResetPassword';
 import ForgotPassword from './screens/ForgotPassword';
 import EmailSent from './screens/EmailSent';
@@ -147,7 +146,6 @@ export default function App() {
               <Stack.Screen name="Sleeping" component={Sleeping} />
               <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
               <Stack.Screen name="JournalPassword" component={JournalPassword} />
-              <Stack.Screen name="AiToolJournal" component={AiToolJournal} />
               <Stack.Screen name="ResetPassword" component={ResetPassword} />
               <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
               <Stack.Screen name="EmailSent" component={EmailSent} />

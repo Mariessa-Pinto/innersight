@@ -128,7 +128,7 @@ const AiSent = ({ username, entryContent }) => {
         } else {
           responseText = `It looks like you're feeling rather neutral from this journal entry.`
         }
-        responseText += `I've highlighted all the different sections you indicated feeling ${sentiment ? 'negative' : 'positive'}.\n`;
+        responseText += ` I've highlighted all the different sections you indicated feeling ${sentiment ? 'negative' : 'positive'}.\n`;
         responseText += `These emotions made up ${Math.round(rate * 100)}% of your overall entry today.\n`;
         // responseText += `You mentioned ${numSegments} different sections in your entry today.\n`;
         setResponse(responseText);
@@ -263,11 +263,11 @@ const AiSent = ({ username, entryContent }) => {
               source={mascotData[selectedMascot].image}
             /> : null}
           </View>
-          {response ? <Text style={styles.respText}>{response}</Text> : null}
+          {response ? <Text style={[styles.respText, globalStyles.bodyCopy]}>{response}</Text> : null}
         </View>
-        {keyWordsPos ? <Text>Positive phrases: {keyWordsPos}</Text> : null}
-        {keyWordsNeg ? <Text>Negative phrases: {keyWordsNeg}</Text> : null}
-        {paragraph ? <Text style={styles.para}>{paragraph}</Text> : null}
+        {keyWordsPos ? <Text style={globalStyles.bodyCopy}>Positive phrases: {keyWordsPos}</Text> : null}
+        {keyWordsNeg ? <Text style={globalStyles.bodyCopy}>Negative phrases: {keyWordsNeg}</Text> : null}
+        {paragraph ? <Text style={globalStyles.bodyCopy}>{paragraph}</Text> : null}
         <ScrollView
           horizontal={true}
           style={{ paddingBottom: 15 }}

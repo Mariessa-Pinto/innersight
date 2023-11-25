@@ -1,4 +1,5 @@
 import React from 'react';
+import globalStyles from '../../styles/global'
 import {SafeAreaView, StyleSheet, TextInput, Text} from 'react-native';
 
 
@@ -8,7 +9,7 @@ const TitleInput = (props) => {
 
   return (
     <SafeAreaView>
-        <Text style={styles.titleTxt}>{props.title}</Text>
+        <Text style={globalStyles.labelText}>{props.title}</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -41,7 +42,6 @@ const styles = StyleSheet.create({
   },
   titleTxt: {
     color: '#292929',
-    fontSize: 13,
     marginLeft: 15
   }
 });

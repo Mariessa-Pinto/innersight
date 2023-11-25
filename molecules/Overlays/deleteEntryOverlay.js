@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import globalStyles from '../../styles/global';
 import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
 import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
 
@@ -9,7 +10,7 @@ const DeleteEntryOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <Text>Are you sure you want to delete this entry?</Text>
+                    <Text style={globalStyles.h4TextLight}>Are you sure you want to delete this entry?</Text>
                     <View style={styles.buttons}>
                         <MediumBtnLightTxt 
                             text='Yes, Delete It' 
