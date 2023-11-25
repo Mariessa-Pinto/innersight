@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     backgroundColor: "#FDFDFD",
-    color: "#000"
+    color: "#000",
+    fontWeight: 'normal',
+    fontFamily: 'Lexend-Regular'
   },
   container: {
     backgroundColor: '#00000000',
