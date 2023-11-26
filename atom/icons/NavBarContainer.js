@@ -14,7 +14,13 @@ export default function NavBarContainer() {
 
     return (
         <View style={styles.container}>
+            {theme.theme === "dark" ? 
+            <Image source={require('./navContainer-dark.png')} style={{ height: '100%', width: '100%' }} />
+            :
             <Image source={require('./navContainer.png')} style={{ height: '100%', width: '100%' }} />
+            }
+
+            
         </View>
     );
 };

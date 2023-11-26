@@ -73,7 +73,7 @@ export default function NavBar({ navigation, variation }) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <NavBarContainer style={styles.background} />
+                    <NavBarContainer style={styles.background}/>
                 </View >
                 <GestureRecognizer
                         style={{ flex: 1 }}

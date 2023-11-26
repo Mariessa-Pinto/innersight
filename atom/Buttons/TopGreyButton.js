@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import test from '../../atom/assets/settingicons/Home.png'
+import themeContext from '../../theme/themeContext';
 
 const TopGreyButton = (props) => {
   const navigation = useNavigation();
@@ -10,13 +10,17 @@ const TopGreyButton = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+
+  //Dark/Light Mode
+  const [darkMode, setDarkMode] = useState(false)
+  const theme = useContext(themeContext)
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       onPress={navigateTo}
     >
-      <View style={[styles.button, pressed && styles.buttonPressed]}>
+      <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
         <View style={styles.leftContent}>
           {
             props.image ?
@@ -27,18 +31,29 @@ const TopGreyButton = (props) => {
               :
               ''
           }
-          <Text style={styles.labelTextLight}>{props.text}</Text>
+          <Text style={[styles.labelTextLight, { color: theme.color }]}>{props.text}</Text>
         </View>
         <View style={styles.rightContent}>
           {
-            props.arrow ?
+            theme.theme === "light" && props.arrow ?
               <Image
                 source={require('../../atom/assets/settingicons/Arrow.png')}
                 style={styles.arrow}
               />
               :
-              ""
+              <>
+                {
+                  theme.theme === "dark" && props.arrow ?
+                    <Image
+                      source={require('../../atom/assets/settingicons/darkMode/Arrow.png')}
+                      style={styles.arrow}
+                    />
+                    :
+                    ""
+                }
+              </>
           }
+         
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -55,7 +70,6 @@ const styles = StyleSheet.create({
     height: 40,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: '#EAEAEA',
     alignItems: 'center',
     elevation: 7,
     display: 'flex',
@@ -63,20 +77,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
 
   },
-leftContent:{
-  display: 'flex',
-  flexDirection: 'row',
-  paddingLeft: 15,
-  alignItems: 'center',
-  gap: 10
-},
-rightContent:{
-  display: 'flex',
-  flexDirection: 'row',
-  paddingRight: 15,
-  alignItems: 'center',
+  leftContent: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingLeft: 15,
+    alignItems: 'center',
+    gap: 10
+  },
+  rightContent: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingRight: 15,
+    alignItems: 'center',
 
-},
+  },
   buttonPressed: {
     backgroundColor: '#D5D7FF', // Change the color when pressed
   },
