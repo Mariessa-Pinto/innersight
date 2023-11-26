@@ -4,6 +4,7 @@ import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Header from '../molecules/Header/Header';
+import PolicyData from '../data/PolicyData';
 
 
 
@@ -13,47 +14,45 @@ export default function PrivacyPolicy({ navigation }) {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    const [data, setData] = useState(PolicyData.questions)
+
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-             <Header title='Privacy Policy' navigation={navigation}/>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Privacy Policy' navigation={navigation} />
+                    {data && data.map((i, index) => (
 
-                <View style={styles.maincontent}>
-                    <View>
-                        <Text style={styles.list}>1. Information we collect:</Text>
-                        <Text><Text style={styles.list}>a. Personal Information: </Text>We collect a minimal set of personal information, such as your name and email, during the registration process to create and secure your account.</Text>
-                        <Text><Text style={styles.list}>b. Journal Entries: </Text>Our app encourages users to create journal entries. These entries are processed by our AI algorithms to provide personalized insights and recommendations. It's important to note that we prioritize anonymizing and securing this data to protect your privacy.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>2. How We Use Your Information</Text>
-                        <Text>The primary purpose of collecting journal entries is to leverage artificial intelligence for analysis. The AI identifies patterns and trends in your entries to offer personalized insights aimed at supporting your mental well-being.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>3. Data Security</Text>
-                        <Text>While we implement reasonable measures to secure your personal information, it's essential to understand that no method of data transmission over the internet or storage is entirely secure. We strive to protect your data, but we cannot guarantee absolute security.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>4. Sharing Your Information</Text>
-                        <Text>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent. However, we may share anonymized and aggregated data for research or statistical purposes.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>5. User Control</Text>
-                        <Text>You maintain control over your personal information. Within the app, you can access, modify, or delete your data. If you choose to terminate your account, please contact us at info@innersight.com.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>6. Changes to Privacy Policy</Text>
-                        <Text>We reserve the right to modify this Privacy Policy. If there are significant changes, we will notify you through the app or other appropriate means.</Text>
-                    </View>
-                    <View style={styles.content2}>
-                        <Text style={styles.list}>7. Children's Privacy</Text>
-                        <Text>Our app is intended for users aged 18 and above. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately.</Text>
-                    </View>
-                </View>
+                        i.page === "Privacy Policy" ? 
+                        <View 
+                        style={styles.questionContainer}
+                        key={index}>
+                            <Text style={globalStyles.btnTextLrg}>
+                                {index + 1}. {i.header}
+                            </Text>
+                            {
+                                i.content.personalInfo ?
+                                    <>
+                                        <Text style={globalStyles.bodyCopy}>
+                                            <Text style={globalStyles.btnTextLrg}>{i.subtitle1}:</Text> {i.content.personalInfo}
+                                        </Text>
+                                        <Text style={globalStyles.bodyCopy}>
+                                        <Text style={globalStyles.btnTextLrg}>{i.subtitle2}:</Text> {i.content.journalEntries}
+                                        </Text>
+                                    </>
+                                    :
+                                    <Text style={globalStyles.bodyCopy}>
+                                        {i.content}
+                                    </Text>
+                            }
+                        </View>
+                        :
+                        ""
+))}
                 </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='profile'/>
+            <NavBar navigation={navigation} variation='profile' />
         </View>
     );
 }
@@ -82,5 +81,10 @@ const styles = StyleSheet.create({
     content2: {
         display: 'flex',
         marginTop: 10,
+    },
+    questionContainer:{
+        display: 'flex',
+        flexDirection: 'column',
+        marginVertical: 10
     }
 })

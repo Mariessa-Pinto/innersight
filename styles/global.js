@@ -45,7 +45,7 @@ export default StyleSheet.create({
         fontSize: 14,
     },
     bodyCopy:{
-        fontFamily: 'Lexend-Regular',
+        fontFamily: 'Lexend-Light',
         fontSize: 14,
     },
     labelText:{

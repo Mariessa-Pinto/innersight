@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        gap: 13,
         flexWarp: 'wrap'
     },
     titleBox: {

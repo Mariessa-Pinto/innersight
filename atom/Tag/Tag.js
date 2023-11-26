@@ -30,7 +30,7 @@ const Tag = (props) => {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       {renderButton('Tags', 'Tags')}
 
     </View>
@@ -40,6 +40,9 @@ const Tag = (props) => {
 
 
 const styles = StyleSheet.create({
+  container:{
+    marginHorizontal: 7
+  },
   button: {
     borderRadius: 7,
     backgroundColor: '#D5D7FF',
