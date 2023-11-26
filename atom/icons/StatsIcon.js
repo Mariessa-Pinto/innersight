@@ -27,7 +27,7 @@ export default function StatsIcon({ icon }) {
                     :
                     <>
                         {
-                            icon === "lightActive" ?
+                            theme.theme === "light" ?
                                 <View style={styles.container}>
                                     <Svg width="100%" height="100%" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <Path d="M9.71062 0.15918H12.282C12.7625 0.15918 13.152 0.546974 13.152 1.02542V20.2892C13.152 20.8676 12.6807 21.3368 12.0999 21.3368H9.89272C9.31185 21.3368 8.84058 20.8676 8.84058 20.2892V1.02542C8.84058 0.546974 9.23007 0.15918 9.71062 0.15918Z" fill="#B6BAC0" stroke="#B6BAC0" stroke-width="0.169489" stroke-linecap="round" stroke-linejoin="round" />

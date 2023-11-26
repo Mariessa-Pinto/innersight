@@ -1,86 +1,59 @@
 import { StyleSheet, Text, View } from 'react-native';
+import Tag from '../../atom/Tag/Tag'
+import { useState, useContext } from 'react';
+import themeContext from '../../theme/themeContext';
+import globalStyles from '../../styles/global';
 
-const JournalTags = () => {
+
+const JournalTags = ({ title, tags }) => {
+
+
+    //Dark/Light Mode
+    const [darkMode, setDarkMode] = useState(false)
+    const theme = useContext(themeContext)
 
     return (
-    <View style={styles.container}>
-        <View style={styles.titleBox}>
-            <Text style={styles.title}>Journal Title</Text>
+        <View style={styles.container}>
+            <View style={styles.titleBox}>
+                <Text style={globalStyles.h3TextSemiBold}>{title}</Text>
+            </View>
+            <View style={styles.tags}>
+                {tags && tags.map((i, index) => {
+                    return (
+                        <Tag
+                        key={index}
+                        text={i} />
+                    )
+                })
+                }
+            </View>
+
         </View>
-        <View style={styles.topRow}>
-            <View style={styles.tagBoxBig}>
-                <Text>Tag</Text>
-            </View>
-            <View style={styles.tagBoxSmall}>
-                <Text>Tag</Text>
-            </View>
-            <View style={styles.tagBoxBig}>
-                <Text>Tag</Text>
-            </View>
-        </View>
-        <View style={styles.bottomRow}>
-            <View style={styles.tagBoxBig}>
-                <Text>Tag</Text>
-            </View>
-            <View style={styles.tagBoxBig}>
-                <Text>Tag</Text>
-            </View>
-            <View style={styles.tagBoxSmall}>
-                <Text>Tag</Text>
-            </View>
-        </View>
-    </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        width: 328,
-        height: 136, 
+        width: '100%',
+        height: 'auto',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
         backgroundColor: '#F6F6F6',
         borderRadius: 10,
+        padding: 20,
         gap: 10,
     },
-    topRow: {
+    tags: {
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        gap: 10
-    },
-    bottomRow: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 10
-    },
-    tagBoxBig: {
-        width: 110,
-        height: 30,
-        backgroundColor: "#D5D7FF",
-        borderRadius: 7,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    tagBoxSmall: {
-        width: 60,
-        height: 30,
-        backgroundColor: "#D5D7FF",
-        borderRadius: 7,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    title: {
-        fontFamily: 'Lexend-Regular',
-        fontSize: 18,
-        fontWeight: '600',
+        gap: 13,
+        flexWarp: 'wrap'
     },
     titleBox: {
         display: 'flex',
         alignItems: 'flex-start',
-        width: 300
+        width: '100%'
     }
 
 });

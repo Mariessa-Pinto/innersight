@@ -27,20 +27,25 @@ export default function TagManager({ navigation }) {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-            <Header title='Manage Tags' navigation={navigation} settings={true} overlayType="tagsList" />
-                <View style={styles.container}>
-
-                    <View style={styles.body}>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <Header title='Manage Tags' navigation={navigation} settings={true} overlayType="tagsList" />
+                    <View style={styles.container}>
                         <SearchBar placeholder='Search for a Tag' />
-                        <JournalTags />
-                        <JournalTags />
+                        <JournalTags 
+                        title="Tracking my mood changes."
+                        tags={["angry", "happy", "sad", "annoyed"]}
+                        />
+                        <JournalTags 
+                        title="Complaining about anything and everything."
+                        tags={["work", "home", "random"]}/>
+                        <JournalTags 
+                        title="Notes and techniques from therapy."
+                        tags={["strategies", "feedback", "insights"]}/>
                     </View>
                 </View>
-            </View>
             </ScrollView>
-            <NavBar navigation={navigation} variation='journal'/>
+            <NavBar navigation={navigation} variation='journal' />
         </View>
     );
 }
@@ -52,8 +57,9 @@ const styles = StyleSheet.create({
         paddingTop: 70
     },
     container: {
+        width: '100%',
         display: 'flex',
-        alignItems: 'center',
+        gap: 27
     },
     body: {
         marginTop: 40,
