@@ -17,6 +17,7 @@ export default function JournalListPage() {
     const navigation = useNavigation();
     const [entries, setEntries] = useState([]);
     const [pressed, setPressed] = useState(false);
+    const [selectedEntry, setSelectedEntry] = useState(null);
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
 
@@ -35,18 +36,36 @@ export default function JournalListPage() {
     }, []);
 
     const handleViewEntry = (entry) => {
+        setSelectedEntry(entry);
         navigation.navigate('JournalViewPage', { entry });
+    };
+
+    //Reverse Entries Order
+    const reversedEntries = [...entries].reverse();
+
+    // Format Timestamp
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        return formattedDate;
     };
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
+    //Delete Entry
+    const handleDeleteEntry = (entryToDelete) => {
+        const updatedEntries = entries.filter((entry) => entry !== entryToDelete);
+        setEntries(updatedEntries);
+        setOverlayVisible(false); 
+    };
+
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-            <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+            <View>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background, marginBottom: -30 }]}>
                     <Header title="journalToggle" settings={true} type="Entries" navigation={navigation} overlayType="entriesList" />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
@@ -80,7 +99,8 @@ export default function JournalListPage() {
                     </View>
                     <View>
                         <FlatList
-                            data={entries}
+                            style={{ marginBottom: 240 }}
+                            data={reversedEntries}
                             keyExtractor={(item) => item.timestamp.toString()}
                             renderItem={({ item }) => (
                                 <View style={styles.container}>
@@ -93,7 +113,7 @@ export default function JournalListPage() {
                                             <View style={styles.txt}>
                                                 <View style={styles.title}>
                                                     <View style={styles.heading}>
-                                                        <Text style={[globalStyles.h3TextSemiBold, styles.cardHeader]}>{item.content}</Text>
+                                                        <Text style={[globalStyles.h3TextSemiBold, styles.cardHeader]}>{item.content.length > 23 ? `${item.content.substring(0, 23)}...` : item.content}</Text>
                                                         <Image
                                                             source={require('../atom/icons/Lock.png')}
                                                             style={styles.icon}
@@ -108,13 +128,12 @@ export default function JournalListPage() {
                                                     </TouchableWithoutFeedback>
                                                 </View>
                                                 <View style={styles.textCon}>
-                                                    <Text style={globalStyles.captionText}>09/14/2023</Text>
-                                                    <Text style={globalStyles.captionText}>{item.content}</Text>
+                                                    <Text style={globalStyles.captionText}>{formatDate(item.timestamp)}</Text>
+                                                    <Text style={globalStyles.captionText}>{item.content.length > 100 ? `${item.content.substring(0, 100)}...` : item.content}</Text>
                                                 </View>
                                             </View>
                                         </View>
                                     </TouchableWithoutFeedback>
-
                                 </View>
                             )}
                         />
@@ -128,13 +147,17 @@ export default function JournalListPage() {
                             onBackdropPress={() => setOverlayVisible(false)}
                             directionalOffsetThreshold={20}
                         >
-                            <EntrySpecOverlay />
+                            <EntrySpecOverlay 
+                                onDeleteEntry={handleDeleteEntry} 
+                                selectedEntry={selectedEntry}
+                            />
                         </Modal>
                     </GestureRecognizer>
                 </View>
-            </ScrollView>
-            <NavBar navigation={navigation} variation='journal' />
+                <NavBar navigation={navigation} variation='journal' />
+            </View>
         </View>
+
     );
 }
 
@@ -150,9 +173,10 @@ const styles = StyleSheet.create({
         gap: 12,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 10,
+        marginBottom: 10
     },
-    cardHeader:{
+    cardHeader: {
         width: '85%',
     },
     button: {
@@ -207,5 +231,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
+    },
+    tagsScroll: {
+        marginBottom: 15,
+        marginTop: 10
     }
 })
