@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TextInput, Button, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput, Image, ScrollView, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import globalStyles from '../../styles/global';
 import { useState, useEffect } from 'react'
@@ -7,6 +7,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import InsightButton from '../../atom/Buttons/InsightButton';
 import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
 import { saveJournalEntry } from '../../firebase/firebaseService';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import Modal from "react-native-modal";
+import { useNavigation } from '@react-navigation/native';
 
 
 const AiSent = ({ username, entryContent }) => {
@@ -19,8 +22,12 @@ const AiSent = ({ username, entryContent }) => {
   const [keyWordsNeg, setKeyWordsNeg] = useState("")
   const [keyWordsPos, setKeyWordsPos] = useState("")
   const [statsKeyWords, setStatsKeyWords] = useState("")
+  const [pressed, setPressed] = useState(false);
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [overlayType, setOverlayType] = useState()
 
-
+  //Navigation
+  const navigation = useNavigation();
 
   //Mascot Displayed
   const [selectedMascot, setSelectedMascot] = useState("Panda");
@@ -78,6 +85,8 @@ const AiSent = ({ username, entryContent }) => {
   const handleSave = () => {
     saveJournalEntry(username, { content: text, timestamp: Date.now() });
     setJournalEntry('');
+    setOverlayVisible(true);
+    setOverlayType("saveOverlay");
   }
 
   const apiKey = process.env.EXPO_PUBLIC_API_KEY
@@ -134,7 +143,7 @@ const AiSent = ({ username, entryContent }) => {
         setResponse(responseText);
         setShowImage(true);
 
-        let paragraph = `Feeling ${sentiment.toLowerCase()}, you are grappling with: "${text}. `;
+        let paragraph = `Feeling ${sentiment.toLowerCase()}, you are grappling with: "${text}". `;
         paragraph += `This entry encapsulates a sense of ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions. Here are some recommendations you may consider to alleviate these ${sentiment === 'Positive' ? 'positive' : 'negative'} emotions: `;
         setParagraph(paragraph);
 
@@ -246,7 +255,7 @@ const AiSent = ({ username, entryContent }) => {
           multiline={true}
           blurOnSubmit={true}
           value={entryContent}
-          
+
         />
         <TagEntryBtn />
         <InsightButton
@@ -314,6 +323,36 @@ const AiSent = ({ username, entryContent }) => {
           text="Save Entry"
           onPress={handleSave}
         />
+        <GestureRecognizer
+          style={{ flex: 1 }}
+          onSwipeDown={() => setOverlayVisible(false)}
+        >
+          <Modal
+            isVisible={isOverlayVisible}
+            onBackdropPress={() => setOverlayVisible(false)}
+            onSwipeComplete={() => setOverlayVisible(false)}
+            swipeDirection={['down']}
+            propagateSwipe={true}
+          >
+            <View style={styles.overlayContainer}>
+              {overlayType === "saveOverlay" && (
+                <View style={styles.inside}>
+                  <View style={styles.line}></View>
+                  <Text style={globalStyles.h4TextLight}>Your entry has been saved.</Text>
+                  <TouchableWithoutFeedback
+                    onPress={() => {
+                      setOverlayVisible(false);
+                      navigation.navigate('JournalListPage');
+                    }}>
+                    <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
+                      <Text style={[globalStyles.btnTextLrg, styles.deleteTextLight]}>View Entries</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                </View>
+              )}
+            </View>
+          </Modal>
+        </GestureRecognizer>
       </View>
     </SafeAreaView>
   );
@@ -329,7 +368,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDFDFD',
     color: '#292929',
     textAlignVertical: 'top',
-    fontWeight: 'normal', 
+    fontWeight: 'normal',
     fontFamily: 'Lexend-Regular'
   },
   panda: {
@@ -369,7 +408,90 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 20,
     marginBottom: 10
-  }
+  },
+  overlayContainer: {
+    width: 410,
+    height: 'auto',
+    paddingBottom: 40,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    backgroundColor: '#F2F2FD',
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: -200 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 30,
+    position: 'absolute',
+    bottom: -20,
+    left: -20
+},
+inside: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 15,
+    marginTop: 10
+},
+line: {
+    width: 65,
+    height: 3,
+    backgroundColor: '#88898C',
+    marginBottom: 10
+},
+deleteButton: {
+    width: 228,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#C5C7F7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+},
+deleteButtonPressed: {
+    backgroundColor: '#D5D7FF', // Change the color when pressed
+},
+deleteText: {
+    color: '#3E3F42',
+},
+deleteTextLight: {
+    color: '#FDFDFD',
+},
+confirmButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+},
+deleteConfirmButtonDark: {
+    width: 130,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: '#6164C3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+},
+deleteConfirmButtonLight: {
+    width: 130,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: '#C5C7F7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+},
+confirmButtonDark: {
+    width: 228,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#6164C3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 7,
+},
 });
 
 export default AiSent;

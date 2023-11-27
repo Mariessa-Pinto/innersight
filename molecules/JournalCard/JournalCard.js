@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import JournalPageCard from '../../atom/JournalPageCard/JournalPageCard';
 
 const JournalCards = () => {

@@ -120,18 +120,12 @@ const JournalPageCard = (props, { value }) => {
                     </TouchableWithoutFeedback>
                   </View>
                 </View>
-
               }
             </>
-
           }
-
         </Modal>
       </GestureRecognizer>
-
     </>
-
-
   );
 };
 
@@ -173,8 +167,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     paddingVertical: 10,
-
-
   },
   coverImage: {
     height: '110%',
@@ -279,8 +271,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 7,
   },
-
-
 });
 
 export default JournalPageCard;
