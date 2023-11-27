@@ -8,7 +8,7 @@ import ToolBar from '../molecules/ToolBarJournal/ToolBar';
 import SmallInput from '../atom/InputBoxes/SmallInput';
 import data from '../data/PromptData'
 import Header from '../molecules/Header/Header'
-import AiSent from '../component/AiSentiment';
+import EditAiSent from '../component/EditAiSent';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -34,12 +34,6 @@ export default function WriteEntry({ route }) {
   const { entry } = route.params;
 
   return (
-    // <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-    //   <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-    //     <Text>{entry.content}</Text>
-    //     {/* Add other components to display additional entry details if needed */}
-    //   </View>
-    // </View>
     <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
       <ScrollView >
         <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
@@ -59,7 +53,7 @@ export default function WriteEntry({ route }) {
                 </TouchableOpacity>
               </View>
             </View>
-            <AiSent username="anika" entryContent={entry.content}/>
+            <EditAiSent username="anika" entryContent={entry.content}/>
           </View>
         </View>
       </ScrollView>
@@ -77,7 +71,7 @@ const styles = StyleSheet.create({
     gap: 20,
     paddingLeft: 20,
     paddingRight: 30,
-    paddingTop: 30,
+    paddingTop: 0,
 },
 prompt: {
     height: 'auto',
