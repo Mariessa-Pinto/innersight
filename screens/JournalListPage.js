@@ -12,12 +12,17 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import EntrySpecOverlay from '../molecules/Overlays/entrySpecOverlay'
 
+import { remove, ref } from 'firebase/database';
+import { database } from '../firebase/firebaseConfig'
+
+
 
 export default function JournalListPage() {
     const navigation = useNavigation();
     const [entries, setEntries] = useState([]);
     const [pressed, setPressed] = useState(false);
     const [selectedEntry, setSelectedEntry] = useState(null);
+    const [target, setTarget] = useState()
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
 
@@ -40,6 +45,27 @@ export default function JournalListPage() {
         navigation.navigate('JournalViewPage', { entry });
     };
 
+       //Delete Entry
+    //    const handleDeleteEntry = (entryToDelete) => {
+    //     const updatedEntries = entries.filter((entry) => entry !== entryToDelete);
+    //     setEntries(updatedEntries);
+    //     setOverlayVisible(false); 
+    //     console.log(`${updatedEntries}`)
+    // };
+
+    //Patricia's attempt at delete entry
+    const handleDeleteEntry = (selectedEntry) => {
+        const result = entries.filter(({content}) => !content.includes(selectedEntry.content))
+        setEntries(result)
+        console.log("this is the " + {result})
+        setOverlayVisible(false); 
+    }
+
+    const handleTarget = (selectedEntry) => {
+        setSelectedEntry(selectedEntry)
+        console.log(selectedEntry)
+    }
+    
     //Reverse Entries Order
     const reversedEntries = [...entries].reverse();
 
@@ -54,12 +80,7 @@ export default function JournalListPage() {
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-    //Delete Entry
-    const handleDeleteEntry = (entryToDelete) => {
-        const updatedEntries = entries.filter((entry) => entry !== entryToDelete);
-        setEntries(updatedEntries);
-        setOverlayVisible(false); 
-    };
+ 
 
 
     return (
@@ -120,7 +141,7 @@ export default function JournalListPage() {
                                                         />
                                                     </View>
                                                     <TouchableWithoutFeedback
-                                                        onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                                                        onPress={() => {setOverlayVisible(!isOverlayVisible); handleTarget(item)}}>
                                                         <View
                                                             style={styles.tapBox}>
                                                             <Image source={require('../atom/icons/SettingsIcon.png')} style={styles.settings} />
@@ -148,7 +169,7 @@ export default function JournalListPage() {
                             directionalOffsetThreshold={20}
                         >
                             <EntrySpecOverlay 
-                                onDeleteEntry={handleDeleteEntry} 
+                                onDeleteEntry={() => handleDeleteEntry(selectedEntry)} 
                                 selectedEntry={selectedEntry}
                             />
                         </Modal>
