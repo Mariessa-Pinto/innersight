@@ -123,7 +123,7 @@ const AiSent = ({ username, entryContent }) => {
     }catch (error) {
       console.error('Error calling OpenAI API:', error);
     }
-
+  }
    
 
   const apiKeyEden = process.env.EXPO_PUBLIC_API_KEY
