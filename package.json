@@ -28,6 +28,7 @@
     "firebase": "^10.6.0",
     "force": "^0.0.3",
     "lottie-react-native": "5.1.6",
+    "openai": "^4.20.0",
     "react": "18.2.0",
     "react-image": "^4.1.0",
     "react-native": "^0.72.6",

@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import InsightButton from '../../atom/Buttons/InsightButton';
 import TagEntryBtn from '../../atom/Buttons/TagEntryButton';
 import { saveJournalEntry } from '../../firebase/firebaseService';
+import OpenAI from 'openai';
 
 
 const AiSent = ({ username, entryContent }) => {
@@ -74,13 +75,49 @@ const AiSent = ({ username, entryContent }) => {
   }, []);
 
 
-  //Save Journal Entry 
-  const handleSave = () => {
-    saveJournalEntry(username, { content: text, timestamp: Date.now() });
-    setJournalEntry('');
-  }
+  const handleSave = async () => {
+    const instructions = "You are a sentiments analyzer. You will find sentiments in the content of a journal from the array of provided sentiments. You will return an array of sentiments found in the journal. You will also score each item in the array by accuracy. The format for the json in the array is sentname, accuracy.";
+    const userMessage = entryContent +  "\n\nprovided sentiments: ['happy', 'excited', 'motivated', 'high energy', 'calm', 'relaxed', 'gratitude', 'joy', 'serenity', 'empowered', 'inspired', 'hopeful', 'love', 'bliss', 'harmony', 'courage', 'triumph', 'abundance', ' content', 'fulfilled', 'optimistic', 'healing', 'success', 'good', 'appreciation', 'growth', 'tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed', 'anguished', 'despair', 'frustrated', 'lonely', 'anxious', 'depressed', 'regret', 'resent', 'sorrow', 'grief', 'stress', 'confused', 'envious', 'bitter', 'rejected', 'guilty', 'irritated', 'melancholy', 'pessimistic' ]";
 
-  const apiKey = process.env.EXPO_PUBLIC_API_KEY
+    const prompt = instructions + "n/n" + userMessage;
+
+    try {
+      const openaiResponse = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.EXPO_PUBLIC_OPEN_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "text-davinci-003",
+          prompt: prompt,
+          max_tokens: 256,
+          temperature: 1,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0
+      })
+      });
+      const openaiData = await openaiResponse.json();
+      console.log('OpenAi Response:', openaiData);
+
+      const sentis = [];
+      const accuracyMap = new Map();
+
+      openaiData.choices.forEach(choice => {
+        const [senti, accuracy] = choice.text.split(', ');
+        sentis.push(senti);
+        accuracyMap.set(senti, accuracy);
+      });
+      saveJournalEntry(username, { content: text, timestamp: Date.now(), sentis, accuracyMap });
+    }catch (error) {
+      console.error('Error calling OpenAI API:', error);
+    }
+  }
+   
+
+  const apiKeyEden = process.env.EXPO_PUBLIC_API_KEY
+  const openai = new OpenAI({ apiKey: process.env.EXPO_PUBLIC_OPEN_API_KEY})
 
   const handleApiCall = () => {
 
@@ -89,7 +126,7 @@ const AiSent = ({ username, entryContent }) => {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        authorization: `Bearer ${apiKey}`,
+        authorization: `Bearer ${apiKeyEden}`,
       },
       body: JSON.stringify({
         response_as_dict: true,
@@ -231,6 +268,8 @@ const AiSent = ({ username, entryContent }) => {
         console.log("Positive Keywords stored")
       })
       .catch((error) => console.error(error));
+
+    
   };
 
 
