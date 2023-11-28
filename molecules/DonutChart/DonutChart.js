@@ -35,11 +35,16 @@ const DonutChart = ({ username }) => {
 
         Object.values(journals).forEach(entry => {
             if(Array.isArray(entry.keywords)) {
-            entry.keywords?.forEach(keyword => {
+            entry.keywords.forEach(keyword => {
                 keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
                 totalKeywords++;
             });
         }
+
+        entry.sentis?.forEach(senti => {
+            keywordCounts[senti] = (keywordCounts[senti] || 0) + 1;
+            totalKeywords++;
+        })
         });
         const chartData = Object.entries(keywordCounts).map(([keyword, count]) => ({
             x: keyword,

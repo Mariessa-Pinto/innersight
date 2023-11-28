@@ -10,7 +10,7 @@ export const saveJournalEntry = async (username, entry) => {
     // extract keywords
     const extractedKeywords = extractKeywords(entry.content);
 
-    await set(newJournalEntryRef, {...entry, keywords: extractedKeywords});
+    await set(newJournalEntryRef, {...entry, keywords: extractedKeywords, sentis: entry.sentis || [], accuracyMap: entry.accuracyMap || new Map()});
 };
 
 function extractKeywords(text) {
