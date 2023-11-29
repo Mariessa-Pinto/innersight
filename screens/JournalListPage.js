@@ -6,7 +6,8 @@ import NavBar from '../molecules/Navigation/NavBar';
 import SearchBar from '../atom/Search/SearchBar';
 import Tag from '../atom/Tag/Tag';
 import Header from '../molecules/Header/Header'
-import { getJournalEntries } from '../firebase/firebaseService';
+import { getJournalEntries, getListOfStories } from '../firebase/firebaseService';
+import { deleteJournalEntries } from '../firebase/firebaseService';
 import { useNavigation } from '@react-navigation/native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
@@ -57,15 +58,20 @@ export default function JournalListPage() {
     const handleDeleteEntry = (selectedEntry) => {
         const result = entries.filter(({content}) => !content.includes(selectedEntry.content))
         setEntries(result)
-        console.log("this is the " + {result})
+        console.log("Entry removed")
         setOverlayVisible(false); 
     }
 
     const handleTarget = (selectedEntry) => {
+//getListOfStories("anika")
+
+//        deleteJournalEntries("anika", "key")
+
         setSelectedEntry(selectedEntry)
+        console.log(entries)
         console.log(selectedEntry)
     }
-    
+
     //Reverse Entries Order
     const reversedEntries = [...entries].reverse();
 
