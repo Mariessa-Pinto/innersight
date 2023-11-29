@@ -35,3 +35,18 @@ export const getJournalEntries = async (username) => {
         return {};
     }
 }
+
+export const deleteJournalEntries = async (username, key) => {
+    console.log(`Delete entries for user: ${username}`);
+    const deleteJournalRef = ref(database, `users/${username}/journal/${key}`);
+    console.log(deleteJournalRef)
+    // //const snapshot = await get(deleteJournalRef);
+    // if (snapshot.exists()) {
+    //     console.log("Entries found: ", snapshot.val());
+    //     return snapshot.val();
+    // } else {
+    //     console.log("No entries found for user: ", username);
+    //     return {};
+    // }
+}
+

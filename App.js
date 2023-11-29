@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
 import React, { useState, useEffect } from 'react';
-import AppLoading from 'expo-app-loading';
+
 
 //Fonts
 import { useFonts } from 'expo-font';
@@ -92,7 +92,7 @@ export default function App() {
   });
 
   if (!fontsLoaded){
-    return <AppLoading/>;
+    return null;
   } else {
     return (
 

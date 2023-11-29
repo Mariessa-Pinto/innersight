@@ -44,7 +44,8 @@
     "react-native-swipe-gestures": "^1.0.5",
     "react-native-swiper": "^1.6.0",
     "victory": "^36.6.12",
-    "victory-native": "^36.6.12"
+    "victory-native": "^36.6.12",
+    "expo-splash-screen": "~0.20.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
