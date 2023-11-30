@@ -44,7 +44,6 @@ export default function Login() {
                             text="Log In"
                             navigate="Home"
                         />
-                        <Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateToFirebase}>FirebaseTest</Text>
                         <Text style={[globalStyles.boldBody, { color: theme.color, marginTop: 40, marginBottom: 30}]}  onPress={navigateToForgot}>Forgot Your Password?</Text>
                         <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Don't have an account?<Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateTo}> Sign up.</Text></Text>
                         <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>or</Text>

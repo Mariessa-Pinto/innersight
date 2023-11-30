@@ -216,7 +216,7 @@ const AiSent = ({ username, entryContent }) => {
           if (text.toLowerCase().includes(keyword)) {
             statsKeyWordsArray.push(keyword)
             let stringKeyWords = statsKeyWordsArray.toString()
-            setStatsKeyWords(stringKeyWords)
+            setStatsKeyWords("negative target keywords" + stringKeyWords)
           }
         }
         )
@@ -227,7 +227,7 @@ const AiSent = ({ username, entryContent }) => {
             statsKeyWordsArray.push(keyword)
             let stringKeyWords = statsKeyWordsArray.toString()
             setStatsKeyWords(stringKeyWords)
-            console.log(statsKeyWords)
+            console.log("positive target keywords" + statsKeyWords)
           }
         }
         )

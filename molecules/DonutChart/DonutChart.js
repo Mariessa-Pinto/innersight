@@ -6,13 +6,18 @@ import { dummy } from '../../data/DummyJournalData'
 //import { useFonts, Lexend_400Regular } from 'expo-font';
 import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
 import { getJournalEntries } from '../../firebase/firebaseService';
+import { statsEmotions } from '../../data/StatsEmotionData';
 
 const DonutChart = ({ username }) => {
+
+    const positiveColor = "#FCD161"
+    const negativeColor = "#6090D9"
+
     console.log("Username in donutchart: ", username)
     const [data, setData] = useState()
     const [selectedSlice, setSelectedSlice] = useState(null);
-    const colorScale = ["#96D1EA", "#F5E79D", "#9792C7", "#FFCD6C", "#FFA39F", "#91BD70"];
-
+    const colorScale = [negativeColor, negativeColor, negativeColor, positiveColor, positiveColor, positiveColor ]
+    const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
     //run get data on page load
     useEffect(() => {
@@ -29,29 +34,88 @@ const DonutChart = ({ username }) => {
         fetchData();
     }, [username]);
 
+    //OLD CODE for displaying all keywords on donut chart
+    // const processJournalData = (journals) => {
+    //     let keywordCounts = {};
+    //     let totalKeywords = 0;
+
+    //     Object.values(journals).forEach(entry => {
+    //         if (Array.isArray(entry.keywords)) {
+    //             entry.keywords.forEach(keyword => {
+    //                 keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
+    //                 totalKeywords++;
+    //             });
+    //         }
+
+    //         entry.sentis?.forEach(senti => {
+    //             keywordCounts[senti] = (keywordCounts[senti] || 0) + 1;
+    //             totalKeywords++;
+    //         })
+    //     });
+    //     const chartData = Object.entries(keywordCounts).map(([keyword, count]) => ({
+    //         x: keyword,
+    //         y: (count / totalKeywords * 100).toFixed(2)
+    //     }));
+    //     setData(chartData);
+    // }
+
+    //Hardcode stats keyword categories
+
     const processJournalData = (journals) => {
-        let keywordCounts = {};
-        let totalKeywords = 0;
+        const newCategories = [];
+        const countCategories = {};
+        const newColors = []
 
         Object.values(journals).forEach(entry => {
-            if(Array.isArray(entry.keywords)) {
-            entry.keywords.forEach(keyword => {
-                keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
-                totalKeywords++;
-            });
+            if (Array.isArray(entry.keywords)) {
+                entry.keywords.forEach(keyword => {
+                    {
+                        emotionData && emotionData.map((e, index) => {
+                            if (e.emotion === keyword && e.type === "negative") {
+                                newCategories.unshift(e.category)
+                                newColors.unshift(negativeColor)
+                            } else if (e.emotion === keyword && e.type === "positive") {
+                                newCategories.push(e.category)
+                                newColors.push(positiveColor)
+                            }
+                        })
+                    }
+                }); }
+            // } else if (Array.isArray(entry.keywordsPos)){ 
+            //     entry.keywordsPos.forEach(keyword => {
+            //         {
+            //             emotionData && emotionData.map((e, index) => {
+            //                 if (e.emotion === keyword) {
+            //                     newCategories.push(e.category) 
+            //                     console.log(newCategories)
+            //                 }
+            //             })
+            //         }
+            //     });
+            // }
+        })
+
+        for (const num of newCategories) {
+            countCategories[num] = countCategories[num] ? countCategories[num] + 1 : 1;
         }
 
-        entry.sentis?.forEach(senti => {
-            keywordCounts[senti] = (keywordCounts[senti] || 0) + 1;
-            totalKeywords++;
-        })
-        });
-        const chartData = Object.entries(keywordCounts).map(([keyword, count]) => ({
+        const totalCategories = newCategories.length
+
+        const chartData = Object.entries(countCategories).map(([keyword, count, color]) => ({
             x: keyword,
-            y: (count / totalKeywords * 100).toFixed(2)
+            y: Number(((count / totalCategories)).toFixed(2)),
         }));
         setData(chartData);
-    }
+
+        console.log(data)
+    };
+
+    //Sample VictoryPie data for testing
+    // const chartData = [
+    //     { x: "Cats", y: 35 },
+    //     { x: "Dogs", y: 40 },
+    //     { x: "Birds", y: 55 }
+    // ]
 
     const handleSliceClick = (event, props) => {
         setSelectedSlice(selectedSlice === props.index ? null : props.index);
@@ -92,7 +156,6 @@ const DonutChart = ({ username }) => {
                     },
                 }}
                 labelComponent={<VictoryLabel style={{ fontFamily: 'Lexend_400Regular' }} />}
-
 
             />
         </View>
