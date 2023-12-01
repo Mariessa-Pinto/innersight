@@ -11,9 +11,11 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import { useNavigation } from '@react-navigation/native';
 import OpenAI from 'openai';
+import { getAuth } from 'firebase/auth';
 
 
-const AiSent = ({ username, entryContent }) => {
+const AiSent = ({ entryContent }) => {
+// const AiSent = ({ username, entryContent }) => {
   const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
@@ -27,6 +29,7 @@ const AiSent = ({ username, entryContent }) => {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
   const [entryTitle, setEntryTitle] = useState("");
+  const auth = getAuth()
 
   //Navigation
   const navigation = useNavigation();
@@ -83,52 +86,63 @@ const AiSent = ({ username, entryContent }) => {
   }, []);
 
 
-
   const handleTitleChange = (newTitle) => {
     setEntryTitle(newTitle);
   };
-
   const handleSave = async () => {
-    const instructions = "You are a sentiments analyzer. You will find sentiments in the content of a journal from the array of provided sentiments. You will return an array of sentiments found in the journal. You will also score each item in the array by accuracy. The format for the json in the array is sentname, accuracy.";
-    const userMessage = entryContent +  "\n\nprovided sentiments: ['happy', 'excited', 'motivated', 'high energy', 'calm', 'relaxed', 'gratitude', 'joy', 'serenity', 'empowered', 'inspired', 'hopeful', 'love', 'bliss', 'harmony', 'courage', 'triumph', 'abundance', ' content', 'fulfilled', 'optimistic', 'healing', 'success', 'good', 'appreciation', 'growth', 'tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed', 'anguished', 'despair', 'frustrated', 'lonely', 'anxious', 'depressed', 'regret', 'resent', 'sorrow', 'grief', 'stress', 'confused', 'envious', 'bitter', 'rejected', 'guilty', 'irritated', 'melancholy', 'pessimistic' ]";
+    const username = auth.currentUser ? auth.currentUser.uid : null;
 
-    const prompt = instructions + "n/n" + userMessage;
-
-    try {
-      const openaiResponse = await fetch('https://api.openai.com/v1/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.EXPO_PUBLIC_OPEN_API_KEY}`
-        },
-        body: JSON.stringify({
-          model: "text-davinci-003",
-          prompt: prompt,
-          max_tokens: 256,
-          temperature: 1,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0
-      })
-      });
-      const openaiData = await openaiResponse.json();
-      console.log('OpenAi Response:', openaiData);
-
-      const sentis = [];
-      const accuracyMap = new Map();
-
-      openaiData.choices.forEach(choice => {
-        const [senti, accuracy] = choice.text.split(', ');
-        sentis.push(senti);
-        accuracyMap.set(senti, accuracy);
-      });
-      saveJournalEntry(username, { title: entryTitle,  content: text, timestamp: Date.now(), sentis, accuracyMap });
-        setOverlayVisible(true);
-    setOverlayType("saveOverlay");
-    }catch (error) {
-      console.error('Error calling OpenAI API:', error);
+    if (!username) {
+      console.error('User not authenticated.');
+      return;
     }
-  }
+
+    saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now() });
+    setOverlayVisible(true);
+    setOverlayType("saveOverlay");
+  };
+
+  // const handleSave = async () => {
+  //  const instructions = "You are a sentiments analyzer. You will find sentiments in the content of a journal from the array of provided sentiments. You will return an array of sentiments found in the journal. You will also score each item in the array by accuracy. The format for the json in the array is sentname, accuracy.";
+  //  const userMessage = entryContent +  "\n\nprovided sentiments: ['happy', 'excited', 'motivated', 'high energy', 'calm', 'relaxed', 'gratitude', 'joy', 'serenity', 'empowered', 'inspired', 'hopeful', 'love', 'bliss', 'harmony', 'courage', 'triumph', 'abundance', ' content', 'fulfilled', 'optimistic', 'healing', 'success', 'good', 'appreciation', 'growth', 'tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed', 'anguished', 'despair', 'frustrated', 'lonely', 'anxious', 'depressed', 'regret', 'resent', 'sorrow', 'grief', 'stress', 'confused', 'envious', 'bitter', 'rejected', 'guilty', 'irritated', 'melancholy', 'pessimistic' ]";
+
+  //  const prompt = instructions + "n/n" + userMessage;
+
+  //  try {
+  //    const openaiResponse = await fetch('https://api.openai.com/v1/completions', {
+  //      method: 'POST',
+  //      headers: {
+  //        'Content-Type': 'application/json',
+  //        'Authorization': `Bearer ${process.env.EXPO_PUBLIC_OPEN_API_KEY}`
+  //      },
+  //      body: JSON.stringify({
+  //        model: "text-davinci-003",
+  //        prompt: prompt,
+  //        max_tokens: 256,
+  //        temperature: 1,
+ //         top_p: 1,
+ //         frequency_penalty: 0,
+ //         presence_penalty: 0
+//      })
+//      });
+//      const openaiData = await openaiResponse.json();
+//      console.log('OpenAi Response:', openaiData);
+
+//      const sentis = [];
+//      const accuracyMap = new Map();
+
+//      openaiData.choices.forEach(choice => {
+//        const [senti, accuracy] = choice.text.split(', ');
+//        sentis.push(senti);
+//        accuracyMap.set(senti, accuracy);
+//      });
+ //     saveJournalEntry(username, { title: entryTitle,  content: text, timestamp: Date.now(), sentis, accuracyMap });
+ //       setOverlayVisible(true);
+//    setOverlayType("saveOverlay");
+//    }catch (error) {
+ //     console.error('Error calling OpenAI API:', error);
+//    }
+//  }
    
 
   const apiKeyEden = process.env.EXPO_PUBLIC_API_KEY
