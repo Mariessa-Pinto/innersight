@@ -5,6 +5,7 @@ import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import SignUpForm from '../molecules/SignUpForm/SignUpForm';
 import { useNavigation } from '@react-navigation/native';
+import UserRegistrationSignIn from '../firebase/UserRegistration';
 
 export default function SignUp() {
 
@@ -31,11 +32,7 @@ export default function SignUp() {
                     <View style={styles.titleContainer}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Sign Up</Text>
                     </View>
-                    <SignUpForm />
-                    <ExtraLargeBtnLightTxt
-                        text="Sign Up"
-                        navigate="ChooseMascot"
-                    />
+                    <UserRegistrationSignIn />
                     <Text style={[globalStyles.bodyCopy, { color: theme.color, paddingTop: 30 }]}>Already have an account?<Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateTo}> Sign in.</Text></Text>
                     <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>or</Text>
                     <Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateHome}>Continue as Guest</Text>
