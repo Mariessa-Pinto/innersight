@@ -8,9 +8,6 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-
-
-
 export default function ChooseMascot() {
 
     //Dark/Light Mode

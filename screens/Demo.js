@@ -6,8 +6,6 @@ import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import DemoAnimation from '../atom/Demo/DemoAnimation';
 
-
-
 export default function Demo({ navigation }) {
 
     //Dark/Light Mode

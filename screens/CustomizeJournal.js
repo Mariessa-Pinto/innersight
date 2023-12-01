@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -10,15 +10,12 @@ import NormalInput from '../atom/InputBoxes/NormalInput';
 import Toggle from '../atom/ToggleSwitch/Toggle';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 
-
-
 export default function CustomizeJournal({ navigation }) {
     const [showInputBoxes, setShowInputBoxes] = useState(false);
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
 
     const toggleInputBoxes = () => {
         setShowInputBoxes(!showInputBoxes);
@@ -31,7 +28,6 @@ export default function CustomizeJournal({ navigation }) {
                     <Header
                         title="Create New Journal"
                     />
-
                     <View style={styles.header}>
                         <Text style={[globalStyles.h3Text, { color: theme.color }]}>Choose a Journal cover.</Text>
                     </View>

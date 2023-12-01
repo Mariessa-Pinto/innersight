@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import NavBar from '../molecules/Navigation/NavBar';
 import Notifications from '../molecules/Notifications/Notifications';
@@ -88,11 +88,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
-
     },
-    accessibilityContainer: {
-
-    }
-
 })
 
