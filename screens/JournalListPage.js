@@ -140,7 +140,7 @@ export default function JournalListPage() {
                                             <View style={styles.txt}>
                                                 <View style={styles.title}>
                                                     <View style={styles.heading}>
-                                                        <Text style={[globalStyles.h3TextSemiBold, styles.cardHeader]}>{item.content.length > 23 ? `${item.content.substring(0, 23)}...` : item.content}</Text>
+                                                        <Text style={[globalStyles.h3TextSemiBold, styles.cardHeader]}>{item.title || "Untitled"}</Text>
                                                         <Image
                                                             source={require('../atom/icons/Lock.png')}
                                                             style={styles.icon}
