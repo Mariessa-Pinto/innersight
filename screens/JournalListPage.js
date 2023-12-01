@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import EntrySpecOverlay from '../molecules/Overlays/entrySpecOverlay'
+import { getAuth } from 'firebase/auth';
 
 import { remove, ref } from 'firebase/database';
 import { database } from '../firebase/firebaseConfig'
@@ -27,19 +28,40 @@ export default function JournalListPage() {
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
 
+    const auth = getAuth()
+
 
     useEffect(() => {
         const fetchJournalEntries = async () => {
-            try {
-                const journalEntries = await getJournalEntries("anika");
-                console.log('Journal Entries:', journalEntries);
-                setEntries(Object.values(journalEntries));
-            } catch (error) {
-                console.error('Error fetching journal entries:', error);
+          try {
+            // Use the user's UID when fetching journal entries
+            const username = auth.currentUser ? auth.currentUser.uid : null;
+            if (username) {
+              const journalEntries = await getJournalEntries(username);
+              console.log('Journal Entries:', journalEntries);
+              setEntries(Object.values(journalEntries));
+            } else {
+              console.error('User not authenticated.');
             }
+          } catch (error) {
+            console.error('Error fetching journal entries:', error);
+          }
         };
         fetchJournalEntries();
-    }, []);
+      }, [auth.currentUser]);
+
+    // useEffect(() => {
+    //    const fetchJournalEntries = async () => {
+    //        try {
+     //           const journalEntries = await getJournalEntries("anika");
+     //           console.log('Journal Entries:', journalEntries);
+     //           setEntries(Object.values(journalEntries));
+    //        } catch (error) {
+    //            console.error('Error fetching journal entries:', error);
+    //        }
+    //    };
+    //    fetchJournalEntries();
+    // }, []);
 
     const handleViewEntry = (entry) => {
         setSelectedEntry(entry);
