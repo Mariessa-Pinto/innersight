@@ -1,18 +1,16 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import Tag from '../atom/Tag/Tag';
 import ToolBar from '../molecules/ToolBarJournal/ToolBar';
-import SmallInput from '../atom/InputBoxes/SmallInput';
 import data from '../data/PromptData'
 import Header from '../molecules/Header/Header'
 import AiSent from '../component/AiSentiment';
 
 export default function WriteEntry({ navigation }) {
 
-    const [showInsights, setShowInsights] = useState(false);
+    // const [showInsights, setShowInsights] = useState(false);
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
@@ -24,9 +22,9 @@ export default function WriteEntry({ navigation }) {
     const handleNewPrompt = () =>
         setPromptNum(Math.floor(Math.random() * (promptLength - 0)));
 
-    const toggleInsights = () => {
-        setShowInsights(!showInsights);
-    }
+    // const toggleInsights = () => {
+    //     setShowInsights(!showInsights);
+    // }
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingTop: 30,
     },
-
     prompt: {
         height: 'auto',
         width: 328,
@@ -76,11 +73,9 @@ const styles = StyleSheet.create({
         elevation: 4,
         padding: 10
     },
-
     content2: {
         alignItems: 'center',
         paddingTop: 20,
-
     },
     button: {
         position: 'absolute',
@@ -92,13 +87,10 @@ const styles = StyleSheet.create({
         width: 325,
         borderColor: 'black'
     },
-
     textTag: {
         marginLeft: 10
     },
-
     promptWidth:{
         width: '85%'
     }
-
 })
