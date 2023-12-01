@@ -26,6 +26,7 @@ const AiSent = ({ username, entryContent }) => {
   const [pressed, setPressed] = useState(false);
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
+  const [entryTitle, setEntryTitle] = useState("");
 
   //Navigation
   const navigation = useNavigation();
@@ -83,6 +84,10 @@ const AiSent = ({ username, entryContent }) => {
 
 
 
+  const handleTitleChange = (newTitle) => {
+    setEntryTitle(newTitle);
+  };
+
   const handleSave = async () => {
     const instructions = "You are a sentiments analyzer. You will find sentiments in the content of a journal from the array of provided sentiments. You will return an array of sentiments found in the journal. You will also score each item in the array by accuracy. The format for the json in the array is sentname, accuracy.";
     const userMessage = entryContent +  "\n\nprovided sentiments: ['happy', 'excited', 'motivated', 'high energy', 'calm', 'relaxed', 'gratitude', 'joy', 'serenity', 'empowered', 'inspired', 'hopeful', 'love', 'bliss', 'harmony', 'courage', 'triumph', 'abundance', ' content', 'fulfilled', 'optimistic', 'healing', 'success', 'good', 'appreciation', 'growth', 'tired', 'low energy', 'unmotivated', 'lazy', 'angry', 'disappointed', 'sad', 'stressed', 'anguished', 'despair', 'frustrated', 'lonely', 'anxious', 'depressed', 'regret', 'resent', 'sorrow', 'grief', 'stress', 'confused', 'envious', 'bitter', 'rejected', 'guilty', 'irritated', 'melancholy', 'pessimistic' ]";
@@ -117,7 +122,7 @@ const AiSent = ({ username, entryContent }) => {
         sentis.push(senti);
         accuracyMap.set(senti, accuracy);
       });
-      saveJournalEntry(username, { content: text, timestamp: Date.now(), sentis, accuracyMap });
+      saveJournalEntry(username, { title: entryTitle,  content: text, timestamp: Date.now(), sentis, accuracyMap });
         setOverlayVisible(true);
     setOverlayType("saveOverlay");
     }catch (error) {
@@ -286,6 +291,17 @@ const AiSent = ({ username, entryContent }) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
+      <TextInput
+          style={styles.input}
+          onChangeText={handleTitleChange}
+          placeholder="Enter Title..."
+          placeholderTextColor="#292929"
+          keyboardType="default"
+          multiline={false}
+          blurOnSubmit={true}
+          value={entryTitle}
+
+        />
         <TextInput
           style={styles.input}
           onChangeText={(newText) => onChangeText(newText)}
