@@ -22,8 +22,8 @@ export default function UserEmailSignIn() {
 
     return(
                 <View style={styles.container}>
-                <NormalInput placeholder='Name'/>
-                    <NormalInput
+                
+                    <TextInput
                         style={styles.input}
                         placeholder="Email"
                         value={loginEmail}
@@ -31,19 +31,15 @@ export default function UserEmailSignIn() {
                             setLoginEmail(text)
                         }}
                     />
-                    <NormalInput
+                    <TextInput
                         style={styles.input}
                         placeholder="Password"
                         secureTextEntry
                         value={loginPassword}
                         onChangeText={setLoginPassword}
                     />
-                    <NormalInput placeholder='Comfirm Password'/>
-                    <ExtraLargeBtnLightTxt
-                        text="Sign Up"
-                        navigate="ChooseMascot"
-                        onPress={login}
-                    />
+                <Button style={styles.btn} title="Login" onPress={login}>Login</Button>
+                   
                     <Button style={styles.btn} title="Login" onPress={login}>Login</Button>
                 </View>
        

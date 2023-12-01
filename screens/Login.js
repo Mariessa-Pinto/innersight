@@ -5,6 +5,7 @@ import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import LoginForm from '../molecules/LoginForm/LoginForm';
 import { useNavigation } from '@react-navigation/native';
+import UserEmailSignIn from '../firebase/UserEmailSignIn';
 
 
 export default function Login() {
@@ -39,7 +40,7 @@ export default function Login() {
                             <Text style={[globalStyles.h1TextBold, { color: theme.color}]}>Log In</Text>
                             <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Please log in to your account to continue.</Text>
                         </View>
-                        <LoginForm />
+                        <UserEmailSignIn />
                         <ExtraLargeBtnLightTxt
                             text="Log In"
                             navigate="Home"
