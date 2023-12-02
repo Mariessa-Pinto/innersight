@@ -4,12 +4,12 @@
     "slug": "safe-area-page-change-expo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./atom/assets/icon_2.png",
+    "icon": "./atom/assets/icon_3.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./atom/assets/splash_2.png",
+      "image": "./atom/assets/splash_3.png",
       "resizeMode": "contain",
-      "backgroundColor": "#D5D7FF"
+      "backgroundColor": "#7878C1"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./atom/assets/adaptive-icon_2.png",
+        "foregroundImage": "./atom/assets/adaptive-icon_3.png",
         "backgroundColor": "#ffffff"
       }
     },
