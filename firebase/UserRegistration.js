@@ -4,7 +4,7 @@ import themeContext from '../theme/themeContext';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 import { useState, useContext } from "react";
-import { StyleSheet, View, TextInput, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native';
 import NormalInput from "../atom/InputBoxes/NormalInput";
 import { useNavigation } from '@react-navigation/native';
 
