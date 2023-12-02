@@ -22,7 +22,6 @@ export default function NewJournal({ navigation }) {
     const [passIsEnabled, setPassIsEnabled] = useState(false);
     const passToggleSwitch = () => setPassIsEnabled(previousState => !previousState);
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
@@ -79,7 +78,6 @@ export default function NewJournal({ navigation }) {
 const styles = StyleSheet.create({
     header: {
         marginTop: 30,
-
     },
     comp: {
         marginTop: 20,

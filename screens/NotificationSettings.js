@@ -1,12 +1,11 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import Notifications from '../molecules/Notifications/Notifications';
 import Header from '../molecules/Header/Header';
 import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
-
 
 export default function NotificationSettings({ navigation }) {
 
@@ -25,7 +24,6 @@ export default function NotificationSettings({ navigation }) {
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Notifications' navigation={navigation} />
-
                     <Notifications title="Journal Reminders"
                         valueChange2={journalToggleSwitch}
                         valueEnabled2={journalIsEnabled}

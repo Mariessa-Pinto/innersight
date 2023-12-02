@@ -1,10 +1,9 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import SetPasswordForm from '../molecules/SetPasswordForm/SetPasswordForm';
-
 
 export default function ResetPassword() {
 
@@ -14,20 +13,20 @@ export default function ResetPassword() {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
-        <ScrollView>
-            <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                <View style={styles.container}>
-                    <View style={styles.titleContainer}>
-                        <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Set Your Password</Text>
-                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please input your new password below.</Text>
+            <ScrollView>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                    <View style={styles.container}>
+                        <View style={styles.titleContainer}>
+                            <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Set Your Password</Text>
+                            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please input your new password below.</Text>
+                        </View>
+                        <SetPasswordForm />
+                        <ExtraLargeBtnLightTxt
+                            text="Reset Password"
+                            navigate="EmailSent"
+                        />
                     </View>
-                    <SetPasswordForm />
-                    <ExtraLargeBtnLightTxt
-                        text="Reset Password"
-                        navigate="EmailSent"
-                    />
                 </View>
-            </View>
             </ScrollView>
         </View>
     );

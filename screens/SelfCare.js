@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -24,7 +24,6 @@ export default function Recommendations({ navigation }) {
     useEffect(() => {
         setData(RecData.self)
     }, [])
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>

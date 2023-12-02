@@ -25,7 +25,6 @@ export default function TalkItOut({ navigation }) {
         setData(RecData.talk)
     }, [])
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>

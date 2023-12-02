@@ -5,7 +5,6 @@ import themeContext from '../theme/themeContext';
 import { useNavigation } from '@react-navigation/native';
 import UserEmailSignIn from '../firebase/UserEmailSignIn';
 
-
 export default function Login() {
 
     //Dark/Light Mode

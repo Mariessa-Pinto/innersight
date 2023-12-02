@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { Text, View, StyleSheet, ScrollView} from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import SmallBtnDarkTxt from '../atom/Buttons/SmallBtnDarkTxt';
@@ -9,27 +9,22 @@ import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import Header from '../molecules/Header/Header';
 import { Image } from 'expo-image';
 
-
-
 export default function PersonalInformation({ navigation }) {
-
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <Header 
-                        title='Amaya Lee' 
-                        navigation={navigation} 
+                    <Header
+                        title='Amaya Lee'
+                        navigation={navigation}
                     />
                     <View style={styles.maincontent}>
                         <View style={styles.headerBar}>
-
                         </View>
                         <View style={styles.profimage}>
                             <Image
@@ -51,12 +46,10 @@ export default function PersonalInformation({ navigation }) {
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
         </View>
-
     );
 }
 
 const styles = StyleSheet.create({
-
     maincontent: {
         display: 'flex',
         flexDirection: 'column',
@@ -71,7 +64,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
-
         marginBottom: 10
     },
     otter: {

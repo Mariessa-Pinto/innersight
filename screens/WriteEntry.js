@@ -46,7 +46,7 @@ export default function WriteEntry({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                         </View>
-                        <AiSent username="anika"/>
+                        <AiSent username="anika" />
                     </View>
                 </View>
             </ScrollView>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     textTag: {
         marginLeft: 10
     },
-    promptWidth:{
+    promptWidth: {
         width: '85%'
     }
 })

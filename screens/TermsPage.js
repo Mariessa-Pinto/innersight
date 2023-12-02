@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -27,11 +27,9 @@ export default function TermsPage({ navigation }) {
                                 <Text style={globalStyles.btnTextLrg}>
                                     {index - 7}. {i.header}
                                 </Text>
-
                                 <Text style={globalStyles.bodyCopy}>
                                     {i.content}
                                 </Text>
-
                             </View>
                             :
                             ""
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         marginTop: 10,
     },
-    questionContainer:{
+    questionContainer: {
         display: 'flex',
         flexDirection: 'column',
         marginVertical: 10
