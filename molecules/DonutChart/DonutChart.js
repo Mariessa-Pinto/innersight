@@ -10,14 +10,13 @@ import { statsEmotions } from '../../data/StatsEmotionData';
 
 const DonutChart = ({ username }) => {
 
-    const positiveColor = "#FCD161"
-    const negativeColor = "#6090D9"
+    const positiveColor = "#FFE5A4"
+    const negativeColor = "#8CACDB"
 
     console.log("Username in donutchart: ", username)
     const [data, setData] = useState()
     const [selectedSlice, setSelectedSlice] = useState(null);
     const [finalColors, setFinalColors] = useState([])
-    // const colorScale = ["#6090D9", "#6090D9", "#FCD161"]
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
     const [loading, setLoading] = useState(true)
@@ -36,33 +35,6 @@ const DonutChart = ({ username }) => {
         };
         fetchData();
     }, [username]);
-
-    //OLD CODE for displaying all keywords on donut chart
-    // const processJournalData = (journals) => {
-    //     let keywordCounts = {};
-    //     let totalKeywords = 0;
-
-    //     Object.values(journals).forEach(entry => {
-    //         if (Array.isArray(entry.keywords)) {
-    //             entry.keywords.forEach(keyword => {
-    //                 keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
-    //                 totalKeywords++;
-    //             });
-    //         }
-
-    //         entry.sentis?.forEach(senti => {
-    //             keywordCounts[senti] = (keywordCounts[senti] || 0) + 1;
-    //             totalKeywords++;
-    //         })
-    //     });
-    //     const chartData = Object.entries(keywordCounts).map(([keyword, count]) => ({
-    //         x: keyword,
-    //         y: (count / totalKeywords * 100).toFixed(2)
-    //     }));
-    //     setData(chartData);
-    // }
-
-    //Hardcode stats keyword categories
 
     const processJournalData = (journals) => {
         const newCategories = [];
@@ -87,18 +59,6 @@ const DonutChart = ({ username }) => {
                     }
                 });
             }
-            // } else if (Array.isArray(entry.keywordsPos)){ 
-            //     entry.keywordsPos.forEach(keyword => {
-            //         {
-            //             emotionData && emotionData.map((e, index) => {
-            //                 if (e.emotion === keyword) {
-            //                     newCategories.push(e.category) 
-            //                     console.log(newCategories)
-            //                 }
-            //             })
-            //         }
-            //     });
-            // }
         })
 
         for (const num of newCategories) {
@@ -107,31 +67,16 @@ const DonutChart = ({ username }) => {
                 colorIndex.push(newCategories.indexOf(num))
                 :
                 1;
-
         }
 
         colorIndex.shift() //adjusts for the bug that ads an extra 0 at the beginning of the index array
-
-        // for (const num of newCategories) {
-        //     countCategories[num] = countCategories[num] ? 
-        //     (colorIndex.push(newCategories.indexOf(num)),
-        //     console.log("color index" + colorIndex))
-        //     : 
-        //     "" 
-        // }
-
-        // colorIndex.push(newCategories.indexOf(num)),
-        // console.log("color index" + colorIndex)
 
         console.log("color index" + colorIndex)
 
         colorIndex.forEach(index => {
             finalColors.push(newColors[index])
-            console.log(finalColors)
+            // console.log(finalColors)
         });
-
-        // const finalColObj = {...finalColors};
-        // console.log(finalColObj);
 
         const totalCategories = newCategories.length
 
