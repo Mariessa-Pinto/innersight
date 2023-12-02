@@ -1,24 +1,37 @@
 import { StyleSheet, Text, View } from 'react-native';
 import CrisisCardBtn from '../../atom/CrisisCardButton/CrisisCardBtn';
+import crisisData from '../../data/CrisisData';
+import { useState } from 'react';
 
 const OrganizationCard = () => {
-    return(
+
+    const [data, setData] = useState(crisisData)
+
+    return (
         <View style={styles.container}>
-            <CrisisCardBtn 
-            headerText="Canadian Mental Health Association of British Columbia"
-            numText="(604) 688-3234"
-            text="Located at 905 - 1130 West Pender St., Vancouver"
-            />
-            <CrisisCardBtn 
-             headerText="Canadian Mental Health Association of British Columbia"
-             numText="(604) 688-3234"
-             text="Located at 905 - 1130 West Pender St., Vancouver"
-            />
-            <CrisisCardBtn 
-             headerText="Canadian Mental Health Association of British Columbia"
-             numText="(604) 688-3234"
-             text="Located at 905 - 1130 West Pender St., Vancouver"
-            />
+            {data && data.resources.map((i, index) => {
+                return (
+                    <>
+                    {i.type === "info" ? 
+                    <View 
+                    key={index}
+                    style={styles.cardContainer}>
+                        <CrisisCardBtn
+                            headerText={i.organization}
+                            numText={i.phone}
+                            text={i.location}
+                            link={i.location}
+                        />
+                    </View>
+                    :
+                    ""
+                    }
+                    </>
+
+                )
+            })}
+
+           
         </View>
     );
 };
@@ -31,7 +44,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 7,
-        marginTop: 40
+        marginTop: 40,
+        width: '100%',
+    },
+    cardContainer:{
+        width: '100%',
     }
 });
 

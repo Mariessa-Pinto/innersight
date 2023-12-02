@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#6164C3',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10
+    padding: 10,
+
   },
   buttonPressed: {
     backgroundColor: '#43479A', // Change the color when pressed
