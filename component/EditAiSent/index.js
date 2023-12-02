@@ -10,10 +10,11 @@ import { saveJournalEntry } from '../../firebase/firebaseService';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import { useNavigation } from '@react-navigation/native';
+import { getAuth } from 'firebase/auth';
 
 
 
-const EditAiSent = ({ username, entryContent }) => {
+const EditAiSent = ({ username, entryContent, entryTitle }) => {
     const [journalEntry, setJournalEntry] = useState('')
     const [text, onChangeText] = useState('');
     const [response, setResponse] = useState('');
@@ -25,9 +26,11 @@ const EditAiSent = ({ username, entryContent }) => {
     const [statsKeyWords, setStatsKeyWords] = useState("")
     const [isEditing, setIsEditing] = useState(false);
     const [editedContent, setEditedContent] = useState(entryContent);
+    const [editedTitle, setEditedTitle] = useState(entryTitle);
     const [pressed, setPressed] = useState(false);
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [overlayType, setOverlayType] = useState()
+    const auth = getAuth()
 
     //Navigation
     const navigation = useNavigation();
@@ -88,14 +91,33 @@ const EditAiSent = ({ username, entryContent }) => {
         getSelectedMascot();
     }, []);
 
+    //Set Title
+    const handleTitleChange = (newTitle) => {
+        setEditedTitle(newTitle);
+    };
+
+    useEffect(() => {
+        setEditedContent(entryContent);
+        setEditedTitle(entryTitle);
+    }, [entryContent, entryTitle]);
 
     //Save Journal Entry 
-    const handleSave = () => {
-        saveJournalEntry(username, { content: editedContent, timestamp: Date.now() });
-        setJournalEntry('');
-        setOverlayVisible(true);
-        setOverlayType("saveOverlay");
-    }
+    const handleSave = async () => {
+        const username = auth.currentUser ? auth.currentUser.uid : null;
+
+        if (!username) {
+            console.error('User not authenticated.');
+            return;
+        }
+
+        try {
+            await saveJournalEntry(username, { title: editedTitle, content: editedContent, timestamp: Date.now() });
+            setOverlayVisible(true);
+            setOverlayType("saveOverlay");
+        } catch (error) {
+            console.error('Error saving journal entry:', error);
+        }
+    };
 
     const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
@@ -254,17 +276,32 @@ const EditAiSent = ({ username, entryContent }) => {
         <SafeAreaView>
             <View style={styles.container}>
                 {isEditing ? (
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={(newText) => setEditedContent(newText)}
-                        value={editedContent}
-                        multiline={true}
-                        blurOnSubmit={true}
-                        keyboardType="default"
-                        placeholderTextColor="#292929"
-                    />
+                    <View>
+                        <TextInput
+                            style={styles.titleInput}
+                            onChangeText={(newTitle) => setEditedTitle(newTitle)}
+                            placeholder="Enter Title..."
+                            placeholderTextColor="#292929"
+                            keyboardType="default"
+                            multiline={false}
+                            blurOnSubmit={true}
+                            value={editedTitle}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={(newText) => setEditedContent(newText)}
+                            value={editedContent}
+                            multiline={true}
+                            blurOnSubmit={true}
+                            keyboardType="default"
+                            placeholderTextColor="#292929"
+                        />
+                    </View>
                 ) : (
-                    <Text style={styles.input}>{editedContent}</Text>
+                    <View>
+                        <Text style={styles.titleInput}>{editedTitle}</Text>
+                        <Text style={styles.input}>{editedContent}</Text>
+                    </View>
                 )}
                 <InsightButton text={isEditing ? "Save" : "Edit"} onPress={handleEdit} />
                 <TagEntryBtn />
@@ -351,7 +388,7 @@ const EditAiSent = ({ username, entryContent }) => {
                                     <Text style={globalStyles.h4TextLight}>Your entry has been saved.</Text>
                                     <TouchableWithoutFeedback
                                         onPress={() => {
-                                            setOverlayVisible(false);  
+                                            setOverlayVisible(false);
                                             navigation.navigate('JournalListPage');
                                         }}>
                                         <View style={[styles.confirmButtonDark, pressed && styles.deleteButtonPressed]}>
@@ -371,6 +408,18 @@ const EditAiSent = ({ username, entryContent }) => {
 const styles = StyleSheet.create({
     input: {
         height: 150,
+        width: 297,
+        margin: 12,
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: '#FDFDFD',
+        color: '#292929',
+        textAlignVertical: 'top',
+        fontWeight: 'normal',
+        fontFamily: 'Lexend-Regular'
+    },
+    titleInput: {
+        height: 40,
         width: 297,
         margin: 12,
         borderRadius: 5,

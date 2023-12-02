@@ -6,18 +6,12 @@ import NavBar from '../molecules/Navigation/NavBar';
 import SearchBar from '../atom/Search/SearchBar';
 import Tag from '../atom/Tag/Tag';
 import Header from '../molecules/Header/Header'
-import { getJournalEntries, getListOfStories } from '../firebase/firebaseService';
-import { deleteJournalEntries } from '../firebase/firebaseService';
+import { getJournalEntries } from '../firebase/firebaseService';
 import { useNavigation } from '@react-navigation/native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import EntrySpecOverlay from '../molecules/Overlays/entrySpecOverlay'
 import { getAuth } from 'firebase/auth';
-
-import { remove, ref } from 'firebase/database';
-import { database } from '../firebase/firebaseConfig'
-
-
 
 export default function JournalListPage() {
     const navigation = useNavigation();
@@ -33,29 +27,29 @@ export default function JournalListPage() {
 
     useEffect(() => {
         const fetchJournalEntries = async () => {
-          try {
-            // Use the user's UID when fetching journal entries
-            const username = auth.currentUser ? auth.currentUser.uid : null;
-            if (username) {
-              const journalEntries = await getJournalEntries(username);
-              console.log('Journal Entries:', journalEntries);
-              setEntries(Object.values(journalEntries));
-            } else {
-              console.error('User not authenticated.');
+            try {
+                // Use the user's UID when fetching journal entries
+                const username = auth.currentUser ? auth.currentUser.uid : null;
+                if (username) {
+                    const journalEntries = await getJournalEntries(username);
+                    console.log('Journal Entries:', journalEntries);
+                    setEntries(Object.values(journalEntries));
+                } else {
+                    console.error('User not authenticated.');
+                }
+            } catch (error) {
+                console.error('Error fetching journal entries:', error);
             }
-          } catch (error) {
-            console.error('Error fetching journal entries:', error);
-          }
         };
         fetchJournalEntries();
-      }, [auth.currentUser]);
+    }, [auth.currentUser]);
 
     // useEffect(() => {
     //    const fetchJournalEntries = async () => {
     //        try {
-     //           const journalEntries = await getJournalEntries("anika");
-     //           console.log('Journal Entries:', journalEntries);
-     //           setEntries(Object.values(journalEntries));
+    //           const journalEntries = await getJournalEntries("anika");
+    //           console.log('Journal Entries:', journalEntries);
+    //           setEntries(Object.values(journalEntries));
     //        } catch (error) {
     //            console.error('Error fetching journal entries:', error);
     //        }
@@ -65,10 +59,10 @@ export default function JournalListPage() {
 
     const handleViewEntry = (entry) => {
         setSelectedEntry(entry);
-        navigation.navigate('JournalViewPage', { entry });
+        navigation.navigate('JournalViewPage', { entry, title: entry.title });
     };
 
-       //Delete Entry
+    //Delete Entry
     //    const handleDeleteEntry = (entryToDelete) => {
     //     const updatedEntries = entries.filter((entry) => entry !== entryToDelete);
     //     setEntries(updatedEntries);
@@ -78,16 +72,16 @@ export default function JournalListPage() {
 
     //Patricia's attempt at delete entry
     const handleDeleteEntry = (selectedEntry) => {
-        const result = entries.filter(({content}) => !content.includes(selectedEntry.content))
+        const result = entries.filter(({ content }) => !content.includes(selectedEntry.content))
         setEntries(result)
         console.log("Entry removed")
-        setOverlayVisible(false); 
+        setOverlayVisible(false);
     }
 
     const handleTarget = (selectedEntry) => {
-//getListOfStories("anika")
+        //getListOfStories("anika")
 
-//        deleteJournalEntries("anika", "key")
+        //deleteJournalEntries("anika", "key")
 
         setSelectedEntry(selectedEntry)
         console.log(entries)
@@ -107,9 +101,6 @@ export default function JournalListPage() {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
-
- 
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -169,7 +160,7 @@ export default function JournalListPage() {
                                                         />
                                                     </View>
                                                     <TouchableWithoutFeedback
-                                                        onPress={() => {setOverlayVisible(!isOverlayVisible); handleTarget(item)}}>
+                                                        onPress={() => { setOverlayVisible(!isOverlayVisible); handleTarget(item) }}>
                                                         <View
                                                             style={styles.tapBox}>
                                                             <Image source={require('../atom/icons/SettingsIcon.png')} style={styles.settings} />
@@ -196,8 +187,8 @@ export default function JournalListPage() {
                             onBackdropPress={() => setOverlayVisible(false)}
                             directionalOffsetThreshold={20}
                         >
-                            <EntrySpecOverlay 
-                                onDeleteEntry={() => handleDeleteEntry(selectedEntry)} 
+                            <EntrySpecOverlay
+                                onDeleteEntry={() => handleDeleteEntry(selectedEntry)}
                                 selectedEntry={selectedEntry}
                             />
                         </Modal>
@@ -247,7 +238,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonPressed: {
-        backgroundColor: '#EAEAEA', // Change the color when pressed
+        backgroundColor: '#EAEAEA',
         borderColor: '#EAEAEA'
     },
     text: {

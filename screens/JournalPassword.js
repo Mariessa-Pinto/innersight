@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -39,7 +39,6 @@ export default function JournalPassword({ navigation }) {
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />
         </View>
-
     );
 }
 
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         display: 'flex',
         marginTop: 5,
-        fontWeight: 'normal', 
+        fontWeight: 'normal',
         fontFamily: 'Lexend-Regular'
     },
     textContainer: {
@@ -62,6 +61,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 25
     }
-
-
 })

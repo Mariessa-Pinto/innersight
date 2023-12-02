@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -8,10 +8,7 @@ import FaqAccordion from '../atom/FaqAccordian/FaqAccordian';
 import Header from '../molecules/Header/Header';
 import SearchBar from '../atom/Search/SearchBar';
 
-
-
 export default function FaqPage({ navigation }) {
-
 
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
@@ -30,18 +27,16 @@ export default function FaqPage({ navigation }) {
       <ScrollView>
         <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
           <Header title='FAQs' navigation={navigation} />
-
           <View style={styles.top}>
             <SearchBar placeholder='Search FAQs' />
           </View>
-
           <View style={styles.accCategories}>
             <View>
               <Text style={globalStyles.h4TextSemiBold}>Getting Started</Text>
               {data.map((info, index) => (
                 info.category === "Getting Started" ?
-                <View style={[styles.noBorder, info.border && styles.border]} 
-                key={index}>
+                  <View style={[styles.noBorder, info.border && styles.border]}
+                    key={index}>
                     <FaqAccordion
                       question={info.question}
                       answer={info.answer}
@@ -58,8 +53,8 @@ export default function FaqPage({ navigation }) {
               <Text style={globalStyles.h4TextSemiBold}>Artificial Intelligence</Text>
               {data.map((info, index) => (
                 info.category === "AI" ?
-                  <View style={[styles.noBorder, info.border && styles.border]} 
-                  key={index}>
+                  <View style={[styles.noBorder, info.border && styles.border]}
+                    key={index}>
                     <FaqAccordion
                       question={info.question}
                       answer={info.answer}
@@ -67,9 +62,7 @@ export default function FaqPage({ navigation }) {
                       setIsActive={() => handleAccordionClick(index)}
                       index={index}
                     />
-
                   </View>
-
                   :
                   ""
               ))}
@@ -78,8 +71,8 @@ export default function FaqPage({ navigation }) {
               <Text style={globalStyles.h4TextSemiBold}>Other</Text>
               {data.map((info, index) => (
                 info.category === "Other" ?
-                <View style={[styles.noBorder, info.border && styles.border]} 
-                key={index}>
+                  <View style={[styles.noBorder, info.border && styles.border]}
+                    key={index}>
                     <FaqAccordion
                       question={info.question}
                       answer={info.answer}
@@ -92,10 +85,7 @@ export default function FaqPage({ navigation }) {
                   ""
               ))}
             </View>
-
-
           </View>
-
         </View>
       </ScrollView>
       <NavBar navigation={navigation} variation='profile' />
@@ -104,17 +94,13 @@ export default function FaqPage({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-
-
   header: {
     fontSize: 18,
     fontWeight: 'bold'
   },
-
   top: {
     marginBottom: 35
   },
-
   input: {
     height: 40,
     width: 328,
@@ -124,7 +110,7 @@ const styles = StyleSheet.create({
     borderColor: '#88898C',
     padding: 10,
   },
-  border:{
+  border: {
     borderBottomWidth: 1
   },
   noBorder: {
@@ -135,5 +121,4 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 35
   }
-
 })

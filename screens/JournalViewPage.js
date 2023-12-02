@@ -13,8 +13,8 @@ import { useNavigation } from '@react-navigation/native';
 
 
 export default function WriteEntry({ route }) {
-
   const [showInsights, setShowInsights] = useState(false);
+
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
   const theme = useContext(themeContext)
@@ -31,7 +31,7 @@ export default function WriteEntry({ route }) {
   }
   //Navigation
   const navigation = useNavigation();
-  const { entry } = route.params;
+  const { entry, title } = route.params;
 
   return (
     <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -53,7 +53,7 @@ export default function WriteEntry({ route }) {
                 </TouchableOpacity>
               </View>
             </View>
-            <EditAiSent username="anika" entryContent={entry.content}/>
+            <EditAiSent username="anika" entryContent={entry.content} entryTitle={title}/>
           </View>
         </View>
       </ScrollView>
