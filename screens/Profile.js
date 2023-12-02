@@ -1,8 +1,7 @@
 import globalStyles from '../styles/global'
-import { Text, View, Button, Switch, StyleSheet, ScrollView, Pressable, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import Login from './Login';
 import NavBar from '../molecules/Navigation/NavBar';
 import { Image } from 'expo-image';
 import Header from '../molecules/Header/Header';
@@ -27,33 +26,30 @@ export default function Profile({ navigation }) {
                                 style={styles.otter}
                             />
                         </View>
-                        <Text style={[globalStyles.h1TextBold, {color: theme.color}]}>Amaya Lee</Text>
+                        <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Amaya Lee</Text>
                     </View>
-
                     <View style={styles.stats}>
                         <QuickStatsCard metric="85" label="Entries Completed" />
                         <QuickStatsCard metric="28 days" label="Longest Streak" />
                         <QuickStatsCard metric="190,809" label="Words Written" />
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, { color: theme.color }]}>
                             Settings
                         </Text>
                         <ProfileGreyButtons section="settings" />
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, { color: theme.color }]}>
                             Support
                         </Text>
                         <ProfileGreyButtons section="support" />
-
                     </View>
                     <View style={styles.content}>
-                        <Text style={[styles.sectionHeading, globalStyles.h3Text, {color: theme.color}]}>
+                        <Text style={[styles.sectionHeading, globalStyles.h3Text, { color: theme.color }]}>
                             Legal
                         </Text>
                         <ProfileGreyButtons section="legal" />
-
                     </View>
                     <View style={styles.content3}>
                         <SmallBtnLightTxt
@@ -77,7 +73,6 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         paddingBottom: 110,
-
     },
     profimage: {
         backgroundColor: '#FFF2AC',
@@ -134,7 +129,6 @@ const styles = StyleSheet.create({
     label2: {
         fontSize: 13,
     },
-
     icon2: {
         width: 13,
         height: 12.5

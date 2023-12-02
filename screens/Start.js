@@ -45,9 +45,8 @@ export default function Start() {
                         navigate="Login"
                     />
                     <TouchableOpacity onPress={navigateTo} style={styles.guestButton}>
-                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center'}]}>or</Text>
-
-                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center'}]}>Continue as Guest</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center' }]}>or</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color, textAlign: 'center' }]}>Continue as Guest</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     animationStyle: {
         marginBottom: 100
     },
-    buttons: { 
+    buttons: {
         display: 'flex',
         flexDirection: 'column',
         gap: 15,

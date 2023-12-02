@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -7,10 +7,8 @@ import Header from '../molecules/Header/Header';
 import SearchBar from '../atom/Search/SearchBar';
 import JournalTags from '../molecules/JournalTags.js/JournalTags';
 import tagSettingsOverlay from '../molecules/Overlays/tagSettingsOverlay';
-import { Image } from 'expo-image';
 
 export default function TagManager({ navigation }) {
-
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
@@ -32,16 +30,16 @@ export default function TagManager({ navigation }) {
                     <Header title='Manage Tags' navigation={navigation} settings={true} overlayType="tagsList" />
                     <View style={styles.container}>
                         <SearchBar placeholder='Search for a Tag' />
-                        <JournalTags 
-                        title="Tracking my mood changes."
-                        tags={["angry", "happy", "sad", "annoyed"]}
+                        <JournalTags
+                            title="Tracking my mood changes."
+                            tags={["angry", "happy", "sad", "annoyed"]}
                         />
-                        <JournalTags 
-                        title="Complaining about anything and everything."
-                        tags={["work", "home", "random"]}/>
-                        <JournalTags 
-                        title="Notes and techniques from therapy."
-                        tags={["strategies", "feedback", "insights"]}/>
+                        <JournalTags
+                            title="Complaining about anything and everything."
+                            tags={["work", "home", "random"]} />
+                        <JournalTags
+                            title="Notes and techniques from therapy."
+                            tags={["strategies", "feedback", "insights"]} />
                     </View>
                 </View>
             </ScrollView>

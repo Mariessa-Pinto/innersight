@@ -1,12 +1,10 @@
 import globalStyles from '../styles/global'
 import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import ExtraLargeBtnDarkTxt from '../atom/Buttons/ExtraLargeBtnDarkTxt';
 import { Image } from 'expo-image';
-
 
 export default function LandingPage() {
 
@@ -18,17 +16,17 @@ export default function LandingPage() {
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <Image 
+                    <Image
                         source={require('../atom/Logo/LogoWordmarkHorizontal.png')}
                         style={styles.logo}
                     />
                 </View>
-                <ExtraLargeBtnLightTxt 
-                    text="Log In" 
+                <ExtraLargeBtnLightTxt
+                    text="Log In"
                     navigate="Login"
                 />
-                <ExtraLargeBtnDarkTxt 
-                    text="Sign Up" 
+                <ExtraLargeBtnDarkTxt
+                    text="Sign Up"
                     navigate="SignUp"
                 />
             </View>

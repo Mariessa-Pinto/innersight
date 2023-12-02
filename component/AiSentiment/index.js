@@ -13,9 +13,8 @@ import { useNavigation } from '@react-navigation/native';
 import OpenAI from 'openai';
 import { getAuth } from 'firebase/auth';
 
-
 const AiSent = ({ entryContent }) => {
-// const AiSent = ({ username, entryContent }) => {
+  // const AiSent = ({ username, entryContent }) => {
   const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
   const [response, setResponse] = useState('');
@@ -85,21 +84,34 @@ const AiSent = ({ entryContent }) => {
     getSelectedMascot();
   }, []);
 
-
+  //Set Title
   const handleTitleChange = (newTitle) => {
     setEntryTitle(newTitle);
   };
+
   const handleSave = async () => {
     const username = auth.currentUser ? auth.currentUser.uid : null;
-
+  
     if (!username) {
       console.error('User not authenticated.');
       return;
     }
-
-    saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now() });
-    setOverlayVisible(true);
-    setOverlayType("saveOverlay");
+  
+    try {
+      await saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now() });
+      setOverlayVisible(true);
+      setOverlayType("saveOverlay");
+      setEntryTitle("");
+      setResponse(""); 
+      setShowImage(false); 
+      setShowRecommendations([]); 
+      setParagraph(""); 
+      setKeyWordsNeg(""); 
+      setKeyWordsPos(""); 
+      setStatsKeyWords(""); 
+    } catch (error) {
+      console.error('Error saving journal entry:', error);
+    }
   };
 
   // const handleSave = async () => {
@@ -120,33 +132,31 @@ const AiSent = ({ entryContent }) => {
   //        prompt: prompt,
   //        max_tokens: 256,
   //        temperature: 1,
- //         top_p: 1,
- //         frequency_penalty: 0,
- //         presence_penalty: 0
-//      })
-//      });
-//      const openaiData = await openaiResponse.json();
-//      console.log('OpenAi Response:', openaiData);
+  //         top_p: 1,
+  //         frequency_penalty: 0,
+  //         presence_penalty: 0
+  //      })
+  //      });
+  //      const openaiData = await openaiResponse.json();
+  //      console.log('OpenAi Response:', openaiData);
 
-//      const sentis = [];
-//      const accuracyMap = new Map();
+  //      const sentis = [];
+  //      const accuracyMap = new Map();
 
-//      openaiData.choices.forEach(choice => {
-//        const [senti, accuracy] = choice.text.split(', ');
-//        sentis.push(senti);
-//        accuracyMap.set(senti, accuracy);
-//      });
- //     saveJournalEntry(username, { title: entryTitle,  content: text, timestamp: Date.now(), sentis, accuracyMap });
- //       setOverlayVisible(true);
-//    setOverlayType("saveOverlay");
-//    }catch (error) {
- //     console.error('Error calling OpenAI API:', error);
-//    }
-//  }
-   
-
+  //      openaiData.choices.forEach(choice => {
+  //        const [senti, accuracy] = choice.text.split(', ');
+  //        sentis.push(senti);
+  //        accuracyMap.set(senti, accuracy);
+  //      });
+  //     saveJournalEntry(username, { title: entryTitle,  content: text, timestamp: Date.now(), sentis, accuracyMap });
+  //       setOverlayVisible(true);
+  //    setOverlayType("saveOverlay");
+  //    }catch (error) {
+  //     console.error('Error calling OpenAI API:', error);
+  //    }
+  //  }
   const apiKeyEden = process.env.EXPO_PUBLIC_API_KEY
-  const openai = new OpenAI({ apiKey: process.env.EXPO_PUBLIC_OPEN_API_KEY})
+  const openai = new OpenAI({ apiKey: process.env.EXPO_PUBLIC_OPEN_API_KEY })
 
   const handleApiCall = () => {
 
@@ -297,16 +307,13 @@ const AiSent = ({ entryContent }) => {
         console.log("Positive Keywords stored")
       })
       .catch((error) => console.error(error));
-
-    
   };
-
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-      <TextInput
-          style={styles.input}
+        <TextInput
+          style={styles.titleInput}
           onChangeText={handleTitleChange}
           placeholder="Enter Title..."
           placeholderTextColor="#292929"
@@ -314,7 +321,6 @@ const AiSent = ({ entryContent }) => {
           multiline={false}
           blurOnSubmit={true}
           value={entryTitle}
-
         />
         <TextInput
           style={styles.input}
@@ -325,7 +331,6 @@ const AiSent = ({ entryContent }) => {
           multiline={true}
           blurOnSubmit={true}
           value={entryContent}
-
         />
         <TagEntryBtn />
         <InsightButton
@@ -439,6 +444,18 @@ const styles = StyleSheet.create({
     color: '#292929',
     textAlignVertical: 'top',
     fontWeight: 'normal',
+    fontFamily: 'Lexend-Regular',
+  },
+  titleInput: {
+    height: 40,
+    width: 297,
+    margin: 12,
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: '#FDFDFD',
+    color: '#292929',
+    textAlignVertical: 'top',
+    fontWeight: 'normal',
     fontFamily: 'Lexend-Regular'
   },
   panda: {
@@ -496,21 +513,21 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: -20,
     left: -20
-},
-inside: {
+  },
+  inside: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     gap: 15,
     marginTop: 10
-},
-line: {
+  },
+  line: {
     width: 65,
     height: 3,
     backgroundColor: '#88898C',
     marginBottom: 10
-},
-deleteButton: {
+  },
+  deleteButton: {
     width: 228,
     height: 44,
     borderRadius: 10,
@@ -518,24 +535,24 @@ deleteButton: {
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 7,
-},
-deleteButtonPressed: {
+  },
+  deleteButtonPressed: {
     backgroundColor: '#D5D7FF', // Change the color when pressed
-},
-deleteText: {
+  },
+  deleteText: {
     color: '#3E3F42',
-},
-deleteTextLight: {
+  },
+  deleteTextLight: {
     color: '#FDFDFD',
-},
-confirmButtons: {
+  },
+  confirmButtons: {
     display: 'flex',
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
     justifyContent: 'center'
-},
-deleteConfirmButtonDark: {
+  },
+  deleteConfirmButtonDark: {
     width: 130,
     height: 38,
     borderRadius: 10,
@@ -543,8 +560,8 @@ deleteConfirmButtonDark: {
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 7,
-},
-deleteConfirmButtonLight: {
+  },
+  deleteConfirmButtonLight: {
     width: 130,
     height: 38,
     borderRadius: 10,
@@ -552,8 +569,8 @@ deleteConfirmButtonLight: {
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 7,
-},
-confirmButtonDark: {
+  },
+  confirmButtonDark: {
     width: 228,
     height: 44,
     borderRadius: 10,
@@ -561,7 +578,7 @@ confirmButtonDark: {
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 7,
-},
+  },
 });
 
 export default AiSent;

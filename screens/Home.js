@@ -30,7 +30,6 @@ export default function Home({ navigation }) {
         setShowInsights(!showInsights);
     }
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
@@ -70,13 +69,11 @@ export default function Home({ navigation }) {
                         </View>
                     </View>
                 </View>
-
             </ScrollView>
             <NavBar navigation={navigation} variation='home' />
         </View>
     );
 }
-
 
 const styles = StyleSheet.create({
     journalContainer: {
@@ -96,7 +93,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         textAlignVertical: 'top',
         padding: 10,
-        fontWeight: 'normal', 
+        fontWeight: 'normal',
         fontFamily: 'Lexend-Regular'
     },
     button: {
@@ -125,11 +122,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 5,
         right: 10
-
     },
-    promptWidth:{
+    promptWidth: {
         width: '85%'
     }
-
 })
 

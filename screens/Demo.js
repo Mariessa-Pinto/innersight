@@ -6,9 +6,7 @@ import themeContext from '../theme/themeContext';
 import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
 import DemoAnimation from '../atom/Demo/DemoAnimation';
 
-
-
-export default function Demo({ navigation }) { 
+export default function Demo({ navigation }) {
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -27,8 +25,12 @@ export default function Demo({ navigation }) {
                     />
                     <View style={styles.button}>
                         <ExtraLargeBtnLightTxt
+                            text="Sign Up"
+                            navigate="SignUp"
+                        />
+                        <ExtraLargeBtnLightTxt
                             text="Continue as Guest"
-                            navigate="Home" 
+                            navigate="Home"
                         />
                     </View>
                 </View>
@@ -43,17 +45,17 @@ const styles = StyleSheet.create({
         width: 130,
         position: 'absolute',
         left: 10,
-        bottom: 200
+        bottom: 240
     },
     animation: {
         display: 'flex',
         alignItems: 'center',
-        marginTop: -100
+        marginTop: -135
     },
     button: {
         display: 'flex',
         alignItems: 'center',
-        gap: 30,
-        marginTop: -60
+        gap: 15,
+        marginTop: -70
     }
 })

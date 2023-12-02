@@ -1,10 +1,6 @@
 import globalStyles from '../styles/global'
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import {
-    StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
-    TouchableOpacity
-} from 'react-native';
+import { View, ScrollView } from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -12,7 +8,6 @@ import Header from '../molecules/Header/Header';
 
 import SearchBar from '../atom/Search/SearchBar';
 import OrganizationCard from '../molecules/CrisisSupportCard/OrganizationCard'
-
 
 export default function Organizations({ navigation }) {
 
@@ -31,7 +26,6 @@ export default function Organizations({ navigation }) {
                         title="Organizations"
                         navigation={navigation}
                     />
-
                     <View>
                         <SearchBar
                             placeholder="Search by City/Town"
@@ -45,8 +39,3 @@ export default function Organizations({ navigation }) {
 
     );
 }
-
-const styles = StyleSheet.create({
-
-
-})

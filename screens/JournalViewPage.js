@@ -1,11 +1,9 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
-import Tag from '../atom/Tag/Tag';
 import ToolBar from '../molecules/ToolBarJournal/ToolBar';
-import SmallInput from '../atom/InputBoxes/SmallInput';
 import data from '../data/PromptData'
 import Header from '../molecules/Header/Header'
 import EditAiSent from '../component/EditAiSent';
@@ -13,8 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 
 
 export default function WriteEntry({ route }) {
-
   const [showInsights, setShowInsights] = useState(false);
+
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
   const theme = useContext(themeContext)
@@ -29,9 +27,10 @@ export default function WriteEntry({ route }) {
   const toggleInsights = () => {
     setShowInsights(!showInsights);
   }
+
   //Navigation
   const navigation = useNavigation();
-  const { entry } = route.params;
+  const { entry, title } = route.params;
 
   return (
     <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -53,7 +52,7 @@ export default function WriteEntry({ route }) {
                 </TouchableOpacity>
               </View>
             </View>
-            <EditAiSent username="anika" entryContent={entry.content}/>
+            <EditAiSent username="anika" entryContent={entry.content} entryTitle={title} />
           </View>
         </View>
       </ScrollView>
@@ -72,33 +71,33 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 30,
     paddingTop: 0,
-},
-prompt: {
+  },
+  prompt: {
     height: 'auto',
     width: 328,
     backgroundColor: '#F2F2FD',
     borderRadius: 10,
     elevation: 4,
     padding: 10
-},
-content2: {
+  },
+  content2: {
     alignItems: 'center',
     paddingTop: 20,
-},
-button: {
+  },
+  button: {
     position: 'absolute',
     right: 10,
     bottom: 5
-},
-input: {
+  },
+  input: {
     height: 200,
     width: 325,
     borderColor: 'black'
-},
-textTag: {
+  },
+  textTag: {
     marginLeft: 10
-},
-promptWidth:{
+  },
+  promptWidth: {
     width: '85%'
-}
+  }
 });

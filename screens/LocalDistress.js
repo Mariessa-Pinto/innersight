@@ -1,11 +1,7 @@
 import globalStyles from '../styles/global'
 
 import { useState, useContext } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import {
-    StyleSheet, Text, View, Button, ScrollView, TextInput, Image,
-    TouchableOpacity
-} from 'react-native';
+import { View, ScrollView } from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -36,14 +32,5 @@ export default function LocalDistress({ navigation }) {
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
         </View>
-
     );
 }
-
-const styles = StyleSheet.create({
-    content: {
-        marginTop: 40,
-        gap: 40
-    }
-
-})

@@ -13,6 +13,7 @@ export default function Recommendations({ navigation }) {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+
     //Font Size
     const fontTheme = useContext(fontContext)
 
@@ -24,7 +25,6 @@ export default function Recommendations({ navigation }) {
     useEffect(() => {
         setData(RecData.hobbies)
     }, [])
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>

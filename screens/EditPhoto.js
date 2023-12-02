@@ -6,10 +6,8 @@ import Header from '../molecules/Header/Header';
 import { Image } from 'expo-image';
 import NavBar from '../molecules/Navigation/NavBar';
 import ProfilePicOverlay from '../molecules/Overlays/profilePicOverlay';
-import UpdatePhoto from '../atom/Buttons/UpdatePhotoButton';
 import Modal from "react-native-modal";
 import GestureRecognizer from 'react-native-swipe-gestures';
-
 
 export default function EditPhoto({ navigation }) {
 
@@ -35,7 +33,6 @@ export default function EditPhoto({ navigation }) {
     };
 
     //Overlay
-
     const [isOverlayVisible, setOverlayVisible] = useState(false);
 
     return (
@@ -78,7 +75,6 @@ export default function EditPhoto({ navigation }) {
                         </View>
                     </TouchableWithoutFeedback>
                 </View>
-
                 <View>
                     <GestureRecognizer
                         style={{ flex: 1 }}
@@ -162,7 +158,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#43479A', // Change the color when pressed
+        backgroundColor: '#43479A',
     },
     text: {
         color: '#FDFDFD',

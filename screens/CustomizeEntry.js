@@ -5,7 +5,6 @@ import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
 import ColorBtns from '../atom/ColorButtons/ColorBtns';
 import TypeButton from '../atom/TypeFace/TypeButton';
-import MediumBtnLightTxt from '../atom/Buttons/MediumBtnLightTxt';
 import Header from '../molecules/Header/Header';
 import Modal from "react-native-modal";
 import GestureRecognizer from 'react-native-swipe-gestures';
@@ -49,7 +48,6 @@ export default function CustomizeEntry({ navigation }) {
                                     <Text style={[styles.text, globalStyles.btnTextMed]}>Save Changes</Text>
                                 </View>
                             </TouchableWithoutFeedback>
-
                         </TouchableWithoutFeedback>
                     </View>
                     <GestureRecognizer
@@ -66,7 +64,6 @@ export default function CustomizeEntry({ navigation }) {
                                     <View style={styles.line}></View>
                                     <Text style={globalStyles.h4TextLight}>Your changes have been saved.</Text>
                                     <TouchableWithoutFeedback
-
                                         onPress={() => setOverlayVisible(!isOverlayVisible)}
                                     >
                                         <View style={[styles.backButton, pressed && styles.backButtonPressed]}>
@@ -75,14 +72,12 @@ export default function CustomizeEntry({ navigation }) {
                                     </TouchableWithoutFeedback>
                                 </View>
                             </View>
-
                         </Modal>
                     </GestureRecognizer>
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='journal' />
         </View>
-
     );
 }
 
@@ -107,7 +102,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#43479A', // Change the color when pressed
+        backgroundColor: '#43479A',
     },
     text: {
         color: '#FDFDFD',
@@ -153,7 +148,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     backButtonPressed: {
-        backgroundColor: '#43479A', // Change the color when pressed
+        backgroundColor: '#43479A',
     },
     backText: {
         color: '#FDFDFD',

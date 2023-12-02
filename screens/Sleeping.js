@@ -25,7 +25,6 @@ export default function Recommendations({ navigation }) {
         setData(RecData.sleep)
     }, [])
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>

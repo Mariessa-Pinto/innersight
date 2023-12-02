@@ -1,12 +1,9 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
-import ExtraLargeBtnLightTxt from '../atom/Buttons/ExtraLargeBtnLightTxt'
-import LoginForm from '../molecules/LoginForm/LoginForm';
 import { useNavigation } from '@react-navigation/native';
 import UserEmailSignIn from '../firebase/UserEmailSignIn';
-
 
 export default function Login() {
 
@@ -37,18 +34,14 @@ export default function Login() {
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <View style={styles.container}>
                         <View style={styles.titleContainer}>
-                            <Text style={[globalStyles.h1TextBold, { color: theme.color}]}>Log In</Text>
-                            <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Please log in to your account to continue.</Text>
+                            <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Log In</Text>
+                            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Please log in to your account to continue.</Text>
                         </View>
                         <UserEmailSignIn />
-                        <ExtraLargeBtnLightTxt
-                            text="Log In"
-                            navigate="Home"
-                        />
-                        <Text style={[globalStyles.boldBody, { color: theme.color, marginTop: 40, marginBottom: 30}]}  onPress={navigateToForgot}>Forgot Your Password?</Text>
-                        <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>Don't have an account?<Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateTo}> Sign up.</Text></Text>
-                        <Text style={[globalStyles.bodyCopy, { color: theme.color}]}>or</Text>
-                        <Text style={[globalStyles.boldBody, { color: theme.color}]} onPress={navigateHome}>Continue as Guest</Text>
+                        <Text style={[globalStyles.boldBody, { color: theme.color, marginTop: 40, marginBottom: 30 }]} onPress={navigateToForgot}>Forgot Your Password?</Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>Don't have an account?<Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateTo}> Sign up.</Text></Text>
+                        <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>or</Text>
+                        <Text style={[globalStyles.boldBody, { color: theme.color }]} onPress={navigateHome}>Continue as Guest</Text>
                     </View>
                 </View>
             </ScrollView>

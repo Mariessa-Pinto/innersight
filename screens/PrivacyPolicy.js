@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Button, Switch, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -16,40 +16,38 @@ export default function PrivacyPolicy({ navigation }) {
 
     const [data, setData] = useState(PolicyData.questions)
 
-
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
                 <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     <Header title='Privacy Policy' navigation={navigation} />
                     {data && data.map((i, index) => (
-
-                        i.page === "Privacy Policy" ? 
-                        <View 
-                        style={styles.questionContainer}
-                        key={index}>
-                            <Text style={globalStyles.btnTextLrg}>
-                                {index + 1}. {i.header}
-                            </Text>
-                            {
-                                i.content.personalInfo ?
-                                    <>
+                        i.page === "Privacy Policy" ?
+                            <View
+                                style={styles.questionContainer}
+                                key={index}>
+                                <Text style={globalStyles.btnTextLrg}>
+                                    {index + 1}. {i.header}
+                                </Text>
+                                {
+                                    i.content.personalInfo ?
+                                        <>
+                                            <Text style={globalStyles.bodyCopy}>
+                                                <Text style={globalStyles.btnTextLrg}>{i.subtitle1}:</Text> {i.content.personalInfo}
+                                            </Text>
+                                            <Text style={globalStyles.bodyCopy}>
+                                                <Text style={globalStyles.btnTextLrg}>{i.subtitle2}:</Text> {i.content.journalEntries}
+                                            </Text>
+                                        </>
+                                        :
                                         <Text style={globalStyles.bodyCopy}>
-                                            <Text style={globalStyles.btnTextLrg}>{i.subtitle1}:</Text> {i.content.personalInfo}
+                                            {i.content}
                                         </Text>
-                                        <Text style={globalStyles.bodyCopy}>
-                                        <Text style={globalStyles.btnTextLrg}>{i.subtitle2}:</Text> {i.content.journalEntries}
-                                        </Text>
-                                    </>
-                                    :
-                                    <Text style={globalStyles.bodyCopy}>
-                                        {i.content}
-                                    </Text>
-                            }
-                        </View>
-                        :
-                        ""
-))}
+                                }
+                            </View>
+                            :
+                            ""
+                    ))}
                 </View>
             </ScrollView>
             <NavBar navigation={navigation} variation='profile' />
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         marginTop: 10,
     },
-    questionContainer:{
+    questionContainer: {
         display: 'flex',
         flexDirection: 'column',
         marginVertical: 10

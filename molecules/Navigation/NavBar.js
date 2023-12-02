@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Keyboard } from 'react-native';
 import * as React from 'react';
 import HomeIcon from '../../atom/icons/HomeIcon'
 import StatsIcon from '../../atom/icons/StatsIcon';
@@ -10,20 +10,35 @@ import HideWithKeyboard from 'react-native-hide-with-keyboard';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import themeContext from '../../theme/themeContext';
 
 export default function NavBar({ navigation, variation }) {
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+    //Handle Keyboard Error
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', hideOverlay);
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', hideOverlay);
+
+        return () => {
+            keyboardDidShowListener.remove();
+            keyboardDidHideListener.remove();
+        };
+    }, []);
 
     //Dark/Light Mode
     const theme = useContext(themeContext)
 
-    const [isOverlayVisible, setOverlayVisible] = useState(false);
-
+    //Overlay
     const toggleOverlay = () => {
         setOverlayVisible(!isOverlayVisible);
     };
 
+    const hideOverlay = () => {
+        setOverlayVisible(false);
+    };
+    
     const OverlayContent = plusButtonOverlay
 
     const [pressed, setPressed] = useState(false);
@@ -57,7 +72,6 @@ export default function NavBar({ navigation, variation }) {
                                         :
                                         <Image source={require('../../atom/icons/addButton.png')} style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
                                 }
-
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.iconSubContainer, styles.container2]} >
@@ -73,27 +87,22 @@ export default function NavBar({ navigation, variation }) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <NavBarContainer style={styles.background}/>
+                    <NavBarContainer style={styles.background} />
                 </View >
                 <GestureRecognizer
-                        style={{ flex: 1 }}
-                        onSwipeDown={() => setOverlayVisible(false)}
-
+                    style={{ flex: 1 }}
+                    onSwipeDown={() => setOverlayVisible(false)}
+                >
+                    <Modal
+                        isVisible={isOverlayVisible}
+                        onBackdropPress={() => setOverlayVisible(false)}
+                        directionalOffsetThreshold={10}
                     >
-                        <Modal
-                            isVisible={isOverlayVisible}
-                            onBackdropPress={() => setOverlayVisible(false)}
-                            directionalOffsetThreshold={10}
-                        
-                        >
-                            <OverlayContent />
-
-                        </Modal>
-                    </GestureRecognizer>
-
+                        <OverlayContent />
+                    </Modal>
+                </GestureRecognizer>
             </HideWithKeyboard>
         </>
-
     );
 };
 
@@ -125,7 +134,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-
     },
     iconSubContainer: {
         display: 'flex',
@@ -158,5 +166,4 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0
     },
-
 });
