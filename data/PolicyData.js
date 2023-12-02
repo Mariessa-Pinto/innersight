@@ -53,7 +53,7 @@ const PolicyData = {
         {
             page: "Terms",
             header: "User Eligibility",
-            content: "You must be at least 14 years old to use InnerSight. By using the app, you confirm that you meet this eligibility criterion.",
+            content: "You must be at least 18 years old to use InnerSight. By using the app, you confirm that you meet this eligibility criterion.",
         },
         {
             page: "Terms",

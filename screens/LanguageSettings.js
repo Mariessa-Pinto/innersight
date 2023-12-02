@@ -1,4 +1,5 @@
 import globalStyles from '../styles/global'
+import { StyleSheet } from 'react-native';
 import { View, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
@@ -27,3 +28,6 @@ export default function LanguageSettings({ navigation }) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+})

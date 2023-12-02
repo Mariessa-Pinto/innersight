@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themeContext from '../../theme/themeContext';
+import globalStyles from '../../styles/global';
+import { A } from '@expo/html-elements';
 
 const MiddleGreyButton = (props) => {
   const navigation = useNavigation();
@@ -11,50 +13,54 @@ const MiddleGreyButton = (props) => {
     navigation.navigate(props.navigate);
   };
 
-    //Dark/Light Mode
-    const [darkMode, setDarkMode] = useState(false)
-    const theme = useContext(themeContext)
+  //Dark/Light Mode
+  const [darkMode, setDarkMode] = useState(false)
+  const theme = useContext(themeContext)
   return (
     <TouchableWithoutFeedback
-    onPressIn={() => setPressed(true)}
-    onPressOut={() => setPressed(false)}
-    onPress={navigateTo}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      onPress={navigateTo}
     >
-      <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
-        <View style={styles.leftContent}>
-          {
-            props.image ?
-              <Image
-                source={props.image}
-                style={styles.icon}
-              />
-              :
-              ''
-          }
-          <Text style={[styles.labelTextLight, {color: theme.color}]}>{props.text}</Text>
+      <A href={props.link}>
+        <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
+          <View style={styles.contentJustify}>
+            <View style={styles.leftContent}>
+              {
+                props.image ?
+                  <Image
+                    source={props.image}
+                    style={styles.icon}
+                  />
+                  :
+                  ''
+              }
+              <Text style={[globalStyles.labelTextLight, { color: theme.color }]}>{props.text}</Text>
+            </View>
+            <View style={styles.rightContent}>
+              {
+                theme.theme === "light" && props.arrow ?
+                  <Image
+                    source={require('../../atom/assets/settingicons/Arrow.png')}
+                    style={styles.arrow}
+                  />
+                  :
+                  <>
+                    {
+                      theme.theme === "dark" && props.arrow ?
+                        <Image
+                          source={require('../../atom/assets/settingicons/darkMode/Arrow.png')}
+                          style={styles.arrow}
+                        />
+                        :
+                        ""
+                    }
+                  </>
+              }
+            </View>
+          </View>
         </View>
-        <View style={styles.rightContent}>
-        {
-            theme.theme === "light" && props.arrow ?
-              <Image
-                source={require('../../atom/assets/settingicons/Arrow.png')}
-                style={styles.arrow}
-              />
-              :
-              <>
-                {
-                  theme.theme === "dark" && props.arrow ?
-                    <Image
-                      source={require('../../atom/assets/settingicons/darkMode/Arrow.png')}
-                      style={styles.arrow}
-                    />
-                    :
-                    ""
-                }
-              </>
-          }
-        </View>
-      </View>
+      </A>
     </TouchableWithoutFeedback>
   );
 };
@@ -75,19 +81,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#D5D7FF', // Change the color when pressed
   },
 
-  leftContent:{
+  leftContent: {
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 15,
     alignItems: 'center',
     gap: 10
   },
-  rightContent:{
+  rightContent: {
     display: 'flex',
     flexDirection: 'row',
     paddingRight: 15,
     alignItems: 'center',
-  
+
   },
   icon: {
     height: 16,
@@ -97,6 +103,12 @@ const styles = StyleSheet.create({
   arrow: {
     height: 18,
 
+  },
+  contentJustify: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 372,
   }
 });
 

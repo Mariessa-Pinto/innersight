@@ -9,10 +9,27 @@ import QuickStatsCard from '../atom/QuickStats/QuickStatsCard';
 import ProfileGreyButtons from '../molecules/GreyButtons/ProfileGreyButtons'
 import SmallBtnLightTxt from '../atom/Buttons/SmallBtnLightTxt';
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 export default function Profile({ navigation }) {
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
+
+    const [userLogin, setUserLogin] = useState()
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setUserLogin(true)
+            console.log(userLogin)
+            const uid = user.uid;
+            // ...
+        } else {
+            setUserLogin(false)
+            console.log(userLogin)
+        }
+    });
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -52,12 +69,25 @@ export default function Profile({ navigation }) {
                         <ProfileGreyButtons section="legal" />
                     </View>
                     <View style={styles.content3}>
-                        <SmallBtnLightTxt
+                        {
+                            !userLogin ?
+                            <SmallBtnLightTxt
                             text="Sign Up"
                             navigate="SignUp" />
-                        <SmallBtnLightTxt
-                            text="Log Out"
-                            navigate="Start" />
+                            :
+                            <>
+                            {
+                                userLogin ? 
+                                <SmallBtnLightTxt
+                                text="Log Out"
+                                navigate="Start" />
+                                :
+                                ""
+                            }
+                            </>
+                        }
+
+
                     </View>
                 </View>
             </ScrollView>

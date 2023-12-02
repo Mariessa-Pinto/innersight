@@ -27,18 +27,22 @@ export default function NotificationSettings({ navigation }) {
                     <Notifications title="Journal Reminders"
                         valueChange2={journalToggleSwitch}
                         valueEnabled2={journalIsEnabled}
+                        toggleType="toggle"
                     />
-                    <Notifications title="Reminders"
+                    <Notifications title="Entry Reminders"
                         valueChange2={toggleSwitch}
                         valueEnabled2={isEnabled}
+                        toggleType="toggle"
                     />
-                    <Notifications title="Reminders"
+                    <Notifications title="Recommendation Reminders"
                         valueChange2={toggleSwitch}
                         valueEnabled2={isEnabled}
+                        toggleType="toggle"
                     />
-                    <Notifications title="Reminders"
+                    <Notifications title="Daily Reminders"
                         valueChange2={toggleSwitch}
                         valueEnabled2={isEnabled}
+                        toggleType="toggle"
                     />
                     <View style={styles.button}>
                         <MediumBtnLightTxt
