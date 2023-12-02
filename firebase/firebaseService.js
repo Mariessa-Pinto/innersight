@@ -69,10 +69,6 @@ export const deleteJournalEntry = async (key) => {
     await remove(deleteJournalRef);
 }
 
-
-
-
-
 // import { ref, set, push, get } from 'firebase/database';
 // import { database } from './firebaseConfig';
 // import { getAuth } from 'firebase/auth';

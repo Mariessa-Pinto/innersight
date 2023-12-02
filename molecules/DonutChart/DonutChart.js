@@ -16,8 +16,11 @@ const DonutChart = ({ username }) => {
     console.log("Username in donutchart: ", username)
     const [data, setData] = useState()
     const [selectedSlice, setSelectedSlice] = useState(null);
-    const colorScale = [negativeColor, negativeColor, negativeColor, positiveColor, positiveColor, positiveColor ]
+    const [finalColors, setFinalColors] = useState([])
+    // const colorScale = ["#6090D9", "#6090D9", "#FCD161"]
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
+
+    const [loading, setLoading] = useState(true)
 
     //run get data on page load
     useEffect(() => {
@@ -64,7 +67,9 @@ const DonutChart = ({ username }) => {
     const processJournalData = (journals) => {
         const newCategories = [];
         const countCategories = {};
-        const newColors = []
+
+        const newColors = [];
+        const colorIndex = [];
 
         Object.values(journals).forEach(entry => {
             if (Array.isArray(entry.keywords)) {
@@ -80,7 +85,8 @@ const DonutChart = ({ username }) => {
                             }
                         })
                     }
-                }); }
+                });
+            }
             // } else if (Array.isArray(entry.keywordsPos)){ 
             //     entry.keywordsPos.forEach(keyword => {
             //         {
@@ -96,12 +102,40 @@ const DonutChart = ({ username }) => {
         })
 
         for (const num of newCategories) {
-            countCategories[num] = countCategories[num] ? countCategories[num] + 1 : 1;
+            countCategories[num] = countCategories[num] ?
+                countCategories[num] + 1 &&
+                colorIndex.push(newCategories.indexOf(num))
+                :
+                1;
+
         }
+
+        colorIndex.shift() //adjusts for the bug that ads an extra 0 at the beginning of the index array
+
+        // for (const num of newCategories) {
+        //     countCategories[num] = countCategories[num] ? 
+        //     (colorIndex.push(newCategories.indexOf(num)),
+        //     console.log("color index" + colorIndex))
+        //     : 
+        //     "" 
+        // }
+
+        // colorIndex.push(newCategories.indexOf(num)),
+        // console.log("color index" + colorIndex)
+
+        console.log("color index" + colorIndex)
+
+        colorIndex.forEach(index => {
+            finalColors.push(newColors[index])
+            console.log(finalColors)
+        });
+
+        // const finalColObj = {...finalColors};
+        // console.log(finalColObj);
 
         const totalCategories = newCategories.length
 
-        const chartData = Object.entries(countCategories).map(([keyword, count, color]) => ({
+        const chartData = Object.entries(countCategories).map(([keyword, count]) => ({
             x: keyword,
             y: Number(((count / totalCategories)).toFixed(2)),
         }));
@@ -137,7 +171,7 @@ const DonutChart = ({ username }) => {
         <View style={[styles.container, globalStyles.labelText]}>
             <VictoryPie
                 data={data}
-                colorScale={colorScale}
+                colorScale={finalColors}
                 padAngle={1}
                 innerRadius={40}
                 radius={({ index }) => index === selectedSlice ? 170 : 150}
@@ -154,8 +188,13 @@ const DonutChart = ({ username }) => {
                     labels: {
                         fontFamily: 'Lexend_400Regular',
                     },
+                    // data: { fill: (data) => data.datum.color } 
                 }}
-                labelComponent={<VictoryLabel style={{ fontFamily: 'Lexend_400Regular' }} />}
+                labelComponent={<VictoryLabel style={{
+                    fontFamily: 'Lexend_400Regular',
+                    fontSize: 18,
+                    fontWeight: 500
+                }} />}
 
             />
         </View>
