@@ -8,6 +8,8 @@ import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
 import { getJournalEntries } from '../../firebase/firebaseService';
 import { statsEmotions } from '../../data/StatsEmotionData';
 
+import { ActivityIndicator, Colors } from 'react-native-paper';
+
 const DonutChart = ({ username }) => {
 
     const positiveColor = "#FFE5A4"
@@ -19,7 +21,7 @@ const DonutChart = ({ username }) => {
     const [finalColors, setFinalColors] = useState([])
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState()
 
     //run get data on page load
     useEffect(() => {
@@ -35,6 +37,19 @@ const DonutChart = ({ username }) => {
         };
         fetchData();
     }, [username]);
+
+    useEffect(() => {
+        {
+            finalColors.length > 0 ?
+                setLoading(false)
+                :
+                setLoading(true)
+        }
+        console.log("loading" + loading)
+
+    })
+
+
 
     const processJournalData = (journals) => {
         const newCategories = [];
@@ -106,42 +121,47 @@ const DonutChart = ({ username }) => {
         Lexend_400Regular,
     });
 
-    if (!fontsLoaded) {
-        return (
-            console.log("font error")
-        );
-    }
+    // if (!fontsLoaded) {
+    //     return (
+    //         console.log("font error")
+    //     );
+    // }
 
     return (
         <View style={[styles.container, globalStyles.labelText]}>
-            <VictoryPie
-                data={data}
-                colorScale={finalColors}
-                padAngle={1}
-                innerRadius={40}
-                radius={({ index }) => index === selectedSlice ? 170 : 150}
-                width={350}
-                height={369}
-                labelRadius={({ innerRadius }) => innerRadius + 65}
-                events={[{
-                    target: "data",
-                    eventHandlers: {
-                        onPressIn: handleSliceClick,
-                    },
-                }]}
-                style={{
-                    labels: {
-                        fontFamily: 'Lexend_400Regular',
-                    },
-                    // data: { fill: (data) => data.datum.color } 
-                }}
-                labelComponent={<VictoryLabel style={{
-                    fontFamily: 'Lexend_400Regular',
-                    fontSize: 18,
-                    fontWeight: 500
-                }} />}
+            {
+                loading === true ?
+                    <ActivityIndicator animating={true} color="#7878C1" />
+                    :
+                    <VictoryPie
+                        data={data}
+                        colorScale={finalColors}
+                        padAngle={1}
+                        innerRadius={40}
+                        radius={({ index }) => index === selectedSlice ? 170 : 150}
+                        width={350}
+                        height={369}
+                        labelRadius={({ innerRadius }) => innerRadius + 65}
+                        events={[{
+                            target: "data",
+                            eventHandlers: {
+                                onPressIn: handleSliceClick,
+                            },
+                        }]}
+                        style={{
+                            labels: {
+                                fontFamily: 'Lexend_400Regular',
+                            },
+                            // data: { fill: (data) => data.datum.color } 
+                        }}
+                        labelComponent={<VictoryLabel style={{
+                            fontFamily: 'Lexend_400Regular',
+                            fontSize: 18,
+                            fontWeight: 500
+                        }} />}
 
-            />
+                    />
+            }
         </View>
     );
 };
