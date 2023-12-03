@@ -7,60 +7,64 @@ import { dummy } from '../../data/DummyJournalData'
 import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
 import { getJournalEntries } from '../../firebase/firebaseService';
 import { statsEmotions } from '../../data/StatsEmotionData';
+import { getAuth } from 'firebase/auth';
 
 import { ActivityIndicator, Colors } from 'react-native-paper';
 
-const DonutChart = ({ uid }) => {
+const DonutChart = () => {
 
     const positiveColor = "#FFE5A4"
     const negativeColor = "#8CACDB"
 
-    console.log("Username in donutchart: ", uid)
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
+    const [entries, setEntries] = useState([]);
     const [selectedSlice, setSelectedSlice] = useState(null);
 
     const newCategories = [];
     const countCategories = {};
 
     const newColors = [];
-    const colorIndex = [];
+    // const colorIndex = [];
     const [finalColors, setFinalColors] = useState([])
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
-     const [loading, setLoading] = useState()
+    const [loading, setLoading] = useState(true) 
+    const auth = getAuth()
 
-    //run get data on page load
+    //run get data on page load 
     useEffect(() => {
-        const fetchData = async () => {
+        console.log("new log") 
+        const fetchJournalEntries = async () => { 
             try {
-                const journals = await getJournalEntries(uid);
-                console.log("Fetched journals: ", journals);
-                processJournalData(journals);
+
+                // Use the user's UID when fetching journal entries
+                const username = auth.currentUser ? auth.currentUser.uid : null;
+                if (username) {
+                    const journalEntries = await getJournalEntries(username);
+                    console.log('Journal Entries:', journalEntries);
+                    setEntries(Object.values(journalEntries));
+                    processJournalData(Object.values(journalEntries));
+                    setLoading(false)
+                    console.log(`${loading}`)
+                } else {
+                    console.error('User not authenticated.');
+                }
             } catch (error) {
                 console.error('Error fetching journal entries:', error);
-            //    setLoading(false)
+                setLoading(false)
+                console.log(`${loading}`)
             }
         };
-        fetchData();
-    }, [uid]);
+        fetchJournalEntries();
 
-    //loading indicator
-     useEffect(() => {
-        {
-            finalColors.length > 0 ?
-                setLoading(false)
-                :
-                setLoading(true)
-        }
-        console.log("loading" + loading)
-
-     })
+    }, [auth.currentUser]); 
 
 
+    const processJournalData = (entries) => {
 
-    const processJournalData = (journals) => {
+        console.log("step 1")
 
-        Object.values(journals).forEach(entry => {
+        Object.values(entries).forEach(entry => {
             if (Array.isArray(entry.keywords)) {
                 entry.keywords.forEach(keyword => {
                     {
@@ -77,24 +81,29 @@ const DonutChart = ({ uid }) => {
                 });
             }
         })
+        // console.log(newCategories)
+        // console.log(newColors)
+        console.log("step 2")
 
-        for (const num of newCategories) {
-            countCategories[num] = countCategories[num] ?
-                countCategories[num] + 1 &&
-                colorIndex.push(newCategories.indexOf(num))
-                :
-                1;
-        }
-
-        colorIndex.shift() //adjusts for the bug that ads an extra 0 at the beginning of the index array
-
-        console.log("color index" + colorIndex)
-
-        colorIndex.forEach(index => {
-            finalColors.push(newColors[index])
-            // console.log(finalColors)
+        newCategories.forEach((x) => {
+            countCategories[x] = (countCategories[x] || 0) + 1;
         });
 
+        const indices = newCategories.map(emotion => newCategories.indexOf(emotion));
+        const output = new Set(indices);
+        const colorIndex = [...output];
+
+        // console.log(countCategories)
+        // console.log("color index" + colorIndex)
+
+        colorIndex.forEach((num) => {
+            finalColors.unshift(newColors[num])
+        })
+        finalColors.reverse()
+        console.log("step 3")
+
+        // console.log("final colors" + finalColors) 
+        console.log("step 4")
         const totalCategories = newCategories.length
 
         const chartData = Object.entries(countCategories).map(([keyword, count]) => ({
@@ -102,9 +111,7 @@ const DonutChart = ({ uid }) => {
             y: Number(((count / totalCategories)).toFixed(2)),
         }));
         setData(chartData);
-
-        console.log(data)
-    //   setLoading(false)
+        console.log("complete")
     };
 
     //Sample VictoryPie data for testing
@@ -134,7 +141,7 @@ const DonutChart = ({ uid }) => {
     return (
         <View style={[styles.container, globalStyles.labelText]}>
             {
-                 loading === true ?
+                loading === true ?
                     <ActivityIndicator animating={true} color="#7878C1" />
                     :
                     <VictoryPie
@@ -153,12 +160,6 @@ const DonutChart = ({ uid }) => {
                             },
 
                         }]}
-                        style={{
-                            labels: {
-                                fontFamily: 'Lexend_400Regular',
-                            },
-                            // data: { fill: (data) => data.datum.color } 
-                        }}
                         labelComponent={<VictoryLabel style={{
                             fontFamily: 'Lexend_400Regular',
                             fontSize: 18,
@@ -166,7 +167,7 @@ const DonutChart = ({ uid }) => {
                         }} />}
 
                     />
-            }
+              }
         </View>
     );
 };
