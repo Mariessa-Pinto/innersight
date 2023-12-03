@@ -38,6 +38,7 @@ const DonutChart = ({ uid }) => {
                 processJournalData(journals);
             } catch (error) {
                 console.error('Error fetching journal entries:', error);
+            //    setLoading(false)
             }
         };
         fetchData();
@@ -103,6 +104,7 @@ const DonutChart = ({ uid }) => {
         setData(chartData);
 
         console.log(data)
+    //   setLoading(false)
     };
 
     //Sample VictoryPie data for testing
