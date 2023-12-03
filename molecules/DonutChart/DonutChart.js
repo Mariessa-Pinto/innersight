@@ -60,11 +60,12 @@ const DonutChart = () => {
     }, [auth.currentUser]); 
 
 
-    const processJournalData = (entries) => {
+    const processJournalData = (journalEntries) => {
 
         console.log("step 1")
+        console.log(journalEntries)
 
-        Object.values(entries).forEach(entry => {
+        Object.values(journalEntries).forEach(entry => {
             if (Array.isArray(entry.keywords)) {
                 entry.keywords.forEach(keyword => {
                     {
@@ -81,8 +82,8 @@ const DonutChart = () => {
                 });
             }
         })
-        // console.log(newCategories)
-        // console.log(newColors)
+        console.log(newCategories)
+        console.log(newColors)
         console.log("step 2")
 
         newCategories.forEach((x) => {
