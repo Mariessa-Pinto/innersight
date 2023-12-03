@@ -10,12 +10,12 @@ import { statsEmotions } from '../../data/StatsEmotionData';
 
 import { ActivityIndicator, Colors } from 'react-native-paper';
 
-const DonutChart = ({ username }) => {
+const DonutChart = ({ uid }) => {
 
     const positiveColor = "#FFE5A4"
     const negativeColor = "#8CACDB"
 
-    console.log("Username in donutchart: ", username)
+    console.log("Username in donutchart: ", uid)
     const [data, setData] = useState()
     const [selectedSlice, setSelectedSlice] = useState(null);
 
@@ -27,14 +27,13 @@ const DonutChart = ({ username }) => {
     const [finalColors, setFinalColors] = useState([])
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
-    const [loading, setLoading] = useState()
+     const [loading, setLoading] = useState()
 
     //run get data on page load
     useEffect(() => {
         const fetchData = async () => {
-            const username = 'anika'
             try {
-                const journals = await getJournalEntries(username);
+                const journals = await getJournalEntries(uid);
                 console.log("Fetched journals: ", journals);
                 processJournalData(journals);
             } catch (error) {
@@ -42,10 +41,10 @@ const DonutChart = ({ username }) => {
             }
         };
         fetchData();
-    }, [username]);
+    }, [uid]);
 
     //loading indicator
-    useEffect(() => {
+     useEffect(() => {
         {
             finalColors.length > 0 ?
                 setLoading(false)
@@ -54,7 +53,7 @@ const DonutChart = ({ username }) => {
         }
         console.log("loading" + loading)
 
-    })
+     })
 
 
 
@@ -133,7 +132,7 @@ const DonutChart = ({ username }) => {
     return (
         <View style={[styles.container, globalStyles.labelText]}>
             {
-                loading === true ?
+                 loading === true ?
                     <ActivityIndicator animating={true} color="#7878C1" />
                     :
                     <VictoryPie
