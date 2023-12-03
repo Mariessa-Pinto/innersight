@@ -26,6 +26,8 @@ export default function WriteEntry({ navigation }) {
     //     setShowInsights(!showInsights);
     // }
 
+
+
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
@@ -46,6 +48,7 @@ export default function WriteEntry({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                         </View>
+
                         <AiSent username="anika" />
                     </View>
                 </View>

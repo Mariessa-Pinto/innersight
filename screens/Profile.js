@@ -22,12 +22,9 @@ export default function Profile({ navigation }) {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             setUserLogin(true)
-            console.log(userLogin)
             const uid = user.uid;
-            // ...
         } else {
             setUserLogin(false)
-            console.log(userLogin)
         }
     });
 

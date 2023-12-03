@@ -12,6 +12,7 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import EntrySpecOverlay from '../molecules/Overlays/entrySpecOverlay'
 import { getAuth } from 'firebase/auth';
+import { ActivityIndicator } from 'react-native-paper';
 
 export default function JournalListPage() {
     const navigation = useNavigation();
@@ -21,6 +22,8 @@ export default function JournalListPage() {
     const [target, setTarget] = useState()
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+    const [loading, setLoading] = useState()
 
     const auth = getAuth()
 
@@ -43,6 +46,17 @@ export default function JournalListPage() {
         };
         fetchJournalEntries();
     }, [auth.currentUser]);
+
+    useEffect(() => {
+        {
+            entries.length > 0 ?
+                setLoading(false)
+                :
+                setLoading(true)
+        }
+        console.log("loading" + loading)
+
+    })
 
     // useEffect(() => {
     //    const fetchJournalEntries = async () => {
@@ -138,7 +152,11 @@ export default function JournalListPage() {
                         </ScrollView>
                     </View>
                     <View>
-                        <FlatList
+                        {
+                            loading ?
+                            <ActivityIndicator animating={true} color="#7878C1" />
+                            :
+                            <FlatList
                             style={{ marginBottom: 240 }}
                             data={reversedEntries}
                             keyExtractor={(item) => item.timestamp.toString()}
@@ -177,6 +195,8 @@ export default function JournalListPage() {
                                 </View>
                             )}
                         />
+                        }
+  
                     </View>
                     <GestureRecognizer
                         style={{ flex: 1 }}

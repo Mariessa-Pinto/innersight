@@ -12,8 +12,10 @@ import Modal from "react-native-modal";
 import { useNavigation } from '@react-navigation/native';
 import OpenAI from 'openai';
 import { getAuth } from 'firebase/auth';
+import { ActivityIndicator } from 'react-native-paper';
 
 const AiSent = ({ entryContent }) => {
+
   // const AiSent = ({ username, entryContent }) => {
   const [journalEntry, setJournalEntry] = useState('')
   const [text, onChangeText] = useState('');
@@ -28,7 +30,9 @@ const AiSent = ({ entryContent }) => {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
   const [entryTitle, setEntryTitle] = useState("");
+  const [loading, setLoading] = useState()
   const auth = getAuth()
+
 
   //Navigation
   const navigation = useNavigation();
@@ -91,24 +95,24 @@ const AiSent = ({ entryContent }) => {
 
   const handleSave = async () => {
     const username = auth.currentUser ? auth.currentUser.uid : null;
-  
+
     if (!username) {
       console.error('User not authenticated.');
       return;
     }
-  
+
     try {
       await saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now() });
       setOverlayVisible(true);
       setOverlayType("saveOverlay");
       setEntryTitle("");
-      setResponse(""); 
-      setShowImage(false); 
-      setShowRecommendations([]); 
-      setParagraph(""); 
-      setKeyWordsNeg(""); 
-      setKeyWordsPos(""); 
-      setStatsKeyWords(""); 
+      setResponse("");
+      setShowImage(false);
+      setShowRecommendations([]);
+      setParagraph("");
+      setKeyWordsNeg("");
+      setKeyWordsPos("");
+      setStatsKeyWords("");
     } catch (error) {
       console.error('Error saving journal entry:', error);
     }
@@ -159,7 +163,7 @@ const AiSent = ({ entryContent }) => {
   const openai = new OpenAI({ apiKey: process.env.EXPO_PUBLIC_OPEN_API_KEY })
 
   const handleApiCall = () => {
-
+setLoading(true)
     fetch('https://api.edenai.run/v2/text/sentiment_analysis', {
       method: 'POST',
       headers: {
@@ -305,6 +309,7 @@ const AiSent = ({ entryContent }) => {
         setKeyWordsPos(highlightedPosWords.join(', '));
         AsyncStorage.setItem('keyWordsPos', keyWordsPos)
         console.log("Positive Keywords stored")
+        setLoading(false)
       })
       .catch((error) => console.error(error));
   };
@@ -333,10 +338,18 @@ const AiSent = ({ entryContent }) => {
           value={entryContent}
         />
         <TagEntryBtn />
+
         <InsightButton
           text="View Ai Insights"
           onPress={handleApiCall}
         />
+        {
+          loading === true ?
+            <ActivityIndicator animating={true} color="#7878C1" />
+            :
+            ""
+        }
+
         <View style={styles.resCon}>
           <View style={styles.pCon}>
             {showImage ? <Image
