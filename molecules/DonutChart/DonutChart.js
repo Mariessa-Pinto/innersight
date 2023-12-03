@@ -38,6 +38,7 @@ const DonutChart = ({ username }) => {
         fetchData();
     }, [username]);
 
+    //loading indicator
     useEffect(() => {
         {
             finalColors.length > 0 ?
@@ -146,6 +147,7 @@ const DonutChart = ({ username }) => {
                             target: "data",
                             eventHandlers: {
                                 onPressIn: handleSliceClick,
+                                
                             },
                         }]}
                         style={{

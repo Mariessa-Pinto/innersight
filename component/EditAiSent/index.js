@@ -11,8 +11,7 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 import Modal from "react-native-modal";
 import { useNavigation } from '@react-navigation/native';
 import { getAuth } from 'firebase/auth';
-
-
+import { ActivityIndicator } from 'react-native-paper';
 
 const EditAiSent = ({ username, entryContent, entryTitle }) => {
     const [journalEntry, setJournalEntry] = useState('')
@@ -30,6 +29,7 @@ const EditAiSent = ({ username, entryContent, entryTitle }) => {
     const [pressed, setPressed] = useState(false);
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [overlayType, setOverlayType] = useState()
+    const [loading, setLoading] = useState()
     const auth = getAuth()
 
     //Navigation
@@ -122,7 +122,7 @@ const EditAiSent = ({ username, entryContent, entryTitle }) => {
     const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
     const handleApiCall = () => {
-
+        setLoading(true)
         fetch('https://api.edenai.run/v2/text/sentiment_analysis', {
             method: 'POST',
             headers: {
@@ -268,6 +268,7 @@ const EditAiSent = ({ username, entryContent, entryTitle }) => {
                 setKeyWordsPos(highlightedPosWords.join(', '));
                 AsyncStorage.setItem('keyWordsPos', keyWordsPos)
                 console.log("Positive Keywords stored")
+                setLoading(false)
             })
             .catch((error) => console.error(error));
     };
@@ -309,6 +310,12 @@ const EditAiSent = ({ username, entryContent, entryTitle }) => {
                     text="View Ai Insights"
                     onPress={handleApiCall}
                 />
+                {
+                    loading === true ?
+                        <ActivityIndicator animating={true} color="#7878C1" />
+                        :
+                        ""
+                }
                 <View style={styles.resCon}>
                     <View style={styles.pCon}>
                         {showImage ? <Image
