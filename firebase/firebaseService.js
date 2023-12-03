@@ -53,7 +53,7 @@ export const getJournalEntries = async () => {
       return extractedKeywords;
  }
 
-export const deleteJournalEntry = async (key) => {
+export const deleteJournalEntry = async () => {
     const auth = getAuth();
     const uid = auth.currentUser.uid;
 
@@ -68,6 +68,17 @@ export const deleteJournalEntry = async (key) => {
     // Delete the entry
     await remove(deleteJournalRef);
 }
+
+// export const getNegEntries = async () => {
+
+//     const auth = getAuth();
+//     const uid = auth.currentUser.uid;
+    
+//     var ref = database.ref('user');
+//     ref.orderByChild('email').equalTo('wal@aol.com').on("value", function(snapshot) {
+//       snapshot.forEach(child, console.log(child.key) ); 
+//     });
+// }
 
 // import { ref, set, push, get } from 'firebase/database';
 // import { database } from './firebaseConfig';

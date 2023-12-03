@@ -18,6 +18,12 @@ const DonutChart = ({ username }) => {
     console.log("Username in donutchart: ", username)
     const [data, setData] = useState()
     const [selectedSlice, setSelectedSlice] = useState(null);
+
+    const newCategories = [];
+    const countCategories = {};
+
+    const newColors = [];
+    const colorIndex = [];
     const [finalColors, setFinalColors] = useState([])
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
@@ -53,11 +59,6 @@ const DonutChart = ({ username }) => {
 
 
     const processJournalData = (journals) => {
-        const newCategories = [];
-        const countCategories = {};
-
-        const newColors = [];
-        const colorIndex = [];
 
         Object.values(journals).forEach(entry => {
             if (Array.isArray(entry.keywords)) {
@@ -114,6 +115,7 @@ const DonutChart = ({ username }) => {
 
     const handleSliceClick = (event, props) => {
         setSelectedSlice(selectedSlice === props.index ? null : props.index);
+
     };
 
 
@@ -147,8 +149,8 @@ const DonutChart = ({ username }) => {
                             target: "data",
                             eventHandlers: {
                                 onPressIn: handleSliceClick,
-                                
                             },
+
                         }]}
                         style={{
                             labels: {
