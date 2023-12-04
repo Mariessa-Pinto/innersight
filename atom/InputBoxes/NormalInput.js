@@ -1,10 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, TextInput} from 'react-native';
-
+import { View, StyleSheet, TextInput } from 'react-native';
 
 const NormalInput = (props) => {
   const [text, onChangeText] = React.useState('');
-  
+
   return (
     <View style={styles.container}>
       <TextInput

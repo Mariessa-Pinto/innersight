@@ -1,11 +1,8 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
-
+import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
 const BigInput = () => {
   const [text, onChangeText] = React.useState('');
-  
-  
 
   return (
     <SafeAreaView>
@@ -18,7 +15,6 @@ const BigInput = () => {
         keyboardType='default'
         blurOnSubmit={true}
       />
-    
     </SafeAreaView>
   );
 };

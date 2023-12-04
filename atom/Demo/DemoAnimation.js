@@ -2,7 +2,6 @@ import { StyleSheet, View } from 'react-native';
 import LottieView from 'lottie-react-native';
 import Swiper from 'react-native-swiper';
 
-
 const DemoAnimation = () => {
     const animations = [
         require('../assets/Animations/demo_page1.json'),
@@ -12,7 +11,7 @@ const DemoAnimation = () => {
 
     return (
         <View style={styles.container}>
-            <Swiper 
+            <Swiper
                 dotStyle={{
                     width: 12,
                     height: 12,

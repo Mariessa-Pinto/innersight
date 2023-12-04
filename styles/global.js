@@ -1,29 +1,23 @@
 import { StyleSheet } from 'react-native';
 
-
 export default StyleSheet.create({
-    
     h1TextBold:{
         fontFamily: 'Lexend-Bold',
         fontSize: 28,
         marginBottom: 15
     },
-
     h2Text: {
         fontFamily: 'Lexend-Regular',
         fontSize: 22,
     },
-
     h2TextBold:{
         fontFamily: 'Lexend-Bold',
         fontSize: 22,
     },
-
     h3Text: {
         fontFamily: 'Lexend-Regular',
         fontSize: 18,
     },
-
     h3TextSemiBold:{
         fontFamily: 'Lexend-SemiBold',
         fontSize: 18,
@@ -55,7 +49,6 @@ export default StyleSheet.create({
     labelTextLight:{
         fontFamily: 'Lexend-Light',
         fontSize: 13,
-
     },
     captionText:{
         fontFamily: 'Lexend-Regular',
@@ -82,7 +75,6 @@ export default StyleSheet.create({
     },
     outerContainer:{
         height: '100%',
-
     },
     contentContainer: {
         height: '100%',
@@ -96,9 +88,7 @@ export default StyleSheet.create({
         borderTopRightRadius: 30,
         elevation: 3,
         paddingBottom: 100,
-
     },
-
     slider: {
         width: 100,
         height: 50,

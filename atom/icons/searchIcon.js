@@ -3,8 +3,7 @@ import { Image } from 'expo-image';
 
 const searchIcon = () => {
     return (
-        <View
-        >
+        <View>
             <Image source={require('./searchIcon.png')} width={12}
                 height={12} />
         </View>

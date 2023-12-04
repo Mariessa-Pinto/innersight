@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Image, Touchable } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import globalStyles from '../../styles/global';
@@ -17,10 +17,8 @@ const JournalPageCard = (props, { value }) => {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
 
-
   return (
     <>
-
       <TouchableWithoutFeedback
         onPressIn={() => setPressed(true)}
         onPressOut={() => setPressed(false)}
@@ -52,7 +50,6 @@ const JournalPageCard = (props, { value }) => {
               </View>
               <Text style={[globalStyles.captionText, styles.text]}>{props.text}</Text>
             </View>
-
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -154,11 +151,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#525585',
-
   },
   text: {
     color: '#292929'
-
   },
   textContainer: {
     display: 'flex',
@@ -229,7 +224,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   deleteButtonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   deleteText: {
     color: '#3E3F42',

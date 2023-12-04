@@ -4,8 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import globalStyles from '../../styles/global'
 import { A } from '@expo/html-elements';
 
-
-
 const CrisisCardBtn = (props) => {
   const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
@@ -14,15 +12,12 @@ const CrisisCardBtn = (props) => {
     navigation.navigate(props.navigate);
   };
 
-
   return (
-
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
     //onPress={navigateTo}
     >
-
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <A href={props.link}>
           <View style={styles.txt}>
@@ -32,10 +27,7 @@ const CrisisCardBtn = (props) => {
           </View>
         </A>
       </View>
-
     </TouchableWithoutFeedback>
-
-
   );
 };
 
@@ -50,16 +42,15 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   txt: {
     gap: 5,
     width: 365,
   },
-  header:{
+  header: {
     width: '100%'
   }
-
 });
 
 export default CrisisCardBtn;

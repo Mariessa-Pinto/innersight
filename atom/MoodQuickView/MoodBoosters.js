@@ -10,7 +10,6 @@ const MoodBoosters = () => {
   const theme = useContext(themeContext)
 
   return (
-
     <View style={[styles.box, { backgroundColor: theme.backgroundLavender }]}>
       <Text style={globalStyles.h4TextBold}>Mood Boosters</Text>
       <View style={styles.textCon}>
@@ -18,11 +17,8 @@ const MoodBoosters = () => {
         <Text style={globalStyles.listText}>Exercising</Text>
         <Text style={globalStyles.listText}>Walking your pup</Text>
       </View>
-
-
     </View>
   );
-
 };
 
 const styles = StyleSheet.create({
@@ -44,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'light',
     color: '#292929'
-
   }
 });
+
 export default MoodBoosters;

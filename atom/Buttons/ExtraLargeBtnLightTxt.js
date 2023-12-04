@@ -1,12 +1,10 @@
 import globalStyles from '../../styles/global';
 import themeContext from '../../theme/themeContext';
-
 import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const ExtraLargeBtnLightTxt = (props) => {
-
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
   const theme = useContext(themeContext)
@@ -19,6 +17,7 @@ const ExtraLargeBtnLightTxt = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}

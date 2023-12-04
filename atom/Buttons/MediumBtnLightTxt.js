@@ -3,9 +3,6 @@ import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import globalStyles from '../../styles/global';
 
-import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
-
-
 const MediumBtnLightTxt = (props) => {
   const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
@@ -13,8 +10,6 @@ const MediumBtnLightTxt = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
-
-
 
   return (
     <>
@@ -27,7 +22,6 @@ const MediumBtnLightTxt = (props) => {
           <Text style={[globalStyles.btnTextMed, styles.text]}>{props.text}</Text>
         </View>
       </TouchableWithoutFeedback>
-      
     </>
   );
 };
@@ -43,7 +37,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   buttonPressed: {
-    backgroundColor: '#43479A', // Change the color when pressed
+    backgroundColor: '#43479A',
   },
   text: {
     color: '#FDFDFD',
@@ -90,7 +84,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   backButtonPressed: {
-    backgroundColor: '#43479A', // Change the color when pressed
+    backgroundColor: '#43479A',
   },
   backText: {
     color: '#FDFDFD',

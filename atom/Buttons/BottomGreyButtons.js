@@ -23,7 +23,6 @@ const BottomGreyButton = (props) => {
       onPressOut={() => setPressed(false)}
       onPress={navigateTo}
     >
-
       <A href={props.link}>
         <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
           <View style={styles.contentJustify}>
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   leftContent: {
     display: 'flex',
@@ -96,7 +95,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingRight: 15,
     alignItems: 'center',
-
   },
   icon: {
     height: 16,

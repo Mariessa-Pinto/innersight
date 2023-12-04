@@ -1,15 +1,10 @@
-import globalStyles from '../../styles/global.js'
-import { StyleSheet, Button, View, Text, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
-
-
 import { useContext } from 'react';
 import themeContext from '../../theme/themeContext';
 
-
 export default function StatsIcon({ icon }) {
-
     //Dark/Light Mode
     const theme = useContext(themeContext)
 
@@ -58,13 +53,8 @@ export default function StatsIcon({ icon }) {
                                 </>
                         }
                     </>
-
-
             }
         </>
-
-
-
     );
 };
 
@@ -72,7 +62,6 @@ const styles = StyleSheet.create({
     container: {
         height: '45%',
         width: '100%',
-
     }
 });
 

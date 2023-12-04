@@ -5,8 +5,8 @@ import { Image } from 'expo-image';
 const RefreshBtn = () => {
   const [pressed, setPressed] = useState(false);
   const buttonImage = pressed
-  ? require('../icons/RefreshButton.png')
-  : require('../icons/RefreshPress.png');
+    ? require('../icons/RefreshButton.png')
+    : require('../icons/RefreshPress.png');
   return (
     <TouchableWithoutFeedback
       onPress={() => console.log('Pressed')}
@@ -14,11 +14,12 @@ const RefreshBtn = () => {
       onPressOut={() => setPressed(false)}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-       <Image source={buttonImage} style={styles.img}/>
+        <Image source={buttonImage} style={styles.img} />
       </View>
     </TouchableWithoutFeedback>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     width: 30,
@@ -41,4 +42,5 @@ const styles = StyleSheet.create({
     height: 30
   }
 });
+
 export default RefreshBtn;

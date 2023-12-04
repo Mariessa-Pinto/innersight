@@ -1,10 +1,8 @@
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { EventRegister } from 'react-native-event-listeners';
 import React, { useState, useEffect } from 'react';
-
 
 //Fonts
 import { useFonts } from 'expo-font';
@@ -16,7 +14,6 @@ import FontContext from './theme/fontContext';
 
 //Screens
 import Start from './screens/Start';
-
 import NewJournal from './screens/NewJournal';
 import JournalsEntries from './screens/JournalsEntries';
 import CustomizeEntry from './screens/CustomizeEntry';
@@ -59,7 +56,6 @@ import JournalListPage from './screens/JournalListPage';
 import JournalViewPage from './screens/JournalViewPage';
 import TalkItOut from './screens/TalkItOut';
 
-
 export default function App() {
 
   //Global dark/light mode
@@ -79,7 +75,6 @@ export default function App() {
     }
   }, [darkMode, fontSize])
 
-
   const Stack = createNativeStackNavigator();
 
   const [fontsLoaded] = useFonts({
@@ -89,75 +84,71 @@ export default function App() {
     'Lexend-SemiBold': require('./atom/assets/Fonts/Lexend-SemiBold.ttf'),
   });
 
-  if (!fontsLoaded){
+  if (!fontsLoaded) {
     return null;
   } else {
     return (
 
       <SafeAreaView style={{ flex: 1 }}>
         <themeContext.Provider value={darkMode === true ? theme.dark : theme.light}>
-          <FontContext.Provider value={fontSize === 0 ? theme.extraSmall : 
-              (fontSize === 1 ? theme.small : 
-              (fontSize === 2 ? theme.default : 
-              (fontSize === 3 ? theme.large : 
-              (fontSize === 4 ? theme.extraLarge : ""))))}>
-          <NavigationContainer theme={darkMode === true? DarkTheme : DefaultTheme}>
-            <Stack.Navigator initialRouteName='Start'
-    screenOptions={{
-      headerShown: false
-    }}
-    
-            >
-              <Stack.Screen name="Start" component={Start} />
-              <Stack.Screen name="SignUp" component={SignUp} />
-              <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
-              <Stack.Screen name="NewJournal" component={NewJournal} />
-              <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
-              <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
-              <Stack.Screen name="Stats" component={Stats} />
-              <Stack.Screen name="MonthStats" component={MonthStats} />
-              <Stack.Screen name="YearStats" component={YearStats} />  
-              <Stack.Screen name="Profile" component={Profile} />
-              <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
-              <Stack.Screen name="Recommendations" component={Recommendations} />
-              <Stack.Screen name="Accessibility" component={Accessibility} />
-              <Stack.Screen name="Font Size" component={FontSize} />
-              <Stack.Screen name="Demo" component={Demo} />
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="WriteEntry" component={WriteEntry} />
-              <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
-              <Stack.Screen name="TermsPage" component={TermsPage} />
-              <Stack.Screen name="PrivacyPolicy"component={PrivacyPolicy} />
-              <Stack.Screen name="FaqPage" component={FaqPage} />
-              <Stack.Screen name="AiPage" component={AiPage} />
-              <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
-              <Stack.Screen name="CrisisInfoLines" component={CrisisInfoLines} />
-              <Stack.Screen name="EditPhoto" component={EditPhoto} />
-              <Stack.Screen name="TagManager" component={TagManager} />
-              <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
-              <Stack.Screen name="LocalDistress" component={LocalDistress} />
-              <Stack.Screen name="Organizations" component={Organizations} />
-              <Stack.Screen name="Hobbies" component={Hobbies} />
-              <Stack.Screen name="SelfCare" component={SelfCare} />
-              <Stack.Screen name="Sleeping" component={Sleeping} />
-              <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
-              <Stack.Screen name="JournalPassword" component={JournalPassword} />
-              <Stack.Screen name="ResetPassword" component={ResetPassword} />
-              <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-              <Stack.Screen name="EmailSent" component={EmailSent} />
-              <Stack.Screen name="CustomizeJournal" component={CustomizeJournal} />
-              <Stack.Screen name="JournalListPage" component={JournalListPage} />
-              <Stack.Screen name="JournalViewPage" component={JournalViewPage} />
-              <Stack.Screen name="TalkItOut" component={TalkItOut} />
-
-            </Stack.Navigator>
-          </NavigationContainer>
+          <FontContext.Provider value={fontSize === 0 ? theme.extraSmall :
+            (fontSize === 1 ? theme.small :
+              (fontSize === 2 ? theme.default :
+                (fontSize === 3 ? theme.large :
+                  (fontSize === 4 ? theme.extraLarge : ""))))}>
+            <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}>
+              <Stack.Navigator initialRouteName='Start'
+                screenOptions={{
+                  headerShown: false
+                }}
+              >
+                <Stack.Screen name="Start" component={Start} />
+                <Stack.Screen name="SignUp" component={SignUp} />
+                <Stack.Screen name="ChooseMascot" component={ChooseMascot} />
+                <Stack.Screen name="NewJournal" component={NewJournal} />
+                <Stack.Screen name="JournalsEntries" component={JournalsEntries} />
+                <Stack.Screen name="CustomizeEntry" component={CustomizeEntry} />
+                <Stack.Screen name="Stats" component={Stats} />
+                <Stack.Screen name="MonthStats" component={MonthStats} />
+                <Stack.Screen name="YearStats" component={YearStats} />
+                <Stack.Screen name="Profile" component={Profile} />
+                <Stack.Screen name="CrisisSupport" component={CrisisSupport} />
+                <Stack.Screen name="Recommendations" component={Recommendations} />
+                <Stack.Screen name="Accessibility" component={Accessibility} />
+                <Stack.Screen name="Font Size" component={FontSize} />
+                <Stack.Screen name="Demo" component={Demo} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="WriteEntry" component={WriteEntry} />
+                <Stack.Screen name="PersonalInformation" component={PersonalInformation} />
+                <Stack.Screen name="TermsPage" component={TermsPage} />
+                <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+                <Stack.Screen name="FaqPage" component={FaqPage} />
+                <Stack.Screen name="AiPage" component={AiPage} />
+                <Stack.Screen name="NotificationSettings" component={NotificationSettings} />
+                <Stack.Screen name="CrisisInfoLines" component={CrisisInfoLines} />
+                <Stack.Screen name="EditPhoto" component={EditPhoto} />
+                <Stack.Screen name="TagManager" component={TagManager} />
+                <Stack.Screen name="InfoandPublications" component={InfoandPublications} />
+                <Stack.Screen name="LocalDistress" component={LocalDistress} />
+                <Stack.Screen name="Organizations" component={Organizations} />
+                <Stack.Screen name="Hobbies" component={Hobbies} />
+                <Stack.Screen name="SelfCare" component={SelfCare} />
+                <Stack.Screen name="Sleeping" component={Sleeping} />
+                <Stack.Screen name="LanguageSettings" component={LanguageSettings} />
+                <Stack.Screen name="JournalPassword" component={JournalPassword} />
+                <Stack.Screen name="ResetPassword" component={ResetPassword} />
+                <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+                <Stack.Screen name="EmailSent" component={EmailSent} />
+                <Stack.Screen name="CustomizeJournal" component={CustomizeJournal} />
+                <Stack.Screen name="JournalListPage" component={JournalListPage} />
+                <Stack.Screen name="JournalViewPage" component={JournalViewPage} />
+                <Stack.Screen name="TalkItOut" component={TalkItOut} />
+              </Stack.Navigator>
+            </NavigationContainer>
           </FontContext.Provider>
         </themeContext.Provider>
       </SafeAreaView>
-  
     );
   }
- 
 }

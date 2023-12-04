@@ -1,10 +1,9 @@
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import { View, TextInput } from 'react-native';
 
 const MultiText = () => {
   const [value, onChangeText] = React.useState('Start Writing Here');
-
-
+  
   return (
     <View
       style={{
@@ -19,7 +18,7 @@ const MultiText = () => {
         maxLength={40}
         onChangeText={text => onChangeText(text)}
         value={value}
-        style={{padding: 10}}
+        style={{ padding: 10 }}
         blurOnSubmit={true}
       />
     </View>

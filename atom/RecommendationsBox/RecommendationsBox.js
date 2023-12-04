@@ -1,5 +1,4 @@
 import globalStyles from '../../styles/global'
-
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themeContext from '../../theme/themeContext';
@@ -20,7 +19,6 @@ const RecommendationsBox = (props) => {
     const navigateTo = () => {
         navigation.navigate(props.navigate);
     };
-
 
     return (
         <TouchableOpacity

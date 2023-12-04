@@ -16,6 +16,7 @@ const MiddleGreyButton = (props) => {
   //Dark/Light Mode
   const [darkMode, setDarkMode] = useState(false)
   const theme = useContext(themeContext)
+
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setPressed(true)}
@@ -78,9 +79,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
-
   leftContent: {
     display: 'flex',
     flexDirection: 'row',
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingRight: 15,
     alignItems: 'center',
-
   },
   icon: {
     height: 16,
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
   },
   arrow: {
     height: 18,
-
   },
   contentJustify: {
     display: 'flex',

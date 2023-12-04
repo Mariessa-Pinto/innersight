@@ -5,13 +5,14 @@ import globalStyles from '../../styles/global'
 
 const ExtraLargeBtnDarkTxt = (props) => {
   const navigation = useNavigation();
-  
+
   const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
-return (
+
+  return (
     <TouchableWithoutFeedback
       onPress={navigateTo}
       onPressIn={() => setPressed(true)}
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   text: {
     color: '#3E3F42',

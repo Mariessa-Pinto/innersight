@@ -1,11 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, TextInput} from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 import globalStyles from '../../styles/global';
-
 
 const SmallInput = (props) => {
   const [text, onChangeText] = React.useState('');
-  
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#FDFDFD",
     color: "#000",
-    fontWeight: 'normal', 
+    fontWeight: 'normal',
     fontFamily: 'Lexend-Regular'
   },
   container: {
