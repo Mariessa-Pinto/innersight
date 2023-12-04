@@ -3,25 +3,24 @@ import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 const ChangesSavedOverlay = () => {
-
     return (
         <View style={styles.outerContainer}>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Your changes have been saved.</Text>
-                    <ExtraLargeBtnLightTxt 
+                    <ExtraLargeBtnLightTxt
                         text='Go Back'
                         navigate={() => navigation.goBack()}
-                    /> 
-                </View>  
+                    />
+                </View>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: { 
+    container: {
         width: 410,
         height: 'auto',
         paddingBottom: 40,
@@ -56,7 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default ChangesSavedOverlay;

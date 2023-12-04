@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { View, StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useState, useContext, useEffect } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -18,7 +18,6 @@ export default function Stats({ navigation }) {
     const theme = useContext(themeContext);
     const [uid, setUid] = useState(null);
 
-
     const [selectedValue, setSelectedValue] = useState('Week');
 
     useEffect(() => {
@@ -32,7 +31,6 @@ export default function Stats({ navigation }) {
             setUid(auth.currentUser.uid);
         }
     }, []);
-
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>

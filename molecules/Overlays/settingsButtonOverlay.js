@@ -1,23 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 
 const SettingsButtonOverlay = () => {
 
     return (
-            <View style={styles.container}>
-                <View style={styles.inside}>
-                    <View style={styles.line}></View>
-                    <ExtraLargeBtnLightTxt 
-                        text='Select Multiple Entries'
-                        navigate=''
-                    /> 
-                    <ExtraLargeBtnDarkTxt  
-                        text='Manage Tags'
-                        navigate='TagManager' 
-                    />
-                </View>
+        <View style={styles.container}>
+            <View style={styles.inside}>
+                <View style={styles.line}></View>
+                <ExtraLargeBtnLightTxt
+                    text='Select Multiple Entries'
+                    navigate=''
+                />
+                <ExtraLargeBtnDarkTxt
+                    text='Manage Tags'
+                    navigate='TagManager'
+                />
             </View>
+        </View>
     );
 };
 
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default SettingsButtonOverlay;

@@ -3,18 +3,17 @@ import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 const DeleteJComfirmOverlay = () => {
-
     return (
         <View style={styles.outerContainer}>
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Your Journal has been deleted.</Text>
-                    <ExtraLargeBtnLightTxt 
+                    <ExtraLargeBtnLightTxt
                         text='Go to Journal Overview'
                         navigate=''
-                    /> 
-                </View>  
+                    />
+                </View>
             </View>
         </View>
     );
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default DeleteJComfirmOverlay;

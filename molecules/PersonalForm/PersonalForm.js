@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import TitleInput from '../../atom/InputBoxes/TitleInput';
 
 const PersonalForm = () => {
@@ -35,10 +35,9 @@ const styles = StyleSheet.create({
         height: 280,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center', 
+        justifyContent: 'center',
         marginBottom: 5
     },
-
 });
 
 export default PersonalForm;

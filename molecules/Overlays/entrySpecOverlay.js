@@ -1,5 +1,4 @@
 import globalStyles from '../../styles/global'
-
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import { useState } from 'react';
@@ -12,7 +11,6 @@ const EntrySpecOverlay = ({ onDeleteEntry, selectedEntry }) => {
     };
 
     return (
-
         <View style={styles.container}>
             <View style={styles.inside}>
                 <View style={styles.line}></View>
@@ -28,7 +26,7 @@ const EntrySpecOverlay = ({ onDeleteEntry, selectedEntry }) => {
                     onPressIn={() => setPressed(true)}
                     onPressOut={() => setPressed(false)}
                     onPress={handleDeleteEntry}
-                    activeOpacity={1} 
+                    activeOpacity={1}
                 >
                     <View style={[styles.button, pressed && styles.buttonPressed]}>
                         <Text style={[globalStyles.btnTextLrg, styles.text]}>Delete Entry</Text>
@@ -80,7 +78,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#D5D7FF', // Change the color when pressed
+        backgroundColor: '#D5D7FF', 
     },
     text: {
         color: '#3E3F42',

@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import AiLightBtnTb from '../../atom/ToolBar/AiLightBtnTB';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import DrawingLightBtnTB from '../../atom/ToolBar/DrawingLightBtnTB';
 import PhotoLightBtnTB from '../../atom/ToolBar/PhotoLightBtnTB';
 import SpeechLightBtnTB from '../../atom/ToolBar/SpeechLightBtnTB';
@@ -7,9 +6,6 @@ import TypeLightBtnTB from '../../atom/ToolBar/TypeLightBtnTB';
 import { useState } from 'react'
 
 const ToolBar = () => {
-
-
-
     const [showSettings, setShowSettings] = useState(false);
 
     const containerStyles = {
@@ -17,7 +13,6 @@ const ToolBar = () => {
         width: showSettings ? 50 : 35,
         bottom: showSettings ? 70 : 70,
         right: showSettings ? 15 : 20
-
     };
 
     const SettingsLightBtnTB = ({ showSettings }) => {
@@ -45,7 +40,6 @@ const ToolBar = () => {
             <View style={styles.touchIcon}>
                 {showSettings === true ?
                     <View style={[styles.icons, showSettings && styles.expandedIcons]}>
-
                         <DrawingLightBtnTB />
                         <PhotoLightBtnTB />
                         <TypeLightBtnTB />
@@ -55,9 +49,7 @@ const ToolBar = () => {
                             style={styles.spacing}>
                             <ExitLightBtnTB />
                         </TouchableOpacity>
-
                     </View>
-
                     :
                     <TouchableOpacity onPress={() => setShowSettings(true)}>
                         <SettingsLightBtnTB
@@ -103,6 +95,6 @@ const styles = StyleSheet.create({
     spacing: {
         marginTop: 10,
     }
-
 });
+
 export default ToolBar;

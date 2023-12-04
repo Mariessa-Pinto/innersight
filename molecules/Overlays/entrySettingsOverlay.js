@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 
 const EntrySettingsOverlay = () => {
-
     return (
         <View style={styles.container}>
             <View style={styles.inside}>
@@ -42,7 +41,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -20,
         left: -20
-
     },
     inside: {
         display: 'flex',
@@ -57,7 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default EntrySettingsOverlay;

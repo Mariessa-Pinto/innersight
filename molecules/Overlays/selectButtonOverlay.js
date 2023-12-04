@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 
@@ -9,15 +9,15 @@ const SelectButtonOverlay = () => {
             <View style={styles.container}>
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
-                    <ExtraLargeBtnLightTxt 
+                    <ExtraLargeBtnLightTxt
                         text='View AI Insights'
                         navigate='Stats'
-                    /> 
-                    <ExtraLargeBtnDarkTxt  
-                        text='Delete Multiple Entries'
-                        navigate='' 
                     />
-                </View> 
+                    <ExtraLargeBtnDarkTxt
+                        text='Delete Multiple Entries'
+                        navigate=''
+                    />
+                </View>
             </View>
         </View>
     );
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default SelectButtonOverlay;

@@ -4,12 +4,12 @@ import NormalInput from '../../atom/InputBoxes/NormalInput'
 const SignUpForm = () => {
 
     return (
-    <View style={styles.container}>
-        <NormalInput placeholder='Name'/>
-        <NormalInput placeholder='Email'/>
-        <NormalInput placeholder='Password'/>
-        <NormalInput placeholder='Comfirm Password'/>
-    </View>
+        <View style={styles.container}>
+            <NormalInput placeholder='Name' />
+            <NormalInput placeholder='Email' />
+            <NormalInput placeholder='Password' />
+            <NormalInput placeholder='Comfirm Password' />
+        </View>
     );
 };
 
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 40
     },
-
 });
 
 export default SignUpForm;

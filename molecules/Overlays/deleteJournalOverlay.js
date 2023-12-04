@@ -11,16 +11,16 @@ const DeleteJournalOverlay = () => {
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Are you sure you want to delete this journal?</Text>
                     <View style={styles.buttons}>
-                        <MediumBtnLightTxt 
+                        <MediumBtnLightTxt
                             text='Yes, Delete It'
-                            navigate='' 
-                        /> 
-                        <MediumBtnDarkTxt 
+                            navigate=''
+                        />
+                        <MediumBtnDarkTxt
                             text='Cancel'
-                            navigate='' 
-                        /> 
+                            navigate=''
+                        />
                     </View>
-                </View>  
+                </View>
             </View>
         </View>
     );
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     }
-
 });
 
 export default DeleteJournalOverlay;
