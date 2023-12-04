@@ -30,6 +30,8 @@ const AiSent = ({ entryContent }) => {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
   const [entryTitle, setEntryTitle] = useState("");
+  const [entryType, setEntryType] = useState("")
+
   const [loading, setLoading] = useState()
   const auth = getAuth()
 
@@ -102,7 +104,7 @@ const AiSent = ({ entryContent }) => {
     }
 
     try {
-      await saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now() });
+      await saveJournalEntry(username, { title: entryTitle, content: text, timestamp: Date.now(), entryType: entryType });
       setOverlayVisible(true);
       setOverlayType("saveOverlay");
       setEntryTitle("");
@@ -113,6 +115,7 @@ const AiSent = ({ entryContent }) => {
       setKeyWordsNeg("");
       setKeyWordsPos("");
       setStatsKeyWords("");
+      setEntryType("")
     } catch (error) {
       console.error('Error saving journal entry:', error);
     }
@@ -283,6 +286,7 @@ setLoading(true)
         }
 
         if (positionsNeg.length > 0) {
+          setEntryType("negative")
           console.log(`The phrase "${phraseToFindNeg}" is found at positions ${positionsNeg.join(', ')}.`);
         } else {
           console.log(`The phrase "${phraseToFindNeg}" is not found in the string.`);
