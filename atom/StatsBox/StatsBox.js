@@ -39,21 +39,19 @@ const StatsBox = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        height: 106,
-        width: 328,
+        height: 'auto',
+        width: '100%',
         backgroundColor: '#F2F2FD',
         borderRadius: 15,
         borderColor: '#EDEAEA',
         borderWidth: 1,
-        borderColor: '#EDEAEA',
         elevation: 3,
-        padding: 7,
         gap: 25,
         display: 'flex',
         flexDirection: 'row',
         padding: 15,
         paddingBottom: 25,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     textBox: {
         display: 'flex',
