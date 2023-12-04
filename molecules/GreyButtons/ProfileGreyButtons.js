@@ -13,7 +13,6 @@ export default function ProfileGreyButtons({ section }) {
 
     return (
         <View style={styles.container}>
-
             {section === "settings" ?
                 <View style={styles.box}>
                     <TopGreyButton
@@ -67,7 +66,6 @@ export default function ProfileGreyButtons({ section }) {
                                     arrow={true}
                                     navigate="FaqPage"
                                 />
-
                                 <BottomGreyButton
                                     text="Crisis Support Resources"
                                     image={theme.theme === "light" ?
@@ -117,10 +115,7 @@ export default function ProfileGreyButtons({ section }) {
                             </>
                     }
                 </>
-
             }
-
-
         </View>
     );
 };
@@ -135,6 +130,5 @@ const styles = StyleSheet.create({
     },
     box: {
         width: '100%'
-
     }
 });

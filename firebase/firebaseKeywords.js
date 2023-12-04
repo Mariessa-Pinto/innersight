@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
-import  { getJournalEntries } from './firebaseService'
+import { getJournalEntries } from './firebaseService'
 
 const JournalKeywordsStats = ({ username }) => {
     const [sentsCount, setSentsCount] = useState({});

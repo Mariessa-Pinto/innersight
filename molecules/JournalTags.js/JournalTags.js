@@ -7,7 +7,6 @@ import globalStyles from '../../styles/global';
 
 const JournalTags = ({ title, tags }) => {
 
-
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
@@ -21,13 +20,12 @@ const JournalTags = ({ title, tags }) => {
                 {tags && tags.map((i, index) => {
                     return (
                         <Tag
-                        key={index}
-                        text={i} />
+                            key={index}
+                            text={i} />
                     )
                 })
                 }
             </View>
-
         </View>
     );
 };
@@ -54,7 +52,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         width: '100%'
     }
-
 });
 
 export default JournalTags;

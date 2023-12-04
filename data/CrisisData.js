@@ -1,4 +1,3 @@
-
 const crisisData = {
     resources: [
         {
@@ -61,7 +60,6 @@ const crisisData = {
             phone: "1-888-494-3888",
             location: "https://www.vicrisis.ca/"
         },
-
     ],
     publications: [
         {

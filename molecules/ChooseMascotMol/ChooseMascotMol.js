@@ -1,11 +1,8 @@
 import globalStyles from '../../styles/global'
-
 import themeContext from '../../theme/themeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-
 
 const ChooseMascotMol = () => {
 

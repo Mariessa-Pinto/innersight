@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     deleteButtonPressed: {
-        backgroundColor: '#D5D7FF', // Change the color when pressed
+        backgroundColor: '#D5D7FF',
     },
     deleteText: {
         color: '#3E3F42',

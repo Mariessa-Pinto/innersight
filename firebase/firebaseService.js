@@ -43,29 +43,27 @@ export const getJournalEntries = async () => {
         return {};
     }
 }
- function extractKeywords(text) {
-      let extractedKeywords = [];
-      keywordsList.forEach(keyword => {
-        if (text.toLowerCase().includes(keyword.toLowerCase())) {
-               extractedKeywords.push(keyword);
-           }
-       });
-      return extractedKeywords;
- }
-
- export const getNegEntries = async () => {
-    const auth = getAuth();
-    const uid = auth.currentUser.uid;
-    
-    const journalRef = ref(database, `users/${uid}/journal/entryType`).equalTo('negative').on("value", function(snapshot) {
-        console.log(snapshot.val());
-        snapshot.forEach(function(data) {
-            console.log(data.key);
+    function extractKeywords(text) {
+        let extractedKeywords = [];
+        keywordsList.forEach(keyword => {
+            if (text.toLowerCase().includes(keyword.toLowerCase())) {
+                extractedKeywords.push(keyword);
+            }
         });
-    });
- }
+        return extractedKeywords;
+    }
 
-
+    export const getNegEntries = async () => {
+        const auth = getAuth();
+        const uid = auth.currentUser.uid;
+        
+        const journalRef = ref(database, `users/${uid}/journal/entryType`).equalTo('negative').on("value", function(snapshot) {
+            console.log(snapshot.val());
+            snapshot.forEach(function(data) {
+                console.log(data.key);
+            });
+        });
+    }
 
 export const deleteJournalEntry = async () => {
     const auth = getAuth();

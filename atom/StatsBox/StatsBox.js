@@ -1,5 +1,4 @@
-import globalStyles from '../../styles/global'
-
+import globalStyles from '../../styles/global';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Image } from 'expo-image';
@@ -27,6 +26,7 @@ const StatsBox = (props) => {
             onPress={navigateTo}
         >
             <View style={styles.textBox}>
+                <Text style={[globalStyles.h3TextSemiBold, { color: '#525585' }]}>{props.title}</Text>
                 <Text style={[globalStyles.h4TextSemiBold, { color: '#525585' }]}>{props.date}</Text>
                 <Text style={[globalStyles.captionText, { color: theme.color }]}>{props.text}</Text>
             </View>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import globalStyles from '../../styles/global';
 import RecommendationBtn from '../RecommendationBtns/RecommendationBtn';
 
@@ -16,6 +16,7 @@ const AiInsightsMol = () => {
         </View>
     );
 };
+
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
@@ -26,4 +27,5 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 });
+
 export default AiInsightsMol;

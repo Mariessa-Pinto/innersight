@@ -166,7 +166,7 @@ const AiSent = ({ entryContent }) => {
   const openai = new OpenAI({ apiKey: process.env.EXPO_PUBLIC_OPEN_API_KEY })
 
   const handleApiCall = () => {
-setLoading(true)
+    setLoading(true)
     fetch('https://api.edenai.run/v2/text/sentiment_analysis', {
       method: 'POST',
       headers: {
@@ -342,7 +342,6 @@ setLoading(true)
           value={entryContent}
         />
         <TagEntryBtn />
-
         <InsightButton
           text="View Ai Insights"
           onPress={handleApiCall}
@@ -554,7 +553,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   deleteButtonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF', 
   },
   deleteText: {
     color: '#3E3F42',
