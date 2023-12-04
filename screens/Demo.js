@@ -25,8 +25,8 @@ export default function Demo({ navigation }) {
                     />
                     <View style={styles.button}>
                         <ExtraLargeBtnLightTxt
-                            text="Sign Up"
-                            navigate="SignUp"
+                            text="Log In"
+                            navigate="Login"
                         />
                         <ExtraLargeBtnLightTxt
                             text="Continue as Guest"
