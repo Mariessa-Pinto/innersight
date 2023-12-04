@@ -9,18 +9,18 @@ const ProfilePicOverlay = () => {
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Your profile photo has been updated.</Text>
-                    <ExtraLargeBtnLightTxt 
+                    <ExtraLargeBtnLightTxt
                         text='Go Back'
                         navigate='PersonalInformation'
-                    /> 
-                </View>  
+                    />
+                </View>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: { 
+    container: {
         width: 410,
         height: 'auto',
         paddingBottom: 40,
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default ProfilePicOverlay;

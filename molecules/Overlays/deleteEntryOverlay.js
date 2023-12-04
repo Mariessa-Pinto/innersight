@@ -12,16 +12,16 @@ const DeleteEntryOverlay = () => {
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Are you sure you want to delete this entry?</Text>
                     <View style={styles.buttons}>
-                        <MediumBtnLightTxt 
-                            text='Yes, Delete It' 
-                            navigate='' 
-                        /> 
-                        <MediumBtnDarkTxt 
+                        <MediumBtnLightTxt
+                            text='Yes, Delete It'
+                            navigate=''
+                        />
+                        <MediumBtnDarkTxt
                             text='Cancel'
-                            navigate='' 
-                        /> 
+                            navigate=''
+                        />
                     </View>
-                </View>  
+                </View>
             </View>
         </View>
     );
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     }
-
 });
 
 export default DeleteEntryOverlay;

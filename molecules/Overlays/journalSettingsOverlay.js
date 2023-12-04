@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 import { useState } from 'react';
@@ -24,10 +24,9 @@ const JournalSettingsOverlay = () => {
                         text='Delete Journal'
                         navigate='JournalsEntries'
                     />
-
                 </View>
             </View>
-        
+
         </>
     );
 };
@@ -63,7 +62,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default JournalSettingsOverlay;

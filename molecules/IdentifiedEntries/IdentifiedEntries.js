@@ -69,24 +69,20 @@ const IdentifiedEntries = () => {
                             <>
                                 {
                                     i.entryType === "negative" ?
-
                                         <StatsBox
                                             date={formatDate(i.timestamp)}
                                             text={i.content}
                                             navigate="WriteEntry"
                                             key={index}
                                         />
-
                                         :
                                         ""
                                 }
                             </>
-
                         )
                     })
                 }
             </View>
-
         </View>
     );
 };
@@ -108,15 +104,12 @@ const styles = StyleSheet.create({
     statsContainer: {
         display: 'flex',
         flexDirection: 'column',
-
     },
-    cards:{
+    cards: {
         display: 'flex',
         flexDirection: 'column',
         gap: 20
     }
-
-
 });
 
 export default IdentifiedEntries;

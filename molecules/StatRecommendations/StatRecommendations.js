@@ -1,6 +1,5 @@
 
 import globalStyles from '../../styles/global'
-
 import { StyleSheet, Text, View } from 'react-native';
 import RecommendationsBox from '../../atom/RecommendationsBox/RecommendationsBox';
 import themeContext from '../../theme/themeContext';
@@ -14,7 +13,7 @@ const StatRecommendations = () => {
     const theme = useContext(themeContext)
     //Font Size
     const fontTheme = useContext(fontContext)
-    
+
     return (
         <View style={styles.content2}>
             <Text style={[globalStyles.h3Text, { color: theme.color }]}>Recommendations</Text>

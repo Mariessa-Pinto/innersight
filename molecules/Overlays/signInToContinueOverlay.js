@@ -9,18 +9,18 @@ const signIntoContinueOverlay = () => {
                 <View style={styles.inside}>
                     <View style={styles.line}></View>
                     <Text style={globalStyles.h4TextLight}>Please sign up to continue.</Text>
-                    <ExtraLargeBtnLightTxt 
+                    <ExtraLargeBtnLightTxt
                         text='Sign Up'
                         navigate='SignUp'
-                    /> 
-                </View>  
+                    />
+                </View>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: { 
+    container: {
         width: 410,
         height: 'auto',
         paddingBottom: 40,
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default signIntoContinueOverlay;

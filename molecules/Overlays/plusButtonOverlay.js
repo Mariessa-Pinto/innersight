@@ -1,23 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
 
 const plusButtonOverlay = () => {
-
     return (
-            <View style={styles.container}>
-                <View style={styles.inside}>
-                    <View style={styles.line}></View>
-                    <ExtraLargeBtnLightTxt 
-                        text='New Journal Entry'
-                        navigate='WriteEntry'
-                    />
-                    <ExtraLargeBtnLightTxt 
-                        text='New Journal'
-                        navigate='NewJournal'
-                    />
-                </View>
+        <View style={styles.container}>
+            <View style={styles.inside}>
+                <View style={styles.line}></View>
+                <ExtraLargeBtnLightTxt
+                    text='New Journal Entry'
+                    navigate='WriteEntry'
+                />
+                <ExtraLargeBtnLightTxt
+                    text='New Journal'
+                    navigate='NewJournal'
+                />
             </View>
+        </View>
     );
 };
 
@@ -38,9 +37,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -20,
         left: -20
-
     },
-
     inside: {
         display: 'flex',
         flexDirection: 'column',
@@ -54,7 +51,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#88898C',
         marginBottom: 10
     }
-
 });
 
 export default plusButtonOverlay;
