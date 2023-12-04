@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CrisisCardBtn from '../../atom/CrisisCardButton/CrisisCardBtn'
 import crisisData from '../../data/CrisisData';
 import { useState } from 'react';
 
 const DistressCard = () => {
-
     const [data, setData] = useState(crisisData)
 
     return (
@@ -27,11 +26,8 @@ const DistressCard = () => {
                             ""
                         }
                     </>
-
                 )
             })}
-
-
         </View>
     );
 };

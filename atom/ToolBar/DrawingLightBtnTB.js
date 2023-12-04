@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 
 const DrawingLightBtnTB = (props) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
@@ -12,8 +12,9 @@ const DrawingLightBtnTB = (props) => {
   };
 
   const buttonImage = pressed
-  ? require('../icons/DrawingLightOnPress.png')
-  : require('../icons/DrawingLightBtn.png');
+    ? require('../icons/DrawingLightOnPress.png')
+    : require('../icons/DrawingLightBtn.png');
+
   return (
     <TouchableWithoutFeedback
       onPress={navigateTo}
@@ -21,17 +22,17 @@ const DrawingLightBtnTB = (props) => {
       onPressOut={() => setPressed(false)}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-       <Image source={buttonImage} style={styles.img}/>
+        <Image source={buttonImage} style={styles.img} />
       </View>
     </TouchableWithoutFeedback>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     width: 40,
     height: 40,
     borderRadius: 50,
-    
   },
   text: {
     color: '#3E3F42',
@@ -42,4 +43,5 @@ const styles = StyleSheet.create({
     height: 40
   }
 });
+
 export default DrawingLightBtnTB;

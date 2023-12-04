@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import globalStyles from '../../styles/global';
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import * as Font from 'expo-font';
-
 
 const TypeButton = () => {
    const [selectedFont, setSelectedFont] = useState('Roboto');
@@ -15,7 +13,6 @@ const TypeButton = () => {
    const changeFont = (font) => {
       setSelectedFont(font);
    };
-
 
    //async function loadFonts() {
      // await Font.loadAsync({

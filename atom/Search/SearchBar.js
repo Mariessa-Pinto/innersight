@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet } from 'react-native'
-import { useState } from 'react';
 import searchIcon from '../icons/searchIcon';
 
 const SearchBar = (props) => {
   const [searchQuery, setSearchQuery] = React.useState('');
-
   const onChangeSearch = query => setSearchQuery(query);
 
   return (
@@ -35,7 +33,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDFDFD',
     borderWidth: 1,
     borderColor: '#88898C',
-    
   },
   input: {
     textAlign: 'left',
@@ -45,4 +42,5 @@ const styles = StyleSheet.create({
     paddingBottom: 18
   }
 });
+
 export default SearchBar;

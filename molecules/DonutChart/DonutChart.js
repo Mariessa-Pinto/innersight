@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import globalStyles from '../../styles/global';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { VictoryPie, VictoryLabel, VictoryTheme } from "victory-native";
-import { dummy } from '../../data/DummyJournalData'
-//import { useFonts, Lexend_400Regular } from 'expo-font';
+import { StyleSheet, View } from 'react-native';
+import { VictoryPie, VictoryLabel } from "victory-native";
 import { useFonts, Lexend_400Regular } from '@expo-google-fonts/lexend';
 import { getJournalEntries } from '../../firebase/firebaseService';
 import { statsEmotions } from '../../data/StatsEmotionData';
 import { getAuth } from 'firebase/auth';
 
-import { ActivityIndicator, Colors } from 'react-native-paper';
+import { ActivityIndicator } from 'react-native-paper';
 
 const DonutChart = () => {
 
@@ -28,15 +26,14 @@ const DonutChart = () => {
     const [finalColors, setFinalColors] = useState([])
     const [emotionData, setEmotionData] = useState(statsEmotions.emotions)
 
-    const [loading, setLoading] = useState(true) 
+    const [loading, setLoading] = useState(true)
     const auth = getAuth()
 
     //run get data on page load 
     useEffect(() => {
-        console.log("new log") 
-        const fetchJournalEntries = async () => { 
+        console.log("new log")
+        const fetchJournalEntries = async () => {
             try {
-
                 // Use the user's UID when fetching journal entries
                 const username = auth.currentUser ? auth.currentUser.uid : null;
                 if (username) {
@@ -56,15 +53,11 @@ const DonutChart = () => {
             }
         };
         fetchJournalEntries();
-
-    }, [auth.currentUser]); 
-
+    }, [auth.currentUser]);
 
     const processJournalData = (journalEntries) => {
-
         console.log("step 1")
         console.log(journalEntries)
-
         Object.values(journalEntries).forEach(entry => {
             if (Array.isArray(entry.keywords)) {
                 entry.keywords.forEach(keyword => {
@@ -85,7 +78,6 @@ const DonutChart = () => {
         console.log(newCategories)
         console.log(newColors)
         console.log("step 2")
-
         newCategories.forEach((x) => {
             countCategories[x] = (countCategories[x] || 0) + 1;
         });
@@ -93,9 +85,6 @@ const DonutChart = () => {
         const indices = newCategories.map(emotion => newCategories.indexOf(emotion));
         const output = new Set(indices);
         const colorIndex = [...output];
-
-        // console.log(countCategories)
-        // console.log("color index" + colorIndex)
 
         colorIndex.forEach((num) => {
             finalColors.unshift(newColors[num])
@@ -115,29 +104,14 @@ const DonutChart = () => {
         console.log("complete")
     };
 
-    //Sample VictoryPie data for testing
-    // const chartData = [
-    //     { x: "Cats", y: 35 },
-    //     { x: "Dogs", y: 40 },
-    //     { x: "Birds", y: 55 }
-    // ]
-
     const handleSliceClick = (event, props) => {
         setSelectedSlice(selectedSlice === props.index ? null : props.index);
-
     };
-
 
     //Label Font. This is connected to the app.json "font" object.
     const [fontsLoaded] = useFonts({
         Lexend_400Regular,
     });
-
-    // if (!fontsLoaded) {
-    //     return (
-    //         console.log("font error")
-    //     );
-    // }
 
     return (
         <View style={[styles.container, globalStyles.labelText]}>
@@ -159,16 +133,14 @@ const DonutChart = () => {
                             eventHandlers: {
                                 onPressIn: handleSliceClick,
                             },
-
                         }]}
                         labelComponent={<VictoryLabel style={{
                             fontFamily: 'Lexend_400Regular',
                             fontSize: 18,
                             fontWeight: 500
                         }} />}
-
                     />
-              }
+            }
         </View>
     );
 };
@@ -180,7 +152,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-
     },
 });
 

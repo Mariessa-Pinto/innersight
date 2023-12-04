@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 
 const SpeechLightBtnTB = (props) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
@@ -12,8 +12,8 @@ const SpeechLightBtnTB = (props) => {
   };
 
   const buttonImage = pressed
-  ? require('../icons/SpeechLightOnPress.png')
-  : require('../icons/SpeechLightBtn.png');
+    ? require('../icons/SpeechLightOnPress.png')
+    : require('../icons/SpeechLightBtn.png');
   return (
     <TouchableWithoutFeedback
       onPress={navigateTo}
@@ -21,7 +21,7 @@ const SpeechLightBtnTB = (props) => {
       onPressOut={() => setPressed(false)}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-       <Image source={buttonImage} style={styles.img}/>
+        <Image source={buttonImage} style={styles.img} />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 50,
-    
+
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF', 
   },
   text: {
     color: '#3E3F42',
@@ -45,4 +45,5 @@ const styles = StyleSheet.create({
     height: 40
   }
 });
+
 export default SpeechLightBtnTB;

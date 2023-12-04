@@ -1,5 +1,4 @@
 export const statsEmotions = {
-
     emotions: [
         {
             emotion: "angry",
@@ -171,8 +170,5 @@ export const statsEmotions = {
             category: "joy",
             type: "positive",
         },
-        
-
     ]
-
 }

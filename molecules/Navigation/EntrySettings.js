@@ -10,7 +10,6 @@ import SelectButtonOverlay from '../Overlays/selectButtonOverlay';
 export default function EntrySettings({
     overlayType2
 }) {
-
     const [isOverlayVisible, setOverlayVisible] = useState(false);
 
     const [overlayType, setOverlayType] = useState()
@@ -20,7 +19,7 @@ export default function EntrySettings({
     return (
         <>
             <TouchableWithoutFeedback
-                onPress={() => {setOverlayVisible(!isOverlayVisible); setOverlayType("")}}
+                onPress={() => { setOverlayVisible(!isOverlayVisible); setOverlayType("") }}
                 onPressIn={() => setPressed(true)}
                 onPressOut={() => setPressed(false)}
             >
@@ -29,7 +28,6 @@ export default function EntrySettings({
                     style={styles.settingsButton}
                 />
             </TouchableWithoutFeedback>
-
             <GestureRecognizer
                 style={{ flex: 1 }}
                 onSwipeDown={() => setOverlayVisible(false)}
@@ -58,7 +56,6 @@ export default function EntrySettings({
                                         <Text style={styles.text}>Delete Entry</Text>
                                     </View>
                                 </TouchableWithoutFeedback>
-
                             </View>
                         </View>
                         :
@@ -132,23 +129,15 @@ export default function EntrySettings({
                                                                 </>
                                                         }
                                                     </>
-
                                                 }
                                             </>
                                     }
                                 </>
-
                             }
-
                         </>
-
                     }
-
                 </Modal>
             </GestureRecognizer>
-
-
-
         </>
     )
 }
@@ -183,7 +172,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -20,
         left: -20
-
     },
     inside: {
         display: 'flex',
@@ -208,13 +196,12 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#D5D7FF', // Change the color when pressed
+        backgroundColor: '#D5D7FF',
     },
     text: {
         color: '#3E3F42',
         fontSize: 14,
     },
-
     deleteTextLight: {
         color: '#FDFDFD',
     },

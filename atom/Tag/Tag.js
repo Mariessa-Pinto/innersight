@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import globalStyles from '../../styles/global';
-
 
 const Tag = (props) => {
   const [buttonStates, setButtonStates] = useState({
     Tags: false
   });
-
 
   const handleButtonPress = (font) => {
     setButtonStates((prevStates) => ({
@@ -32,15 +30,13 @@ const Tag = (props) => {
   return (
     <View style={styles.container}>
       {renderButton('Tags', 'Tags')}
-
     </View>
-
   );
 };
 
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     marginHorizontal: 7
   },
   button: {

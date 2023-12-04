@@ -38,7 +38,7 @@ export default function NavBar({ navigation, variation }) {
     const hideOverlay = () => {
         setOverlayVisible(false);
     };
-    
+
     const OverlayContent = plusButtonOverlay
 
     const [pressed, setPressed] = useState(false);
@@ -106,7 +106,6 @@ export default function NavBar({ navigation, variation }) {
     );
 };
 
-
 const styles = StyleSheet.create({
     container: {
         height: 65,
@@ -148,7 +147,6 @@ const styles = StyleSheet.create({
         paddingRight: 25
     },
     container2: {
-
         paddingLeft: 25
     },
     addButtonContainer: {

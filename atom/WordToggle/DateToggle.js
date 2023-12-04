@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import globalStyles from '../../styles/global';
 
-const DateToggle = ({navigation, type}) => {
+const DateToggle = ({ navigation, type }) => {
   const route = useRoute();
   const selectedValueFromRoute = route.params?.selectedValue;
 
@@ -16,7 +16,7 @@ const DateToggle = ({navigation, type}) => {
           styles.btn,
           type === 'Week' ? styles.selectedBtn : null,
         ]}
-        onPress={() => {setSelectedValue("Week"); navigation.navigate('Stats')}}
+        onPress={() => { setSelectedValue("Week"); navigation.navigate('Stats') }}
       >
         <Text style={[type === 'Week' ? styles.selectedText : null, globalStyles.labelText]}>Week</Text>
       </TouchableOpacity>
@@ -25,7 +25,7 @@ const DateToggle = ({navigation, type}) => {
           styles.btn,
           type === 'Month' ? styles.selectedBtn : null,
         ]}
-        onPress={() => {setSelectedValue("Month"); navigation.navigate('MonthStats')}}
+        onPress={() => { setSelectedValue("Month"); navigation.navigate('MonthStats') }}
       >
         <Text style={[type === 'Month' ? styles.selectedText : null, globalStyles.labelText]}>Month</Text>
       </TouchableOpacity>
@@ -34,7 +34,7 @@ const DateToggle = ({navigation, type}) => {
           styles.btn,
           type === 'Year' ? styles.selectedBtn : null,
         ]}
-        onPress={() => {setSelectedValue("Year"); navigation.navigate('YearStats')}}
+        onPress={() => { setSelectedValue("Year"); navigation.navigate('YearStats') }}
       >
         <Text style={[type === 'Year' ? styles.selectedText : null, globalStyles.labelText]}>Year</Text>
       </TouchableOpacity>
@@ -70,33 +70,3 @@ const styles = StyleSheet.create({
 });
 
 export default DateToggle;
-
-/**
- *  <TouchableOpacity
-        style={[
-          styles.btn,
-          selectedValue === 'Week' ? styles.selectedBtn : null,
-        ]}
-        onPress={() => handleToggle('Week')}
-      >
-        <Text style={[selectedValue === 'Week' ? styles.selectedText : null, globalStyles.labelText]}>Week</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.btn,
-          selectedValue === 'Month' ? styles.selectedBtn : null,
-        ]}
-        onPress={() => handleToggle('Month')}
-      >
-        <Text style={[selectedValue === 'Month' ? styles.selectedText : null, globalStyles.labelText]}>Month</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.btn,
-          selectedValue === 'Year' ? styles.selectedBtn : null,
-        ]}
-        onPress={() => handleToggle('Year')}
-      >
-        <Text style={[selectedValue === 'Year' ? styles.selectedText : null, globalStyles.labelText]}>Year</Text>
-      </TouchableOpacity>
- */

@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CrisisCardBtn from '../../atom/CrisisCardButton/CrisisCardBtn';
 import crisisData from '../../data/CrisisData';
 import { useState } from 'react';
 
 const OrganizationCard = () => {
-
     const [data, setData] = useState(crisisData)
 
     return (
@@ -12,26 +11,23 @@ const OrganizationCard = () => {
             {data && data.resources.map((i, index) => {
                 return (
                     <>
-                    {i.type === "info" ? 
-                    <View 
-                    key={index}
-                    style={styles.cardContainer}>
-                        <CrisisCardBtn
-                            headerText={i.organization}
-                            numText={i.phone}
-                            text={i.location}
-                            link={i.location}
-                        />
-                    </View>
-                    :
-                    ""
-                    }
+                        {i.type === "info" ?
+                            <View
+                                key={index}
+                                style={styles.cardContainer}>
+                                <CrisisCardBtn
+                                    headerText={i.organization}
+                                    numText={i.phone}
+                                    text={i.location}
+                                    link={i.location}
+                                />
+                            </View>
+                            :
+                            ""
+                        }
                     </>
-
                 )
             })}
-
-           
         </View>
     );
 };
@@ -47,7 +43,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         width: '100%',
     },
-    cardContainer:{
+    cardContainer: {
         width: '100%',
     }
 });

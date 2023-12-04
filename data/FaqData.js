@@ -1,5 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native';
-
 const FaqData = {
   questions: [
     {
@@ -52,9 +50,5 @@ const FaqData = {
     },
   ]
 };
-
-const styles = StyleSheet.create({
-  
-});
 
 export default FaqData;

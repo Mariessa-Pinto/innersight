@@ -1,30 +1,28 @@
 import { useState } from 'react';
-import {View, Switch, StyleSheet} from 'react-native';
+import { View, Switch, StyleSheet } from 'react-native';
 
 const Toggle = ({
   valueChange,
-  valueEnabled, 
+  valueEnabled,
 }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => {
-  setIsEnabled((previousState) => {
-    const newState = !previousState;
-    onToggle(newState);
-    return newState;
-  });
+    setIsEnabled((previousState) => {
+      const newState = !previousState;
+      onToggle(newState);
+      return newState;
+    });
   };
-
-  
 
   return (
     <View style={styles.container}>
-        <View style={[styles.switchContainer, valueEnabled && styles.switchContainerActive]}>
-      <Switch
-        trackColor={{false: 'transparent', true: 'transparent'}}
-        thumbColor={valueEnabled ? '#FDFDFD' : '#FDFDFD'}
-        onValueChange={valueChange}
-        value={valueEnabled}
-      />
+      <View style={[styles.switchContainer, valueEnabled && styles.switchContainerActive]}>
+        <Switch
+          trackColor={{ false: 'transparent', true: 'transparent' }}
+          thumbColor={valueEnabled ? '#FDFDFD' : '#FDFDFD'}
+          onValueChange={valueChange}
+          value={valueEnabled}
+        />
       </View>
     </View>
   );

@@ -59,7 +59,6 @@ export default function LanguageGreyButtons() {
                     text="Vietnamese"
                     navigate="LanguageSettings"
                 />
-
             </View>
         </View>
     );
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 30,
     },
-    box:{
+    box: {
         width: '100%'
     }
 });

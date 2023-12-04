@@ -3,19 +3,19 @@ import LottieView from 'lottie-react-native';
 
 export default function JournalBlobCard({
     imgSource,
-    }) {
+}) {
 
     //Animation
     const animation = require('../../atom/assets/Animations/blob_animation.json');
 
     return (
         <View style={styles.container}>
-                <LottieView
-                            source={animation}
-                            autoPlay
-                            loop
-                            style={styles.animationStyle}
-                        />
+            <LottieView
+                source={animation}
+                autoPlay
+                loop
+                style={styles.animationStyle}
+            />
             <Image style={styles.journalImg}
                 source={imgSource} />
         </View>

@@ -9,7 +9,6 @@ import { getAuth } from 'firebase/auth';
 import { getJournalEntries } from '../../firebase/firebaseService';
 
 const IdentifiedEntries = () => {
-
     const navigation = useNavigation();
     const [entries, setEntries] = useState([]);
     const [pressed, setPressed] = useState(false);
@@ -28,7 +27,6 @@ const IdentifiedEntries = () => {
         const formattedDate = `${formattedMonth} ${date.getDate()}, ${date.getFullYear()}`;
         return formattedDate;
     };
-
 
     useEffect(() => {
         console.log("new log")
@@ -49,36 +47,36 @@ const IdentifiedEntries = () => {
         };
         fetchJournalEntries();
     }, [auth.currentUser]);
+    
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
     const theme = useContext(themeContext)
     //Font Size
     const fontTheme = useContext(fontContext)
 
-
     return (
         <View style={styles.maincontent}>
             <View style={styles.title}>
                 <Text style={[globalStyles.h3Text, { color: theme.color }]}>Identified Entries</Text>
             </View>
-            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>2 entires were identified where you felt negative.</Text>
+            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{entries.length} entires were identified where you felt negative.</Text>
             <View style={styles.cards}>
                 {
                     entries && entries.map((i, index) => {
                         return (
-                            <>
+                            <View key={index}>
                                 {
                                     i.entryType === "negative" ?
                                         <StatsBox
+                                            title={i.title}
                                             date={formatDate(i.timestamp)}
                                             text={i.content}
-                                            navigate="WriteEntry"
-                                            key={index}
+                                            navigate="WriteEntry" 
                                         />
                                         :
                                         ""
                                 }
-                            </>
+                            </View>
                         )
                     })
                 }

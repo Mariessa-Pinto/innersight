@@ -4,7 +4,7 @@ import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 
 const TypeLightBtnTB = (props) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
 
   const navigateTo = () => {
@@ -12,8 +12,8 @@ const TypeLightBtnTB = (props) => {
   };
 
   const buttonImage = pressed
-  ? require('../icons/TypeLightOnPress.png')
-  : require('../icons/TypeLightBtn.png');
+    ? require('../icons/TypeLightOnPress.png')
+    : require('../icons/TypeLightBtn.png');
   return (
     <TouchableWithoutFeedback
       onPress={navigateTo}
@@ -21,17 +21,18 @@ const TypeLightBtnTB = (props) => {
       onPressOut={() => setPressed(false)}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-       <Image source={buttonImage} style={styles.img}/>
+        <Image source={buttonImage} style={styles.img} />
       </View>
     </TouchableWithoutFeedback>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     width: 40,
     height: 40,
     borderRadius: 50,
-    
+
   },
   text: {
     color: '#3E3F42',
@@ -42,4 +43,5 @@ const styles = StyleSheet.create({
     height: 40
   }
 });
+
 export default TypeLightBtnTB;

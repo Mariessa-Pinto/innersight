@@ -4,9 +4,7 @@ import { Image } from 'expo-image';
 import { useState, useContext } from 'react';
 import JournalToggle from '../../atom/WordToggle/JournalToggle';
 import EntrySettings from '../Navigation/EntrySettings';
-
 import themeContext from '../../theme/themeContext';
-
 
 const Header = ({
     navigation,
@@ -16,10 +14,8 @@ const Header = ({
     type }) => {
     const [pressed, setPressed] = useState(false);
 
-        //Dark/Light Mode
+    //Dark/Light Mode
     const theme = useContext(themeContext);
-
-
 
     return (
         <View style={styles.header}>
@@ -41,14 +37,13 @@ const Header = ({
                 title === "journalToggle" ?
                     <JournalToggle styles={styles.title} navigation={navigation} type={type} />
                     :
-                    <Text style={[styles.title, globalStyles.h3Text, {color: theme.color}]}>{title}</Text>
+                    <Text style={[styles.title, globalStyles.h3Text, { color: theme.color }]}>{title}</Text>
             }
             {
                 settings ?
                     <EntrySettings overlayType2={overlayType} />
                     :
                     ""
-
             }
         </View>
     );
@@ -97,7 +92,7 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     buttonPressed: {
-        backgroundColor: '#D5D7FF', // Change the color when pressed
+        backgroundColor: '#D5D7FF',
     },
     titleBox: {
         display: 'flex',

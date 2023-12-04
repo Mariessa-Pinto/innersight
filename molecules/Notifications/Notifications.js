@@ -27,7 +27,6 @@ const Notifications = ({
     const fontTheme = useContext(fontContext)
 
     return (
-
         <View style={styles.container}>
             <View style={[styles.notification, { backgroundColor: theme.backgroundGreyLight }]}>
                 <Text style={[globalStyles.labelTextLight, {
@@ -60,9 +59,7 @@ const Notifications = ({
                             </>
                         }
                     </>
-
                 }
-
             </View>
         </View>
     );
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 15,
     }
-
 });
 
 export default Notifications;
