@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#43479A', // Change the color when pressed
+        backgroundColor: '#43479A', 
     },
     text: {
         color: '#FDFDFD',

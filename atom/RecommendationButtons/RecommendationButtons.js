@@ -21,26 +21,26 @@ const RecommendationButton = (props) => {
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <View style={styles.img}>
-      <Image
-                source={props.image}
-                style={styles.sleeping}
-            />
-            </View>
+          <Image
+            source={props.image}
+            style={styles.sleeping}
+          />
+        </View>
         <Text style={globalStyles.labelText}>{props.text}</Text>
-       <Image />
+        <Image />
       </View>
     </TouchableWithoutFeedback>
-     
+
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-      display: 'flex',
-      flexDirection: 'row',
-      gap: 20,
-      justifyContent: 'center',
-      marginTop: 10
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 20,
+    justifyContent: 'center',
+    marginTop: 10
   },
   button: {
     width: 100,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF', 
   },
   text: {
     color: '#3E3F42',
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
     height: 83,
     width: 90,
     resizeMode: 'contain'
-},
-img: {
-  display: 'flex',
-  justifyContent: 'center',
-  marginBottom: 10,
-}
+  },
+  img: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: 10,
+  }
 });
 
 export default RecommendationButton;

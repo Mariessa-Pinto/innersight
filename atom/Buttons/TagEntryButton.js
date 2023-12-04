@@ -1,18 +1,16 @@
 import globalStyles from '../../styles/global';
-import { StyleSheet, Text, View, Button, Switch, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
-import { useState, useContext } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 import SmallInput from '../InputBoxes/SmallInput';
 import Tag from '../Tag/Tag';
 import SmallBtnLightTxt from '../../atom/Buttons/SmallBtnLightTxt'
 
 export default function TagEntryBtn() {
-
     const [showInputBoxes, setShowInputBoxes] = useState(false);
 
     const toggleInputBoxes = () => {
         setShowInputBoxes(!showInputBoxes)
-    }
-        ;
+    };
     return (
         <View style={styles.container}>
             <View style={styles.btnContainer}>
@@ -24,7 +22,6 @@ export default function TagEntryBtn() {
                     <Image source={require('../../atom/assets/settingicons/Arrow.png')} style={styles.arrow} />
                 </TouchableOpacity>
             </View>
-
             {showInputBoxes ? (
                 <View style={styles.inputBoxes}>
                     <View style={styles.tag}>
@@ -57,11 +54,8 @@ export default function TagEntryBtn() {
                 </View>
             ) : <></>}
         </View>
-
     )
-
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -84,7 +78,6 @@ const styles = StyleSheet.create({
     },
     arrow: {
         width: 25,
-
     },
     tag: {
         display: 'flex',
@@ -97,16 +90,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         flexWrap: 'wrap'
-
     },
     input: {
         height: 200,
         width: 325,
         borderColor: 'black'
     },
-    inputBoxes:{
+    inputBoxes: {
         marginBottom: 20
     }
-
-
 })

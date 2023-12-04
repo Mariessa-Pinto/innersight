@@ -1,11 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, TextInput, Text, View, Image } from 'react-native';
-
-
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 
 const AiToolInput = (props) => {
-
-
   return (
     <View style={styles.container}>
       <Image
@@ -14,7 +10,6 @@ const AiToolInput = (props) => {
       />
       <Text style={styles.input}>{props.response ? props.response : ''}</Text>
     </View>
-
   );
 };
 
@@ -35,7 +30,6 @@ const styles = StyleSheet.create({
     borderColor: '#525585',
     borderWidth: 1,
     elevation: 5,
-
   },
   mascot: {
     width: '40%',

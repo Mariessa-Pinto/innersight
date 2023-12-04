@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Image } from 'expo-image'
 import globalStyles from '../../styles/global';
-import { useNavigation } from '@react-navigation/native';
-
 
 export default function CrisisButton({
   navigation,
@@ -14,7 +11,6 @@ export default function CrisisButton({
   const [pressedCrisis, setPressedCrisis] = useState(false)
 
   return (
-
     <View style={styles.container}>
       <TouchableOpacity
         onPressIn={() => setPressedCrisis(true)}
@@ -46,12 +42,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-
   },
   buttonPressed: {
-    backgroundColor: '#43479A', // Change the color when pressed
+    backgroundColor: '#43479A', 
   },
-
   titleText: {
     color: '#FFF'
   }

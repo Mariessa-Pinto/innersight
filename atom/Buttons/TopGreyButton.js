@@ -5,7 +5,6 @@ import themeContext from '../../theme/themeContext';
 import globalStyles from '../../styles/global';
 import { A } from '@expo/html-elements';
 
-
 const TopGreyButton = (props) => {
   const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
@@ -67,10 +66,6 @@ const TopGreyButton = (props) => {
   );
 };
 
-/**
- *           
- */
-
 const styles = StyleSheet.create({
   button: {
     width: '100%',
@@ -82,7 +77,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between'
-
   },
   leftContent: {
     display: 'flex',
@@ -96,10 +90,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingRight: 15,
     alignItems: 'center',
-
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   icon: {
     height: 16,

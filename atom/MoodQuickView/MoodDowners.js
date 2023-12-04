@@ -1,30 +1,24 @@
-import React, { useState, useContext }  from "react";
+import React, { useState, useContext } from "react";
 import globalStyles from "../../styles/global";
 import { View, Text, StyleSheet } from "react-native";
 import themeContext from "../../theme/themeContext";
 
-
-
 const MoodDowners = () => {
 
-        //Dark/Light Mode
-        const [darkMode, setDarkMode] = useState(false)
-        const theme = useContext(themeContext)
+  //Dark/Light Mode
+  const [darkMode, setDarkMode] = useState(false)
+  const theme = useContext(themeContext)
 
   return (
-
-    <View style={[styles.box, {backgroundColor: theme.backgroundLavender}]}>
+    <View style={[styles.box, { backgroundColor: theme.backgroundLavender }]}>
       <Text style={globalStyles.h4TextBold}>Mood Downers</Text>
       <View style={styles.textCon}>
         <Text style={globalStyles.listText}>Upcoming midterms</Text>
         <Text style={globalStyles.listText}>Argument with Bob</Text>
         <Text style={globalStyles.listText}>Delayed flight</Text>
       </View>
-
-
     </View>
   );
-
 };
 
 const styles = StyleSheet.create({
@@ -49,4 +43,5 @@ const styles = StyleSheet.create({
 
   }
 });
+
 export default MoodDowners;

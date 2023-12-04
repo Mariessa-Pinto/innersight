@@ -11,7 +11,6 @@ const InsightButton = (props) => {
         props.onPress(); // Check if this line triggers your handleApiCall function
     };
 
-
     return (
         <TouchableOpacity
             onPress={handlePress}
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     buttonPressed: {
-        backgroundColor: '#43479A', // Change the color when pressed
+        backgroundColor: '#43479A',
     },
     text: {
         color: '#FDFDFD',

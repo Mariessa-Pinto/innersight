@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Image } from 'expo-image';
 
-const backBtn = ({navigation}) => {
+const backBtn = ({ navigation }) => {
   const [pressed, setPressed] = useState(false);
 
   return (
-    
     <TouchableOpacity
       onPress={() => navigation.goBack()}
       onPressIn={() => setPressed(true)}
@@ -14,7 +13,7 @@ const backBtn = ({navigation}) => {
       style={styles.btnContainer}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
-       <Image source={require('../icons/backbtn.png')} height={10} width={10}/>
+        <Image source={require('../icons/backbtn.png')} height={10} width={10} />
       </View>
     </TouchableOpacity>
   );
@@ -31,16 +30,15 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   buttonPressed: {
-    backgroundColor: '#D5D7FF', // Change the color when pressed
+    backgroundColor: '#D5D7FF',
   },
   text: {
     color: '#3E3F42',
     fontSize: 12,
   },
-  btnContainer:{
+  btnContainer: {
     position: 'absolute',
     top: 0
-    
   }
 });
 

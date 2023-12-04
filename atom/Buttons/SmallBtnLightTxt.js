@@ -10,11 +10,12 @@ const SmallBtnLightTxt = (props) => {
   const navigateTo = () => {
     navigation.navigate(props.navigate);
   };
+
   return (
     <TouchableWithoutFeedback
-    onPressIn={() => setPressed(true)}
-    onPressOut={() => setPressed(false)}
-    onPress={navigateTo}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      onPress={navigateTo}
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <Text style={[styles.text, globalStyles.btnTextSml]}>{props.text}</Text>
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   buttonPressed: {
-    backgroundColor: '#43479A', // Change the color when pressed
+    backgroundColor: '#43479A',
   },
   text: {
     color: '#FDFDFD',

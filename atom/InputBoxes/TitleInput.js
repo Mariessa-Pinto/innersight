@@ -1,15 +1,13 @@
 import React from 'react';
 import globalStyles from '../../styles/global'
-import {SafeAreaView, StyleSheet, TextInput, Text} from 'react-native';
-
+import { SafeAreaView, StyleSheet, TextInput, Text } from 'react-native';
 
 const TitleInput = (props) => {
   const [text, onChangeText] = React.useState('');
-  
 
   return (
     <SafeAreaView>
-        <Text style={globalStyles.labelText}>{props.title}</Text>
+      <Text style={globalStyles.labelText}>{props.title}</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -18,7 +16,6 @@ const TitleInput = (props) => {
         keyboardType="default"
         blurOnSubmit={true}
       />
-    
     </SafeAreaView>
   );
 };
@@ -37,7 +34,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#FDFDFD",
     color: "#000",
-    fontWeight: 'normal', 
+    fontWeight: 'normal',
     fontFamily: 'Lexend-Regular'
   },
   titleTxt: {
