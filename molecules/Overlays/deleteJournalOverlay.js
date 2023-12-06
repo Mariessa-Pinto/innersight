@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import MediumBtnLightTxt from '../../atom/Buttons/MediumBtnLightTxt';
 import MediumBtnDarkTxt from '../../atom/Buttons/MediumBtnDarkTxt';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const DeleteJournalOverlay = () => {
 
@@ -28,8 +31,8 @@ const DeleteJournalOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 175,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,

@@ -2,6 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 import { useState } from 'react';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 
 const JournalSettingsOverlay = () => {
@@ -33,8 +36,8 @@ const JournalSettingsOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 250,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,

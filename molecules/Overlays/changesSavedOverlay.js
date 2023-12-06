@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const ChangesSavedOverlay = () => {
     return (
@@ -21,7 +24,7 @@ const ChangesSavedOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
+        width: windowWidth,
         height: 'auto',
         paddingBottom: 40,
         borderTopLeftRadius: 20,

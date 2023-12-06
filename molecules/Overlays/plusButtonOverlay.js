@@ -1,8 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
+import { Dimensions } from 'react-native';
 
+const { width: windowWidth } = Dimensions.get('window');
 
 const plusButtonOverlay = () => {
+
+    
     return (
         <View style={styles.container}>
             <View style={styles.inside}>
@@ -22,8 +26,8 @@ const plusButtonOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 175,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,
@@ -36,14 +40,16 @@ const styles = StyleSheet.create({
         elevation: 30,
         position: 'absolute',
         bottom: -20,
-        left: -20
+        left: -20,
+
     },
     inside: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: 15,
-        marginTop: 10
+        marginTop: 10,
+        paddingBottom: 25
     },
     line: {
         width: 65,
