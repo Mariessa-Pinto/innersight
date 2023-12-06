@@ -80,7 +80,7 @@ export default StyleSheet.create({
     },
     contentContainer: {
         height: '100%',
-        minHeight: 685,
+        minHeight: windowHeight,
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 10,

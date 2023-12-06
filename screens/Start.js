@@ -27,8 +27,9 @@ export default function Start() {
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
+            <StatusBar style="auto" />
             <View style={styles.container}>
-                <StatusBar style="auto" />
+
                 <LottieView
                     source={animation}
                     autoPlay
