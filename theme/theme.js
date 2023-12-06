@@ -12,6 +12,7 @@ const theme = {
         periwinkleLight: '#C5C7F7',
         sliderTrackColor: "#000",
         sliderTrackColorMax: "DDDDDD",
+        status: "dark"
     },
     dark: {
         theme: 'dark',
@@ -23,6 +24,7 @@ const theme = {
         periwinkleLight: "#6164C3",
         sliderTrackColor: "#FDFDFD",
         sliderTrackColorMax: "#FDFDFD",
+        status: "light"
     },
     extraSmall:{
         fontSize: 14,
