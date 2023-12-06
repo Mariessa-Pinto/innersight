@@ -1,6 +1,5 @@
 import globalStyles from '../../styles/global'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
-import StatsBox from '../../atom/StatsBox/StatsBox';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import themeContext from '../../theme/themeContext';
 import fontContext from '../../theme/fontContext';
 import { useContext, useState, useEffect } from 'react';
@@ -11,7 +10,7 @@ import { getJournalEntries } from '../../firebase/firebaseService';
 const IdentifiedEntries = () => {
     const navigation = useNavigation();
     const [entries, setEntries] = useState([]);
-    const [pressed, setPressed] = useState(false);
+
     const [selectedEntry, setSelectedEntry] = useState(null);
 
     const auth = getAuth()
@@ -103,10 +102,8 @@ const IdentifiedEntries = () => {
                                         </TouchableOpacity>
                                     </View>
                                 )
-
                                 }
                             </View>
-             
                         )
                     })
                 }
