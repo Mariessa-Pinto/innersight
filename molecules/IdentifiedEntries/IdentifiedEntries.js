@@ -28,7 +28,8 @@ const IdentifiedEntries = () => {
         return formattedDate;
     };
 
-    useEffect(() => {
+     //run get data on page load 
+     useEffect(() => {
         console.log("new log")
         const fetchJournalEntries = async () => {
             try {
@@ -44,9 +45,11 @@ const IdentifiedEntries = () => {
             } catch (error) {
                 console.error('Error fetching journal entries:', error);
             }
+
         };
         fetchJournalEntries();
     }, [auth.currentUser]);
+
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -59,25 +62,38 @@ const IdentifiedEntries = () => {
         navigation.navigate('JournalViewPage', { entry, title: entry.title });
     };
 
+
     return (
         <View style={styles.maincontent}>
             <View style={styles.title}>
                 <Text style={[globalStyles.h3Text, { color: theme.color }]}>Identified Entries</Text>
             </View>
-            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{entries.length} entires were identified where you felt negative.</Text>
+            <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{entries.length} entries were identified where you felt negative.</Text>
             <View style={styles.cards}>
                 {
                     entries && entries.map((i, index) => {
+                        <>
+                            <Text key={index}>
+                                {i.title}
+                            </Text>
+                        </>
+                    })
+                }
+
+                {
+                    entries && entries.map((i, index) => {
                         return (
-                            <View key={index}>
-                                {
-                                    i.entryType === "negative" ?
+                            <View
+                            key={index}>
+                                {i.entryType && i.entryType === "negative" && (
+                                    <View key={index}>
                                         <TouchableOpacity
                                             style={styles.container}
                                             onPress={() => handleViewEntry(i)}
+
                                         >
                                             <View style={styles.textBox}>
-                                                <Text style={[globalStyles.h3TextSemiBold, { color: '#525585' }]}>{i.title}</Text>
+                                                <Text style={[globalStyles.h3TextSemiBold, { color: '#525585' }]}>{i.title || "Untitled"}</Text>
                                                 <Text style={[globalStyles.h4TextSemiBold, { color: '#525585' }]}>{formatDate(i.timestamp)}</Text>
                                                 <Text style={[globalStyles.captionText, { color: theme.color }]}> {i.content.length > 200 ? `${i.content.substring(0, 200)}...` : i.content}</Text>
                                             </View>
@@ -85,10 +101,12 @@ const IdentifiedEntries = () => {
                                                 <Image source={require('../../atom/icons/rightArrow.png')} style={styles.rightArrow} />
                                             </View>
                                         </TouchableOpacity>
-                                        :
-                                        ""
+                                    </View>
+                                )
+
                                 }
                             </View>
+             
                         )
                     })
                 }
@@ -102,7 +120,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignItems: 'center',
         gap: 10,
     },
     title: {
@@ -111,14 +128,19 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         width: 325
     },
-    statsContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
+
     cards: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 20
+        gap: 20,
+    },
+    test: {
+        height: 50,
+        width: '100%',
+        backgroundColor: 'green'
+    },
+    cardsOuterContainer: {
+        backgroundColor: 'green'
     },
     container: {
         height: 'auto',

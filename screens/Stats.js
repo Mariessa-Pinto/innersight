@@ -43,7 +43,7 @@ export default function Stats({ navigation }) {
                         navigation={navigation}
                         type="Week" />
                         <DonutChart uid={uid}/>
-                        <IdentifiedEntries />
+                        <IdentifiedEntries uid={uid} />
                         <StatRecommendations />
                     </View>
                 </View>
