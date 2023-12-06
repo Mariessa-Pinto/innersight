@@ -7,22 +7,22 @@ const PersonalForm = () => {
         <View style={styles.container}>
             <TitleInput
                 title='First Name'
-                value='John'
+                value='Amaya'
                 placeholder='First Name'
             />
             <TitleInput
                 title='Last Name'
-                value='Smith'
+                value='Lee'
                 placeholder='Last Name'
             />
             <TitleInput
                 title='Email'
-                value='johnsmith@johnemail.com'
+                value='amaya@gmail.com'
                 placeholder='Email'
             />
             <TitleInput
                 title='Password'
-                value='********'
+                value='123456'
                 placeholder='Password'
             />
         </View>

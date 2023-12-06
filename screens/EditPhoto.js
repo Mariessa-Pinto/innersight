@@ -38,42 +38,45 @@ export default function EditPhoto({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     <Header
                         title='Customize Profile Photo'
                         navigation={navigation}
                     />
-                    <View style={styles.profimage}>
-                        <Image
-                            source={selectedProfileImage}
-                            style={styles.otter}
-                        />
-                    </View>
-                    <View style={styles.subHeadBox}>
-                        <Text style={[styles.subHeading, globalStyles.labelText]}>Choose Your Photo</Text>
-                    </View>
-                    <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
-                        {profilePictureOptions.map((option, index) => (
-                            <View style={styles.colorCircle}
-                                key={index}>
-                                <View
-                                    style={styles.profileOption}
-                                >
-                                    <Image
-                                        source={option.source}
-                                        style={[styles.optionImage, selectedOption === index ? styles.selectedOption : null]}
-                                        onPress={() => onOptionPress(index)}
-                                    />
-                                </View>
-                            </View>
-                        ))}
-                    </ScrollView>
-                    <TouchableWithoutFeedback
-                        onPress={() => setOverlayVisible(!isOverlayVisible)}>
-                        <View style={[styles.button, pressed && styles.buttonPressed]}>
-                            <Text style={[styles.text, globalStyles.btnTextMed]}>Update Photo</Text>
+                    <View style={styles.container}>
+
+                        <View style={styles.profimage}>
+                            <Image
+                                source={selectedProfileImage}
+                                style={styles.otter}
+                            />
                         </View>
-                    </TouchableWithoutFeedback>
+                        <View style={styles.subHeadBox}>
+                            <Text style={[styles.subHeading, globalStyles.labelText]}>Choose Your Photo</Text>
+                        </View>
+                        <ScrollView horizontal={true} contentContainerStyle={styles.profileOptions}>
+                            {profilePictureOptions.map((option, index) => (
+                                <TouchableWithoutFeedback
+                                    key={index}
+                                    onPress={() => onOptionPress(index)}>
+                                    <View style={styles.colorCircle}>
+                                        <View style={styles.profileOption}>
+                                            <Image
+                                                source={option.source}
+                                                style={[styles.optionImage, selectedOption === index ? styles.selectedOption : null]}
+                                            />
+                                        </View>
+                                    </View>
+                                </TouchableWithoutFeedback>
+                            ))}
+                        </ScrollView>
+                        <TouchableWithoutFeedback
+                            onPress={() => setOverlayVisible(!isOverlayVisible)}>
+                            <View style={[styles.button, pressed && styles.buttonPressed]}>
+                                <Text style={[styles.text, globalStyles.btnTextMed]}>Update Photo</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                    </View>
                 </View>
                 <View>
                     <GestureRecognizer
@@ -109,13 +112,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 30,
+        paddingTop: 10,
         marginTop: 20,
-        marginBottom: 10
+        marginBottom: 10,
     },
     otter: {
-        width: 216,
-        height: 189
+        width: 200,
+        height: 189,
+        resizeMode: 'contain'
     },
     profileOptions: {
         alignItems: 'center',
@@ -131,14 +135,19 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 2,
         borderColor: 'transparent',
+        resizeMode: 'contain'
     },
     selectedOption: {
         borderColor: '#555658'
     },
-    colorCirlce: {
-        width: 100,
-        height: 100,
-        backgroundColor: '#FFF2AC'
+    colorCircle: {
+        width: 120,
+        height: 120,
+        backgroundColor: '#FFF2AC',
+        borderRadius: 50,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 20
     },
     subHeading: {
         textAlign: 'left'

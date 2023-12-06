@@ -16,7 +16,7 @@ export default function ForgotPassword() {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     <View style={styles.container}>
                         <View style={styles.titleContainer}>
                             <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>Forgot Pasword?</Text>

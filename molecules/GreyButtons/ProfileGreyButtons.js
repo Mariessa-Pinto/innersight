@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     box: {
-        width: '100%'
+        // width: '100%'
+        flex: 1
     }
 });

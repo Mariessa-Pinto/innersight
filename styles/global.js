@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { height: windowHeight } = Dimensions.get('window');
 
 export default StyleSheet.create({
     h1TextBold:{
@@ -78,6 +80,19 @@ export default StyleSheet.create({
     },
     contentContainer: {
         height: '100%',
+        minHeight: 685,
+        width: '100%',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        flex: 1,
+        marginTop: 30,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        elevation: 3,
+        paddingBottom: 100,
+    },
+    contentContainerNoScroll: {
+        height: windowHeight,
         minHeight: 685,
         width: '100%',
         paddingHorizontal: 20,

@@ -29,19 +29,20 @@ export default function Recommendations({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
-                    <LottieView
-                        source={animation}
-                        autoPlay
-                        loop
-                        style={{ marginTop: -250 }}
-                    />
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     {
                         data && data.map((item, index) => {
                             return (
                                 <View key={index} style={styles.maincontent}>
                                     <Header title={item.type} navigation={navigation} />
-                                    <View style={styles.animationContainer}></View>
+                                    <View style={styles.animationContainer}>
+                                        <LottieView
+                                            source={animation}
+                                            autoPlay
+                                            loop
+                                            style={{ width: '120%', height: 410, marginBottom: -130, marginTop: -80 }}
+                                        />
+                                    </View>
                                     <View style={styles.writing}>
                                         <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.description}</Text>
                                         <Text style={[globalStyles.bodyCopy, { color: theme.color }]}>{item.desc2}</Text>
@@ -65,15 +66,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    header: {
-        fontSize: 18
-    },
     writing: {
         paddingTop: 10,
         paddingHorizontal: 20,
         gap: 15
-    },
-    animationContainer: {
-        marginTop: 170,
     },
 });

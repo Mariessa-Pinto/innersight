@@ -114,13 +114,14 @@ const styles = StyleSheet.create({
     },
     otter: {
         width: 60,
-        height: 52
+        height: 52,
+        resizeMode: 'contain'
     },
     topcontent: {
         display: 'flex',
         flexDirection: 'row',
         gap: 30,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         paddingBottom: 10
     },
@@ -128,7 +129,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 40
+        marginBottom: 40,
+        marginTop: 20
     },
     content: {
         marginBottom: 27,

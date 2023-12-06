@@ -20,7 +20,7 @@ export default function CrisisSupport({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     <Header title='Crisis Support Resources' navigation={navigation} />
                     <Text style={globalStyles.bodyCopy}>
                         Help is available for all to help foster mental wellness. If you or someone you know is in immediate danger, please dial 9-1-1.

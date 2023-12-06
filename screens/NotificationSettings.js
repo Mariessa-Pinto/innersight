@@ -22,7 +22,7 @@ export default function NotificationSettings({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     <Header title='Notifications' navigation={navigation} />
                     <Notifications title="Journal Reminders"
                         valueChange2={journalToggleSwitch}
@@ -47,7 +47,6 @@ export default function NotificationSettings({ navigation }) {
                     <View style={styles.button}>
                         <MediumBtnLightTxt
                             text='Save Changes'
-                            navigate=''
                         />
                     </View>
                 </View>
