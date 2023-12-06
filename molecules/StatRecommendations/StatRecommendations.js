@@ -30,7 +30,7 @@ const StatRecommendations = () => {
             <RecommendationsBox
                 title="Talk it Out"
                 text="Try making time to regularly talk to someone you trust, as it can provide valuable emotional support."
-                navigate="SelfCare"
+                navigate="TalkItOut"
             />
         </View>
     );

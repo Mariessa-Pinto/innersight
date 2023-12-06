@@ -28,7 +28,7 @@ export default function Recommendations({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
                     {
                         data && data.map((item, index) => {
                             return (
