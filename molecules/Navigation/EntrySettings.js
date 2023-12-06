@@ -6,6 +6,9 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 import TagSettingsOverlay from '../Overlays/tagSettingsOverlay';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
 import SelectButtonOverlay from '../Overlays/selectButtonOverlay';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 export default function EntrySettings({
     overlayType2
@@ -156,7 +159,7 @@ const styles = StyleSheet.create({
         backgroundColor: "pink"
     },
     container: {
-        width: 410,
+        width: windowWidth,
         height: 'auto',
         paddingBottom: 40,
         borderTopLeftRadius: 20,
@@ -165,7 +168,6 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 0,
         backgroundColor: '#F2F2FD',
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: -200 },
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,

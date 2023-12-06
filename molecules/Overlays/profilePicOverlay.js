@@ -2,6 +2,9 @@ import globalStyles from '../../styles/global'
 
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const ProfilePicOverlay = () => {
 
@@ -23,7 +26,7 @@ const ProfilePicOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
+        width: windowWidth,
         height: 'auto',
         paddingBottom: 40,
         borderTopLeftRadius: 20,

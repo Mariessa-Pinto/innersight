@@ -23,6 +23,7 @@ const ExtraLargeBtnLightTxt = (props) => {
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       onPress={navigateTo}
+      
     >
       <View style={[styles.button, pressed && styles.buttonPressed]}>
         <Text style={[globalStyles.btnTextLrg, styles.text]}>{props.text}</Text>

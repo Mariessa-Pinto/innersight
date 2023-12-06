@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import globalStyles from '../../styles/global';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const DeleteJComfirmOverlay = () => {
     return (
@@ -21,8 +24,8 @@ const DeleteJComfirmOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 175,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,

@@ -119,7 +119,7 @@ export default function JournalListPage() {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <View>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background, marginBottom: -30 }]}>
+                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background, marginBottom: -55 }]}>
                     <Header title="journalToggle" settings={true} type="Entries" navigation={navigation} overlayType="entriesList" />
                     <View style={styles.header}>
                         <Text style={[globalStyles.h1TextBold, { color: theme.color }]}>My Entries</Text>
@@ -213,6 +213,7 @@ export default function JournalListPage() {
                             />
                         </Modal>
                     </GestureRecognizer>
+
                 </View>
                 <NavBar navigation={navigation} variation='journal' />
             </View>

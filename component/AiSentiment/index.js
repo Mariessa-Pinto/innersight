@@ -13,6 +13,9 @@ import { useNavigation } from '@react-navigation/native';
 import OpenAI from 'openai';
 import { getAuth } from 'firebase/auth';
 import { ActivityIndicator } from 'react-native-paper';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const AiSent = ({ entryContent }) => {
 
@@ -513,7 +516,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   overlayContainer: {
-    width: 410,
+    width: windowWidth,
     height: 'auto',
     paddingBottom: 40,
     borderTopLeftRadius: 20,
@@ -522,7 +525,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
     backgroundColor: '#F2F2FD',
     shadowColor: 'black',
-    shadowOffset: { width: 0, height: -200 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
     elevation: 30,

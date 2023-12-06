@@ -2,6 +2,9 @@ import globalStyles from '../../styles/global'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import { useState } from 'react';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const EntrySpecOverlay = ({ onDeleteEntry, selectedEntry }) => {
     const [pressed, setPressed] = useState(false);
@@ -39,15 +42,14 @@ const EntrySpecOverlay = ({ onDeleteEntry, selectedEntry }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 250,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         backgroundColor: '#F2F2FD',
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: -200 },
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 7,
+        marginBottom: 20
     },
     buttonPressed: {
         backgroundColor: '#D5D7FF', 

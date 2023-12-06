@@ -1,6 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 import ExtraLargeBtnDarkTxt from '../../atom/Buttons/ExtraLargeBtnDarkTxt';
+import { Dimensions } from 'react-native';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const EntrySettingsOverlay = () => {
     return (
@@ -26,15 +29,15 @@ const EntrySettingsOverlay = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 410,
-        height: 250,
+        width: windowWidth,
+        height: 'auto',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         backgroundColor: '#F2F2FD',
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: -200 },
+        // shadowOffset: { width: 0, height: -200 },
         shadowOpacity: 0.5,
         shadowRadius: 3,
         elevation: 30,
