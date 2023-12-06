@@ -37,7 +37,7 @@ export default function Accessibility({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView >
-                <View style={[globalStyles.contentContainer, styles.accessibilityContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, styles.accessibilityContainer, { backgroundColor: theme.background }]}>
                     <Header title='Accessibility Settings' navigation={navigation} />
                     <Notifications title="Dark Mode"
                         valueChange2={(value) => {

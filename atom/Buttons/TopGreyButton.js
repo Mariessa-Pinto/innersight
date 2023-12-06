@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themeContext from '../../theme/themeContext';
 import globalStyles from '../../styles/global';
 import { A } from '@expo/html-elements';
 
 const TopGreyButton = (props) => {
+  const screenWidth = Dimensions.get('window').width;
   const navigation = useNavigation();
   const [pressed, setPressed] = useState(false);
 
@@ -24,7 +25,7 @@ const TopGreyButton = (props) => {
     >
       <A href={props.link}>
         <View style={[styles.button, pressed && styles.buttonPressed, { backgroundColor: theme.backgroundGreyLight }]}>
-          <View style={styles.contentJustify}>
+          <View style={[styles.contentJustify, {width: screenWidth * 0.9}]}>
             <View style={styles.leftContent}>
               {
                 props.image ?
@@ -68,7 +69,7 @@ const TopGreyButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: '100%',
+    flex: 1,
     height: 40,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   leftContent: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: 15,
@@ -109,7 +111,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 372,
   }
 });
 

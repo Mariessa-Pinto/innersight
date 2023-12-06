@@ -18,7 +18,7 @@ export default function PersonalInformation({ navigation }) {
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
             <ScrollView>
-                <View style={[globalStyles.contentContainer, { backgroundColor: theme.background }]}>
+                <View style={[globalStyles.contentContainerNoScroll, { backgroundColor: theme.background }]}>
                     <Header
                         title='Amaya Lee'
                         navigation={navigation}
@@ -39,7 +39,7 @@ export default function PersonalInformation({ navigation }) {
                         <PersonalForm />
                         <MediumBtnLightTxt
                             text="Save Changes"
-                            navigate=""
+                            navigate="Profile"
                         />
                     </View>
                 </View>

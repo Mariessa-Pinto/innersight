@@ -1,6 +1,6 @@
 import globalStyles from '../styles/global'
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, TextInput, Image, TouchableOpacity } from 'react-native';
 import themeContext from '../theme/themeContext';
 import fontContext from '../theme/fontContext';
@@ -11,6 +11,8 @@ import RecommendationBtn from '../molecules/RecommendationBtns/RecommendationBtn
 import data from '../data/PromptData'
 
 export default function Home({ navigation }) {
+    const [userName, setUserName] = useState('Amaya');
+
 
     //Dark/Light Mode
     const [darkMode, setDarkMode] = useState(false)
@@ -94,7 +96,8 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top',
         padding: 10,
         fontWeight: 'normal',
-        fontFamily: 'Lexend-Regular'
+        fontFamily: 'Lexend-Regular',
+        minHeight: 120
     },
     button: {
         height: 50,

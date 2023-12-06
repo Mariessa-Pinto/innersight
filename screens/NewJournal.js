@@ -66,6 +66,7 @@ export default function NewJournal({ navigation }) {
                         )}
                         <ExtraLargeBtnLightTxt
                             text="Create New Journal"
+                            navigate="JournalsEntries"
                         />
                     </View>
                 </View>

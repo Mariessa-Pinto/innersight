@@ -1,3 +1,5 @@
+import globalStyles from '../../styles/global'
+
 import { StyleSheet, Text, View } from 'react-native';
 import ExtraLargeBtnLightTxt from '../../atom/Buttons/ExtraLargeBtnLightTxt';
 
