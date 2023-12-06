@@ -65,6 +65,7 @@ export default function CustomizeJournal({ navigation }) {
                         )}
                         <ExtraLargeBtnLightTxt
                             text="Save Changes"
+                            navigate=""
                         />
                     </View>
                 </View>

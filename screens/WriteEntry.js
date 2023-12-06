@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -9,6 +9,7 @@ import Header from '../molecules/Header/Header'
 import AiSent from '../component/AiSentiment';
 
 export default function WriteEntry({ navigation }) {
+    const screenWidth = Dimensions.get('window').width;
 
     // const [showInsights, setShowInsights] = useState(false);
     //Dark/Light Mode
@@ -26,7 +27,14 @@ export default function WriteEntry({ navigation }) {
     //     setShowInsights(!showInsights);
     // }
 
-
+    const today = new Date().toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+    });
 
     return (
         <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
@@ -36,11 +44,11 @@ export default function WriteEntry({ navigation }) {
                     <View style={styles.maincontent}>
                         <View>
                             <Text style={[styles.headerText, globalStyles.h1TextBold]}>Positive Thoughts</Text>
-                            <Text style={globalStyles.h4TextLight}>September 23, 2023 at 9:30PM</Text>
+                            <Text style={globalStyles.h4TextLight}>{today}</Text>
                         </View>
-                        <View style={styles.prompt}>
+                        <View style={[styles.prompt, { width: screenWidth * 0.8 }]}>
                             <Text style={globalStyles.labelText}>Today's Prompt</Text>
-                            <Text style={[globalStyles.captionText, styles.promptWidth]}>{newPrompt[promptNum]}</Text>
+                            <Text style={[globalStyles.captionText, { width: screenWidth * 0.6 }]}>{newPrompt[promptNum]}</Text>
                             <View style={styles.button}>
                                 <TouchableOpacity
                                     onPress={handleNewPrompt}>
@@ -48,7 +56,6 @@ export default function WriteEntry({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                         </View>
-
                         <AiSent username="anika" />
                     </View>
                 </View>
@@ -70,7 +77,6 @@ const styles = StyleSheet.create({
     },
     prompt: {
         height: 'auto',
-        width: 328,
         backgroundColor: '#F2F2FD',
         borderRadius: 10,
         elevation: 4,
@@ -85,15 +91,7 @@ const styles = StyleSheet.create({
         right: 10,
         bottom: 5
     },
-    input: {
-        height: 200,
-        width: 325,
-        borderColor: 'black'
-    },
     textTag: {
         marginLeft: 10
     },
-    promptWidth: {
-        width: '85%'
-    }
 })

@@ -1,5 +1,5 @@
 import globalStyles from '../styles/global'
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { useState, useContext } from 'react';
 import themeContext from '../theme/themeContext';
 import NavBar from '../molecules/Navigation/NavBar';
@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 export default function WriteEntry({ route }) {
+  const screenWidth = Dimensions.get('window').width;
   const [showInsights, setShowInsights] = useState(false);
 
   //Dark/Light Mode
@@ -32,6 +33,16 @@ export default function WriteEntry({ route }) {
   const navigation = useNavigation();
   const { entry, title } = route.params;
 
+  //Get Todays Date
+  const today = new Date().toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+});
+
   return (
     <View style={[globalStyles.outerContainer, { backgroundColor: theme.backgroundGreyLight }]}>
       <ScrollView >
@@ -40,11 +51,11 @@ export default function WriteEntry({ route }) {
           <View style={styles.maincontent}>
             <View>
               <Text style={[styles.headerText, globalStyles.h1TextBold]}>Positive Thoughts</Text>
-              <Text style={globalStyles.h4TextLight}>September 23, 2023 at 9:30PM</Text>
+              <Text style={globalStyles.h4TextLight}>{today}</Text>
             </View>
-            <View style={styles.prompt}>
+            <View style={[styles.prompt, { width: screenWidth * 0.8 }]}>
               <Text style={globalStyles.labelText}>Today's Prompt</Text>
-              <Text style={[globalStyles.captionText, styles.promptWidth]}>{newPrompt[promptNum]}</Text>
+              <Text style={[globalStyles.captionText, { width: screenWidth * 0.6 }]}>{newPrompt[promptNum]}</Text>
               <View style={styles.button}>
                 <TouchableOpacity
                   onPress={handleNewPrompt}>
@@ -74,7 +85,6 @@ const styles = StyleSheet.create({
   },
   prompt: {
     height: 'auto',
-    width: 328,
     backgroundColor: '#F2F2FD',
     borderRadius: 10,
     elevation: 4,
@@ -97,7 +107,4 @@ const styles = StyleSheet.create({
   textTag: {
     marginLeft: 10
   },
-  promptWidth: {
-    width: '85%'
-  }
 });
