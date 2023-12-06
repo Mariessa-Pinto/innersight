@@ -4,7 +4,7 @@ import { Dimensions } from 'react-native';
 
 const { width: windowWidth } = Dimensions.get('window');
 
-const plusButtonOverlay = () => {
+const PlusButtonOverlay = () => {
 
     
     return (
@@ -14,6 +14,7 @@ const plusButtonOverlay = () => {
                 <ExtraLargeBtnLightTxt
                     text='New Journal Entry'
                     navigate='WriteEntry'
+                    type="overlay"
                 />
                 <ExtraLargeBtnLightTxt
                     text='New Journal'
@@ -55,7 +56,8 @@ const styles = StyleSheet.create({
         height: 3,
         backgroundColor: '#88898C',
         marginBottom: 10
-    }
+    },
+    
 });
 
-export default plusButtonOverlay;
+export default PlusButtonOverlay;
