@@ -56,7 +56,7 @@ export default function WriteEntry({ navigation }) {
                                 </TouchableOpacity>
                             </View>
                         </View>
-                        <AiSent username="anika" />
+                        <AiSent />
                     </View>
                 </View>
             </ScrollView>

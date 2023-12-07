@@ -1,11 +1,28 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 import NormalInput from '../../atom/InputBoxes/NormalInput'
+import { useState } from 'react'
 
 const LoginForm = () => {
+    const [text, onChangeText] = useState('');
+
     return (
         <View style={styles.container}>
-            <NormalInput placeholder='Email' />
-            <NormalInput placeholder='Password' />
+            <View style={styles.container}>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={onChangeText}
+                    value="amaya@gmail.com"
+                    placeholder={props.placeholder}
+                    keyboardType="default"
+                    blurOnSubmit={true}
+                />
+            </View>
+            
+            <NormalInput
+                placeholder='Password'
+                value='123456' // Pass the value prop
+                onChangeText={handleInputChange} // Pass the onChangeText prop
+            />
         </View>
     );
 };

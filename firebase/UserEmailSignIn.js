@@ -8,8 +8,8 @@ import { View, TextInput, StyleSheet, Text, TouchableOpacity } from "react-nativ
 import { useNavigation } from '@react-navigation/native';
 
 export default function UserEmailSignIn() {
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
+    const [loginEmail, setLoginEmail] = useState("amaya@gmail.com");
+    const [loginPassword, setLoginPassword] = useState("123456");
 
     const login = async () => {
         try {

@@ -21,7 +21,7 @@ const AiSent = ({ entryContent }) => {
 
   // const AiSent = ({ username, entryContent }) => {
   const [journalEntry, setJournalEntry] = useState('')
-  const [text, onChangeText] = useState('');
+  const [text, onChangeText] = useState('I am really excited for my big presentation coming up! I love how hard my team has worked and am happy I got to do this project with them. I do feel very tired and cant wait to be done. I always feel a bit lazy at the end of the semester and anxious about finishing everything up. I have such low energy and feel a bit lonely by how busy I have been with school. I can’t wait to have time to socialize again.');
   const [response, setResponse] = useState('');
   const [showImage, setShowImage] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState([]);
@@ -32,7 +32,7 @@ const AiSent = ({ entryContent }) => {
   const [pressed, setPressed] = useState(false);
   const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [overlayType, setOverlayType] = useState()
-  const [entryTitle, setEntryTitle] = useState("");
+  const [entryTitle, setEntryTitle] = useState("End Of Semester");
   const [entryType, setEntryType] = useState("")
 
   const [loading, setLoading] = useState()
@@ -342,7 +342,7 @@ const AiSent = ({ entryContent }) => {
           keyboardType="default"
           multiline={true}
           blurOnSubmit={true}
-          value={entryContent}
+          value="I am really excited for my big presentation coming up! I love how hard my team has worked and am happy I got to do this project with them. I do feel very tired and can’t wait to be done. I always feel a bit lazy at the end of the semester and anxious about finishing everything up. I have such low energy and feel a bit lonely by how busy I have been with school. I can’t wait to have time to socialize again."
         />
         <TagEntryBtn />
         <InsightButton
